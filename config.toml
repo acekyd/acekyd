@@ -1,0 +1,98 @@
+baseURL = "http://acekyd.com/"
+languageCode = "en-us"
+title = "Abati Adewale"
+
+theme = "coder"
+defaultcontentlanguage = "en"
+paginate = 20
+canonifyurls = true
+
+pygmentsstyle = "b2" # Color-theme or style for syntax highlighting.
+pygmentscodefences = true # Enable code fence background highlighting.
+pygmentscodefencesguesssyntax = true # Enable syntax guessing for code fences without specified language.
+
+disqusShortname = "dev-logic" # Enable or disable Disqus.
+
+[params] # theme parameters
+    author = "Abati Adewale" # Author's name.
+    info = "Hi, I'm Abati Adewale but a lot of people call me Ace. A Web Developer, Advocate, Open Sourcer and YouTuber. I tried to think of something witty to write here but I'd just leave it to your wits. ♠️" # Author's job title or info.
+    description = "Abati Adewale also known as Ace is a web developer, developer advocate, open sourcer and youtuber from Lagos, Nigeria." # Site description.
+    keywords = "acekyd, abati adewale,blog,developer,personal" # Site keywords.
+    avatarurl = "images/ace-image.png" # Contain the path of the optional avatar in the static folder.
+    logourl = "images/logo.png" # Contain the path to a logo.
+
+    footercontent = "Ace is a Lifestyle." # Add footer content
+
+    # Whether you want to hide copyright and credits in the footer.
+    hideCredits = false
+    hideCopyright = false
+
+    # Custom CSS
+    custom_css = ["css/style.css"]
+
+    # RTL support
+    rtl = false
+
+    # Multilanguage mode
+    langseparator = "|" # Separates menus from language selectors when site is multilingual.
+
+# Social links
+[[params.social]]
+    name = "Github"
+    icon = "fab fa-github-square"
+    weight = 1
+    url = "https://github.com/acekyd/"
+[[params.social]]
+    name = "Twitter"
+    icon = "fab fa-twitter-square"
+    weight = 2
+    url = "https://twitter.com/ace_kyd/"
+[[params.social]]
+    name = "LinkedIn"
+    icon = "fab fa-linkedin"
+    weight = 3
+    url = "https://www.linkedin.com/in/acekyd/"
+[[params.social]]
+    name = "Instagram"
+    icon = "fab fa-instagram"
+    weight = 4
+    url = "https://www.instagram.com/acekyd/"
+[[params.social]]
+    name = "YouTube"
+    icon = "fab fa-youtube"
+    weight = 5
+    url = "https://www.youtube.com/acekyd/"
+
+[[params.social]]
+    name = "Stack Overflow"
+    icon = "fab fa-stack-overflow"
+    weight = 6
+    url = "https://stackoverflow.com/users/1945274/acekyd"
+
+[[params.social]]
+    name = "Patreon"
+    icon = "fab fa-patreon"
+    weight = 7
+    url = "https://www.patreon.com/acekyd"
+
+[[params.social]]
+    name = "Medium"
+    icon = "fab fa-medium"
+    weight = 7
+    url = "https://www.medium.com/@acekyd"
+
+# Menu links
+
+[[menu.main]]
+    name = "Talks"
+    weight = 1
+    url  = "/talks/"
+
+[[menu.main]]
+    name = "Blog"
+    weight = 2
+    url  = "/posts/"
+[[menu.main]]
+    name = "Contact"
+    weight = 3
+    url = "mailto:adewale@acekyd.com"
