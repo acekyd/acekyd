@@ -11,7 +11,7 @@ pygmentsstyle = "b2" # Color-theme or style for syntax highlighting.
 pygmentscodefences = true # Enable code fence background highlighting.
 pygmentscodefencesguesssyntax = true # Enable syntax guessing for code fences without specified language.
 
-disqusShortname = "dev-logic" # Enable or disable Disqus.
+disqusShortname = "acekyd-github" # Enable or disable Disqus.
 
 [params] # theme parameters
     author = "Abati Adewale" # Author's name.
