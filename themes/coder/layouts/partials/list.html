@@ -1,12 +1,15 @@
 <section class="container list">
-  <h1 class="title">{{ .Title }}</h1>
-  <ul>
-    {{ range .Paginator.Pages }}
-    <li>
-      <span>{{ .Date.Format "January 2, 2006" }}</span><a href="{{ .URL }}">{{ .Title }}</a><br>
-      <p>{{ .Description }}</p>
-    </li>
-    {{ end }}
-  </ul>
+  <div class="reduced">
+    <h1 class="title">{{ .Title }}</h1>
+    <ul>
+      {{ range .Paginator.Pages }}
+      <li>
+        <a href="{{ .URL }}">{{ .Title }}</a>
+        <p>{{ .Description }}</p>
+        <span class="blog-date">{{ .Date.Format "January 2, 2006" }}</span>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
   {{ partial "pagination.html" . }}
 </section>
