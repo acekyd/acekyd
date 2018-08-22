@@ -11,7 +11,7 @@ categories = []
 
 While navigating websites, a 404 error occurs when you try to reach a page that does not exist. Sometimes for static websites, it shows the default server’s (Apache, Nginx etc) simple “URL not found” pages. When working with websites with dynamic routes like with React, you can end up with a page that’s not properly rendered or a complete error page that isn’t very friendly.
 
-![404 page](http://res.cloudinary.com/acekyd/image/upload/v1534896949/404-page_ipop2d.png)
+![404 page](https://res.cloudinary.com/acekyd/image/upload/v1534896949/404-page_ipop2d.png)
 
 To improve this user experience, it is recommended that you have custom error pages to not only capture these missing pages when they happen but also help navigate the user to either the home page or a working page.
 
