@@ -25,6 +25,10 @@
     color: #aaa !important;
 }
 
+.share-text {
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
 
 @media only screen and (max-device-width:768px) {
     .logo img {
