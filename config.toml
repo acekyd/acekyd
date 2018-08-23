@@ -12,6 +12,7 @@ pygmentscodefences = true # Enable code fence background highlighting.
 pygmentscodefencesguesssyntax = true # Enable syntax guessing for code fences without specified language.
 
 disqusShortname = "acekyd-github" # Enable or disable Disqus.
+googleAnalytics = "UA-105301496-1"
 
 [params] # theme parameters
     author = "Abati Adewale" # Author's name.
