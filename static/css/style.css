@@ -8,7 +8,10 @@
     margin: 1rem;
     height:auto;
 }
-
+code {
+    padding: 0.1rem !important;
+    background-color: #999 !important;
+}
 .strike {
     text-decoration: line-through;
 }
