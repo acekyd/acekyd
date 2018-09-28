@@ -1,5 +1,5 @@
 +++
-draft = true
+draft = false
 date = 2018-09-28T13:23:51+01:00
 title = "5 Web Project ideas to test your new coding skills"
 slug = "5-web-project-ideas-to-test-your-new-coding-skills"
