@@ -5,6 +5,13 @@ title = "Talks and Presentations"
 slug = ""
 +++
 
+##### Making Create React App your best Friend
+React Summit.
+
+October 20, 2018. *Lagos, Nigeria*
+
+[Slides](https://www.slideshare.net/AbatiAdewale/making-create-react-app-your-best-friend-react-summit-2018) | [Event Page](https://react-summit.com)
+
 ##### Making your first Code Contribution
 Open Source Contribution &lt;zero - Hero/&gt; Open Source Community Africa.
 
