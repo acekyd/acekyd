@@ -46,7 +46,7 @@ Taking advantage of the `background` CSS property, a shorthand that sets multipl
 
 Here's a demo attached from codepen.
 
-<p data-height="265" data-theme-id="0" data-slug-hash="yxqEWV" data-default-tab="css,result" data-user="acekyd" data-pen-title="yxqEWV" class="codepen">See the Pen <a href="https://codepen.io/acekyd/pen/yxqEWV/">yxqEWV</a> by Abati Adewale (<a href="https://codepen.io/acekyd">@acekyd</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="265" data-theme-id="0" data-slug-hash="yxqEWV" data-default-tab="css,result" data-user="acekyd" data-pen-title="yxqEWV" class="codepen">See the Pen <a href="https://codepen.io/acekyd/pen/yxqEWV/">yxqEWV</a> by Adewale Abati (<a href="https://codepen.io/acekyd">@acekyd</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 You can get creative with the degrees, directions and also percentage of color and transparency in the `background property to achieve your desired result.
