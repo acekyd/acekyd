@@ -1,9 +1,9 @@
 +++
-draft = true
+draft = false
 date = 2019-02-01T00:32:16+01:00
 title = "Basic Tips for Technical Writing"
 slug = "basic-tips-for-technical-writing"
-description = ""
+description = "Technical writing is any form of writing that helps break down technical tools, practices, opinions and ideas. It has rapidly become a valuable skill at all levels for anyone in a tech related career, developers and even designers. Here are a couple things you should keep in mind and attempt to get used to as much as possible."
 tags = []
 categories = []
 +++
@@ -25,6 +25,11 @@ Code can really get complex or even long at times. Nothing makes it easier for r
 This also applies to pretty much any kind of writing. A sentence with wrong punctuations can make it harder to read and understand or even worse, misinterpreted. Colons (:) can be used just before showing a block of code, avoid using periods (.) after exclamations(!) or question marks(?). Not all readers will have English as their first language so it pays to make your writing as clear as possible.
 
 ##### Keep an end goal, what do you want the audience to achieve at the end of the article
+Having an end goal in mind keeps you focused on the article. Helps you wean out unnecessary information and keeps the article as specific as possible. As you start out writing an article, identify what you want the readers to take away from the article. Is it better understanding of a new tool, process, or you want them to learn new ways to do a specific thing.
 
-##### Add link for more references
 ##### Review your code like a prospective reader before publishing.
+I strongly believe this is the best way to confirm that the code you have put up in the tutorial is working as it should. While writing, it's easy to omit a line or skip a step or vital function and everything breaks with the reader having no clue how to proceed. Once you believe your article is done, create a new folder and go through the article from the beginning flowing each step to ensure that any reader can do the same.
+
+
+#### Conclusion
+As mentioned above, I think everyone can get into technical writing to share what they learn or trying to learn with other people. And like coding in itself, you can only continue to get better at it with practice. I hope these basic tips help you take your technical writing in general to the next level.
