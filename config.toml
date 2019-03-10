@@ -65,6 +65,12 @@ googleAnalytics = "UA-105301496-1"
     url = "https://www.youtube.com/acekyd/"
 
 [[params.social]]
+    name = "Twitch"
+    icon = "fab fa-twitch"
+    weight = 5
+    url = "https://www.twitch.tv/elpunish3rr"
+
+[[params.social]]
     name = "Stack Overflow"
     icon = "fab fa-stack-overflow"
     weight = 6
