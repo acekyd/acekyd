@@ -5,6 +5,13 @@ title = "Talks and Presentations"
 slug = ""
 +++
 
+##### Building REST APIs that don't suck for modern day SPAs
+NomadPHP.
+
+March 21, 2019. *Live talk*
+
+[Slides](https://www.slideshare.net/AbatiAdewale/building-rest-apis-that-dont-suck-for-modern-day-spas) | [Event Page](https://nomadphp.com/live/5RlZpCaEJUyi6uAOUMYceI/Building-REST-APIs-that-Don-t-Suck-for-Modern-Day-SPAs/)
+
 ##### Making Create React App your best Friend
 React Summit.
 
