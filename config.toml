@@ -105,6 +105,10 @@ googleAnalytics = "UA-105301496-1"
     weight = 2
     url  = "/posts/"
 [[menu.main]]
-    name = "Contact"
+    name = "Projects"
     weight = 3
+    url = "https://acekyd.github.io/"
+[[menu.main]]
+    name = "Contact"
+    weight = 4
     url = "mailto:adewale@acekyd.com"
