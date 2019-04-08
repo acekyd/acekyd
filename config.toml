@@ -104,10 +104,12 @@ googleAnalytics = "UA-105301496-1"
     name = "Blog"
     weight = 2
     url  = "/posts/"
+
 [[menu.main]]
     name = "Projects"
     weight = 3
     url = "https://acekyd.github.io/"
+
 [[menu.main]]
     name = "Contact"
     weight = 4
