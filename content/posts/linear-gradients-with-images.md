@@ -4,7 +4,7 @@ date = 2018-09-14T15:03:28+01:00
 title = "How to Use Linear Gradient with Images"
 slug = "how-to-use-linear-gradient-with-images"
 description = "linear-gradient() is a CSS function that creates an image containing a transition between two or more colors in a straight line. It's the most common type of gradient in web design."
-tags = []
+tags = ["CSS", "Media"]
 categories = []
 +++
 
@@ -13,7 +13,8 @@ Linear Gradient, `linear-gradient()` is a CSS function that creates an image con
 As mentioned earlier, `linear-gradient()` has the colors flowing in a straight line - left to right, top to bottom or at any angle you choose. It is however, restricted to a single direction.
 
 The `linear-gradient` has a formal syntax it follows
-```
+
+```css
 linear-gradient(
     [ <angle> | to <side-or-corner> ]?,  <color-stop> [, <color-stop>]+
   )
@@ -25,7 +26,7 @@ linear-gradient(
 ## Usage
 The `linear-gradient()` is commonly declared as a value of either the `background` or `background-image` CSS attribute:
 
-```
+```css
 .section {
     background: linear-gradient(green, #fffe33);
 
@@ -38,7 +39,7 @@ The common uses of `linear-gradient` involve colors but it can certainly be used
 
 Taking advantage of the `background` CSS property, a shorthand that sets multiple background related properties all at once e.g background-color, background-image, we'd set the background with a gradient and the other part with background-image.
 
-```
+```css
 .gradient {
     background: linear-gradient(110deg, #E36E55 0%, #D78F52 40%, transparent 0%), url(image.jpg);
 }
