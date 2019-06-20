@@ -21,7 +21,7 @@ In this article, we will be going over how to create a custom 404 error page in 
 
 In `app.js` or anywhere else you have your routes set up, create a wild card path with an asterisk(‘*’) and add it as the very last path.
 
-```js
+```jsx
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import ErrorNotFound from './ErrorNotFound.js';
 
@@ -37,6 +37,7 @@ import ErrorNotFound from './ErrorNotFound.js';
         <Route path="*" component={ErrorNotFound} />
     </Switch>
 </BrowserRouter>
+
 ```
 
 
@@ -49,7 +50,7 @@ This is the fun part as you can customize this any way you like using CSS. There
 
 Create a new component in your components folder and name it `ErrorNotFound.js` as imported above in your app.js
 
-```js
+```jsx
 import React, { Component } from 'react';
 
 export default class ErrorNotFound extends Component {
@@ -66,7 +67,6 @@ export default class ErrorNotFound extends Component {
         );
     }
 }
-
 ```
 
 This file contains the content to be shown to the user whenever a route that isn’t catered for is accessed. It can be styled any way to match the theme of the site or provide appropriate information to the user.

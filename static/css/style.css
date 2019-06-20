@@ -8,17 +8,14 @@
     margin: 1rem;
     height:auto;
 }
-code {
+code[class^="language"] {
     padding: 0.1rem !important;
-    background-color: #999 !important;
+    background-color: transparent !important;
 }
 .strike {
     text-decoration: line-through;
 }
 
-.highlight {
-    font-weight: bolder;
-}
 .icons i {
     font-size: 2em;
 }
