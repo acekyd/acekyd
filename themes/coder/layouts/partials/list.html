@@ -3,10 +3,16 @@
     <h1 class="title">{{ .Title }}</h1>
     <ul>
       {{ range .Paginator.Pages }}
-      <li>
-        <a href="{{ .URL }}">{{ .Title }}</a>
-        <p>{{ .Description }}</p>
-        <span class="blog-date">{{ .Date.Format "January 2, 2006" }}</span>
+      <li class="post-list">
+        {{ if .Params.tags }}
+        <p class="tags">
+          {{ range $index, $tags := .Params.tags }}{{ if gt $index 0 }}, {{ end }}
+          <small>{{ . }}</small>{{ end }}
+        </p>
+        {{ end }}
+        <a class="post-title" href="{{ .URL }}">{{ .Title }}</a>
+        <p class="post-description">{{ .Description }}</p>
+        <small class="blog-date">Posted {{ .Date.Format "January 2, 2006" }}. {{ .ReadingTime }} min read.</small>
       </li>
       <br />
       {{ end }}
