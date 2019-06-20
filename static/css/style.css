@@ -12,6 +12,10 @@ code[class^="language"] {
     padding: 0.1rem !important;
     background-color: transparent !important;
 }
+
+code {
+    background-color: #272822 !important;
+}
 .strike {
     text-decoration: line-through;
 }
