@@ -108,7 +108,7 @@ googleAnalytics = "UA-105301496-1"
 [[menu.main]]
     name = "Projects"
     weight = 3
-    url = "https://acekyd.github.io/"
+    url = "/projects/"
 
 [[menu.main]]
     name = "Contact"
