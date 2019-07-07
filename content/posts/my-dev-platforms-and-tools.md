@@ -14,8 +14,24 @@ Throughout my adventures, I've had to make choices on tools, technologies and pl
 
 ### Ideation
 ##### * Todoist
-Once an idea comes through my mind, no matter how unstructured it is, it usually comes with a default name to call it, this name can be changed later, but it helps me quickly add it to todoist as a project to work on with a short description. I used to use Trello for this.
+Once an idea comes through my mind, no matter how unstructured it is, it usually comes with a default name to call it, this name can be changed later, but it helps me quickly add it to Todoist as a project to work on with a short description. I used to use Trello for this.
 
 ##### * Dropbox Paper
 
-This one came in really handy recently and went past Trello and
+Paper comes in really handy for pretty much everything these days
+
+
+### Local Environment
+
+
+### Version Control
+
+### Domain names
+
+### Hosting
+
+
+### Emails
+
+
+###
