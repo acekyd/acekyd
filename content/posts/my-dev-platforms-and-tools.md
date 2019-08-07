@@ -1,6 +1,6 @@
 +++
 draft = false
-date = 2019-08-07T15:53:27+01:00
+date = 2019-08-07T11:53:27+01:00
 title = "My Development Platforms and Tools."
 slug = "my-dev-platforms-and-tools"
 description = "Here are some of the tools, technologies and platforms that I use to deploy and share apps that I build."
