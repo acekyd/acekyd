@@ -14,27 +14,27 @@ Throughout my adventures, I've had to make choices on tools, technologies and pl
 
 ### Ideation
 ##### * Todoist
-Once an idea comes through my mind, no matter how unstructured it is, it usually comes with a default name to call it, this name can be changed later, but it helps me quickly add it to Todoist as a project to work on with a short description. I used to use Trello for this. Before coming up with CleanRepos, the idea came with a "Repo Deleter" tag.
+Once an idea comes through my mind, no matter how unstructured it is, it usually comes with a default name to call it, this name can be changed later, but it helps me quickly add it to [Todoist](https://todoist.com) as a project to work on with a short description. I used to use Trello for this. Before coming up with [CleanRepos](https://clean-repos.herokuapp.com/), the idea came with a "Repo Deleter" tag.
 
 ##### * Dropbox Paper
 
-Paper comes in really handy for pretty much everything these days - writing articles and also writing out thoughts. Once I am ready to dive deeper into an idea I have, I open a blank Paper page and start typing how I picture it to work, the flow, technologies and resources I'll need and also a basic idea of what pages should be available.
+[Paper](https://paper.dropbox.com/) comes in really handy for pretty much everything these days - writing articles and also writing out thoughts. Once I am ready to dive deeper into an idea I have, I open a blank Paper page and start typing how I picture it to work, the flow, technologies and resources I'll need and also a basic idea of what pages should be available.
 
 
 ### Local Environment
-For a long time, most of my career actually, I have just preferred to go the easy way out when it comes to setting up my local dev environment. I've tried a lot of tools as needed but I've mostly settled with using a stack. I am currently on Mac so I went with MAMP but now trying out Valet.
+For a long time, most of my career actually, I have just preferred to go the easy way out when it comes to setting up my local dev environment. I've tried a lot of tools as needed but I've mostly settled with using a stack. I am currently on Mac so I went with [MAMP](https://www.mamp.info/en/) but now trying out [Valet](https://laravel.com/docs/5.8/valet).
 
 ### Version Control
 
-Everybody uses Git... no? I used to use Bitbucket when there were no private repositories on GitHub but now, GitHub for everything. Public and private.
+Everybody uses Git... no? I used to use Bitbucket when there were no private repositories on [GitHub](https://github.com) but now, GitHub for everything. Public and private.
 
 ### Domain names
 
-For a long time I used maddogdomains.com for my domain name management and I still have a couple domains there. But now, I have moved to namecheap and they are my go-to.
+For a long time I used [Maddogdomains](https://www.maddogdomains.com/) for my domain name management and I still have a couple domains there. But now, I have moved to [Namecheap](https://www.namecheap.com/) and they are my go-to.
 
 ### Hosting
 
-I don't do much of shared hosting anymore. When I used to, I used QServers and Gigalayer for clients. Moved to Azure because of BizSpark benefits but that's exhausted now. I use Heroku (free) for my quick deployments and then DigitalOcean (paid) when needed.
+I don't do much of shared hosting anymore. When I used to, I used [QServers](https://www.qservers.net/) and [Gigalayer](https://gigalayer.com/) for clients. Moved to Azure because of BizSpark benefits but that's exhausted now. I use [Heroku](https://www.heroku.com/) (free) for my quick deployments and then [DigitalOcean](https://www.digitalocean.com/) (paid) when needed.
 
 ### Platforms I've built for
 
