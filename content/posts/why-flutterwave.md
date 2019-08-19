@@ -36,7 +36,7 @@ Here I get to do this for a product with global reach, understanding the plight 
 
 ## What I'd be doing
 
-At Flutterwave, we've built (and continue to build) amazing solutions that power the next wave of payment solutions across Africa. A critical part of this journey involves the developers that get to work with our solutions and even build on it. We not only want to build developer friendly solutions, but also provide an environment where developers can feel comfortable using our products, locating resources, getting support when needed and being a part of our community.
+At Flutterwave, we've built (and continue to build) amazing solutions that power the next wave of payment solutions across Africa. A critical part of this journey involves the developers that get to work with our solutions and even build on it. We not only want to build developer friendly solutions, but also provide an environment where developers can feel comfortable using our technology, locating resources, getting support when needed and being a part of our community.
 
 From the outside, I used to have a lot of complaints, and I still do. But now I'm part of a team that's going to actively work on providing solutions to these complaints and ensuring that our platforms are easy to use.
 
