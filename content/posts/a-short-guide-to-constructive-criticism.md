@@ -28,6 +28,6 @@ We are at the end now, you've evaluated the entire thing. From understanding whe
 
 With your response presented in this manner, the person in question can learn why the decisions and steps they had made were falling short and also get to understand how your suggestions are about to improve their solution.
 
-If your end goal is truly to improve the solution than make the author feel bad, then these should come in handy for you.
+If your end goal is truly to improve the solution, then these should come in handy for you.
 
-Let me know your thoughts or how you have tried to make constructive criticism without making people feel bad.
+Let me know your thoughts or how you have tried to make constructive criticism.
