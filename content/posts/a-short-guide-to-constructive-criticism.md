@@ -30,4 +30,4 @@ With your response presented in this manner, the person in question can learn wh
 
 If your end goal is truly to improve the solution, then these should come in handy for you.
 
-Let me know your thoughts or how you have tried to make constructive criticism.
+Let me know your thoughts or how you have tried to make constructive criticisms.
