@@ -5,7 +5,7 @@ title = "Getting started with Laravel Telescope - what can it do for you?"
 slug = "getting-started-with-laravel-telescope"
 description = "When building web applications, it is almost impossible to avoid encountering bugs. You want to have an idea of everything going on in your application, how and when they happen. Having access to this information gives you a lot more control in narrowing down bugs and identifying opportunities to improve your application."
 tags = ["Laravel", "Tools"]
-categories = []
+categories = ["Web"]
 +++
 
 ![Laravel Telescope](https://i1.wp.com/storage.googleapis.com/blog-images-backup/1*ya66uWi8Ug21w5CLpIOvgA.png?zoom=2&resize=730%2C125&ssl=1)

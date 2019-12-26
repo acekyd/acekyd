@@ -5,7 +5,7 @@ title = "How to Use Linear Gradient with Images"
 slug = "how-to-use-linear-gradient-with-images"
 description = "linear-gradient() is a CSS function that creates an image containing a transition between two or more colors in a straight line. It's the most common type of gradient in web design."
 tags = ["CSS", "Media"]
-categories = []
+categories = ["Web"]
 +++
 
 Linear Gradient, `linear-gradient()` is a CSS function that creates an image containing a transition between two or more colors in a straight line. It's the most common type of gradient in web design.
