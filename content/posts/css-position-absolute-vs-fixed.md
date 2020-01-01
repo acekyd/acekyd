@@ -1,6 +1,6 @@
 +++
-draft = true
-date = 2019-12-21T15:50:24+01:00
+draft = false
+date = 2020-01-01T15:50:24+01:00
 title = "Quick Tip - CSS position absolute vs fixed"
 slug = "css-position-absolute-vs-fixed"
 description = "Positioning in CSS can be a tricky business. A common issue however is between deciding to use position:fixed or position:absolute. Here's a tip to help with that."
