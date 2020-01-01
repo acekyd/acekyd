@@ -30,4 +30,26 @@ With fixed positioning, the element is always fixed to a location relative to th
 
 ## Absolute Positioning
 
- If we however want it to be 'fixed' to a spot relative to another element or as a child of another element, we go with `absolute` along with the top, left, right and bottom attributes as needed.
+ If we however want it to be 'fixed' to a spot relative to another element or as a child of another element, we go with `absolute` along with the top, left, right or bottom attributes as needed. This parent element however needs to have position set to `relative`.
+
+```html
+<div class="parent-item">
+    This div element is the parent
+    <div class="absolute-item">This div element is set to absolute</div>
+</div>
+```
+ ```css
+
+.parent-item {
+    position: relative;
+}
+
+.absolute-item {
+    position:absolute;
+    top: 10px;
+    left: 10px;
+}
+
+ ```
+
+ Are there other things you look out for when trying to choose which positioning property to use? Please share in the comments. Thanks for reading :)
