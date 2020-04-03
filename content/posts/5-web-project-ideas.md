@@ -1,13 +1,11 @@
-+++
-draft = false
-date = 2018-09-28T13:23:51+01:00
-title = "5 Web Project ideas to test your new coding skills"
-slug = "5-web-project-ideas-to-test-your-new-coding-skills"
-description = "So you've picked up that new web language or framework and you probably believe you've exhausted the documentation but don't know what next to do or build with it. I have had a couple people ask me about this and one too many times these projects elude me at that moment."
-tags = ["Projects", "Web"]
-categories = ["Web Development"]
-+++
-
+---
+title: 5 Web Project ideas to test your new coding skills
+date: 2018-09-28
+published: true
+tags: ['Projects','Web']
+canonical_url: false
+description: "So you've picked up that new web language or framework and you probably believe you've exhausted the documentation but don't know what next to do or build with it. I have had a couple people ask me about this and one too many times these projects elude me at that moment."
+---
 
 So you've picked up that new web language or framework and you probably believe you've exhausted the documentation but don't know what next to do or build with it. I have had a couple people ask me about this and one too many times these projects elude me at that moment.
 
