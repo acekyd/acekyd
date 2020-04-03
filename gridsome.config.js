@@ -9,7 +9,7 @@ module.exports = {
   siteDescription: 'A simple, hackable & minimalistic starter for Gridsome that uses Markdown for content.',
 
   templates: {
-    Post: '/:title',
+    Post: '/posts/:title',
     Tag: '/tag/:id'
   },
 
