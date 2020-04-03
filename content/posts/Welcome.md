@@ -1,12 +1,12 @@
-+++
-draft = false
-date = 2018-08-18T21:31:27+01:00
-title = "Welcome to Ace"
-slug = ""
-tags = ["Getting Started"]
-categories = []
-description = "A lot of people ask me what Ace means. According to multiple dictionaries, Ace means a person that is very good, or someone who excels at a particular sport or other activity..."
-+++
+---
+title: Welcome to Ace
+date: 2018-08-18
+published: true
+tags: ['Getting Started']
+canonical_url: false
+description: "A lot of people ask me what Ace means. According to multiple dictionaries, Ace means a person that is very good, or someone who excels at a particular sport or other activity..."
+---
+
 
 A lot of people ask me what Ace means. According to multiple dictionaries, Ace means a person that is very good, or someone who excels at a particular sport or other activity. This is why I believe Ace is a journey. A journey to consistently get better and improve in all aspects of a person's interests. Ace is a lifestyle.
 
