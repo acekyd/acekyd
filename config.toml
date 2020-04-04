@@ -4,7 +4,7 @@ title = "Adewale Abati"
 
 theme = "coder"
 defaultcontentlanguage = "en"
-paginate = 20
+paginate = 10
 canonifyurls = true
 
 pygmentsstyle = "monokai" # Color-theme or style for syntax highlighting.

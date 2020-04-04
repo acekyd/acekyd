@@ -14,7 +14,11 @@ code[class^="language"] {
 }
 
 code {
-    background-color: #272822 !important;
+    background-color: #ededed !important;
+}
+
+:not(pre) > code {
+    color: #2d2d2d;
 }
 .strike {
     text-decoration: line-through;

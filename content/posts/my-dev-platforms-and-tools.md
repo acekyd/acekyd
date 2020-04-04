@@ -2,11 +2,10 @@
 title: My Development Platforms and Tools
 date: 2019-08-07
 published: true
-tags: ['Tools']
+tags: ['Tools', 'Web']
 canonical_url: false
 description: "Here are some of the tools, technologies and platforms that I use to deploy and share apps that I build."
 ---
-
 
 I find building to be fun and also happens to be the best way I learn. This involves a lot of experiences, trying out new stuff and at the same time constantly looking for better alternatives.
 
