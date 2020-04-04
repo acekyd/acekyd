@@ -8,6 +8,10 @@ export default [
     component: () => import(/* webpackChunkName: "page--src--templates--post-vue" */ "/Users/adewaleabati/Documents/code/acekyd/src/templates/Post.vue")
   },
   {
+    path: "/talks/",
+    component: () => import(/* webpackChunkName: "page--src--pages--talks-vue" */ "/Users/adewaleabati/Documents/code/acekyd/src/pages/Talks.vue")
+  },
+  {
     name: "404",
     path: "/404/",
     component: () => import(/* webpackChunkName: "page--node-modules--gridsome--app--pages--404-vue" */ "/Users/adewaleabati/Documents/code/acekyd/node_modules/gridsome/app/pages/404.vue")
