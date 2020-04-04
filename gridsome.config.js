@@ -6,7 +6,7 @@
 
 module.exports = {
   siteName: 'Adewale Abati',
-  siteDescription: 'A simple, hackable & minimalistic starter for Gridsome that uses Markdown for content.',
+  siteDescription: 'Adewale Abati also known as Ace is a web developer, developer advocate, open sourcer and youtuber from Lagos, Nigeria.',
 
   templates: {
     Post: '/posts/:title',

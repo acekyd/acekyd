@@ -4,7 +4,7 @@ export default [
     component: () => import(/* webpackChunkName: "page--src--templates--tag-vue" */ "/Users/adewaleabati/Documents/code/acekyd/src/templates/Tag.vue")
   },
   {
-    path: "/post/:title/",
+    path: "/posts/:title/",
     component: () => import(/* webpackChunkName: "page--src--templates--post-vue" */ "/Users/adewaleabati/Documents/code/acekyd/src/templates/Post.vue")
   },
   {
