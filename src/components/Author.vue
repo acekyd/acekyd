@@ -1,19 +1,35 @@
 <template>
 	<div class="author">
 
-		<g-image alt="Author image" class="author__image" src="~/assets/images/author.jpg" width="180" height="180" blur="5" />
+		<g-image alt="Author image" class="author__image" src="~/assets/images/author.jpg" width="200" height="200" blur="5" />
 
 		<h1 v-if="showTitle" class="author__site-title">
 			{{ $static.metadata.siteName }}
 		</h1>
 
 		<p class="author__intro">
-			A simple, hackable & minimalistic starter for Gridsome that uses Markdown for content.
+			Hi! I'm Ace! A Web Engineer, Tech YouTuber, Public speaker, an Open Source enthusiast and avid gamer! ♠️
 		</p>
 
 		<p class="author__links">
-			<a href="//twitter.com/gridsome">Follow on Twitter</a>
-			<a href="//github.com/gridsome/gridsome-starter-blog">GitHub</a>
+			<a href="https://github.com/acekyd/" target="_blank" rel="noopener">
+	  			<font-awesome :icon="['fab', 'github']"/>
+			</a>
+			<a href="https://twitter.com/ace_kyd/" target="_blank" rel="noopener">
+	  			<font-awesome :icon="['fab', 'twitter']"/>
+			</a>
+			<a href="https://twitch.tv/elpunish3rr/" target="_blank" rel="noopener">
+	  			<font-awesome :icon="['fab', 'twitch']"/>
+			</a>
+			<a href="https://www.linkedin.com/in/acekyd/" target="_blank" rel="noopener">
+	  			<font-awesome :icon="['fab', 'linkedin']"/>
+			</a>
+			<a href="https://stackoverflow.com/users/1945274/acekyd" target="_blank" rel="noopener">
+	  			<font-awesome :icon="['fab', 'stack-overflow']"/>
+			</a>
+			<a href="https://www.youtube.com/acekyd/" target="_blank" rel="noopener">
+	  			<font-awesome :icon="['fab', 'youtube']"/>
+			</a>
 		</p>
 
 	</div>
