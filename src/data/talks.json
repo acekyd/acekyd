@@ -1,37 +1,85 @@
 [
     {
         "id": "1",
-        "title": "Debugging Like a Boss: A Developer's Guide to Great Debugging Experience",
-        "date": "November, 16 2019",
-        "event": "Denver Script Colorado",
-        "link": "https://bit.ly/debugging-talk"
+        "title": "Finding Your Place",
+        "date": "",
+        "event": "Tech Square, ICS faculty, University of Ilorin.",
+        "location": "Kwara, Nigeria",
+        "slides": "https://www.slideshare.net/AbatiAdewale/finding-your-place-university-of-ilorin",
+        "website": ""
     },
     {
         "id": "2",
-        "title": "Building A Killer Personal Brand",
-        "date": "April, 27 2019",
-        "event": "Women TechMakers Ajah, Nigeria",
-        "link": "https://speakerdeck.com/lauragift21/building-a-killer-personal-brand"
+        "title": "Practical Approach To Contributing To Open Source",
+        "date": "",
+        "event": "ForLoop Ibadan.",
+        "location": "Kwara, Nigeria",
+        "slides": "https://www.slideshare.net/AbatiAdewale/practical-approach-to-contributing-to-open-source-forloop-ibadan",
+        "website": ""
     },
     {
         "id": "3",
-        "title": "How To Supercharge Your Productivity As A Developer",
-        "date": "March, 08 2019",
-        "event": "forloop Summit, Lagos Nigeria",
-        "link": "https://speakerdeck.com/lauragift21/how-to-supercharge-your-productivity-as-a-developer"
+        "title": "Gathered for Meetups - Open Source App",
+        "date": "June 17, 2017",
+        "event": "Google I/O Extended 2017 Lagos.",
+        "location": "Lagos, Nigeria",
+        "slides": "https://www.slideshare.net/AbatiAdewale/gathered-app-demo-slides",
+        "website": "https://www.meetup.com/gdg-lagos/events/240562292/"
     },
     {
         "id": "4",
-        "title": "Building Your Network As A Newbie In Tech",
-        "date": "March, 06 2019",
-        "event": "forloop Babcock University, Ota Nigeria",
-        "link": "https://speakerdeck.com/lauragift21/building-your-network-as-a-newbie-in-a-tech-community"
+        "title": "Building World Class Apps With Open Source - Gathered",
+        "date": "July 28, 2017",
+        "event": "Google Developer Group Lagos' Developer Conference.",
+        "location": "Lagos, Nigeria",
+        "slides": "https://www.slideshare.net/AbatiAdewale/building-world-class-apps-with-open-source-introducing-gathered",
+        "website": "https://www.meetup.com/gdg-lagos/events/241974032/"
     },
     {
         "id": "5",
-        "title": "Crafting Rich Documentation With Vuepress",
-        "date": "August, 11 2018",
-        "event": "Concatenate Conference 2018, Lagos Nigeria",
-        "link": "https://speakerdeck.com/lauragift21/crafting-rich-documentation-with-vuepress"
+        "title": "Open source - An enabler for the next billion users",
+        "date": "September 30, 2017",
+        "event": "forLoop Lagos",
+        "location": "Lagos, Nigeria",
+        "slides": "https://www.slideshare.net/AbatiAdewale/open-source-an-enabler-for-the-next-billion-users",
+        "website": "https://forloop.africa/events/building-for-your-next-billion-users-j7hj669u"
+    },
+    {
+        "id": "6",
+        "title": "Making your first Code Contribution",
+        "date": "June 16, 2018",
+        "event": "Open Source Contribution <zero - Hero/>; Open Source Community Africa.",
+        "location": "Lagos, Nigeria",
+        "slides": "https://www.slideshare.net/AbatiAdewale/making-your-first-code-contribution-open-source-community-africa",
+        "website": ""
+    },
+    {
+        "id": "7",
+        "title": "Making Create React App your best Friend",
+        "date": "October 20, 2018",
+        "event": "React Summit.",
+        "location": "Lagos, Nigeria",
+        "slides": "https://www.slideshare.net/AbatiAdewale/making-create-react-app-your-best-friend-react-summit-2018",
+        "website": "https://react-summit.com"
+    },
+    {
+        "id": "8",
+        "title": "Building REST APIs that don't suck for modern day SPAs",
+        "date": "March 21, 2019",
+        "event": "NomadPHP",
+        "location": "Webinar",
+        "slides": "https://www.slideshare.net/AbatiAdewale/building-rest-apis-that-dont-suck-for-modern-day-spas",
+        "website": "https://nomadphp.com/live/5RlZpCaEJUyi6uAOUMYceI/Building-REST-APIs-that-Don-t-Suck-for-Modern-Day-SPAs/"
+    },
+    {
+        "id": "9",
+        "title": "A look into Open Source in Nigeria - Made in Nigeria Projects",
+        "date": "February 21, 2020",
+        "event": "Open Source Festival",
+        "location": "Lagos, Nigeria",
+        "slides": "https://www.slideshare.net/AbatiAdewale/making-create-react-app-your-best-friend-react-summit-2018",
+        "website": "https://sched.co/aSN3"
     }
+
+
 ]
