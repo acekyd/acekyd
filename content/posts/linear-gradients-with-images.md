@@ -29,7 +29,6 @@ The `linear-gradient()` is commonly declared as a value of either the `backgroun
 ```css
 .section {
     background: linear-gradient(green, #fffe33);
-
     background-image: linear-gradient(30deg, green, #fffe33);
 }
 ```
@@ -41,13 +40,18 @@ Taking advantage of the `background` CSS property, a shorthand that sets multipl
 
 ```css
 .gradient {
-    background: linear-gradient(110deg, #E36E55 0%, #D78F52 40%, transparent 0%), url(image.jpg);
+    background: linear-gradient(110deg, #E36E55 0%, #D78F52 40%, transparent 0%),
+                url(image.jpg);
 }
 ```
 
 Here's a demo attached from codepen.
 
-<p data-height="265" data-theme-id="0" data-slug-hash="yxqEWV" data-default-tab="css,result" data-user="acekyd" data-pen-title="yxqEWV" class="codepen">See the Pen <a href="https://codepen.io/acekyd/pen/yxqEWV/">yxqEWV</a> by Adewale Abati (<a href="https://codepen.io/acekyd">@acekyd</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+https://codepen.io/acekyd/pen/yxqEWV/?tabs=result,html
+
+https://codepen.io/lauragift21/pen/KKpWOLY?tabs=result?height=600
+
+https://gist.github.com/acekyd/0e1ca819529bf36858508e5f68a576bc?file=webpack-configs12-index.js
+
 
 You can get creative with the degrees, directions and also percentage of color and transparency in the `background property to achieve your desired result.

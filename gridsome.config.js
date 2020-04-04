@@ -20,6 +20,13 @@ module.exports = {
       options: {
         typeName: 'Post',
         path: 'content/posts/*.md',
+        remark: {
+          plugins: [
+            ['@noxify/gridsome-plugin-remark-embed', {
+              'enabledProviders': ['Youtube', 'Twitter', 'Gist', 'Codepen', 'Giphy', 'Spotify'],
+            }]
+          ]
+        },
         refs: {
           // Creates a GraphQL collection from 'tags' in front-matter and adds a reference.
           tags: {
