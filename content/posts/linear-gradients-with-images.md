@@ -49,9 +49,5 @@ Here's a demo attached from codepen.
 
 https://codepen.io/acekyd/pen/yxqEWV/?tabs=result,html
 
-https://codepen.io/lauragift21/pen/KKpWOLY?tabs=result?height=600
-
-https://gist.github.com/acekyd/0e1ca819529bf36858508e5f68a576bc?file=webpack-configs12-index.js
-
 
 You can get creative with the degrees, directions and also percentage of color and transparency in the `background property to achieve your desired result.
