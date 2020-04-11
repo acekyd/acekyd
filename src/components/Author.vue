@@ -8,7 +8,7 @@
 		</h1>
 
 		<p class="author__intro">
-			Hi! I'm Ace! A Web Engineer, Tech YouTuber, Public speaker, an Open Source enthusiast and avid gamer! ♠️
+			Hi! I'm Ace! A Web Engineer, Tech YouTuber, an Open Source enthusiast and avid gamer! ♠️
 		</p>
 
 		<p class="author__links">

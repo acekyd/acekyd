@@ -1,14 +1,17 @@
 <template>
 	<div id="landing" class="author">
 
-		<g-image alt="Author image" class="author__image" src="~/assets/images/author.jpg" width="200" height="200" blur="5" />
+		<g-image alt="Author image" class="author__image" src="~/assets/images/author.png" width="200" height="200" blur="5" />
 
 		<h1 v-if="showTitle" class="author__site-title">
 			{{ $static.metadata.siteName }}
 		</h1>
 
 		<p class="author__intro">
-			Hi! I'm Ace! A Web Engineer, Tech YouTuber, Public speaker, an Open Source enthusiast and avid gamer! ♠️
+			Hi! I'm <span class="highlight">Adewale Abati</span> a.k.a <b>Ace</b>. A Web Developer (PHP, JS, ...Web), Developer Advocate, <a href="https://github.com/acekyd" rel="noopener" target="_blank">Open Sourcer</a>, <a href="https://youtube.com/acekyd" rel="noopener" target="_blank">Tech YouTuber</a> and <a href="https://www.twitch.tv/elpunish3rr">Gamer</a>.<br />
+
+			Currently Acing <span class="strike">Shii</span> things up as <strong>Developer Advocate</strong> at <a href="https://flutterwave.com/" rel="noopener" target="_blank">Flutterwave</a>, bringing amazing payment solutions and innovations to developers all over the world!  <br />
+			♠️
 		</p>
 
 		<p class="author__links">
@@ -50,32 +53,37 @@ export default {
 </script>
 
 <style lang="scss">
-.author {
+#landing.author {
 	margin: 0 auto;
-	max-width: 500px;
+	max-width: 900px;
 	text-align: center;
 	padding: calc(var(--space) / 2) 0;
 
-	&__image {
+	.author__image {
 		border-radius: 100%;
-		width: 90px;
-		height: 90px;
+		width: 150px;
+		height: 150px;
 		margin-bottom: 1em;
 	}
 
-	&__intro {
-		opacity: .8;
+	.author__intro {
+		font-size: 1.1rem;
+		line-height: 2rem;
+		// opacity: .8;
 	}
 
-	&__site-title {
+	.author__site-title {
 		font-size: 1.5em;
 	}
 
-	&__links {
+	.author__links {
 		margin-top: -.5em;
 		a {
 			margin: 0 .5em;
 		}
+	}
+	.strike {
+		text-decoration: line-through;
 	}
 }
 </style>
