@@ -1,7 +1,7 @@
 <template>
   <Layout :show-logo="false">
     <!-- Author intro -->
-    <Author :show-title="true" />
+    <Header :show-title="true" />
 
     <!-- List posts -->
     <div class="posts">
@@ -35,12 +35,12 @@ query {
 </page-query>
 
 <script>
-import Author from '~/components/Author.vue'
+import Header from '~/components/Header.vue'
 import PostCard from '~/components/PostCard.vue'
 
 export default {
   components: {
-    Author,
+    Header,
     PostCard
   },
   metaInfo: {

@@ -3,10 +3,12 @@
 
     <header class="header">
       <div class="header__left">
-        <Logo v-if="showLogo" /> 
+        <Logo v-if="showLogo" />
+        <g-image v-if="!showLogo" alt="logo image" class="logo__image" src="~/assets/images/logo.png" blur="5" />
+
       </div>
-      
-      <div class="header__right">        
+
+      <div class="header__right">
         <ToggleTheme />
       </div>
     </header>
