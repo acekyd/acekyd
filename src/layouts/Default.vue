@@ -9,6 +9,16 @@
       </div>
 
       <div class="header__right">
+        <nav>
+          <ul class="nav">
+            <li>
+              <g-link class="header__link" to="/talks">Talks</g-link>
+            </li>
+            <li>
+              <g-link class="header__link" to="/projects">Projects</g-link>
+            </li>
+          </ul>
+        </nav>
         <ToggleTheme />
       </div>
     </header>
@@ -54,6 +64,19 @@ export default {
   &__right {
     display: flex;
     align-items: center;
+
+    .nav {
+      display: flex;
+      list-style: none;
+      li {
+        padding: 10px;
+        margin-top: 30px;
+      }
+      a {
+        text-decoration: none;
+        font-size: .9em;
+      }
+    }
   }
 
   @media screen and (min-width: 1300px) {
