@@ -10,7 +10,7 @@
 		<p class="author__intro">
 			Hi! I'm <span class="highlight">Adewale Abati</span> a.k.a <b>Ace</b>. A Web Developer (PHP, JS, ...Web), Developer Advocate, <a href="https://github.com/acekyd" rel="noopener" target="_blank">Open Sourcer</a>, <a href="https://youtube.com/acekyd" rel="noopener" target="_blank">Tech YouTuber</a> and <a href="https://www.twitch.tv/elpunish3rr">Gamer</a>.<br />
 
-			Currently Acing <span class="strike">Shii</span> things up as <strong>Developer Advocate</strong> at <a href="https://flutterwave.com/" rel="noopener" target="_blank">Flutterwave</a>, bringing amazing payment solutions and innovations to developers all over the world!  <br />
+			Currently Acing <span class="strike">Shii</span> things up as <strong>Developer Advocate</strong> at <a href="https://flutterwave.com/" rel="noopener" target="_blank">Flutterwave</a> - bringing amazing payment solutions and innovations to developers all over the world!  <br />
 			♠️
 		</p>
 
