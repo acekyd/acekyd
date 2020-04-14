@@ -5,16 +5,29 @@
 
     <!-- List posts -->
     <div class="talks">
-        <ul>
-            <li v-for="talk in reverseItems" :key="talk.id">
-                <span class="talks__date">{{talk.date}}:</span>
-                <span class="talks__title">
-                &nbsp;
-                <a :href="talk.link">{{talk.title}}</a> -
-                </span>
-                <span class="talks__date">&nbsp;{{talk.event}}</span>
-            </li>
-        </ul>
+        <div class="post-card content-box" v-for="talk in reverseItems" :key="talk.id" >
+          <div class="post-card__content">
+            <h2 class="post-card__title" v-html="talk.title" />
+
+              <p class="post-card__description" v-html="talk.abstract" />
+
+
+            <hr />
+            <strong>
+              <span class="post-card__description" v-html="talk.event" />
+            </strong>
+            <br />
+              <small v-if="talk.date">{{ talk.date }}. </small>
+              <small v-if="talk.location">{{ talk.location }}</small>
+
+            <p>
+                <a class="post-card__link" :href="talk.slides" v-if="talk.slides">Slides</a>&nbsp;
+                <a class="post-card__link" :href="talk.website" v-if="talk.website">Website</a>
+            </p>
+          </div>
+        </div>
+
+
     </div>
 
   </Layout>
@@ -43,3 +56,14 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  .talks .post-card {
+
+    margin-bottom: var(--space);
+
+    h2 {
+      font-size: 1.2em;
+    }
+  }
+</style>
