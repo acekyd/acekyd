@@ -12,7 +12,8 @@
     "@gridsome/source-filesystem": "^0.6.0",
     "@gridsome/transformer-remark": "^0.3.0",
     "@noxify/gridsome-plugin-remark-embed": "^1.1.5",
-    "gridsome": "^0.7.0"
+    "gridsome": "^0.7.0",
+    "vue-disqus": "^3.0.5"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",

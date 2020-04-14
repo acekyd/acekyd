@@ -3,6 +3,8 @@ import '~/assets/style/index.scss'
 
 // Import default layout so we don't need to import it to every page
 import DefaultLayout from '~/layouts/Default.vue'
+import VueDisqus from 'vue-disqus'
+
 
 // Import Fontawesome
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -19,6 +21,8 @@ export default function (Vue, { router, head, isClient }) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
   Vue.component('font-awesome', FontAwesomeIcon)
+  Vue.use(VueDisqus)
+
 
   // Add custom font
   head.link.push({

@@ -35,6 +35,12 @@ module.exports = {
           }
         }
       }
+    },
+    {
+      use: '@gridsome/plugin-google-analytics',
+      options: {
+        id: 'UA-105301496-1'
+      }
     }
   ],
 
