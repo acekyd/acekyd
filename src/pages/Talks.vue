@@ -3,7 +3,7 @@
     <!-- Author intro -->
     <Author :show-title="true" />
 
-    <!-- List posts -->
+    <!-- List talks -->
     <div class="talks">
         <div class="post-card content-box" v-for="talk in reverseItems" :key="talk.id" >
           <div class="post-card__content">
