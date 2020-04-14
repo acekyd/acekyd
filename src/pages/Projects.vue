@@ -1,7 +1,7 @@
 <template>
   <Layout :show-logo="true">
-    <!-- Author intro -->
-    <Author :show-title="true" />
+
+    <h1 class="page__title">My Side Projects</h1>
 
     <!-- List projects -->
      <div class="projects">
@@ -49,6 +49,9 @@ export default {
 </script>
 
 <style lang="scss">
+    .main h1.page__title {
+      text-align: center;
+    }
   .projects .post-card {
 
     margin-bottom: var(--space);
