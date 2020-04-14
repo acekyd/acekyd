@@ -1,9 +1,8 @@
-+++
-draft = true
-date = 2019-10-16T13:48:25+01:00
-title = "Why everyone should design"
-slug = "why-everyone-should-design"
-description = ""
-tags = []
-categories = []
-+++
+---
+title: Why everyone should design
+date: 2019-10-16
+published: false
+tags: ['Thoughts']
+canonical_url: false
+description: ""
+---

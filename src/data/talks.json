@@ -1,0 +1,94 @@
+[
+    {
+        "id": "1",
+        "title": "Finding Your Place",
+        "date": "",
+        "event": "Tech Square, ICS faculty, University of Ilorin.",
+        "location": "Kwara, Nigeria",
+        "slides": "https://www.slideshare.net/AbatiAdewale/finding-your-place-university-of-ilorin",
+        "website": "",
+        "abstract": ""
+    },
+    {
+        "id": "2",
+        "title": "Practical Approach To Contributing To Open Source",
+        "date": "",
+        "event": "ForLoop Ibadan.",
+        "location": "Kwara, Nigeria",
+        "slides": "https://www.slideshare.net/AbatiAdewale/practical-approach-to-contributing-to-open-source-forloop-ibadan",
+        "website": "",
+        "abstract": ""
+    },
+    {
+        "id": "3",
+        "title": "Gathered for Meetups - Open Source App",
+        "date": "June 17, 2017",
+        "event": "Google I/O Extended 2017 Lagos.",
+        "location": "Lagos, Nigeria",
+        "slides": "https://www.slideshare.net/AbatiAdewale/gathered-app-demo-slides",
+        "website": "https://www.meetup.com/gdg-lagos/events/240562292/",
+        "abstract": ""
+    },
+    {
+        "id": "4",
+        "title": "Building World Class Apps With Open Source - Gathered",
+        "date": "July 28, 2017",
+        "event": "Google Developer Group Lagos' Developer Conference.",
+        "location": "Lagos, Nigeria",
+        "slides": "https://www.slideshare.net/AbatiAdewale/building-world-class-apps-with-open-source-introducing-gathered",
+        "website": "https://www.meetup.com/gdg-lagos/events/241974032/",
+        "abstract": ""
+    },
+    {
+        "id": "5",
+        "title": "Open source - An enabler for the next billion users",
+        "date": "September 30, 2017",
+        "event": "forLoop Lagos",
+        "location": "Lagos, Nigeria",
+        "slides": "https://www.slideshare.net/AbatiAdewale/open-source-an-enabler-for-the-next-billion-users",
+        "website": "https://forloop.africa/events/building-for-your-next-billion-users-j7hj669u",
+        "abstract": ""
+    },
+    {
+        "id": "6",
+        "title": "Making your first Code Contribution",
+        "date": "June 16, 2018",
+        "event": "Open Source Contribution &lt;zero - Hero/&gt;; Open Source Community Africa.",
+        "location": "Lagos, Nigeria",
+        "slides": "https://www.slideshare.net/AbatiAdewale/making-your-first-code-contribution-open-source-community-africa",
+        "website": "",
+        "abstract": ""
+    },
+    {
+        "id": "7",
+        "title": "Making Create React App your best Friend",
+        "date": "October 20, 2018",
+        "event": "React Summit.",
+        "location": "Lagos, Nigeria",
+        "slides": "https://www.slideshare.net/AbatiAdewale/making-create-react-app-your-best-friend-react-summit-2018",
+        "website": "https://react-summit.com",
+        "abstract": ""
+    },
+    {
+        "id": "8",
+        "title": "Building REST APIs that don't suck for modern day SPAs",
+        "date": "March 21, 2019",
+        "event": "NomadPHP",
+        "location": "Webinar",
+        "slides": "https://www.slideshare.net/AbatiAdewale/building-rest-apis-that-dont-suck-for-modern-day-spas",
+        "website": "https://nomadphp.com/live/5RlZpCaEJUyi6uAOUMYceI/Building-REST-APIs-that-Don-t-Suck-for-Modern-Day-SPAs/",
+        "abstract": "Front end applications have become increasingly powerful over the years and there’s been a shift in the approach of application architecture. As more single page frontend applications are being built, there is even more reliance on an API to power the logic of the entire application. <br /><br /> This talk would cover the common practices, guidelines and tips to building a REST API that can be secure and easily accessible for Single Page Applications. We'd be going over using the right status codes, structure of endpoints and much more."
+    },
+    {
+        "id": "9",
+        "title": "A look into Open Source in Nigeria - Made in Nigeria Projects",
+        "date": "February 21, 2020",
+        "event": "Open Source Festival",
+        "location": "Lagos, Nigeria",
+        "slides": "https://www.slideshare.net/AbatiAdewale/making-create-react-app-your-best-friend-react-summit-2018",
+        "website": "https://sched.co/aSN3",
+        "abstract": "Using a listing of open source projects built by Nigerians for the world over the years with hundreds of projects which provides an insight into the current state of open source in Nigeria, this talk is going to go over some data insights that we can get from this list and what we can do about it. <br /><br />This talk would go over the demographics of contributors, languages, types of projects and also people actively building stuff. It’d also shed some light on areas that we need to take note of including inclusion in open source."
+    }
+
+
+]

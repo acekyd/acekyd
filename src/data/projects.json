@@ -1,0 +1,90 @@
+[
+    {
+        "id": "1",
+        "title": "Devcenter Social",
+        "skills": "Google Sheets, Laravel, Bootstrap",
+        "github": "https://github.com/acekyd/devcenter-social",
+        "website": "https://dcsquare-social.herokuapp.com/",
+        "description": "Social app for devcenter members to connect with and follow each other on GitHub, track projects and collaborate."
+    },
+    {
+        "id": "2",
+        "title": "Instaword",
+        "skills": "JavaScript",
+        "github": "https://github.com/acekyd/instaword",
+        "website": "https://addons.opera.com/en/extensions/details/instaword/",
+        "description": "InstaWord makes learning new words much easier, you no longer have to leave the page you are reading to a dictionary or thesaurus to understand the word. All you have to do is highlight or select the word, then click on the InstaWord icon on your toolbar and InstaWord gives you the meaning, synonyms and usage example. And with that, you have learnt a new word."
+    },
+    {
+        "id": "3",
+        "title": "Random 48 Laws of Power",
+        "skills": "JavaScript",
+        "github": "https://github.com/acekyd/Random48LawsOfPower",
+        "website": "https://chrome.google.com/webstore/detail/random-48-laws-of-power/ldmplljofmghhnjapmbabolnigaeimed",
+        "description": "Random48LawsOfPower is a browser (Chrome) new tab extension that shows a random law from the popular 48 Laws of Power Book by Robert Greene"
+    },
+    {
+        "id": "4",
+        "title": "LaravelMP3 Plugin",
+        "skills": "PHP, getID3",
+        "github": "https://github.com/acekyd/laravelMp3",
+        "website": "https://packagist.org/packages/acekyd/laravelmp3",
+        "description": "A light weight Laravel package for simple operations with mp3 files. Simple yet powerful. Built on the getID3 library."
+    },
+    {
+        "id": "5",
+        "title": "Scammr",
+        "skills": "Laravel, Lumen API, Semantic UI",
+        "github": "",
+        "website": "",
+        "description": "Scammr is a crowdsourced platform for checking and reporting scams made up of the public’s submissions & contributions towards reducing the amount of people that fall prey to scammers daily."
+    },
+    {
+        "id": "6",
+        "title": "Gathered",
+        "skills": "Ionic, Angular, Meetup, Firebase",
+        "github": "https://github.com/acekyd/gathered",
+        "website": "https://acekyd.github.io/gathered-app",
+        "description": "An Android app that helps members of the community keep track of contacts and connects you make at your meetups with Gathered."
+    },
+    {
+        "id": "7",
+        "title": "DevComm",
+        "skills": "Laravel, React, Mailgun, Digital Ocean",
+        "github": "https://github.com/acekyd/devcomm",
+        "website": "",
+        "description": "DevComm is a directory of developers and designers interested in community activities all across Nigeria. Built to address the issue of “Talent is evenly distributed but opportunity is not” by bringing together communities in lesser known areas of Nigeria and making it easy for opportunity to reach them. [Currently offline to re-evaluate approach to achieve intended goal]"
+    },
+    {
+        "id": "8",
+        "title": "Made in Nigeria Tools",
+        "skills": "",
+        "github": "https://github.com/acekyd/made-in-nigeria",
+        "website": "https://acekyd.github.io/made-in-nigeria",
+        "description": "It is rumored that Nigerians only know how to consume tools and not create them. Here is a curation of awesome tools built by Nigerians that can be used by anybody and from anywhere in the world."
+    },
+    {
+        "id": "9",
+        "title": "Frontstack Online Hackathon Winning Project",
+        "skills": "HTML5, CSS3, Cloudinary",
+        "github": "https://github.com/acekyd/frontstackio",
+        "website": "https://acekyd.github.io/frontstackio",
+        "description": "Building a responsive web and mobile web page following a single design and making use of Cloudinary. The challenge was to take a Figma design for a webpage and come up with a website with the features of the desktop design optimized for mobile. The project went on to win the hackathon."
+    },
+    {
+        "id": "10",
+        "title": "Display Medium Posts Plugin",
+        "skills": "PHP, WordPress, Medium",
+        "github": "https://github.com/acekyd/display-medium-posts",
+        "website": "https://wordpress.org/plugins/display-medium-posts/",
+        "description": "Display Medium Posts is a wordpress plugin that allows users display posts from medium.com on any part of their website."
+    },
+    {
+        "id": "11",
+        "title": "CleanRepos",
+        "skills": "Laravel, Vue, Heroku",
+        "github": "https://github.com/acekyd/clean-repos",
+        "website": "https://clean-repos.herokuapp.com/",
+        "description": "An utility tool to help clear out multiple old, broken, uncompleted or abandoned repositories from your GitHub account."
+    }
+]

@@ -1,0 +1,25 @@
+{
+  "name": "acekyd-dev",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "@gridsome/plugin-google-analytics": "^0.1.0",
+    "@gridsome/remark-prismjs": "^0.2.0",
+    "@gridsome/source-filesystem": "^0.6.0",
+    "@gridsome/transformer-remark": "^0.3.0",
+    "@noxify/gridsome-plugin-remark-embed": "^1.1.5",
+    "gridsome": "^0.7.0",
+    "vue-disqus": "^3.0.5"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-brands-svg-icons": "^5.13.0",
+    "@fortawesome/vue-fontawesome": "^0.1.9",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.0"
+  }
+}

@@ -1,12 +1,11 @@
-+++
-draft = false
-date = 2018-08-22T01:16:23+01:00
-title = "How to Implement a Custom 404 Not Found Error Page with React Router"
-slug = "how-to-implement-a-custom-404-not-found-error-page-with-react-router"
-description = "While navigating websites, a 404 error occurs when you try to reach a page that does not exist. When working with websites with dynamic routes like with React, you can end up with a page that’s not properly rendered or a complete error page that isn’t very friendly."
-tags = ["React", "JavaScript"]
-categories = ["Web"]
-+++
+---
+title: How to Implement a Custom 404 Not Found Error Page with React Router
+date: 2018-08-22
+published: true
+tags: ['React','JavaScript']
+canonical_url: false
+description: "While navigating websites, a 404 error occurs when you try to reach a page that does not exist. When working with websites with dynamic routes like with React, you can end up with a page that’s not properly rendered or a complete error page that isn’t very friendly."
+---
 
 
 While navigating websites, a 404 error occurs when you try to reach a page that does not exist. Sometimes for static websites, it shows the default server’s (Apache, Nginx etc) simple “URL not found” pages. When working with websites with dynamic routes like with React, you can end up with a page that’s not properly rendered or a complete error page that isn’t very friendly.

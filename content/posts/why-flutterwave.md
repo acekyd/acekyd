@@ -1,12 +1,11 @@
-+++
-draft = false
-date = 2019-08-18T12:34:52+01:00
-title = "On a wavy level - Why Flutterwave?"
-slug = "why-flutterwave"
-description = "I recently joined Flutterwave as a Developer Advocate - Here's a little bit about the journey, what it means and what's in store."
-tags = []
-categories = []
-+++
+---
+title: On a wavy level - Why Flutterwave?
+date: 2019-08-18
+published: true
+tags: ['Flutterwave','Career', 'Developer Advocate']
+canonical_url: false
+description: "I recently joined Flutterwave as a Developer Advocate - Here's a little bit about the journey, what it means and what's in store."
+---
 
 A couple of months ago, I decided to take a break from quite a lot of things including my job. It was largely for mental health reasons to be honest, and I also wanted to rediscover who I was yet again.
 

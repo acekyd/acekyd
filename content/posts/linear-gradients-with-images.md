@@ -1,12 +1,12 @@
-+++
-draft = false
-date = 2018-09-14T15:03:28+01:00
-title = "How to Use Linear Gradient with Images"
-slug = "how-to-use-linear-gradient-with-images"
-description = "linear-gradient() is a CSS function that creates an image containing a transition between two or more colors in a straight line. It's the most common type of gradient in web design."
-tags = ["CSS", "Media"]
-categories = ["Web"]
-+++
+---
+title: How to Use Linear Gradient with Images
+date: 2018-09-14
+published: true
+tags: ['CSS','Media']
+canonical_url: false
+description: "linear-gradient() is a CSS function that creates an image containing a transition between two or more colors in a straight line. It's the most common type of gradient in web design."
+---
+
 
 Linear Gradient, `linear-gradient()` is a CSS function that creates an image containing a transition between two or more colors in a straight line. It's the most common type of gradient in web design.
 
@@ -29,7 +29,6 @@ The `linear-gradient()` is commonly declared as a value of either the `backgroun
 ```css
 .section {
     background: linear-gradient(green, #fffe33);
-
     background-image: linear-gradient(30deg, green, #fffe33);
 }
 ```
@@ -41,13 +40,14 @@ Taking advantage of the `background` CSS property, a shorthand that sets multipl
 
 ```css
 .gradient {
-    background: linear-gradient(110deg, #E36E55 0%, #D78F52 40%, transparent 0%), url(image.jpg);
+    background: linear-gradient(110deg, #E36E55 0%, #D78F52 40%, transparent 0%),
+                url(image.jpg);
 }
 ```
 
 Here's a demo attached from codepen.
 
-<p data-height="265" data-theme-id="0" data-slug-hash="yxqEWV" data-default-tab="css,result" data-user="acekyd" data-pen-title="yxqEWV" class="codepen">See the Pen <a href="https://codepen.io/acekyd/pen/yxqEWV/">yxqEWV</a> by Adewale Abati (<a href="https://codepen.io/acekyd">@acekyd</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+https://codepen.io/acekyd/pen/yxqEWV/?tabs=result,html
+
 
 You can get creative with the degrees, directions and also percentage of color and transparency in the `background property to achieve your desired result.

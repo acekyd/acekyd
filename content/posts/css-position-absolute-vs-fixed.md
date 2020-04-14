@@ -1,12 +1,11 @@
-+++
-draft = false
-date = 2020-01-01T15:50:24+01:00
-title = "Quick Tip - CSS position absolute vs fixed"
-slug = "css-position-absolute-vs-fixed"
-description = "Positioning in CSS can be a tricky business. A common issue however is between deciding to use position:fixed or position:absolute. Here's a tip to help with that."
-tags = ["CSS"]
-categories = ["Web"]
-+++
+---
+title: Quick Tip - CSS position absolute vs fixed
+date: 2020-01-01
+published: true
+tags: ['Tips', 'Web', 'CSS']
+canonical_url: false
+description: "Positioning in CSS can be a tricky business. A common issue however is between deciding to use position:fixed or position:absolute. Here's a tip to help with that."
+---
 
 Positioning in CSS can be a tricky business. A common issue however is between deciding to use `position:"fixed"` or `position:"absolute"`. Here's a tip to help with that.
 
