@@ -30,4 +30,37 @@ export default function (Vue, { router, head, isClient }) {
     href: 'https://fonts.googleapis.com/css?family=Fira+Mono'
   })
 
+  head.meta.push({
+    key: 'og:description',
+    name: 'og:description',
+    content: `Adewale Abati a.k.a. Ace is a web developer, developer advocate, open sourcer and youtuber from Lagos, Nigeria`,
+  })
+
+  head.meta.push({
+    key: 'twitter:description',
+    name: 'twitter:description',
+    content: `Adewale Abati a.k.a. Ace is a web developer, developer advocate, open sourcer and youtuber from Lagos, Nigeria`,
+  })
+
+  head.meta.push({
+    key: 'og:image',
+    name: 'og:image',
+    content: `https://res.cloudinary.com/acekyd/image/upload/v1535314894/e4f91d37-026a-44d0-91ea-b26cfdaa34a7-f0f2f48b-59bc-41b8-bfc1-aa25dbed1c36-v1_njbqpt.png`,
+  })
+
+  head.meta.push({
+    key: 'twitter:image',
+    name: 'twitter:image',
+    content: `https://res.cloudinary.com/acekyd/image/upload/v1535314894/e4f91d37-026a-44d0-91ea-b26cfdaa34a7-f0f2f48b-59bc-41b8-bfc1-aa25dbed1c36-v1_njbqpt.png`,
+  })
+
+  router.beforeEach((to, _from, next) => {
+    head.meta.push({
+      key: 'og:url',
+      name: 'og:url',
+      content: process.env.GRIDSOME_BASE_PATH + to.path,
+    })
+    next()
+  })
+
 }
