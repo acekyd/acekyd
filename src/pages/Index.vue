@@ -44,7 +44,19 @@ export default {
     PostCard
   },
   metaInfo: {
-    title: 'Hello, world!'
+    title: 'Adewale Abati',
+    meta: [
+      {
+        key: 'og:title',
+        name: 'og:title',
+        content: 'Adewale Abati - Blog!',
+      },
+      {
+        key: 'twitter:title',
+        name: 'twitter:title',
+        content: 'Adewale Abati - Blog!',
+      },
+    ]
   }
 }
 </script>

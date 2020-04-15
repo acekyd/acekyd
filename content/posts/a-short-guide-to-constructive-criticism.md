@@ -3,7 +3,7 @@ title: A short guide to constructive criticism
 date: 2019-10-11
 published: true
 tags: ['Tips','Thoughts']
-canonical_url: false
+canonical_url: true
 description: "People try out new things everyday, they experiment, or sometimes just go about their daily jobs. For a lot of things, there's always room for improvement, and it's up to people to provide feedback when necessary to help the person in question improve."
 ---
 

@@ -3,7 +3,7 @@ title: My Development Platforms and Tools
 date: 2019-08-07
 published: true
 tags: ['Tools', 'Web']
-canonical_url: false
+canonical_url: true
 description: "Here are some of the tools, technologies and platforms that I use to deploy and share apps that I build."
 ---
 
