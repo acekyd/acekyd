@@ -50,6 +50,11 @@ export default {
           content: this.$page.post.description
         },
         {
+          key: 'og:title',
+          property: 'og:title',
+          content: this.$page.post.title,
+        },
+        {
           key: 'og:description',
           property: 'og:description',
           content: this.$page.post.description,
