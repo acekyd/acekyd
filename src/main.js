@@ -32,7 +32,7 @@ export default function (Vue, { router, head, isClient }) {
 
   head.meta.push({
     key: 'og:description',
-    name: 'og:description',
+    property: 'og:description',
     content: `Adewale Abati a.k.a. Ace is a web developer, developer advocate, open sourcer and youtuber from Lagos, Nigeria`,
   })
 
@@ -44,7 +44,7 @@ export default function (Vue, { router, head, isClient }) {
 
   head.meta.push({
     key: 'og:image',
-    name: 'og:image',
+    property: 'og:image',
     content: `https://res.cloudinary.com/acekyd/image/upload/v1535314894/e4f91d37-026a-44d0-91ea-b26cfdaa34a7-f0f2f48b-59bc-41b8-bfc1-aa25dbed1c36-v1_njbqpt.png`,
   })
 
@@ -57,7 +57,7 @@ export default function (Vue, { router, head, isClient }) {
   router.beforeEach((to, _from, next) => {
     head.meta.push({
       key: 'og:url',
-      name: 'og:url',
+      property: 'og:url',
       content: process.env.GRIDSOME_BASE_PATH + to.path,
     })
     next()

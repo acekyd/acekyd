@@ -48,7 +48,7 @@ export default {
     meta: [
       {
         key: 'og:title',
-        name: 'og:title',
+        property: 'og:title',
         content: 'Adewale Abati - Blog!',
       },
       {
