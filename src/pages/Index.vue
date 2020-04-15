@@ -50,12 +50,7 @@ export default {
         key: 'og:title',
         property: 'og:title',
         content: 'Adewale Abati - Blog!',
-      },
-      {
-        key: 'twitter:title',
-        name: 'twitter:title',
-        content: 'Adewale Abati - Blog!',
-      },
+      }
     ]
   }
 }

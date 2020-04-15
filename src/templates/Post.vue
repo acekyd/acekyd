@@ -53,12 +53,7 @@ export default {
           key: 'og:description',
           property: 'og:description',
           content: this.$page.post.description,
-        },
-        {
-          key: 'twitter:description',
-          name: 'twitter:description',
-          content: this.$page.post.description,
-        },
+        }
       ]
     }
   }
