@@ -3,7 +3,7 @@ title: Basic tips for technical writing
 date: 2019-02-01
 published: true
 tags: ['Tips']
-canonical_url: false
+canonical_url: true
 description: "Technical writing is any form of writing that helps break down technical tools, practices, opinions and ideas. It has rapidly become a valuable skill at all levels for anyone in a tech related career, developers and even designers. Here are a couple things you should keep in mind and attempt to get used to as much as possible."
 ---
 

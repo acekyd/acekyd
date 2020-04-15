@@ -3,7 +3,7 @@ title: 5 Web Project ideas to test your new coding skills
 date: 2018-09-28
 published: true
 tags: ['Projects','Web']
-canonical_url: false
+canonical_url: true
 description: "So you've picked up that new web language or framework and you probably believe you've exhausted the documentation but don't know what next to do or build with it. I have had a couple people ask me about this and one too many times these projects elude me at that moment."
 ---
 
