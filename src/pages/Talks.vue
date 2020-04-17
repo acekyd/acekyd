@@ -21,8 +21,8 @@
               <small v-if="talk.location">{{ talk.location }}</small>
 
             <p>
-                <a class="post-card__link" :href="talk.slides" v-if="talk.slides">Slides</a>&nbsp;
-                <a class="post-card__link" :href="talk.website" v-if="talk.website">Website</a>
+                <a class="link" :href="talk.slides" v-if="talk.slides">Slides</a>&nbsp;
+                <a class="link" :href="talk.website" v-if="talk.website">Website</a>
             </p>
           </div>
         </div>

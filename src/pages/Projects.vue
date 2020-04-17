@@ -12,8 +12,8 @@
             <hr />
               <small v-if="project.skills">{{ project.skills }}. </small>
             <p>
-                <a class="post-card__link" :href="project.github" v-if="project.github">Github</a>&nbsp;
-                <a class="post-card__link" :href="project.website" v-if="project.website">Website</a>
+                <a class="link" :href="project.github" v-if="project.github">Github</a>&nbsp;
+                <a class="link" :href="project.website" v-if="project.website">Website</a>
             </p>
           </div>
         </div>
