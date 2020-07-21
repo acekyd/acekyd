@@ -6,4 +6,6 @@ Mostly working with Laravel, Vue and anything else needed to get the job done. I
 
 I currently work at [Flutterwave](https://www.flutterwave.com), a global payments platform. If you'd love to support my work, check out my [Patreon](https://www.patreon.com/acekyd) or hit me up on [Twitter](https://twitter.com/ace_kyd)!
 
+[![Contact me on Codementor](https://www.codementor.io/m-badges/acekyd/get-help.svg)](https://www.codementor.io/@acekyd?refer=badge)
+
 Ace it up! ♠
