@@ -6,6 +6,25 @@ Mostly working with Laravel, Vue and anything else needed to get the job done. I
 
 I currently work at [Flutterwave](https://www.flutterwave.com), a global payments platform. If you'd love to support my work, check out my [Patreon](https://www.patreon.com/acekyd) or hit me up on [Twitter](https://twitter.com/ace_kyd)!
 
-[![Contact me on Codementor](https://www.codementor.io/m-badges/acekyd/get-help.svg)](https://www.codementor.io/@acekyd?refer=badge)
+<p align="center">
+  <a href="https://github.com/acekyd?tab=followers">
+    <img src="https://img.shields.io/github/followers/acekyd?label=Followers&logo=GitHub&style=for-the-badge" alt="GitHub badge" />
+  </a>
+  <a href="http://twitter.com/acekyd">
+    <img src="https://img.shields.io/twitter/follow/ace_kyd?label=Twitter&logo=twitter&style=for-the-badge" />
+  </a>
+  <a href="https://www.codementor.io/@acekyd?refer=badge">
+    <img src="https://www.codementor.io/m-badges/acekyd/get-help.svg" />
+  </a>
+  <a href="http://youtube.com/acekyd?sub_confirmation=1">
+    <img src="https://img.shields.io/youtube/views/cNcsW5D84wo?label=YouTube&logo=YouTube&style=for-the-badge" />
+  </a>
+</p>
+
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=acekyd&show_icons=true&theme=tokyonight&line_height=52" />
+  <img width="37.2%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=acekyd&count_private=true&theme=tokyonight&line_height=52">
+</p>
 
 Ace it up! ♠
