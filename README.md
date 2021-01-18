@@ -13,11 +13,14 @@ I currently work at [Flutterwave](https://www.flutterwave.com), a global payment
   <a href="http://twitter.com/acekyd">
     <img src="https://img.shields.io/twitter/follow/ace_kyd?label=Twitter&logo=twitter&style=for-the-badge" />
   </a>
-  <a href="https://www.codementor.io/@acekyd?refer=badge">
-    <img src="https://www.codementor.io/m-badges/acekyd/get-help.svg" />
-  </a>
   <a href="http://youtube.com/acekyd?sub_confirmation=1">
     <img src="https://img.shields.io/youtube/views/cNcsW5D84wo?label=YouTube&logo=YouTube&style=for-the-badge" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://www.codementor.io/@acekyd?refer=badge">
+    <img src="https://www.codementor.io/m-badges/acekyd/get-help.svg" />
   </a>
 </p>
 
