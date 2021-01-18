@@ -26,7 +26,7 @@ I currently work at [Flutterwave](https://www.flutterwave.com), a global payment
 
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=acekyd&show_icons=true&theme=tokyonight&line_height=52" />
+  <img src="https://github-readme-stats.vercel.app/api?username=acekyd&show_icons=true&theme=tokyonight&line_height=52&count_private=true" />
   <img width="37.2%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=acekyd&count_private=true&theme=tokyonight&line_height=52">
 </p>
 
