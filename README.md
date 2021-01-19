@@ -13,9 +13,6 @@ I currently work at [Flutterwave](https://www.flutterwave.com), a global payment
   <a href="http://twitter.com/acekyd">
     <img src="https://img.shields.io/twitter/follow/ace_kyd?label=Twitter&logo=twitter&style=for-the-badge" />
   </a>
-  <a href="http://youtube.com/acekyd?sub_confirmation=1">
-    <img src="https://img.shields.io/youtube/views/cNcsW5D84wo?label=YouTube&logo=YouTube&style=for-the-badge" />
-  </a>
 </p>
 
 <p align="center">
@@ -30,4 +27,4 @@ I currently work at [Flutterwave](https://www.flutterwave.com), a global payment
   <img width="37.2%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=acekyd&count_private=true&theme=tokyonight&line_height=52">
 </p>
 
-Ace it up! ♠
+<p align="center">Ace it up! ♠ </p>
