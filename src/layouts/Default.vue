@@ -12,10 +12,16 @@
         <nav>
           <ul class="nav">
             <li>
+              <a class="header__link" href="https://devlogic.acekyd.com">Blog</a>
+            </li>
+            <li>
               <g-link class="header__link" to="/talks">Talks</g-link>
             </li>
             <li>
               <g-link class="header__link" to="/projects">Projects</g-link>
+            </li>
+            <li>
+              <g-link class="header__link" to="/cool-stuff">Cool Stuff</g-link>
             </li>
           </ul>
         </nav>

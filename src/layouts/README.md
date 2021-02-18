@@ -3,3 +3,5 @@ Layout components are used to wrap pages and templates. Layouts should contain c
 Learn more about Layouts: https://gridsome.org/docs/layouts/
 
 You can delete this file.
+
+// Encode here https://www.functions-online.com/json_encode.html
