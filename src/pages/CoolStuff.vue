@@ -63,6 +63,7 @@ export default {
 .shopping {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     @media screen and (max-width: 800px) {
         & {
             flex-direction: column;
@@ -76,7 +77,7 @@ export default {
         text-decoration: none;
         margin: 10px 20px;
 
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 960px) {
             & {
                 width: 92%;
                 margin: 4%;
@@ -87,11 +88,23 @@ export default {
             display: flex;
             flex-direction: row;
             margin-bottom: 20px;
+            width: 100%;
+
+            @media screen and (max-width: 960px) {
+                & {
+                    flex-direction: column;
+                }
+            }
         }
 
         &__image {
             width: 40%;
             margin-right: 4%;
+            @media screen and (max-width: 960px) {
+                & {
+                    width: 100%;
+                }
+            }
         }
 
         &__title {
@@ -99,6 +112,12 @@ export default {
             font-weight: 900;
             width: 50%;
             color: var(--title-color);
+
+            @media screen and (max-width: 960px) {
+                & {
+                    width: 100%;
+                }
+            }
         }
     }
 }
