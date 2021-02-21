@@ -1,29 +1,33 @@
-# Gridsome Blog Starter
+# Hello Human! (I hope?) 👋🏽
 
-> A simple, hackable & minimalistic starter for Gridsome that uses Markdown for content.
+I'm Adewale a.k.a Ace. I build so others can live. 
 
-## Features
-- Beautiful and simple design.
-- Markdown for content.
-- Tags support.
-- Dark / Light toggle.
-- CSS variables, SCSS & BEM for styling.
-- 100, 100, 100, 100 score on Google Lighthouse.
-- Uses same front-matter fields as Dev.to.
+Mostly working with Laravel, Vue and anything else needed to get the job done. I try to build useful tools as I find need for them, so if you do find something useful, don't forget to share!
 
-## Demo URL
+I currently work at [Flutterwave](https://www.flutterwave.com), a global payments platform. If you'd love to support my work, check out my [Patreon](https://www.patreon.com/acekyd) or hit me up on [Twitter](https://twitter.com/ace_kyd)!
 
-https://gridsome-starter-blog.netlify.com
+<p align="center">
+  <a href="https://github.com/acekyd?tab=followers">
+    <img src="https://img.shields.io/github/followers/acekyd?label=Followers&logo=GitHub&style=for-the-badge" alt="GitHub badge" />
+  </a>
+  <a href="http://twitter.com/acekyd">
+    <img src="https://img.shields.io/twitter/follow/ace_kyd?label=Twitter&logo=twitter&style=for-the-badge" />
+  </a>
+  <a href="http://youtube.com/acekyd?sub_confirmation=1">
+    <img src="https://img.shields.io/youtube/views/Woip3g8XOo4?label=YouTube&logo=YouTube&style=for-the-badge" />
+  </a>
+</p>
 
-## Install
+<p align="center">
+  <a href="https://www.codementor.io/@acekyd?refer=badge">
+    <img src="https://www.codementor.io/m-badges/acekyd/get-help.svg" />
+  </a>
+</p>
 
-### 1. Install Gridsome CLI tool if you don't have
 
-`npm install --global @gridsome/cli`
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=acekyd&show_icons=true&theme=tokyonight&line_height=52&count_private=true" />
+  <img width="37.2%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=acekyd&count_private=true&theme=tokyonight&line_height=52">
+</p>
 
-### 2. Install this starter
-
-1. `gridsome create my-gridsome-site https://github.com/gridsome/gridsome-starter-blog.git`
-2. `cd my-gridsome-site` to open folder
-3. `gridsome develop` to start local dev server at `http://localhost:8080`
-4. Happy coding 🎉🙌
+<p align="center">Ace it up! ♠ </p>
