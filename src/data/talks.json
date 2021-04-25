@@ -98,7 +98,15 @@
         "slides": "https://speakerdeck.com/acekyd/building-for-the-world-from-nigeria-with-open-source",
         "website": "https://www.meetup.com/GitHub-Africa/events/276690809/",
         "abstract": "Using a listing of open source projects built by Nigerians for the world, we take a dive into the current state of open source in Nigeria. This talk is going to go over some data insights that we can get from this list and what we can do to improve them: demographics of contributors, languages, types of projects and also the people actively building stuff. It’d also shed some light on areas that we need to take note of including inclusion in open source."
+    },
+    {
+        "id": "11",
+        "title": "Keynote: Building for the world from Nigeria with Open Source.",
+        "date": "April 23, 2021",
+        "event": "Midwest PHP",
+        "location": "Online Event",
+        "slides": "https://speakerdeck.com/acekyd/building-for-the-world-from-nigeria-with-open-source",
+        "website": "https://midwestphp.org/schedule#day2",
+        "abstract": "Using a listing of open source projects built by Nigerians for the world, we take a dive into the current state of open source in Nigeria. This talk is going to go over some data insights that we can get from this list and what we can do to improve them: demographics of contributors, languages, types of projects and also the people actively building stuff. It’d also shed some light on areas that we need to take note of including inclusion in open source."
     }
-
-
 ]
