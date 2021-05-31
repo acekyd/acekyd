@@ -13,19 +13,11 @@
                 <div class="post-card__image">
                     <img :src="item.image" />
                 </div>
-                <span class="post-card__title" v-html="item.title" />
             </div>
-
             <div class="post-card__content">
+                <span class="post-card__title" v-html="item.title" />
                 <p class="post-card__description" v-html="item.desc" />
                 <p class="post-card__cost" v-html="item.price" />
-
-                <hr />
-                <strong>
-                <span class="post-card__description" v-html="item.event" />
-                </strong>
-                <p v-html="item.code">
-                </p>
             </div>
 
         </a>
@@ -76,19 +68,25 @@ export default {
         flex-direction: column;
         text-decoration: none;
         margin: 10px 20px;
+        width: 45% !important;
+        padding: 0px;
+        border: 1px solid #ccc;
+        background: #ccc;
 
-        @media screen and (max-width: 960px) {
+        @media screen and (max-width: 850px) {
             & {
-                width: 92%;
+                width: 92% !important;
                 margin: 4%;
             }
         }
 
         &__header {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             margin-bottom: 20px;
             width: 100%;
+            padding: 20px;
+            background: #fff;
 
             @media screen and (max-width: 960px) {
                 & {
@@ -97,21 +95,20 @@ export default {
             }
         }
 
+        &__content {
+            padding: 20px;
+        }
+
         &__image {
-            width: 40%;
+            width: 100%;
             margin-right: 4%;
-            @media screen and (max-width: 960px) {
-                & {
-                    width: 100%;
-                }
-            }
+            text-align: center;
         }
 
         &__title {
             font-size: 1rem;
             font-weight: 900;
-            width: 50%;
-            color: var(--title-color);
+            color: #111111;
 
             @media screen and (max-width: 960px) {
                 & {
@@ -120,13 +117,16 @@ export default {
             }
         }
     }
+    a.post-card {
+        color: #6B17E6;
+    }
 }
   .main h1.page__title {
     text-align: center;
   }
   .main .page__title--subtext {
       text-align: center;
-      width: 80%;
+      width: 60%;
       margin: 10px auto;
   }
 
