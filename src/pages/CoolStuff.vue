@@ -8,7 +8,7 @@
 
     <!-- List shopping items -->
     <div class="shopping">
-        <a class="post-card content-box" v-for="item in reverseItems" :key="item.id" :href="item.link">
+        <a class="post-card content-box" target="_blank" v-for="item in reverseItems" :key="item.id" :href="item.link">
             <div class="post-card__header">
                 <div class="post-card__image">
                     <img :src="item.image" />
