@@ -6,7 +6,7 @@
 
 module.exports = {
   siteName: 'Adewale Abati',
-  siteDescription: 'Adewale Abati also known as Ace is a web developer, developer advocate, open sourcer and youtuber from Lagos, Nigeria.',
+  siteDescription: 'Adewalec "Ace" Abati is a Web Engineer, Developer Advocate, Open Sourcer and Youtuber from Lagos, Nigeria.',
 
   templates: {
     Post: '/posts/:title',

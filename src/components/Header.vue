@@ -1,5 +1,5 @@
 <template>
-	<div id="landing" class="author">
+	<div itemscope itemtype="https://schema.org/Person" id="landing" class="author">
 
 		<g-image alt="Author image" class="author__image" src="~/assets/images/author.png" width="200" height="200" blur="5" />
 
@@ -8,11 +8,15 @@
 		</h1>
 
 		<p class="author__intro">
-			Hi! I'm <span class="highlight">Adewale Abati</span> a.k.a <b>Ace</b>. A Web Developer (PHP, JS, ...Web), Developer Advocate, <a href="https://github.com/acekyd" rel="noopener" target="_blank">Open Sourcer</a>, <a href="https://youtube.com/acekyd" rel="noopener" target="_blank">Tech YouTuber</a> and <a href="https://www.twitch.tv/elpunish3rr">Gamer</a>.<br />
+			Hello! I'm <span class="highlight" itemprop="name">Adewale "Ace" Abati</span>. A <span class="highlight" itemprop="jobTitle">Web Engineer & Developer Advocate</span>. I'm passionate about the web and it's infinite possibilities, <a href="https://github.com/acekyd" rel="noopener" target="_blank">Open Source</a>, sharing my experiences on <a href="https://youtube.com/acekyd" rel="noopener" target="_blank">YouTube</a> and playing <a href="https://www.twitch.tv/elpunish3rr">Video games</a>.<br /><br />
 
-			Currently Acing <span class="strike">Shii</span> things up as <strong>Developer Advocate</strong> at <a href="https://flutterwave.com/" rel="noopener" target="_blank">Flutterwave</a> - bringing amazing payment solutions and innovations to developers all over the world!  <br />
+			I'm currently helping to shape cloud development on the Web at <a href="https://codesandbox.io/" rel="noopener" target="_blank">CodeSandbox</a> - helping web developers create, share and collaborate with ease!  <br />
 			♠️
 		</p>
+
+		<p class="author_links small">
+			Previously: <a href="https://flutterwave.com/">Flutterwave</a>, <a href="https://ingressive.co">Ingressive</a>, <a href="http://www.withpropel.com/">Hirefreehands (Propel)</a>, <a href="https://hotels.ng">HotelsNG</a>
+		</p><br />
 
 		<p class="author__links">
 			<a href="https://github.com/acekyd/" target="_blank" rel="noopener">
@@ -55,9 +59,8 @@ export default {
 <style lang="scss">
 #landing.author {
 	margin: 0 auto;
-	max-width: 900px;
+	max-width: 700px;
 	text-align: center;
-	padding: calc(var(--space) / 2) 0;
 
 	.author__image {
 		border-radius: 100%;
@@ -67,13 +70,13 @@ export default {
 	}
 
 	.author__intro {
-		font-size: 1.1rem;
-		line-height: 2rem;
+		font-size: 0.8rem;
+		// line-height: 2rem;
 		// opacity: .8;
 	}
 
 	.author__site-title {
-		font-size: 1.5em;
+		font-size: 1.2em;
 	}
 
 	.author__links {
@@ -81,9 +84,14 @@ export default {
 		a {
 			margin: 0 .5em;
 		}
+
 	}
 	.strike {
 		text-decoration: line-through;
+	}
+
+	.small {
+		font-size: 0.6em;
 	}
 }
 </style>

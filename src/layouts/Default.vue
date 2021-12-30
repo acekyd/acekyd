@@ -62,7 +62,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   min-height: var(--header-height);
-  padding: 0 calc(var(--space) / 2);
+  padding: 0 calc(var(--space) / 4);
   top:0;
   z-index: 10;
 
@@ -87,21 +87,19 @@ export default {
 
   @media screen and (min-width: 1300px) {
     //Make header sticky for large screens
-    position: sticky;
     width: 100%;
   }
 }
 
 .main {
-  margin: 0 auto;
-  padding: 1.5vw 15px 0;
+  margin: -30px auto 0;
 }
 
 .footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: calc(var(--space) / 2);
+  padding: calc(var(--space) / 4);
   text-align: center;
   font-size: .8em;
 
