@@ -49,15 +49,4 @@ export default {
 </script>
 
 <style lang="scss">
-    .main h1.page__title {
-      text-align: center;
-    }
-  .projects .post-card {
-
-    margin-bottom: var(--space);
-
-    h2 {
-      font-size: 1.2em;
-    }
-  }
 </style>

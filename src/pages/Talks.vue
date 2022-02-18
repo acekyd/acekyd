@@ -58,9 +58,6 @@ export default {
 </script>
 
 <style lang="scss">
-  .main h1.page__title {
-    text-align: center;
-  }
 
   .talks .post-card {
 

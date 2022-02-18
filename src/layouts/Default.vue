@@ -95,6 +95,19 @@ export default {
   margin: -30px auto 0;
 }
 
+ .main h1.page__title {
+    text-align: center;
+    margin-bottom: var(--space);
+  }
+
+  .post-card {
+    margin-bottom: var(--space);
+
+    h2 {
+      font-size: 1.2em;
+    }
+  }
+
 .footer {
   display: flex;
   align-items: center;

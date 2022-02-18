@@ -1,5 +1,8 @@
 <template>
-  <Layout :show-logo="false">
+  <Layout :show-logo="true">
+
+    <h1 class="page__title">Articles</h1>
+
     <!-- List posts -->
     <div class="posts">
       <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node"/>
