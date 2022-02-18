@@ -19,14 +19,13 @@
       <div class="post__footer">
         <PostTags :post="$page.post" />
       </div>
+
+      <div class="post-comments">
+        <!-- Add comment widgets here -->
+        <vue-disqus shortname="acekyd-github" :identifier="$page.post.title"></vue-disqus>
+      </div>
     </div>
 
-    <div class="post-comments">
-      <!-- Add comment widgets here -->
-      <vue-disqus shortname="acekyd-github" :identifier="$page.post.title"></vue-disqus>
-    </div>
-
-    <Author class="post-author" />
   </Layout>
 </template>
 

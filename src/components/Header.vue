@@ -1,7 +1,7 @@
 <template>
 	<div itemscope itemtype="https://schema.org/Person" id="landing" class="author">
 
-		<g-image alt="Author image" class="author__image" src="~/assets/images/author.png" width="200" height="200" blur="5" />
+		<g-image alt="Author image" class="author__image" src="~/assets/images/author.jpg" width="200" height="200" blur="5" />
 
 		<h1 v-if="showTitle" class="author__site-title">
 			{{ $static.metadata.siteName }}
@@ -64,9 +64,10 @@ export default {
 
 	.author__image {
 		border-radius: 100%;
-		width: 150px;
-		height: 150px;
+		width: 100px;
+		height: 100px;
 		margin-bottom: 1em;
+		margin-top: 1em;
 	}
 
 	.author__intro {
