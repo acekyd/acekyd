@@ -12,7 +12,7 @@
         <nav>
           <ul class="nav">
             <li>
-              <a class="header__link" href="https://devlogic.acekyd.com">Blog</a>
+              <a class="header__link" href="/posts/">Blog</a>
             </li>
             <li>
               <g-link class="header__link" to="/talks">Talks</g-link>

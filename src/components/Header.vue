@@ -70,7 +70,7 @@ export default {
 	}
 
 	.author__intro {
-		font-size: 0.8rem;
+		font-size: 1rem;
 		// line-height: 2rem;
 		// opacity: .8;
 	}
@@ -91,7 +91,7 @@ export default {
 	}
 
 	.small {
-		font-size: 0.6em;
+		font-size: 0.7em;
 	}
 }
 </style>

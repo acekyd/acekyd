@@ -6,15 +6,12 @@
   </Layout>
 </template>
 
-
 <script>
 import Header from '~/components/Header.vue'
-import PostCard from '~/components/PostCard.vue'
 
 export default {
   components: {
-    Header,
-    PostCard
+    Header
   },
   metaInfo: {
     title: 'Adewale Abati',
