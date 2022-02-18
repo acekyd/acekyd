@@ -20,12 +20,12 @@
             <li>
               <g-link class="header__link" to="/projects">Projects</g-link>
             </li>
-            <li>
+            <!-- <li>
               <g-link class="header__link" to="/cool-stuff">Cool Stuff</g-link>
-            </li>
+            </li> -->
           </ul>
         </nav>
-        <ToggleTheme />
+        <!-- <ToggleTheme /> -->
       </div>
     </header>
 
