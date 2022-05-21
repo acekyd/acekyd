@@ -76,6 +76,10 @@ export default {
 		a {
 			margin: 0 .5em;
 		}
+        
+        svg {
+            height: 1em;
+        }
 	}
 }
 </style>
