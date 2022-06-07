@@ -53,7 +53,6 @@ export default {
 .author {
 	margin: 0 auto;
 	max-width: 500px;
-	text-align: center;
 	padding: calc(var(--space) / 2) 0;
 
 	&__image {

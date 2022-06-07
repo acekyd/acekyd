@@ -1,4 +1,4 @@
-baseURL = "https://www.acekyd.com/"
+baseURL = "https://www.adewaleabati.com/"
 languageCode = "en-us"
 title = "Abati Adewale"
 
@@ -16,16 +16,16 @@ googleAnalytics = "UA-105301496-1"
 
 [params] # theme parameters
     author = "Adewale Abati" # Author's name.
-    info = "Hi, I'm Adewale Abati but a lot of people call me Ace. A Web Developer, Advocate, Open Sourcer and YouTuber. I tried to think of something witty to write here but I'd just leave it to your wits. ♠️" # Author's job title or info.
-    description = "Adewale Abati also known as Ace is a web developer, developer advocate, open sourcer and youtuber from Lagos, Nigeria." # Site description.
-    keywords = "acekyd, adewale abati, blog, developer, personal, adewale ace " # Site keywords.
+    info = "Hi! I'm Adewale Abati, I am a Web Developer, Advocate, Open Sourcer and YouTuber. " # Author's job title or info.
+    description = "Adewale "Ace" Abati is a Web Engineer and Developer advocate." # Site description.
+    keywords = "acekyd, adewale abati, blog, developer, personal, developer advocate, software engineer " # Site keywords.
     avatarurl = "images/ace-image.png" # Contain the path of the optional avatar in the static folder.
     logourl = "images/logo.png" # Contain the path to a logo.
 
     footercontent = "Ace is a Lifestyle." # Add footer content
 
     # Whether you want to hide copyright and credits in the footer.
-    hideCredits = false
+    hideCredits = true
     hideCopyright = false
 
     # Custom CSS
@@ -90,10 +90,6 @@ googleAnalytics = "UA-105301496-1"
 
 # Menu links
 
-[[menu.main]]
-    name = "Merch"
-    weight = 1
-    url  = "https://www.printivo.com/store/ace"
 
 [[menu.main]]
     name = "Talks"

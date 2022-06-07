@@ -1,7 +1,7 @@
 <template>
   <Layout :show-logo="false">
     <!-- Author intro -->
-    <Header :show-title="true" />
+    <Header :show-title="false" />
 
   </Layout>
 </template>
@@ -14,7 +14,7 @@ export default {
     Header
   },
   metaInfo: {
-    title: 'Adewale Abati',
+    title: 'Web Engineer and Developer Advocate',
     meta: [
       {
         key: 'og:title',
