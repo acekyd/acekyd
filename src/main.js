@@ -45,7 +45,7 @@ export default function (Vue, { router, head, isClient }) {
   head.meta.push({
     key: 'og:description',
     property: 'og:description',
-    content: `Adewale Abati a.k.a. Ace is a web developer, developer advocate, open sourcer and youtuber from Lagos, Nigeria`,
+    content: `Adewale "Ace" Abati is a Web Engineer and Developer advocate.`,
   })
 
   head.meta.push({
