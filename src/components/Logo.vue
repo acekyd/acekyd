@@ -22,10 +22,10 @@ query {
 
 	&__image {
 		vertical-align: middle;
-		border-radius: 99px;
 		height: 40px;
 		width: 40px;
 		margin-right: .5em;
+        margin-bottom: 2vh;
 	}
 }
 </style>

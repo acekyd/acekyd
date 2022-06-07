@@ -4,12 +4,10 @@
     <header class="header">
       <div class="header__left">
         <Logo v-if="showLogo" />
-        <g-image v-if="!showLogo" alt="logo image" class="logo__image" src="~/assets/images/logo.png" blur="5" />
-
       </div>
 
       <div class="header__right">
-        <nav>
+        <nav v-if="showLogo">
           <ul class="nav">
             <li>
               <a class="header__link" href="/posts/">Blog</a>
@@ -20,9 +18,6 @@
             <li>
               <g-link class="header__link" to="/projects">Projects</g-link>
             </li>
-            <!-- <li>
-              <g-link class="header__link" to="/cool-stuff">Cool Stuff</g-link>
-            </li> -->
           </ul>
         </nav>
         <!-- <ToggleTheme /> -->
@@ -34,8 +29,8 @@
     </main>
 
     <footer class="footer">
-      <span class="footer__copyright">Copyright © {{ new Date().getFullYear() }}. </span>
-      <span class="footer__links">Powered by <a href="//gridsome.org"> Gridsome </a></span>
+      <!-- <span class="footer__copyright"> © {{ new Date().getFullYear() }}. </span>
+      <span class="footer__links">Powered by <a href="//gridsome.org"> Gridsome </a></span> -->
     </footer>
 
   </div>
