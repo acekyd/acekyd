@@ -38,7 +38,9 @@ export default function(Vue, { router, head, isClient }) {
   // Add custom font
   head.link.push({
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Raleway&display=swap"
+    href: "https://fonts.googleapis.com/css2?family=Raleway&display=swap",
+    rel: "preload",
+    as: "style"
   });
 
   head.meta.push({
