@@ -20,22 +20,22 @@
 		</p><br />
 
 		<p class="author__links">
-			<a href="https://github.com/acekyd/" target="_blank" rel="noopener">
+			<a href="https://github.com/acekyd/" aria-label="Adewale on GitHub" target="_blank" rel="noopener">
 	  			<font-awesome :icon="['fab', 'github']"/>
 			</a>
-			<a href="https://twitter.com/ace_kyd/" target="_blank" rel="noopener">
+			<a href="https://twitter.com/ace_kyd/" aria-label="Adewale on Twitter" target="_blank" rel="noopener">
 	  			<font-awesome :icon="['fab', 'twitter']"/>
 			</a>
-			<a href="https://twitch.tv/elpunish3rr/" target="_blank" rel="noopener">
+			<a href="https://twitch.tv/elpunish3rr/" aria-label="Adewale on Twitch" target="_blank" rel="noopener">
 	  			<font-awesome :icon="['fab', 'twitch']"/>
 			</a>
-			<a href="https://www.linkedin.com/in/acekyd/" target="_blank" rel="noopener">
+			<a href="https://www.linkedin.com/in/acekyd/" aria-label="Adewale on LinkedIn" target="_blank" rel="noopener">
 	  			<font-awesome :icon="['fab', 'linkedin']"/>
 			</a>
-			<a href="https://stackoverflow.com/users/1945274/acekyd" target="_blank" rel="noopener">
+			<a href="https://stackoverflow.com/users/1945274/acekyd" aria-label="Adewale on StackOverflow" target="_blank" rel="noopener">
 	  			<font-awesome :icon="['fab', 'stack-overflow']"/>
 			</a>
-			<a href="https://www.youtube.com/acekyd/" target="_blank" rel="noopener">
+			<a href="https://www.youtube.com/acekyd/" aria-label="Adewale on YouTube" target="_blank" rel="noopener">
 	  			<font-awesome :icon="['fab', 'youtube']"/>
 			</a>
 		</p>
