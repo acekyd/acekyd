@@ -22,8 +22,8 @@ query {
 
 	&__image {
 		vertical-align: middle;
-		height: 40px;
-		width: 42.8px;
+		height: 42.8px;
+		width: 40px;
 		margin-right: .5em;
         margin-bottom: 2vh;
 	}
