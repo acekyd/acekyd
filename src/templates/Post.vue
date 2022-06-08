@@ -43,6 +43,12 @@ export default {
   metaInfo () {
     return {
       title: this.$page.post.title,
+      link: [
+        {
+          rel: "canonical",
+          content: "https://adewaleabati.com" + this.$page.post.path,
+        },
+      ],
       meta: [
         {
           name: 'description',
