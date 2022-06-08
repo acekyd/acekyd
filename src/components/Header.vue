@@ -10,9 +10,9 @@
         <g-image v-if="!showLogo" alt="logo image" class="logo__image" src="~/assets/images/logo.png" blur="5" />
 
 		<p class="author__intro">
-			Hello! I'm <span class="highlight" itemprop="name">Adewale "Ace" Abati</span>. A <span class="highlight" itemprop="jobTitle">Web Engineer & Developer Advocate</span>. I'm passionate about the web and it's infinite possibilities, <a href="https://github.com/acekyd" rel="noopener" target="_blank">Open Source</a>, sharing my experiences on <a href="https://youtube.com/acekyd" rel="noopener" target="_blank">YouTube</a> and playing <a href="https://www.twitch.tv/elpunish3rr">Video games</a>.<br /><br />
+			Hello! I'm <span class="highlight" itemprop="name">Adewale "Ace" Abati</span>. A <span class="highlight" itemprop="jobTitle">Web Engineer & Developer Advocate</span>. I'm passionate about the web and it's infinite possibilities, <a href="https://github.com/acekyd" rel="noopener" target="_blank">open source</a>, sharing my experiences on <a href="https://youtube.com/acekyd" rel="noopener" target="_blank">YouTube</a> and playing <a href="https://www.twitch.tv/elpunish3rr">video games</a>.<br /><br />
 
-			I'm currently helping to shape cloud development on the Web at <a href="https://codesandbox.io/" rel="noopener" target="_blank">CodeSandbox</a> - helping web developers create, share and collaborate with ease!
+			I'm currently helping to shape cloud development on the web at <a href="https://codesandbox.io/" rel="noopener" target="_blank">CodeSandbox</a> - helping web developers create, share and collaborate with ease!
 		</p>
 
 		<p class="author_links small">
