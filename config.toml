@@ -39,51 +39,51 @@ googleAnalytics = "UA-105301496-1"
 
 # Social links
 [[params.social]]
-    name = "Github"
+    name = "Adewale on Github"
     icon = "fab fa-github-square"
     weight = 1
     url = "https://github.com/acekyd/"
 [[params.social]]
-    name = "Twitter"
+    name = "Adewale on Twitter"
     icon = "fab fa-twitter-square"
     weight = 2
     url = "https://twitter.com/ace_kyd/"
 [[params.social]]
-    name = "LinkedIn"
+    name = "Adewale on LinkedIn"
     icon = "fab fa-linkedin"
     weight = 3
     url = "https://www.linkedin.com/in/acekyd/"
 [[params.social]]
-    name = "Instagram"
+    name = "Adewale on Instagram"
     icon = "fab fa-instagram"
     weight = 4
-    url = "https://www.instagram.com/acekyd/"
+    url = "https://www.instagram.com/acekydtech/"
 [[params.social]]
-    name = "YouTube"
+    name = "Adewale on YouTube"
     icon = "fab fa-youtube"
     weight = 5
     url = "https://www.youtube.com/acekyd/"
 
 [[params.social]]
-    name = "Twitch"
+    name = "Adewale on Twitch"
     icon = "fab fa-twitch"
     weight = 5
     url = "https://www.twitch.tv/elpunish3rr"
 
 [[params.social]]
-    name = "Stack Overflow"
+    name = "Adewale on Stack Overflow"
     icon = "fab fa-stack-overflow"
     weight = 6
     url = "https://stackoverflow.com/users/1945274/acekyd"
 
 [[params.social]]
-    name = "Patreon"
+    name = "Adewale on Patreon"
     icon = "fab fa-patreon"
     weight = 7
     url = "https://www.patreon.com/acekyd"
 
 [[params.social]]
-    name = "Medium"
+    name = "Adewale on Medium"
     icon = "fab fa-medium"
     weight = 7
     url = "https://www.medium.com/@acekyd"

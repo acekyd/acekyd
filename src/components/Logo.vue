@@ -23,7 +23,7 @@ query {
 	&__image {
 		vertical-align: middle;
 		height: 40px;
-		width: 40px;
+		width: 42.8px;
 		margin-right: .5em;
         margin-bottom: 2vh;
 	}
