@@ -1,7 +1,7 @@
 <template>
   <Layout :show-logo="true">
 
-    <h1 class="page__title">Articles</h1>
+    <h1 class="page__title">Blog</h1>
 
     <!-- List posts -->
     <div class="posts">

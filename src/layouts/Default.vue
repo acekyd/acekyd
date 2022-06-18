@@ -60,6 +60,8 @@ export default {
   padding: 0 calc(var(--space) / 4);
   top:0;
   z-index: 10;
+  max-width: var(--content-width);
+  margin: 0 auto 10px auto;
 
   &__left,
   &__right {
