@@ -1,6 +1,10 @@
 <template>
-	<g-link class="logo" to="/">
-	  <span class="logo__text">
+	<g-link class="logo">
+	  <span class="logo__text" 
+            @click="hasHistory() 
+                    ? $router.go(-1) 
+                    : $router.push('/')"
+        >
 	    &larr; {{ $static.metadata.siteName }}
 	  </span>
 	</g-link>
@@ -13,6 +17,13 @@ query {
   }
 }
 </static-query>
+<script>
+    export default {
+        methods: {
+            hasHistory () { return window.history.length > 2 }
+        }
+    } 
+</script>
 
 <style lang="scss">
 .logo {
