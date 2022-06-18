@@ -67,6 +67,8 @@ export default function(Vue, { router, head, isClient }) {
     content: `https://res.cloudinary.com/acekyd/image/upload/v1535314894/e4f91d37-026a-44d0-91ea-b26cfdaa34a7-f0f2f48b-59bc-41b8-bfc1-aa25dbed1c36-v1_njbqpt.png`
   });
 
+  head.script.push({ src: "https://platform.twitter.com/widgets.js" });
+
   router.beforeEach((to, _from, next) => {
     head.meta.push({
       key: "og:url",

@@ -39,6 +39,7 @@ query {
 import Header from '~/components/Header.vue'
 import PostCard from '~/components/PostCard.vue'
 
+
 export default {
   components: {
     Header,
@@ -56,3 +57,6 @@ export default {
   }
 }
 </script>
+<style>
+@import "https://github.githubassets.com/assets/gist-embed-d89dc96f3ab6372bb73ee45cafdd0711.css";
+</style>

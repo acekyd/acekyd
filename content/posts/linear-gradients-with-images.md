@@ -47,7 +47,9 @@ Taking advantage of the `background` CSS property, a shorthand that sets multipl
 
 Here's a demo attached from codepen.
 
-https://codepen.io/acekyd/pen/yxqEWV/?tabs=result,html
+https://codepen.io/acekyd/pen/yxqEWV
+
+https://gist.github.com/noxify/4663ce9b7bee433c125a2fc12150a043
 
 
 You can get creative with the degrees, directions and also percentage of color and transparency in the `background property to achieve your desired result.
