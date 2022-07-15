@@ -67,7 +67,7 @@ export default {
         {
           key: 'og:image',
           property: 'og:image',
-          content: "https://res.cloudinary.com/acekyd/image/upload/c_fit,e_colorize:100,g_north_west,h_500,l_text:Viga_80:"+ encodeURIComponent(this.$page.post.title) +",w_800,x_50,y_150/v1657382742/blog-image-thumbnail_ep4qgq.png",
+          content: "https://res.cloudinary.com/acekyd/image/upload/c_fit,e_colorize:100,g_north_west,l_text:open sans_80:"+ encodeURIComponent(this.$page.post.title) +",w_900,x_60,y_100/v1657896963/blog-thumbnail_plityt.png",
         }
       ]
     }
