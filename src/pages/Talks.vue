@@ -1,7 +1,7 @@
 <template>
   <Layout :show-logo="true">
 
-    <h1 class="page__title">Talks and Presentations</h1>
+    <h1 class="page__title">Talks and not Presentations</h1>
 
     <!-- List talks -->
     <div class="talks">
