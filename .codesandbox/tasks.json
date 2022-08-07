@@ -17,12 +17,17 @@
     "develop": {
       "name": "develop",
       "command": "yarn develop",
-      "runAtStart": true
+      "runAtStart": false
     },
     "explore": {
       "name": "explore",
       "command": "yarn explore",
       "runAtStart": false
+    },
+    "npm run develop": {
+      "name": "npm run develop",
+      "command": "npm run develop",
+      "runAtStart": true
     }
   }
 }

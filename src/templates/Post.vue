@@ -63,6 +63,11 @@ export default {
           key: 'og:description',
           property: 'og:description',
           content: this.$page.post.description,
+        },
+        {
+          key: 'og:image',
+          property: 'og:image',
+          content: "https://res.cloudinary.com/acekyd/image/upload/c_fit,e_colorize:100,g_north_west,l_text:open sans_80:"+ encodeURIComponent(this.$page.post.title) +",w_900,x_60,y_100/v1657896963/blog-thumbnail_plityt.png",
         }
       ]
     }
