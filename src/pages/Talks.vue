@@ -7,23 +7,22 @@
     <div class="talks">
         <div class="post-card content-box" v-for="talk in reverseItems" :key="talk.id" >
           <div class="post-card__content">
-            <h2 class="post-card__title" v-html="talk.title" />
-
-              <p class="post-card__description" v-html="talk.abstract" />
-
-
+              <details>
+                <summary>
+                    <strong><span class="post-card__title" v-html="talk.title" /></strong> at 
+                    <strong>
+                        <span class="post-card__description" v-html="talk.event" />
+                    </strong>
+                </summary>
+                    <p class="post-card__description" v-html="talk.abstract" />
+                    <p>
+                        <a class="link" :href="talk.slides" v-if="talk.slides">Slides</a>&nbsp;
+                        <a class="link" :href="talk.website" v-if="talk.website">Website</a>
+                    </p>
+              </details>              
             <hr />
-            <strong>
-              <span class="post-card__description" v-html="talk.event" />
-            </strong>
-            <br />
               <small v-if="talk.date">{{ talk.date }}. </small>
-              <small v-if="talk.location">{{ talk.location }}</small>
-
-            <p>
-                <a class="link" :href="talk.slides" v-if="talk.slides">Slides</a>&nbsp;
-                <a class="link" :href="talk.website" v-if="talk.website">Website</a>
-            </p>
+              <strong><small v-if="talk.location">{{ talk.location }}</small></strong>
           </div>
         </div>
 
@@ -59,12 +58,7 @@ export default {
 
 <style lang="scss">
 
-  .talks .post-card {
-
-    margin-bottom: var(--space);
-
-    h2 {
-      font-size: 1.2em;
-    }
+  .talks .post-card__description {
+      margin-top: 20px;
   }
 </style>
