@@ -55,7 +55,10 @@ module.exports = {
         typeName: "Post",
         path: "content/posts/*.md",
         remark: {
-          plugins: [["@noxify/gridsome-plugin-remark-embed", embedConfig]]
+          plugins: [
+            ["@noxify/gridsome-plugin-remark-embed", embedConfig],
+            "@gridsome/remark-prismjs"
+          ]
         },
         refs: {
           // Creates a GraphQL collection from 'tags' in front-matter and adds a reference.
