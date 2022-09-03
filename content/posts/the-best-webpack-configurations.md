@@ -3,10 +3,12 @@ title: The best webpack configurations for React applications
 date: 2021-08-15
 published: true
 tags: ['webpack','react', 'babel']
-canonical_url: true
+canonical_url: https://blog.logrocket.com/versatile-webpack-configurations-react-application/
 description: 
 cover_image: https://blog.logrocket.com/wp-content/uploads/2019/01/webpack-configurations-react-app-1.png
 ---
+
+> This post was first published on [LogRocket](https://blog.logrocket.com/versatile-webpack-configurations-react-application/)
 
 If you’re like me, then you’ve struggled with configuring `Webpack` for your React app. Create React App (CRA) ships with webpack already under the hood, but usually, we would need to add more configurations as our app grows. Luckily for us, we can create a `webpack.config.js` file and put our webpack configurations   in there.
 
@@ -25,7 +27,7 @@ To set up this configuration, we need:
 - Basic knowledge of Javascript and ES6 to ES8 syntax
 - Basic knowledge of React
 
-*💡Code to be run in the terminal will be written like `$ npm install`*
+> 💡 Code to be run in the terminal will be written like `$ npm install`
 
 ## What is webpack?
 
@@ -125,15 +127,6 @@ Now save it, go back to your terminal and we will try to test the newly added co
 
 Run:
 
-
-- Don't miss a moment with The Replay, a curated newsletter from LogRocket
-- Use React's useEffect to optimize your application's performance
-- Switch between multiple versions of Node
-- Learn how to animate your React app with AnimXYZ
-- Explore Tauri, a new framework for building binaries
-- Compare NestJS vs. Express.js
-- Discover popular ORMs used in the TypeScript landscape
-
 ```bash
 $ npm run dev
 ```
@@ -192,14 +185,15 @@ If you recall, we installed two Babel presets. These presets are what we added i
 
 What the presets do:
 
-`“babel-preset-env”` tells webpack to compile all syntax to ES5 (which browsers understand)
-`“babel-preset-react”` adds support for jsx syntax
-`“transform-es2015-modules-commonjs”` and `“transform-class-properties”` are there for backward compatibility
+`babel-preset-env` tells webpack to compile all syntax to ES5 (which browsers understand)
+`babel-preset-react` adds support for jsx syntax
+`transform-es2015-modules-commonjs` and `transform-class-properties` are there for backward compatibility
 We also need a file to hold our generic webpack configurations for our app. In your terminal, run:
 
 ```bash
 $ touch webpack.config.js
 ```
+
 Add this configuration to the file:
 
 ```jsx
@@ -912,18 +906,3 @@ Our app recompiles without errors thrown. Also from webpack 2+, whenever you use
 ## Conclusion
 
 That’s it for setting up webpack with React for generic and specific configuration needs. If you want to customize this any further, you can find out more from the webpack [docs](https://webpack.js.org/concepts/) for insights on how to go about it. You can find a working version of this project on [GitHub](https://github.com/acekyd/react-webpack-config).
-
-## Full visibility into production React apps
-
-Debugging React applications can be difficult, especially when users experience issues that are hard to reproduce. If you’re interested in monitoring and tracking Redux state, automatically surfacing JavaScript errors, and tracking slow network requests and component load time, [try LogRocket](https://www2.logrocket.com/react-performance-monitoring).
-
-![pics](https://www2.logrocket.com/react-performance-monitoring)
-
- 
-[LogRocket](https://www2.logrocket.com/react-performance-monitoring) is like a DVR for web and mobile apps, recording literally everything that happens on your React app. Instead of guessing why problems happen, you can aggregate and report on what state your application was in when an issue occurred. LogRocket also monitors your app's performance, reporting with metrics like client CPU load, client memory usage, and more.
-
-The LogRocket Redux middleware package adds an extra layer of visibility into your user sessions. LogRocket logs all actions and state from your Redux stores.
-
-Modernize how you debug your React apps — [start monitoring for free](https://www2.logrocket.com/react-performance-monitoring).
-
-

@@ -3,7 +3,7 @@ title: Understanding the basics of RESTful APIs
 date: 2018-09-16
 published: true
 tags: ['PHP', 'node.js']
-canonical_url: true
+canonical_url: https://pusher.com/tutorials/understanding-rest-api/
 description: For this tutorial, we will explore the basics of APIs, what we can use them for, how to design them and various ways we can protect them.
 ---
 
@@ -31,7 +31,7 @@ TCP/IP provides end-to-end communications that specify how data is exchanged ove
   
 TCP/IP uses the standard client-server communication model, where a client (computer device) requests a resource from a server (possibly a much larger computer device in a remote location). Collectively the TCP/IP suite of conventions is classified as stateless (though TCP is itself stateful) — every request from a client to a server is treated as new, the server never remembers a client. This frees up resources on the server to make it faster and respond to multiple requests quicker.
   
-> You can read more about TCP/IP in [this article](https://www.techtarget.com/searchnetworking/definition/TCP-IP)by Search Target.
+> You can read more about TCP/IP in [this article](https://www.techtarget.com/searchnetworking/definition/TCP-IP) by Search Target.
   
   
 ## Understanding how APIs enable applications talk to each other
@@ -48,7 +48,7 @@ There are a number of patterns for designing APIs. These patterns have history, 
   
 ### Tunneling style
   
-Tunneling works like a system of remote procedure calls (RPCs) organized in an XML message format. RPC in itself is a really old technology that is best suited for communicating commands and procedures. It is used currently in platforms like [Ethereum](https://www.ethereum.org/) and has native support in [Golang.](https://golang.org/pkg/net/rpc/)Tunneling is used by SOAP in some instances, but we will not look into that.
+Tunneling works like a system of remote procedure calls (RPCs) organized in an XML message format. RPC in itself is a really old technology that is best suited for communicating commands and procedures. It is used currently in platforms like [Ethereum](https://www.ethereum.org/) and has native support in [Golang.](https://golang.org/pkg/net/rpc/) Tunneling is used by SOAP in some instances, but we will not look into that.
   
 ### SOAP - Simple object access protocol
   

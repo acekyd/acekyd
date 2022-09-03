@@ -2,10 +2,12 @@
 title: Understanding HTTP response status codes in frontend applications
 date: 2018-11-26
 published: true
-tags: ['javaScript']
-canonical_url: true
-description: jkhh
+tags: ['javaScript', 'api']
+canonical_url: https://pusher.com/tutorials/http-response-codes-part-2/
+description: In this tutorial, we will explore what status code means and how to use them.
 ---
+
+> This article was first published on [Pusher](https://pusher.com/tutorials/http-response-codes-part-2/)
 
 In this tutorial, we will explore what status code means and how to use them. We will build a simple [Node.js](https://nodejs.org/) backend to simulate all the most common status codes of all we will cover. This will help us in two ways:
 

@@ -1,6 +1,6 @@
 ---
 title: The Untold Story of a Self-Taught Developer
-date: 2022-07-08
+date: 2022-04-08
 published: true
 tags: ['Developer', 'Comic']
 canonical_url: true
