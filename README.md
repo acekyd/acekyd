@@ -19,15 +19,10 @@ I currently work as a Senior Developer Advocate at [CodeSandbox](https://www.cod
 </p>
 
 <p align="center">
-  <a href="https://www.codementor.io/@acekyd?refer=badge">
-    <img src="https://www.codementor.io/m-badges/acekyd/get-help.svg" />
-  </a>
-</p>
+  <img src="https://github-readme-stats.vercel.app/api?username=acekyd&theme=dark&hide_border=false&include_all_commits=true&count_private=true" /> <br />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=acekyd&theme=dark&hide_border=false"><br />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=acekyd&theme=dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact">
 
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=acekyd&show_icons=true&theme=tokyonight&line_height=52&count_private=true" />
-  <img width="37.2%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=acekyd&count_private=true&theme=tokyonight&line_height=52">
 </p>
 
 <p align="center">Ace it up! ♠ </p>
