@@ -4,7 +4,6 @@ date: 2022-10-08
 published: true
 tags: ['Career']
 canonical_url: true
-cover_image: 
 description: "In this article, I want to cover a few things related to job hunting, some quite easy to do, to make sure your most important tool - your resume - is able to reach the right places and hopefully get you the opportunity to be interviewed. ."
 ---
 
