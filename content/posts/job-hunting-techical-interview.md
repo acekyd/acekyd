@@ -1,6 +1,6 @@
 ---
 title: Job hunting - Prepping for technical interviews
-date: 2020-10-10
+date: 2022-10-10
 published: true
 tags: ['Career']
 canonical_url: true
