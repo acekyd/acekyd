@@ -150,7 +150,7 @@
     "abstract": "Web development is a fast-changing ecosystem with new technologies and libraries created on the go. To stay on top of everything, we have to make it as easy as possible to experiment and use these technologies with little to no setup. In this talk, we would be exploring the world of browser-based IDEs and how they are changing the ecosystem - improving collaboration, streamlined experiences and preconfigured development environments."
   },
   {
-    "id": "15",
+    "id": "16",
     "title": "Reimagining Web Development in your Browser",
     "date": "August 4, 2022",
     "event": "Dev Innovation Summit - World Festival",
@@ -158,5 +158,15 @@
     "slides": "https://www.slideshare.net/AbatiAdewale/world-festival-reimagining-web-development-in-your-browserpdf",
     "website": "https://worldfestival.com/conference/schedule/",
     "abstract": "Web development is a fast changing ecosystem with new technologies and libraries being created on the go. To stay on top of everything, we have to make it as easy and accessible as possible to experiment and use these technologies with little to no setup. In this talk, we'd be exploring the world of Browser-based IDEs and how they are changing the ecosystem - improving collaboration, streamlined experiences and preconfigured development environments."
+  },
+  {
+    "id": "17",
+    "title": "Web Performance as rocket science",
+    "date": "October 22, 2022",
+    "event": "CityJS Lagos 2022",
+    "location": "Lagos, Nigeria",
+    "slides": "https://www.slideshare.net/AbatiAdewale/web-performance-as-rocket-science",
+    "website": "https://nigeria.cityjsconf.org/",
+    "abstract": "Building applications for the web have evolved over the years, with new technologies and frameworks promising different things, browsers have also gotten smarter. Across board, we still prioritize creating a fast, seamless and accessible experience for users. This talk will be focused on simplifying some of the steps we can start practicing to optimize for performance in web applications."
   }
 ]
