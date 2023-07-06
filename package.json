@@ -11,5 +11,8 @@
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@types/node": "^18.15.12",
     "nuxt": "^3.5.2"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.9"
   }
 }
