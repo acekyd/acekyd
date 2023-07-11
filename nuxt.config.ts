@@ -6,7 +6,6 @@ export default defineNuxtConfig({
     cssPath: "~/assets/css/main.css",
   },
   content: {
-    documentDriven: true,
     // https://content.nuxtjs.org/api/configuration
     highlight: {
       theme: {

@@ -30,10 +30,11 @@
     </p>
 
     <p class="author_links small">
-      Previously: <a href="https://flutterwave.com/">Flutterwave</a>,
-      <a href="https://ingressive.org/">Ingressive</a>,
-      <a href="http://www.withpropel.com/">Hirefreehands (Propel)</a>,
-      <a href="https://hotels.ng">HotelsNG</a>
+      Previously: <a href="https://codesandbox.io/" target="_blank" rel="noopener">CodeSandbox</a>,
+      <a href="https://flutterwave.com/" target="_blank" rel="noopener">Flutterwave</a>,
+      <a href="https://ingressive.org/" target="_blank" rel="noopener">Ingressive</a>,
+      <a href="http://www.withpropel.com/" target="_blank" rel="noopener">Hirefreehands (Propel)</a>,
+      <a href="https://hotels.ng" target="_blank" rel="noopener">HotelsNG</a>
     </p>
     <br />
 
@@ -89,8 +90,9 @@
     </p>
 
     <p class="author_links menu">
-      <a href="/posts">blog</a> <a href="/talks">talks</a>
-      <a href="/projects">projects</a>
+      <NuxtLink to="/posts">blog</NuxtLink> 
+      <NuxtLink to="/talks">talks</NuxtLink>
+      <NuxtLink to="/projects">projects</NuxtLink>
     </p>
     <br />
   </div>
