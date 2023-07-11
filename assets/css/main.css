@@ -10,4 +10,8 @@
     .card {
         @apply p-3 rounded-md bg-white shadow-md h-full;
     }
+
+    a {
+        @apply underline underline-offset-8 hover:bg-amber-100 hover:decoration-4 decoration-cyan-400;
+    }
 }

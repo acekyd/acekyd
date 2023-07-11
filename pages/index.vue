@@ -100,24 +100,13 @@
   margin: 10vh 10vw;
   max-width: 700px;
 
-  .author__image {
-    border-radius: 100%;
-    width: 100px;
-    height: 100px;
-    margin-bottom: 1em;
-    margin-top: 1em;
-  }
-
   .author__intro {
-    font-size: 1rem;
-  }
-
-  .author__site-title {
-    font-size: 1.2em;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
   }
 
   .author__links {
-    margin-top: -0.5em;
+    margin-bottom: 1em;
     a {
       margin: 0 0.5em;
     }
@@ -130,7 +119,7 @@
   }
 
   .small {
-    font-size: 0.7em;
+    font-size: 0.8em;
   }
 
   .menu a {
