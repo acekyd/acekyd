@@ -1,8 +1,9 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  modules: ['@nuxt/content', '@nuxtjs/tailwindcss'],
+  modules: ["@nuxt/content", "@nuxtjs/tailwindcss"],
+  css: ["@fortawesome/fontawesome-svg-core/styles.css"],
   tailwindcss: {
-    cssPath: '~/assets/css/main.css',
+    cssPath: "~/assets/css/main.css",
   },
   content: {
     documentDriven: true,
@@ -10,10 +11,10 @@ export default defineNuxtConfig({
     highlight: {
       theme: {
         // Default theme (same as single string)
-        default: 'material-palenight',
+        default: "material-palenight",
         // Theme used if `html.dark`
-        dark: 'github-dark',
-      }
-    }
+        dark: "github-dark",
+      },
+    },
   },
-})
+});
