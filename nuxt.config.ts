@@ -1,6 +1,6 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  modules: ["@nuxt/content", "@nuxtjs/tailwindcss"],
+  modules: ["@nuxt/content", "@nuxtjs/tailwindcss", 'nuxt-gtag'],
   css: ["@fortawesome/fontawesome-svg-core/styles.css"],
   tailwindcss: {
     cssPath: "~/assets/css/main.css",
@@ -16,4 +16,7 @@ export default defineNuxtConfig({
       },
     },
   },
+  gtag: {
+    id: 'G-YKDEVD123H',
+  }
 });
