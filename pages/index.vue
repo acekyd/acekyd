@@ -22,11 +22,23 @@
       and playing
       <a href="https://www.twitch.tv/elpunish3rr">video games</a>.<br /><br />
 
-      I'm currently helping to shape cloud development on the web at
-      <a href="https://codesandbox.io/" rel="noopener" target="_blank"
-        >CodeSandbox</a
+      I'm currently open to new opportunities to learn and build exciting things, touch lives and make a global impact. 
+      You can contact me via 
+      <a
+        href="https://twitter.com/ace_kyd/"
+        aria-label="Adewale on Twitter"
+        target="_blank"
+        rel="noopener"
+      >Twitter</a>
+       or 
+      <a
+        href="https://www.linkedin.com/in/acekyd/"
+        aria-label="Adewale on LinkedIn"
+        target="_blank"
+        rel="noopener"
       >
-      - helping web developers create, share and collaborate with ease!
+      LinkedIn.
+      </a>
     </p>
 
     <p class="author_links small">
@@ -128,6 +140,10 @@
     margin-right: 10px;
   }
 }
+
+.highlight {
+  font-weight: bold;
+}
 .logo {
   text-decoration: none;
   color: var(--body-color) !important;
@@ -142,3 +158,8 @@
   }
 }
 </style>
+<script setup>
+useHead({
+  titleTemplate: 'Adewale Abati - Web Engineer & Developer Advocate',
+})
+</script>

@@ -5,3 +5,8 @@
     </article>
   </main>
 </template>
+<script setup>
+useHead({
+  titleTemplate: '%s - Adewale Abati',
+})
+</script>
