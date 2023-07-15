@@ -47,8 +47,46 @@ const { data } = await useAsyncData(`content-${path}`, () => {
   return queryContent().where({ _path: path }).findOne()
 })
 
-useHead({
+onMounted(async () => {
+  useHead({
   titleTemplate: '%s - Adewale Abati',
+  link: [
+      {
+        rel: "canonical",
+        content: "https://adewaleabati.com" + path,
+      },
+      {
+        rel: "stylesheet",
+        href: "https://github.githubassets.com/assets/gist-embed-d89dc96f3ab6372bb73ee45cafdd0711.css",
+        crossorigin: ''
+      }
+    ],
+    meta: [
+      {
+        name: 'description',
+        content: data.description
+      },
+      {
+        key: 'og:title',
+        property: 'og:title',
+        content: data.title,
+      },
+      {
+        key: 'og:description',
+        property: 'og:description',
+        content: data.description,
+      },
+      {
+        key: 'og:image',
+        property: 'og:image',
+        content: "https://res.cloudinary.com/acekyd/image/upload/c_fit,e_colorize:100,g_north_west,l_text:open sans_80:"+ encodeURIComponent(data.title) +",w_900,x_60,y_100/v1657896963/blog-thumbnail_plityt.png",
+      }
+    ],
+  script: [
+    'https://platform.twitter.com/widgets.js',
+  ]
 })
+});
+
 
 </script>

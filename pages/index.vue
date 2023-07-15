@@ -158,8 +158,3 @@
   }
 }
 </style>
-<script setup>
-useHead({
-  titleTemplate: 'Adewale Abati - Web Engineer & Developer Advocate',
-})
-</script>
