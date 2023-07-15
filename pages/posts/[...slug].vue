@@ -36,6 +36,7 @@
     <article class="mt-4">
       <h1>{{ data.title }}</h1>
       <ContentDoc />
+      <DisqusComments :identifier="path"/>
     </article>
   </main>
 </template>

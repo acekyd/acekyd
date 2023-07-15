@@ -13,6 +13,7 @@
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@types/node": "^18.15.12",
     "nuxt": "^3.5.2",
+    "nuxt-disqus": "^1.0.1",
     "nuxt-gtag": "^0.5.7",
     "sass": "^1.63.6",
     "sass-loader": "^13.3.2",
