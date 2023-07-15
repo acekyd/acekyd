@@ -26,6 +26,10 @@
 import type { QueryBuilderParams } from '@nuxt/content/dist/runtime/types'
 const query: QueryBuilderParams = { path: '/posts', limit: 30, sort: [{ date: -1 }] }
 
+useHead({
+  titleTemplate: 'Blog - Adewale Abati',
+})
+
 </script>
 <style scoped>
     .article-list a {
