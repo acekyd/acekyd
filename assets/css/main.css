@@ -8,10 +8,15 @@
     }
 
     .card {
-        @apply p-3 rounded-md bg-white shadow-md h-full;
+        @apply p-3 rounded-md bg-white h-full mb-3 hover:cursor-pointer hover:bg-pink-50 no-underline;
     }
 
     a {
         @apply underline underline-offset-8 hover:bg-amber-100 hover:decoration-4 decoration-pink-500;
     }
+
+    a > p {
+        text-decoration-line: none;
+    } 
+    
 }
