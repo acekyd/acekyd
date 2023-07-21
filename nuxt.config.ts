@@ -21,5 +21,10 @@ export default defineNuxtConfig({
   },
   disqus: {
     shortname: "acekyd-github"
+  },
+  nitro: {
+    prerender: {
+      routes: ['/rss.xml'],
+    },
   }
 });

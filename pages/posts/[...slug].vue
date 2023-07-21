@@ -45,10 +45,9 @@ const { path } = useRoute()
 
 const { data } = await useAsyncData(`content-${path}`, () => {
   return queryContent().where({ _path: path }).findOne()
-})
+});
 
-onMounted(async () => {
-  useHead({
+useHead({
   titleTemplate: '%s - Adewale Abati',
   link: [
       {
@@ -64,29 +63,27 @@ onMounted(async () => {
     meta: [
       {
         name: 'description',
-        content: data.description
+        content: data.value.description
       },
       {
         key: 'og:title',
         property: 'og:title',
-        content: data.title,
+        content: data.value.title,
       },
       {
         key: 'og:description',
         property: 'og:description',
-        content: data.description,
+        content: data.value.description,
       },
       {
         key: 'og:image',
         property: 'og:image',
-        content: "https://res.cloudinary.com/acekyd/image/upload/c_fit,e_colorize:100,g_north_west,l_text:open sans_80:"+ encodeURIComponent(data.title) +",w_900,x_60,y_100/v1657896963/blog-thumbnail_plityt.png",
+        content: "https://res.cloudinary.com/acekyd/image/upload/c_fit,e_colorize:100,g_north_west,l_text:open sans_80:"+ encodeURIComponent(data.value.title) +",w_900,x_60,y_100/v1657896963/blog-thumbnail_plityt.png",
       }
     ],
   script: [
     'https://platform.twitter.com/widgets.js',
   ]
-})
 });
-
 
 </script>

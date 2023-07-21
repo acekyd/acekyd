@@ -1,5 +1,8 @@
 <template>
   <div>
+    <Head>
+      <Link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
+    </Head>
     <NuxtPage />
   </div>
 </template>
