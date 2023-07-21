@@ -39,7 +39,7 @@
         <template #not-found>
         <h4>Ooops! Looks like that document doesn't exist.</h4>
       </template>
-      </ContentDoc> />
+      </ContentDoc>
       <DisqusComments :identifier="path"/>
     </article>
   </main>
