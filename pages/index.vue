@@ -5,7 +5,7 @@
     id="landing"
     class="author"
   >
-    <img alt="logo image" class="logo__image" src="logo.png" blur="5" />
+    <img alt="logo image" class="logo__image" src="/logo.png" blur="5" />
 
     <p class="author__intro">
       Hello! I'm
