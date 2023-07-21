@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .btn {
+        @apply bg-[#12b488] text-white px-3 py-2 rounded-md text-sm text-white;
+    }
+
+    .card {
+        @apply p-3 rounded-md bg-white h-full mb-3 hover:cursor-pointer hover:bg-pink-50 no-underline;
+    }
+
+    a {
+        @apply underline underline-offset-8 hover:bg-amber-100 hover:decoration-4 decoration-pink-500;
+    }
+
+    a > p {
+        text-decoration-line: none;
+    } 
+    
+}
