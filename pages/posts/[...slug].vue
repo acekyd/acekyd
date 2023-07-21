@@ -35,16 +35,21 @@
     </section>
     <article class="mt-4">
       <h1>{{ data.title }}</h1>
-      <ContentDoc />
+      <ContentDoc>
+        <template #not-found>
+        <h4>Ooops! Looks like that document doesn't exist.</h4>
+      </template>
+      </ContentDoc> />
       <DisqusComments :identifier="path"/>
     </article>
   </main>
 </template>
 <script setup>
-const { path } = useRoute()
+const { path } = useRoute();
+const cleanedPath = path.replace(/\/$/, '') // temporary hack for trailing slashes.
 
-const { data } = await useAsyncData(`content-${path}`, () => {
-  return queryContent().where({ _path: path }).findOne()
+const { data } = await useAsyncData(`content-${cleanedPath}`, () => {
+  return queryContent().where({ _path: cleanedPath }).findOne()
 });
 
 useHead({
