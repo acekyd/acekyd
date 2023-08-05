@@ -134,6 +134,7 @@
 
   .small {
     font-size: 0.8em;
+    line-height: 1.7rem;
   }
 
   .menu a {
