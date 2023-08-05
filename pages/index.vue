@@ -109,6 +109,11 @@
     <br />
   </div>
 </template>
+<script setup>
+useHead({
+  titleTemplate: 'Adewale Abati - Web Engineer & Developer Advocate',
+});
+</script>
 <style lang="scss" scoped>
 #landing.author {
   margin: 10vh 10vw;
