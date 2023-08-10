@@ -5,7 +5,7 @@ published: true
 tags: ['Developer Relations', 'Announcement']
 canonical_url: true
 description: Becoming an Auth0 Ambassador and what it means to be one. 
-cover_image: ./images/new-auth0-ambassador/banner.jpg
+cover_image: ../images/new-auth0-ambassador/banner.jpg
 ---
 
 I've always found ambassador programs as volunteer programs in which one is presented a platform to learn and have access to certain resources that they can use to grow through sharing with, and empowering other people with these resources.

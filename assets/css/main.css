@@ -18,5 +18,9 @@
     a > p {
         text-decoration-line: none;
     } 
+
+    .content-body img {
+        width: 100%;
+    }
     
 }

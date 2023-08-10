@@ -13,7 +13,7 @@ Earlier this year, at the [Open Source Community Africa Festival](https://festiv
  
 In this talk, I highlighted most especially that regardless of public noise, the people you've worked or interacted with would continue to have an impact on your career growth and being able to speak for you. I shared this talk recently on YouTube.
 
-https://www.youtube.com/watch?v=BC_P6oAZ1qg
+:youtube{id="BC_P6oAZ1qg"}
 
 &nbsp;  
 A while back, Prosper wrote an article about [Who is speaking on your behalf?](https://dev.to/unicodeveloper/who-is-speaking-on-your-behalf-2c5e), where he also highlighted the importance of other people being able to weigh in to have an impact on your career.
