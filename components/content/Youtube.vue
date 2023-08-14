@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<iframe :src="'http://www.youtube.com/embed/' + id"
+		<iframe :src="'https://www.youtube.com/embed/' + id"
    width="100%" height="400px" frameborder="0" allowfullscreen></iframe>
 	</div>
 </template>
