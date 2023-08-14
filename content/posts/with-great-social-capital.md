@@ -7,8 +7,6 @@ canonical_url: true
 description: "As we strive to build and establish our social capital, recent happenings have showed how much responsibility comes as a result."
 ---
 
-<script async src=" https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
 Earlier this year, at the [Open Source Community Africa Festival](https://festival.oscafrica.org/), I gave a talk about Social currency, it's importance and the kind of impact it can have on your network and subsequently, your career. 
  
 In this talk, I highlighted most especially that regardless of public noise, the people you've worked or interacted with would continue to have an impact on your career growth and being able to speak for you. I shared this talk recently on YouTube.
