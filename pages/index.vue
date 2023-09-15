@@ -22,30 +22,25 @@
       and playing
       <a href="https://www.twitch.tv/elpunish3rr">video games</a>.<br /><br />
 
-      I'm currently open to new opportunities to learn and build exciting things, touch lives and make a global impact. 
-      You can contact me via 
-      <a
-        href="https://twitter.com/ace_kyd/"
-        aria-label="Adewale on Twitter"
-        target="_blank"
-        rel="noopener"
-      >Twitter</a>
-       or 
-      <a
-        href="https://www.linkedin.com/in/acekyd/"
-        aria-label="Adewale on LinkedIn"
-        target="_blank"
-        rel="noopener"
-      >
-      LinkedIn.
-      </a>
+      I'm currently helping to build and shape a decentralized future for the
+      web and internet at
+      <a href="https://tbd.website/" target="_blank">TBD</a>.
     </p>
 
     <p class="author_links small">
-      Previously: <a href="https://codesandbox.io/" target="_blank" rel="noopener">CodeSandbox</a>,
-      <a href="https://flutterwave.com/" target="_blank" rel="noopener">Flutterwave</a>,
-      <a href="https://ingressive.org/" target="_blank" rel="noopener">Ingressive</a>,
-      <a href="http://www.withpropel.com/" target="_blank" rel="noopener">Hirefreehands (Propel)</a>,
+      Previously:
+      <a href="https://codesandbox.io/" target="_blank" rel="noopener"
+        >CodeSandbox</a
+      >,
+      <a href="https://flutterwave.com/" target="_blank" rel="noopener"
+        >Flutterwave</a
+      >,
+      <a href="https://ingressive.org/" target="_blank" rel="noopener"
+        >Ingressive</a
+      >,
+      <a href="http://www.withpropel.com/" target="_blank" rel="noopener"
+        >Hirefreehands (Propel)</a
+      >,
       <a href="https://hotels.ng" target="_blank" rel="noopener">HotelsNG</a>
     </p>
     <br />
@@ -102,7 +97,7 @@
     </p>
 
     <p class="author_links menu">
-      <NuxtLink to="/posts">blog</NuxtLink> 
+      <NuxtLink to="/posts">blog</NuxtLink>
       <NuxtLink to="/talks">talks</NuxtLink>
       <NuxtLink to="/projects">projects</NuxtLink>
     </p>
@@ -111,7 +106,7 @@
 </template>
 <script setup>
 useHead({
-  titleTemplate: 'Adewale Abati - Web Engineer & Developer Advocate',
+  titleTemplate: "Adewale Abati - Web Engineer & Developer Advocate",
 });
 </script>
 <style lang="scss" scoped>
