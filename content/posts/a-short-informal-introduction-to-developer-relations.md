@@ -4,7 +4,7 @@ date: 2021-01-10
 published: true
 tags: ['Developer Relations', 'Developer Tools']
 canonical_url: true
-description: 
+description:
 cover_image: https://devlogic.acekyd.com/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fres%2Fhashnode%2Fimage%2Fupload%2Fv1610286241989%2FP0a3CL3Hl.jpeg%3Fw%3D1600%26h%3D840%26fit%3Dcrop%26crop%3Dentropy%26auto%3Dcompress%2Cformat%26format%3Dwebp&w=3840&q=75
 ---
 
@@ -26,7 +26,7 @@ We maintain a line of communication with members of the general community that u
 
 The role is different in many companies and can be pretty broad. Some companies consider Developer Relations as developer marketing so that would also influence how the role is perceived.
 
-In most cases, there is usually a team called the Developer Relations team and in there, you could have: 
+In most cases, there is usually a team called the Developer Relations team and in there, you could have:
 
 - Developer Advocates: People focused mostly on public speaking, technical writing, documentation and other advocacy tasks. Can also include engineering and more.
 
@@ -46,8 +46,7 @@ With this step, you are able to identify which aspect of Developer Relations act
 
 PS: I'm looking to generally assist or provide a platform for people to be able to get into this role. I sent out a tweet to this effect and I'm looking forward to connecting with people that are looking to get into the role. It's also great that other people experienced in the role are also offering assistance so check out the thread.
 
-
-https://twitter.com/ace_kyd/status/1347846864541016064?s=21&t=dn9eizjVWPuXdeSdtAuLvA
+:tweet{tweetId="1347846864541016064"}
 
 ## Hard things about the role.
 
