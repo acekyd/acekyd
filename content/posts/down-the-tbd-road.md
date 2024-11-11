@@ -19,17 +19,19 @@ Since that time, I've worked at TBD - a business unit at Block - and I've talked
 
 All three of which are technologies being developed by standard bodies outside of TBD itself.
 
-Just recently, it was announced that the TBD business unit at Block would be shut down, but thankfully, this doesn't mean the end of these technologies. They continue to be out there and the projects and SDKs that we've built at TBD are also open source.
-
 :tweet{tweetId="1854714376047005878"}
+
+Just recently however, it was announced that the TBD business unit at Block would be winding down. Sad news, but thankfully, this doesn't mean the end of these technologies. They continue to be out there and the projects and SDKs that we've built at TBD are also open source.
 
 :tweet{tweetId="1855074773933461885"}
 
-With TBD shutting down, it does affect another project I've been talking about for a while - tbDEX. tbDEX was intended to make use of some of the technologies above to help build a connected financial world - where everyone can move money across borders with way much ease. Sad to see it go.
+With TBD winding down, it does affect another project I've been talking about for a while - tbDEX. tbDEX was intended to make use of some of the technologies above to help build a connected financial world - where everyone can move money across borders with way much ease. Sad to see it go.
 
 ## What's next for me.
 
 While I may no longer work directly on these projects, I am still a member of the DevRel team at Block - and there are many more exciting projects that bring tremendous values to the ecosystem that I'm happy to talk about in the coming days.
+
+Block is still committed to open source technology, and you can keep up with everything we would be getting up to on the [Block Open Source Discord server](https://discord.gg/vsYaEbfYWc).
 
 Follow me, my friend.
 To glory at the end.
