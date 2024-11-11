@@ -4,14 +4,16 @@ date: 2024-11-11
 published: true
 tags: ['TBD', 'Web5', 'Block']
 canonical_url: true
-description: "TBD shuts down, but what does this mean for the projects we've been working on. And what does it mean for me?"
+description: "TBD winds down, but what does this mean for the projects we've been working on. And what does it mean for me?"
 ---
 
 A little over a year ago, I came across the term Web5 for the first time and got quite curious.
 
 Like many, the reaction included wondering what this entailed, what's the connection with web3, and is this another blockchain thing. But after a deep dive and catching up, I got excited at the possibilities - helped that I was also interviewing for a role at the time. :D
 
-Since that time, I've worked at TBD - a business unit at Block - and I've talked about these technologies that make up what we call Web5. Like many things, a name is just a label. The core pillars of Web5 actually lie in 3 amazing technologies:
+As a developer advocate, the possibility of helping to shape the future of the web and the internet as a whole, was beyond appealing.
+
+Since then, I've been working at TBD - a business unit at Block - and I've talked about these technologies that make up what we call Web5. Like many things, a name is just a label. The core pillars of Web5 actually lie in 3 amazing technologies:
 
 - A way for people to own and control their own identity across the web in [Decentralized Identifiers](https://www.w3.org/TR/did-core/)
 - A way to issue, hold and make claims about the authenticity, and validity of things in [Verifiable Credentials](https://www.w3.org/TR/vc-data-model-2.0/)
