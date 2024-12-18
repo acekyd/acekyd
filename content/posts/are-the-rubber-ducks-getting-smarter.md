@@ -1,10 +1,10 @@
 ---
 title: Are the rubber ducks getting smarter
-date: 2024-11-11
+date: 2024-12-18
 published: true
 tags: ['AI', 'programming', 'developer-tools']
 canonical_url: true
-description: "TBD winds down, but what does this mean for the projects we've been working on. And what does it mean for me?"
+description: "Like many people, the solution to a coding problem I’ve struggled with suddenly appears when I try to explain it to someone or something. Sometimes even while sleeping. How are new AI tools changing the way we debug and write code?"
 ---
 
 ![what is a rubber duck](../images/rubber-ducks-smarter/arthur-weasley-rubber-duck-gif.gif)
