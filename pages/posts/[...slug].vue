@@ -54,13 +54,29 @@ const { data } = await useAsyncData(`content-${cleanedPath}`, () => {
   return queryContent().where({ _path: cleanedPath }).findOne()
 });
 
+// Handle canonical URL logic
+const getCanonicalUrl = () => {
+  if (data.value.canonical_url === true || data.value.canonical_url === undefined) {
+    // Default to your site URL
+    return "https://adewaleabati.com" + path;
+  } else if (typeof data.value.canonical_url === 'string') {
+    // Use external canonical URL
+    return data.value.canonical_url;
+  } else {
+    // canonical_url is false, no canonical tag
+    return null;
+  }
+};
+
+const canonicalUrl = getCanonicalUrl();
+
 useHead({
   titleTemplate: '%s - Adewale Abati',
   link: [
-      {
+      ...(canonicalUrl ? [{
         rel: "canonical",
-        content: "https://adewaleabati.com" + path,
-      },
+        href: canonicalUrl,
+      }] : []),
       {
         rel: "stylesheet",
         href: "https://github.githubassets.com/assets/gist-embed-d89dc96f3ab6372bb73ee45cafdd0711.css",

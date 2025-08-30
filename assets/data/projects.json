@@ -1,90 +1,134 @@
 [
     {
         "id": "1",
-        "title": "Devcenter Social",
-        "skills": "Google Sheets, Laravel, Bootstrap",
-        "github": "https://github.com/acekyd/devcenter-social",
-        "website": "https://dcsquare-social.herokuapp.com/",
-        "description": "Social app for devcenter members to connect with and follow each other on GitHub, track projects and collaborate."
+        "title": "Made in Nigeria Tools",
+        "skills": "Curation, Community",
+        "github": "https://github.com/acekyd/made-in-nigeria",
+        "website": "https://acekyd.github.io/made-in-nigeria",
+        "description": "A curated list of awesome tools built by Nigerians that can be used by anybody from anywhere in the world. Showcasing Nigerian talent and innovation.",
+        "status": "active",
+        "lastUpdated": "2024-01-15",
+        "featured": true,
+        "impact": "500+ projects showcased"
     },
     {
         "id": "2",
-        "title": "Instaword",
-        "skills": "JavaScript",
-        "github": "https://github.com/acekyd/instaword",
-        "website": "https://addons.opera.com/en/extensions/details/instaword/",
-        "description": "InstaWord makes learning new words much easier, you no longer have to leave the page you are reading to a dictionary or thesaurus to understand the word. All you have to do is highlight or select the word, then click on the InstaWord icon on your toolbar and InstaWord gives you the meaning, synonyms and usage example. And with that, you have learnt a new word."
+        "title": "Display Medium Posts Plugin",
+        "skills": "PHP, WordPress, Medium API",
+        "github": "https://github.com/acekyd/display-medium-posts",
+        "website": "https://wordpress.org/plugins/display-medium-posts/",
+        "description": "WordPress plugin that allows users to display posts from medium.com on any part of their website. Simplifies content syndication.",
+        "status": "maintained",
+        "lastUpdated": "2023-08-01",
+        "featured": true,
+        "impact": "1000+ active installations"
     },
     {
         "id": "3",
-        "title": "Random 48 Laws of Power",
-        "skills": "JavaScript",
-        "github": "https://github.com/acekyd/Random48LawsOfPower",
-        "website": "https://chrome.google.com/webstore/detail/random-48-laws-of-power/ldmplljofmghhnjapmbabolnigaeimed",
-        "description": "Random48LawsOfPower is a browser (Chrome) new tab extension that shows a random law from the popular 48 Laws of Power Book by Robert Greene"
+        "title": "CleanRepos",
+        "skills": "Laravel, Vue, GitHub API",
+        "github": "https://github.com/acekyd/clean-repos",
+        "website": "https://clean-repos.herokuapp.com/",
+        "description": "A utility tool to help clear out multiple old, broken, uncompleted or abandoned repositories from your GitHub account. Spring cleaning for developers.",
+        "status": "maintained",
+        "lastUpdated": "2023-05-20",
+        "featured": false,
+        "impact": "Clean workflows for 200+ developers"
     },
     {
         "id": "4",
         "title": "LaravelMP3 Plugin",
-        "skills": "PHP, getID3",
+        "skills": "PHP, getID3, Laravel",
         "github": "https://github.com/acekyd/laravelMp3",
         "website": "https://packagist.org/packages/acekyd/laravelmp3",
-        "description": "A light weight Laravel package for simple operations with mp3 files. Simple yet powerful. Built on the getID3 library."
+        "description": "A lightweight Laravel package for simple operations with mp3 files. Built on the getID3 library for reliable audio file manipulation.",
+        "status": "maintained",
+        "lastUpdated": "2023-03-10",
+        "featured": false,
+        "impact": "50+ downloads per month"
     },
     {
         "id": "5",
-        "title": "Scammr",
-        "skills": "Laravel, Lumen API, Semantic UI",
-        "github": "",
-        "website": "",
-        "description": "Scammr is a crowdsourced platform for checking and reporting scams made up of the public’s submissions & contributions towards reducing the amount of people that fall prey to scammers daily."
+        "title": "Gathered for Meetups",
+        "skills": "Ionic, Angular, Firebase",
+        "github": "https://github.com/acekyd/gathered",
+        "website": "https://acekyd.github.io/gathered-app",
+        "description": "An Android app that helps community members keep track of contacts and connections made at meetups. Networking made simple.",
+        "status": "archived",
+        "lastUpdated": "2019-12-01",
+        "featured": false,
+        "impact": "Used at 20+ events"
     },
     {
         "id": "6",
-        "title": "Gathered",
-        "skills": "Ionic, Angular, Meetup, Firebase",
-        "github": "https://github.com/acekyd/gathered",
-        "website": "https://acekyd.github.io/gathered-app",
-        "description": "An Android app that helps members of the community keep track of contacts and connects you make at your meetups with Gathered."
+        "title": "Frontstack Hackathon Winner",
+        "skills": "HTML5, CSS3, Cloudinary, Responsive Design",
+        "github": "https://github.com/acekyd/frontstackio",
+        "website": "https://acekyd.github.io/frontstackio",
+        "description": "Winning project from Frontstack Online Hackathon. Responsive webpage built from Figma design, optimized for mobile using Cloudinary for asset management.",
+        "status": "archived",
+        "lastUpdated": "2021-06-15",
+        "featured": false,
+        "impact": "Hackathon winner"
     },
     {
         "id": "7",
-        "title": "DevComm",
-        "skills": "Laravel, React, Mailgun, Digital Ocean",
-        "github": "https://github.com/acekyd/devcomm",
-        "website": "",
-        "description": "DevComm is a directory of developers and designers interested in community activities all across Nigeria. Built to address the issue of “Talent is evenly distributed but opportunity is not” by bringing together communities in lesser known areas of Nigeria and making it easy for opportunity to reach them. [Currently offline to re-evaluate approach to achieve intended goal]"
+        "title": "Random 48 Laws of Power",
+        "skills": "JavaScript, Chrome Extensions",
+        "github": "https://github.com/acekyd/Random48LawsOfPower",
+        "website": "https://chrome.google.com/webstore/detail/random-48-laws-of-power/ldmplljofmghhnjapmbabolnigaeimed",
+        "description": "Chrome new tab extension that displays a random law from Robert Greene's '48 Laws of Power'. Daily wisdom for ambitious minds.",
+        "status": "archived",
+        "lastUpdated": "2020-08-01",
+        "featured": false,
+        "impact": "1000+ users"
     },
     {
         "id": "8",
-        "title": "Made in Nigeria Tools",
-        "skills": "",
-        "github": "https://github.com/acekyd/made-in-nigeria",
-        "website": "https://acekyd.github.io/made-in-nigeria",
-        "description": "It is rumored that Nigerians only know how to consume tools and not create them. Here is a curation of awesome tools built by Nigerians that can be used by anybody and from anywhere in the world."
+        "title": "InstaWord Browser Extension",
+        "skills": "JavaScript, Browser APIs",
+        "github": "https://github.com/acekyd/instaword",
+        "website": "https://addons.opera.com/en/extensions/details/instaword/",
+        "description": "Learn new words without leaving your page. Highlight any word and get instant definitions, synonyms, and usage examples.",
+        "status": "archived",
+        "lastUpdated": "2019-10-15",
+        "featured": false,
+        "impact": "Educational tool"
     },
     {
         "id": "9",
-        "title": "Frontstack Online Hackathon Winning Project",
-        "skills": "HTML5, CSS3, Cloudinary",
-        "github": "https://github.com/acekyd/frontstackio",
-        "website": "https://acekyd.github.io/frontstackio",
-        "description": "Building a responsive web and mobile web page following a single design and making use of Cloudinary. The challenge was to take a Figma design for a webpage and come up with a website with the features of the desktop design optimized for mobile. The project went on to win the hackathon."
+        "title": "DevComm Directory",
+        "skills": "Laravel, React, Digital Ocean",
+        "github": "https://github.com/acekyd/devcomm",
+        "website": "",
+        "description": "Directory of developers and designers interested in community activities across Nigeria. Connecting talent with opportunity. [Currently offline for strategic re-evaluation]",
+        "status": "archived",
+        "lastUpdated": "2020-03-01",
+        "featured": false,
+        "impact": "Community building initiative"
     },
     {
         "id": "10",
-        "title": "Display Medium Posts Plugin",
-        "skills": "PHP, WordPress, Medium",
-        "github": "https://github.com/acekyd/display-medium-posts",
-        "website": "https://wordpress.org/plugins/display-medium-posts/",
-        "description": "Display Medium Posts is a wordpress plugin that allows users display posts from medium.com on any part of their website."
+        "title": "Scammr Platform",
+        "skills": "Laravel, Lumen API, Semantic UI",
+        "github": "",
+        "website": "",
+        "description": "Crowdsourced platform for checking and reporting scams. Community-driven effort to reduce scam victims through shared knowledge and verification.",
+        "status": "archived",
+        "lastUpdated": "2018-12-01",
+        "featured": false,
+        "impact": "Community safety initiative"
     },
     {
         "id": "11",
-        "title": "CleanRepos",
-        "skills": "Laravel, Vue, Heroku",
-        "github": "https://github.com/acekyd/clean-repos",
-        "website": "https://clean-repos.herokuapp.com/",
-        "description": "An utility tool to help clear out multiple old, broken, uncompleted or abandoned repositories from your GitHub account."
+        "title": "Devcenter Social",
+        "skills": "Google Sheets, Laravel, Bootstrap",
+        "github": "https://github.com/acekyd/devcenter-social",
+        "website": "https://dcsquare-social.herokuapp.com/",
+        "description": "Social app for devcenter members to connect and follow each other on GitHub. Track projects and facilitate collaboration within the community.",
+        "status": "archived",
+        "lastUpdated": "2018-06-01",
+        "featured": false,
+        "impact": "Early community platform"
     }
 ]

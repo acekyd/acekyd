@@ -35,9 +35,21 @@ useHead({
     .article-list a {
         text-decoration: none;
         margin-top: 10px;
+        transition: all 0.3s ease;
 
         span {
             font-weight: normal;
         }
+    }
+
+    .article-list a:hover .article-item {
+        background-color: rgba(18, 180, 136, 0.05);
+        border-left: 4px solid #12b488;
+        padding-left: 1rem;
+        transform: translateX(8px);
+    }
+
+    .article-list a:hover h4 {
+        color: #12b488;
     }
 </style>
