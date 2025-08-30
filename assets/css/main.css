@@ -10,13 +10,6 @@
     body {
         @apply bg-gray-50 text-gray-900 transition-colors duration-300;
     }
-    
-    /* Dark mode support */
-    @media (prefers-color-scheme: dark) {
-        body {
-            @apply bg-gray-900 text-gray-100;
-        }
-    }
 }
 
 @layer components {
@@ -24,24 +17,12 @@
         @apply bg-[#12b488] text-white px-3 py-2 rounded-md text-sm hover:bg-[#0ea478] transition-colors duration-200;
     }
 
-    .card {
-        @apply p-4 rounded-lg bg-white shadow-sm border border-gray-100 mb-4 hover:shadow-md transition-all duration-300;
-    }
-    
-    @media (prefers-color-scheme: dark) {
-        .card {
-            @apply bg-gray-800 border-gray-700;
-        }
+     .card {
+        @apply p-3 rounded-md bg-white h-full mb-3 hover:cursor-pointer hover:bg-pink-50 no-underline;
     }
 
     a {
         @apply underline underline-offset-4 hover:bg-amber-100 hover:decoration-2 decoration-pink-500 transition-all duration-200;
-    }
-    
-    @media (prefers-color-scheme: dark) {
-        a {
-            @apply hover:bg-gray-700;
-        }
     }
 
     a > p {
@@ -65,16 +46,6 @@
     
     .pageSubtitle {
         @apply text-lg text-gray-600 mb-8;
-    }
-    
-    @media (prefers-color-scheme: dark) {
-        .pageTitle {
-            @apply text-gray-100;
-        }
-        
-        .pageSubtitle {
-            @apply text-gray-300;
-        }
     }
     
     /* Loading animation */

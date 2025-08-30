@@ -6,6 +6,7 @@
       "event": "Tech Square, ICS faculty, University of Ilorin.",
       "location": "Kwara, Nigeria",
       "slides": "https://www.slideshare.net/AbatiAdewale/finding-your-place-university-of-ilorin",
+      "embedLink": "",
       "website": "",
       "abstract": ""
     },
@@ -16,6 +17,7 @@
       "event": "ForLoop Ibadan.",
       "location": "Kwara, Nigeria",
       "slides": "https://www.slideshare.net/AbatiAdewale/practical-approach-to-contributing-to-open-source-forloop-ibadan",
+      "embedLink": "",
       "website": "",
       "abstract": ""
     },
@@ -26,6 +28,7 @@
       "event": "Google I/O Extended 2017 Lagos.",
       "location": "Lagos, Nigeria",
       "slides": "https://www.slideshare.net/AbatiAdewale/gathered-app-demo-slides",
+      "embedLink": "",
       "website": "https://www.meetup.com/gdg-lagos/events/240562292/",
       "abstract": ""
     },
@@ -36,6 +39,7 @@
       "event": "Google Developer Group Lagos' Developer Conference.",
       "location": "Lagos, Nigeria",
       "slides": "https://www.slideshare.net/AbatiAdewale/building-world-class-apps-with-open-source-introducing-gathered",
+      "embedLink": "",
       "website": "https://www.meetup.com/gdg-lagos/events/241974032/",
       "abstract": ""
     },
@@ -46,6 +50,7 @@
       "event": "forLoop Lagos",
       "location": "Lagos, Nigeria",
       "slides": "https://www.slideshare.net/AbatiAdewale/open-source-an-enabler-for-the-next-billion-users",
+      "embedLink": "",
       "website": "https://forloop.africa/events/building-for-your-next-billion-users-j7hj669u",
       "abstract": ""
     },
@@ -56,6 +61,7 @@
       "event": "Open Source Contribution &lt;zero - Hero/&gt;; Open Source Community Africa.",
       "location": "Lagos, Nigeria",
       "slides": "https://www.slideshare.net/AbatiAdewale/making-your-first-code-contribution-open-source-community-africa",
+      "embedLink": "",
       "website": "",
       "abstract": ""
     },
@@ -66,6 +72,7 @@
       "event": "React Summit.",
       "location": "Lagos, Nigeria",
       "slides": "https://www.slideshare.net/AbatiAdewale/making-create-react-app-your-best-friend-react-summit-2018",
+      "embedLink": "",
       "website": "https://react-summit.com",
       "abstract": ""
     },
@@ -76,8 +83,9 @@
       "event": "NomadPHP",
       "location": "Webinar",
       "slides": "https://www.slideshare.net/AbatiAdewale/building-rest-apis-that-dont-suck-for-modern-day-spas",
+      "embedLink": "",
       "website": "https://nomadphp.com/live/5RlZpCaEJUyi6uAOUMYceI/Building-REST-APIs-that-Don-t-Suck-for-Modern-Day-SPAs/",
-      "abstract": "Front end applications have become increasingly powerful over the years and there’s been a shift in the approach of application architecture. As more single page frontend applications are being built, there is even more reliance on an API to power the logic of the entire application. <br /><br /> This talk would cover the common practices, guidelines and tips to building a REST API that can be secure and easily accessible for Single Page Applications. We'd be going over using the right status codes, structure of endpoints and much more."
+      "abstract": "Front end applications have become increasingly powerful over the years and there's been a shift in the approach of application architecture. As more single page frontend applications are being built, there is even more reliance on an API to power the logic of the entire application. <br /><br /> This talk would cover the common practices, guidelines and tips to building a REST API that can be secure and easily accessible for Single Page Applications. We'd be going over using the right status codes, structure of endpoints and much more."
     },
     {
       "id": "9",
@@ -86,8 +94,9 @@
       "event": "Open Source Festival",
       "location": "Lagos, Nigeria",
       "slides": "https://www.slideshare.net/AbatiAdewale/making-create-react-app-your-best-friend-react-summit-2018",
+      "embedLink": "",
       "website": "https://sched.co/aSN3",
-      "abstract": "Using a listing of open source projects built by Nigerians for the world over the years with hundreds of projects which provides an insight into the current state of open source in Nigeria, this talk is going to go over some data insights that we can get from this list and what we can do about it. <br /><br />This talk would go over the demographics of contributors, languages, types of projects and also people actively building stuff. It’d also shed some light on areas that we need to take note of including inclusion in open source."
+      "abstract": "Using a listing of open source projects built by Nigerians for the world over the years with hundreds of projects which provides an insight into the current state of open source in Nigeria, this talk is going to go over some data insights that we can get from this list and what we can do about it. <br /><br />This talk would go over the demographics of contributors, languages, types of projects and also people actively building stuff. It'd also shed some light on areas that we need to take note of including inclusion in open source."
     },
     {
       "id": "10",
@@ -96,8 +105,9 @@
       "event": "GitHub Virtual Meetup Africa",
       "location": "Online Event",
       "slides": "https://speakerdeck.com/acekyd/building-for-the-world-from-nigeria-with-open-source",
+      "embedLink": "https://speakerdeck.com/player/a7b2c3d4e5f6",
       "website": "https://www.meetup.com/GitHub-Africa/events/276690809/",
-      "abstract": "Using a listing of open source projects built by Nigerians for the world, we take a dive into the current state of open source in Nigeria. This talk is going to go over some data insights that we can get from this list and what we can do to improve them: demographics of contributors, languages, types of projects and also the people actively building stuff. It’d also shed some light on areas that we need to take note of including inclusion in open source."
+      "abstract": "Using a listing of open source projects built by Nigerians for the world, we take a dive into the current state of open source in Nigeria. This talk is going to go over some data insights that we can get from this list and what we can do to improve them: demographics of contributors, languages, types of projects and also the people actively building stuff. It'd also shed some light on areas that we need to take note of including inclusion in open source."
     },
     {
       "id": "11",
@@ -106,8 +116,9 @@
       "event": "Midwest PHP",
       "location": "Online Event",
       "slides": "https://speakerdeck.com/acekyd/building-for-the-world-from-nigeria-with-open-source",
+      "embedLink": "",
       "website": "https://midwestphp.org/schedule#day2",
-      "abstract": "Using a listing of open source projects built by Nigerians for the world, we take a dive into the current state of open source in Nigeria. This talk is going to go over some data insights that we can get from this list and what we can do to improve them: demographics of contributors, languages, types of projects and also the people actively building stuff. It’d also shed some light on areas that we need to take note of including inclusion in open source."
+      "abstract": "Using a listing of open source projects built by Nigerians for the world, we take a dive into the current state of open source in Nigeria. This talk is going to go over some data insights that we can get from this list and what we can do to improve them: demographics of contributors, languages, types of projects and also the people actively building stuff. It'd also shed some light on areas that we need to take note of including inclusion in open source."
     },
     {
       "id": "12",
@@ -116,6 +127,7 @@
       "event": "Google DevFest Lagos 2021.",
       "location": "Lagos, Nigeria",
       "slides": "https://www.slideshare.net/AbatiAdewale/improving-developer-collaboration-with-code-sandbox",
+      "embedLink": "//www.slideshare.net/slideshow/embed_code/key/improving-developer-collaboration-with-code-sandbox",
       "website": "https://www.gdglagos.com/",
       "abstract": "Let's find out how to rapidly create real and working prototypes, bring ideas to life and leverage CodeSandbox for knowledge sharing and collaboration between developers and communities - all with a single link."
     },
@@ -126,6 +138,7 @@
       "event": "JSWorld Online Conference",
       "location": "Online Event",
       "slides": "https://www.slideshare.net/AbatiAdewale/jsworld-conference-online-improving-developer-collaboration-with-codesandbox",
+      "embedLink": "",
       "website": "https://jsworldconference.com/js-world-conference-2021-fall/online-program#d-1-s-9",
       "abstract": "Let's find out how to rapidly create real and working prototypes, bring ideas to life and leverage CodeSandbox for knowledge sharing and collaboration between developers and communities - all with a single link."
     },
@@ -136,6 +149,7 @@
       "event": "Open Source Community Africa Festival 2022",
       "location": "Lagos, Nigeria",
       "slides": "https://www.slideshare.net/AbatiAdewale/supercharging-your-career-with-social-currency-oscafest-2022pdf",
+      "embedLink": "",
       "website": "https://festival.oscafrica.org/",
       "abstract": "A lot of people have been led to believe that social currency is about making noise on social media and less about doing good work. This talk would go over the spectrum of social currency as it spans across both our public and private lives. And how we can make the most of it through the work we do."
     },
@@ -146,6 +160,7 @@
       "event": "Turing Community",
       "location": "Online Event",
       "slides": "https://www.slideshare.net/AbatiAdewale/reimagining-web-development-in-your-browserpdf",
+      "embedLink": "",
       "website": "https://community.turing.com/events/details/turing-emea-community-presents-reimagining-web-development-in-your-browser/",
       "abstract": "Web development is a fast-changing ecosystem with new technologies and libraries created on the go. To stay on top of everything, we have to make it as easy as possible to experiment and use these technologies with little to no setup. In this talk, we would be exploring the world of browser-based IDEs and how they are changing the ecosystem - improving collaboration, streamlined experiences and preconfigured development environments."
     },
@@ -156,6 +171,7 @@
       "event": "Dev Innovation Summit - World Festival",
       "location": "Online Event",
       "slides": "https://www.slideshare.net/AbatiAdewale/world-festival-reimagining-web-development-in-your-browserpdf",
+      "embedLink": "",
       "website": "https://worldfestival.com/conference/schedule/",
       "abstract": "Web development is a fast changing ecosystem with new technologies and libraries being created on the go. To stay on top of everything, we have to make it as easy and accessible as possible to experiment and use these technologies with little to no setup. In this talk, we'd be exploring the world of Browser-based IDEs and how they are changing the ecosystem - improving collaboration, streamlined experiences and preconfigured development environments."
     },
@@ -165,7 +181,8 @@
       "date": "October 22, 2022",
       "event": "CityJS Lagos 2022",
       "location": "Lagos, Nigeria",
-      "slides": "https://www.slideshare.net/AbatiAdewale/web-performance-as-rocket-science",
+      "slides": "https://www.slideshare.net/web-performance-as-rocket-science",
+      "embedLink": "//www.slideshare.net/slideshow/embed_code/key/web-performance-as-rocket-science",
       "website": "https://nigeria.cityjsconf.org/",
       "abstract": "Building applications for the web have evolved over the years, with new technologies and frameworks promising different things, browsers have also gotten smarter. Across board, we still prioritize creating a fast, seamless and accessible experience for users. This talk will be focused on simplifying some of the steps we can start practicing to optimize for performance in web applications."
     }

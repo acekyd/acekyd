@@ -37,10 +37,11 @@
                         </details>
                     </div>
                     
-                    <div class="talk-slides" v-if="talk.slides">
-                        <SlideShareEmbed 
-                            :slide-url="talk.slides" 
-                            :slide-title="talk.title"
+                    <div class="talk-slides" v-if="talk.embedLink">
+                        <TalkEmbed 
+                            :embed-url="talk.embedLink" 
+                            :slide-url="talk.slides"
+                            :embed-title="talk.title"
                         />
                     </div>
                     
@@ -62,6 +63,19 @@
 <script setup lang="ts">
 import Talks from "assets/data/talks.json";
 
+// Define the Talk interface to include the new embedLink field
+interface Talk {
+  id: string;
+  title: string;
+  date: string;
+  event: string;
+  location: string;
+  slides: string;
+  embedLink: string;
+  website: string;
+  abstract: string;
+}
+
 useHead({
   titleTemplate: 'Talks and Presentations - Adewale Abati',
   meta: [
@@ -72,8 +86,8 @@ useHead({
   ]
 })
 
-const reverseTalksList = () => {
-    return Talks.slice().reverse();
+const reverseTalksList = (): Talk[] => {
+    return (Talks as Talk[]).slice().reverse();
 }
 </script>
 <style scoped>
@@ -144,31 +158,7 @@ const reverseTalksList = () => {
   @apply bg-green-100 text-green-700 hover:bg-green-200;
 }
 
-@media (prefers-color-scheme: dark) {
-  .talk-card {
-    @apply bg-gray-800 border-gray-700;
-  }
-  
-  .talk-title {
-    @apply text-gray-100;
-  }
-  
-  .talk-event,
-  .talk-date,
-  .talk-location,
-  .abstract-toggle,
-  .abstract-content {
-    @apply text-gray-300;
-  }
-  
-  .abstract-toggle:hover {
-    @apply text-gray-100;
-  }
-  
-  .talk-links {
-    @apply border-gray-700;
-  }
-}
+
 
 @media (max-width: 768px) {
   .talk-meta {

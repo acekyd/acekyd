@@ -296,13 +296,7 @@ useHead({
     }
     
     .content-right {
-      order: -1;
-      padding-left: 0;
-    }
-    
-    .profile-image-container {
-      width: 150px;
-      height: 150px;
+      display: none; // Hide headshot section on mobile
     }
   }
 }

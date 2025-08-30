@@ -1,12 +1,12 @@
 <template>
-  <div class="slideshare-embed">
-    <div v-if="!showEmbed" class="slideshare-preview">
+  <div class="talk-embed">
+    <div v-if="!showEmbed" class="embed-preview">
       <div class="preview-content">
-        <div class="slideshare-icon">
+        <div class="embed-icon">
           <font-awesome-icon :icon="['fas', 'presentation']" />
         </div>
-        <h4 class="preview-title">{{ slideTitle || 'View Slides' }}</h4>
-        <p class="preview-description">Click to load the SlideShare presentation</p>
+        <h4 class="preview-title">{{ embedTitle || 'View Slides' }}</h4>
+        <p class="preview-description">Click to load the embedded presentation</p>
         <div class="preview-actions">
           <button @click="loadEmbed" class="load-embed-btn">
             <font-awesome-icon :icon="['fas', 'play']" />
@@ -14,13 +14,13 @@
           </button>
           <a :href="slideUrl" target="_blank" rel="noopener" class="direct-link-btn">
             <font-awesome-icon :icon="['fas', 'external-link-alt']" />
-            Open in SlideShare
+            Open Directly
           </a>
         </div>
       </div>
     </div>
     
-    <div v-else class="slideshare-container">
+    <div v-else class="embed-container">
       <iframe 
         :src="embedUrl" 
         width="100%" 
@@ -37,7 +37,7 @@
         <p>Unable to load the embedded presentation.</p>
         <a :href="slideUrl" target="_blank" rel="noopener" class="fallback-link">
           <font-awesome-icon :icon="['fas', 'external-link-alt']" />
-          View on SlideShare
+          View Directly
         </a>
       </div>
     </div>
@@ -46,27 +46,15 @@
 
 <script setup lang="ts">
 interface Props {
+  embedUrl: string
   slideUrl: string
-  slideTitle?: string
+  embedTitle?: string
 }
 
 const props = defineProps<Props>()
 
 const showEmbed = ref(false)
 const embedError = ref(false)
-
-// Extract SlideShare ID from URL for embed
-const getSlideShareId = (url: string): string => {
-  // Extract the last part of the URL which is typically the slide ID/slug
-  const parts = url.split('/')
-  return parts[parts.length - 1] || ''
-}
-
-const embedUrl = computed(() => {
-  const slideId = getSlideShareId(props.slideUrl)
-  // Try the embed URL format
-  return `https://www.slideshare.net/slideshow/embed_code/key/${slideId}`
-})
 
 const loadEmbed = () => {
   showEmbed.value = true
@@ -79,11 +67,11 @@ const handleEmbedError = () => {
 </script>
 
 <style scoped>
-.slideshare-embed {
+.talk-embed {
   @apply w-full my-6;
 }
 
-.slideshare-preview {
+.embed-preview {
   @apply bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-gray-400 transition-colors;
 }
 
@@ -91,7 +79,7 @@ const handleEmbedError = () => {
   @apply max-w-md mx-auto;
 }
 
-.slideshare-icon {
+.embed-icon {
   @apply text-4xl text-gray-400 mb-4;
 }
 
@@ -115,7 +103,7 @@ const handleEmbedError = () => {
   @apply w-full bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200 transition-colors flex items-center justify-center gap-2 no-underline;
 }
 
-.slideshare-container {
+.embed-container {
   @apply relative bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden;
 }
 

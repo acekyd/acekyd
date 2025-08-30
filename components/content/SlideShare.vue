@@ -98,21 +98,5 @@ const loadEmbed = () => {
   @apply absolute top-0 left-0 w-full h-full rounded-lg;
 }
 
-@media (prefers-color-scheme: dark) {
-  .embed-placeholder {
-    @apply bg-gradient-to-r from-gray-800 to-gray-700 border-gray-600;
-  }
-  
-  .embed-placeholder:hover {
-    @apply bg-gradient-to-r from-gray-700 to-gray-600 border-gray-500;
-  }
-  
-  .placeholder-content h4 {
-    @apply text-gray-200;
-  }
-  
-  .placeholder-content p {
-    @apply text-gray-400;
-  }
-}
+
 </style>
