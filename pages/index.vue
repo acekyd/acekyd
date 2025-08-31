@@ -115,8 +115,10 @@
           <NuxtLink to="/posts">blog</NuxtLink>
           <NuxtLink to="/talks">talks</NuxtLink>
           <NuxtLink to="/projects">projects</NuxtLink>
+          <!-- Temporarily hidden - Uses and Now pages
           <NuxtLink to="/uses">uses</NuxtLink>
           <NuxtLink to="/now">now</NuxtLink>
+          -->
         </p>
       </div>
 

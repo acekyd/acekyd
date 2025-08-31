@@ -16,12 +16,14 @@
                 <li>
                     <NuxtLink class="header__link" to="/projects">Projects</NuxtLink>
                 </li>
+                <!-- Temporarily hidden - Uses and Now pages
                 <li>
                     <NuxtLink class="header__link" to="/uses">Uses</NuxtLink>
                 </li>
                 <li>
                     <NuxtLink class="header__link" to="/now">Now</NuxtLink>
                 </li>
+                -->
                 </ul>
             </nav>
         </div>
