@@ -14,22 +14,24 @@
         <p class="author__intro">
           Hello! I'm
           <span class="highlight" itemprop="name">Adewale "Ace" Abati</span>—a
-          <span class="highlight" itemprop="jobTitle"
-            >Web Engineer and Staff Developer Advocate</span
-          > passionate about shaping how people use technology to create, solve real-world problems, and connect.<br /><br />
+          <span class="highlight" itemprop="jobTitle">Web Engineer and Staff Developer Advocate</span> making stuff that shapes how people use technology to create, solve real-world problems, and connect.<br /><br />
 
-          I thrive at the intersection of Agentic AI, 
-          <a href="https://github.com/acekyd" rel="noopener" target="_blank"
-            >open source</a
-          >, and community-driven innovation. At 
-          <a href="https://block.xyz/" target="_blank" rel="noopener">Block</a>, I help engineers and non-developers harness the power of AI in their workflows, making these tools accessible and transformative.<br /><br />
+          I'm currently immersed in the world of applied <a href="https://block.github.io/goose/blog/2025/01/28/introducing-codename-goose" target="_blank">Agentic AI</a>, 
+          <a href="https://github.com/acekyd" rel="noopener" target="_blank">open source</a>, 
+          and helping engineers & non-developers harness the power of AI in their workflows at <a href="https://block.xyz/" target="_blank" rel="noopener">Block</a>.
+
+          <br /><br />
 
           You'll find me building and sharing on 
           <a href="https://github.com/acekyd" rel="noopener" target="_blank">GitHub</a>, 
-          <a href="https://youtube.com/acekyd" rel="noopener" target="_blank">YouTube</a>, and occasionally unwinding on 
-          <a href="https://www.twitch.tv/elpunish3rr" rel="noopener" target="_blank">Twitch</a>. My journey is rooted in bringing diverse communities into tech, and I love mentoring, storytelling, and making complex topics approachable.<br /><br />
+          <a href="https://youtube.com/acekydtv" rel="noopener" target="_blank">YouTube</a>, 
 
-          Let's explore the infinite possibilities of technology together—whether you want to build, learn about AI, or just geek out over games and open source!
+          and occasionally learning and unwinding on <a href="https://instagram.com/acekydtv" rel="noopener" target="_blank">Instagram</a>, or livestreams on
+          <a href="https://www.twitch.tv/acekydtv" rel="noopener" target="_blank">Twitch</a>.
+
+          <br /><br />
+
+          Let's explore the infinite possibilities of technology together—whether you want to build, learn about AI, or just geek out over gadgets, video games, and anime!
         </p>
 
         <p class="author_links small">
@@ -68,7 +70,7 @@
             <font-awesome-icon :icon="['fab', 'twitter']" />
           </a>
           <a
-            href="https://twitch.tv/elpunish3rr/"
+            href="https://twitch.tv/acekydtv/"
             aria-label="Adewale on Twitch"
             target="_blank"
             rel="noopener"
@@ -84,20 +86,28 @@
             <font-awesome-icon :icon="['fab', 'linkedin']" />
           </a>
           <a
-            href="https://stackoverflow.com/users/1945274/acekyd"
-            aria-label="Adewale on StackOverflow"
-            target="_blank"
-            rel="noopener"
-          >
-            <font-awesome-icon :icon="['fab', 'stack-overflow']" />
-          </a>
-          <a
-            href="https://www.youtube.com/acekyd/"
+            href="https://www.youtube.com/acekydtv/"
             aria-label="Adewale on YouTube"
             target="_blank"
             rel="noopener"
           >
             <font-awesome-icon :icon="['fab', 'youtube']" />
+          </a>
+          <a
+            href="https://instagram.com/acekydtv"
+            aria-label="Adewale on Instagram"
+            target="_blank"
+            rel="noopener"
+          >
+            <font-awesome-icon :icon="['fab', 'instagram']" />
+          </a>
+          <a 
+            href="https://tiktok.com/@acekydtv"
+            aria-label="Adewale on TikTok"
+            target="_blank"
+            rel="noopener"
+          >
+            <font-awesome-icon :icon="['fab', 'tiktok']" />
           </a>
         </p>
 
@@ -123,7 +133,9 @@
           </div>
         </div>
         
-        <div class="newsletter-container">
+        <div class="newsletter-container text-center text-sm">
+          <!-- <p>Join 500+ subscribers dedicated to learning and pursuing creativity and excellence together.  </p>
+          <br /> -->
           <a 
             href="https://acekyd.substack.com" 
             target="_blank" 
