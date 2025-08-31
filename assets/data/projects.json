@@ -1,15 +1,15 @@
 [
     {
         "id": "1",
-        "title": "Made in Nigeria Tools",
+        "title": "Made in Nigeria Repo",
         "skills": "Curation, Community",
         "github": "https://github.com/acekyd/made-in-nigeria",
-        "website": "https://acekyd.github.io/made-in-nigeria",
+        "website": "https://madeinnigeria.dev/",
         "description": "A curated list of awesome tools built by Nigerians that can be used by anybody from anywhere in the world. Showcasing Nigerian talent and innovation.",
         "status": "active",
-        "lastUpdated": "2024-01-15",
+        "lastUpdated": "2025-07-30",
         "featured": true,
-        "impact": "500+ projects showcased"
+        "impact": "200+ projects showcased"
     },
     {
         "id": "2",
@@ -18,10 +18,10 @@
         "github": "https://github.com/acekyd/display-medium-posts",
         "website": "https://wordpress.org/plugins/display-medium-posts/",
         "description": "WordPress plugin that allows users to display posts from medium.com on any part of their website. Simplifies content syndication.",
-        "status": "maintained",
+        "status": "archived",
         "lastUpdated": "2023-08-01",
         "featured": true,
-        "impact": "1000+ active installations"
+        "impact": "25,000+ downloads"
     },
     {
         "id": "3",
@@ -33,7 +33,7 @@
         "status": "maintained",
         "lastUpdated": "2023-05-20",
         "featured": false,
-        "impact": "Clean workflows for 200+ developers"
+        "impact": "500+ users"
     },
     {
         "id": "4",
@@ -45,7 +45,7 @@
         "status": "maintained",
         "lastUpdated": "2023-03-10",
         "featured": false,
-        "impact": "50+ downloads per month"
+        "impact": "3,600+ downloads"
     },
     {
         "id": "5",
@@ -81,7 +81,7 @@
         "status": "archived",
         "lastUpdated": "2020-08-01",
         "featured": false,
-        "impact": "1000+ users"
+        "impact": "100+ active users + 4.9/5 rating"
     },
     {
         "id": "8",

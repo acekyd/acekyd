@@ -80,6 +80,10 @@
                                     <font-awesome-icon :icon="['fas', 'external-link-alt']" />
                                     Event
                                 </a>
+                                <WatchButton 
+                                    v-if="talk.video" 
+                                    :video-url="talk.video"
+                                />
                             </div>
                         </div>
                     </div>
@@ -101,6 +105,7 @@ interface Talk {
   slides: string;
   embedLink: string;
   website: string;
+  video?: string;
   abstract: string;
 }
 
