@@ -30,7 +30,7 @@ export default defineNuxtConfig({
   content: {
     highlight: {
       theme: {
-        default: "material-palenight",
+        default: "material-theme-palenight",
         dark: "github-dark",
       },
     },

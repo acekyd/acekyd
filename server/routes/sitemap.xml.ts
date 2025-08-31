@@ -7,16 +7,16 @@ export default defineEventHandler(async (event) => {
     { url: '/', priority: '1.0', changefreq: 'weekly' },
     { url: '/posts', priority: '0.8', changefreq: 'weekly' },
     { url: '/talks', priority: '0.8', changefreq: 'monthly' },
-    { url: '/projects', priority: '0.8', changefreq: 'monthly' },
-    { url: '/uses', priority: '0.6', changefreq: 'monthly' },
-    { url: '/now', priority: '0.7', changefreq: 'weekly' }
+    { url: '/projects', priority: '0.8', changefreq: 'monthly' }
+    // Temporarily removed uses and now pages
+    // { url: '/uses', priority: '0.6', changefreq: 'monthly' },
+    // { url: '/now', priority: '0.7', changefreq: 'weekly' }
   ]
   
-  // Get blog posts
-  const { $content } = useNuxtApp()
+  // Get blog posts using serverQueryContent
   let posts = []
   try {
-    posts = await $content('posts').where({ published: true }).find()
+    posts = await serverQueryContent(event, 'posts').where({ published: true }).find()
   } catch (error) {
     console.warn('Could not fetch posts for sitemap:', error)
   }
