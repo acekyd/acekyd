@@ -41,7 +41,9 @@ And I’m grateful to them for it.
 
 ## To be inspired
 
-I loved Timothee’s Chalamet’s speech talking about being in pursuit of greatness - I think that’s what makes greatness in the first place - the journey that backs up what you say - more than a destination. Choosing excellence every chance you get. The awards or recognitions don’t make you feel great, I believe it starts from the inside and the choices we make. 
+I loved [Timothee’s Chalamet’s speech](https://www.youtube.com/watch?v=UJzvwWzO1YI) talking about being in pursuit of greatness - I think that’s what makes greatness in the first place - the journey that backs up what you say - more than a destination. Choosing excellence every chance you get. The awards or recognitions don’t make you feel great, I believe it starts from the inside and the choices we make. 
+
+:youtube{#UJzvwWzO1YI}
 
 
 I’m as inspired by LeBron James, Lionel Messi, and Muhammad Ali as I am by my mother, my friends, family, and colleagues; as I am by [Angie Jones](https://www.linkedin.com/in/angiejones/), [Kelsey Hightower](https://www.linkedin.com/in/kelsey-hightower-849b342b1/); as I am by [Ogeh Ezeonu](https://www.instagram.com/ogehezeonu), [Ire Aderinokun](https://www.linkedin.com/in/iaderinokun) and [Prosper Otemuyiwa](https://www.linkedin.com/in/prosperotemuyiwa/); as I am by Rocky Balboa, Tony Stark, and the countless, random dreamers on the internet who keep pushing forward despite failure. I’m inspired by your pursuit of greatness.
