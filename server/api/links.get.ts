@@ -332,8 +332,8 @@ export default defineCachedEventHandler(
   {
     // Cache behavior is based on env vars at runtime.
     // (Nitro caching options currently expect a plain object.)
-    maxAge: Number(process.env.NOTION_LINKS_CACHE_MAX_AGE || 600),
-    staleMaxAge: Number(process.env.NOTION_LINKS_CACHE_STALE_MAX_AGE || 3600),
+    maxAge: 600,
+    staleMaxAge: 3600,
     name: 'notion-links'
   }
 )

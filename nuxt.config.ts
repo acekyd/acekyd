@@ -65,11 +65,16 @@ export default defineNuxtConfig({
     // Private runtime config (server-side only)
     // Netlify: set these in Site settings → Environment variables
     notion: {
-      token: process.env.NOTION_TOKEN,
-      linksDatabaseId: process.env.NOTION_LINKS_DATABASE_ID,
-      // Seconds
-      linksCacheMaxAge: Number(process.env.NOTION_LINKS_CACHE_MAX_AGE || 600),
-      linksCacheStaleMaxAge: Number(process.env.NOTION_LINKS_CACHE_STALE_MAX_AGE || 3600)
+      // IMPORTANT:
+      // Do NOT read secrets via `process.env.*` here — Nuxt/Nitro can inline them into the built server bundle.
+      // Instead, provide safe defaults and override at runtime via env vars:
+      // - NUXT_NOTION__TOKEN
+      // - NUXT_NOTION__LINKS_DATABASE_ID
+      token: '',
+      linksDatabaseId: '',
+      // Seconds (not secret)
+      linksCacheMaxAge: 600,
+      linksCacheStaleMaxAge: 3600
     },
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://adewaleabati.com'
