@@ -162,14 +162,23 @@ export default defineCachedEventHandler(
 
     const config = useRuntimeConfig(event) as any
 
-    const token = config.notion?.token
-    const databaseId = config.notion?.linksDatabaseId
+    // Read from runtimeConfig first (preferred), then fall back to runtime env vars.
+    // IMPORTANT: use bracket access to avoid any build-time env inlining.
+    const token =
+      config.notion?.token ||
+      process.env['NUXT_NOTION_TOKEN'] ||
+      process.env['NOTION_TOKEN']
+
+    const databaseId =
+      config.notion?.linksDatabaseId ||
+      process.env['NUXT_NOTION_LINKS_DATABASE_ID'] ||
+      process.env['NOTION_LINKS_DATABASE_ID']
 
     if (!token || !databaseId) {
       throw createError({
         statusCode: 500,
         statusMessage:
-          'Missing NOTION_TOKEN or NOTION_LINKS_DATABASE_ID (set in environment variables).'
+          'Missing Notion configuration. Set NUXT_NOTION_TOKEN and NUXT_NOTION_LINKS_DATABASE_ID (recommended), or NOTION_TOKEN and NOTION_LINKS_DATABASE_ID (fallback).'
       })
     }
 

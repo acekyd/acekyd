@@ -1,9 +1,9 @@
 <template>
-  <main class="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100">
+  <main class="min-h-screen bg-gray-50 text-gray-900">
     <section class="mx-auto w-full max-w-[520px] px-4 py-10">
       <!-- Top profile block -->
       <div class="text-center">
-        <div class="mx-auto h-20 w-20 overflow-hidden rounded-full border border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900">
+        <div class="mx-auto h-20 w-20 overflow-hidden rounded-full border border-gray-200 bg-white shadow-sm">
           <img
             alt="AceKYD"
             class="h-full w-full object-cover"
@@ -11,18 +11,18 @@
           />
         </div>
 
-        <h1 class="mt-4 text-2xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">
+        <h1 class="mt-4 text-2xl font-semibold tracking-tight text-gray-900">
           Adewale “Ace” Abati
         </h1>
-        <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">
+        <p class="mt-1 text-sm text-gray-600">
           Web Engineer • Developer Advocate • Open Source
         </p>
 
-        <div v-if="pending" class="mt-8 text-sm text-gray-500 dark:text-gray-400">
+        <div v-if="pending" class="mt-8 text-sm text-gray-500">
           Loading links…
         </div>
 
-        <div v-else-if="error" class="mt-8 rounded-xl border border-red-200 bg-red-50 p-4 text-left text-sm text-red-700 dark:border-red-900/50 dark:bg-red-950/30 dark:text-red-200">
+        <div v-else-if="error" class="mt-8 rounded-xl border border-red-200 bg-red-50 p-4 text-left text-sm text-red-700">
           Could not load links.
           <div class="mt-1 text-xs opacity-80">{{ errorMessage }}</div>
         </div>
@@ -36,19 +36,19 @@
             :href="primaryLink.url"
             target="_blank"
             rel="noopener"
-            class="group block rounded-2xl border border-emerald-200 bg-gradient-to-b from-emerald-50 to-white p-4 shadow-sm transition-all duration-200 hover:-translate-y-[1px] hover:shadow-md active:translate-y-0 dark:border-emerald-900/60 dark:from-emerald-950/30 dark:to-gray-950 no-underline hover:bg-transparent"
+            class="group block rounded-2xl border border-emerald-200 bg-gradient-to-b from-emerald-50 to-white p-4 shadow-sm transition-all duration-200 hover:-translate-y-[1px] hover:shadow-md active:translate-y-0 no-underline hover:bg-transparent"
           >
             <div class="flex items-center justify-between gap-4">
               <div class="min-w-0">
                 <div class="flex items-center gap-2">
-                  <span class="inline-flex items-center rounded-full bg-emerald-100 px-2 py-0.5 text-[11px] font-medium text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200">
+                  <span class="inline-flex items-center rounded-full bg-emerald-100 px-2 py-0.5 text-[11px] font-medium text-emerald-800">
                     Featured
                   </span>
                 </div>
                 <div class="mt-2 flex items-center gap-2">
                   <span
                     v-if="primaryLink.icon?.type === 'emoji'"
-                    class="inline-flex h-6 w-6 items-center justify-center rounded-md border border-gray-200 bg-white text-[16px] leading-none shadow-sm dark:border-gray-800 dark:bg-gray-900"
+                    class="inline-flex h-6 w-6 items-center justify-center rounded-md border border-gray-200 bg-white text-[16px] leading-none shadow-sm"
                     aria-hidden="true"
                   >
                     {{ primaryLink.icon.emoji }}
@@ -63,21 +63,21 @@
                   />
                   <span
                     v-else
-                    class="inline-flex h-6 w-6 items-center justify-center rounded-md border border-gray-200 bg-white text-[16px] leading-none shadow-sm dark:border-gray-800 dark:bg-gray-900"
+                    class="inline-flex h-6 w-6 items-center justify-center rounded-md border border-gray-200 bg-white text-[16px] leading-none shadow-sm"
                     aria-hidden="true"
                   >
                     🔗
                   </span>
-                  <div class="truncate text-base font-semibold text-gray-900 dark:text-gray-100">
+                  <div class="truncate text-base font-semibold text-gray-900">
                     {{ primaryLink.title }}
                   </div>
                 </div>
-                <div v-if="primaryLink.description" class="mt-1 text-sm text-gray-600 dark:text-gray-300">
+                <div v-if="primaryLink.description" class="mt-1 text-sm text-gray-600">
                   {{ primaryLink.description }}
                 </div>
               </div>
 
-              <span class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 transition-colors group-hover:bg-gray-50 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-200 dark:group-hover:bg-gray-800">
+              <span class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 transition-colors group-hover:bg-gray-50">
                 <font-awesome-icon :icon="['fas', 'arrow-up-right-from-square']" />
               </span>
             </div>
@@ -87,7 +87,7 @@
         <!-- Grouped links (if any categories exist) -->
         <div v-if="hasCategories" class="space-y-6">
           <div v-for="group in grouped" :key="group.category" class="space-y-3">
-            <h2 class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+            <h2 class="text-xs font-semibold uppercase tracking-wider text-gray-500">
               {{ group.category }}
             </h2>
 
@@ -98,14 +98,14 @@
                 :href="link.url"
                 target="_blank"
                 rel="noopener"
-                class="group block rounded-2xl border border-gray-200 bg-white p-4 shadow-sm transition-all duration-200 hover:-translate-y-[1px] hover:shadow-md active:translate-y-0 dark:border-gray-800 dark:bg-gray-950 no-underline hover:bg-white dark:hover:bg-gray-950"
+                class="group block rounded-2xl border border-gray-200 bg-white p-4 shadow-sm transition-all duration-200 hover:-translate-y-[1px] hover:shadow-md active:translate-y-0 no-underline hover:bg-white"
               >
                 <div class="flex items-center justify-between gap-4">
                   <div class="min-w-0">
                     <div class="flex items-center gap-2">
                       <span
                         v-if="link.icon?.type === 'emoji'"
-                        class="inline-flex h-6 w-6 items-center justify-center rounded-md border border-gray-200 bg-gray-50 text-[16px] leading-none dark:border-gray-800 dark:bg-gray-900"
+                        class="inline-flex h-6 w-6 items-center justify-center rounded-md border border-gray-200 bg-gray-50 text-[16px] leading-none"
                         aria-hidden="true"
                       >
                         {{ link.icon.emoji }}
@@ -120,21 +120,21 @@
                       />
                       <span
                         v-else
-                        class="inline-flex h-6 w-6 items-center justify-center rounded-md border border-gray-200 bg-gray-50 text-[16px] leading-none dark:border-gray-800 dark:bg-gray-900"
+                        class="inline-flex h-6 w-6 items-center justify-center rounded-md border border-gray-200 bg-gray-50 text-[16px] leading-none"
                         aria-hidden="true"
                       >
                         🔗
                       </span>
-                      <div class="truncate text-base font-medium text-gray-900 dark:text-gray-100">
+                      <div class="truncate text-base font-medium text-gray-900">
                         {{ link.title }}
                       </div>
                     </div>
-                    <div v-if="link.description" class="mt-1 text-sm text-gray-600 dark:text-gray-300">
+                    <div v-if="link.description" class="mt-1 text-sm text-gray-600">
                       {{ link.description }}
                     </div>
                   </div>
 
-                  <span class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 transition-colors group-hover:bg-gray-50 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-200 dark:group-hover:bg-gray-800">
+                  <span class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 transition-colors group-hover:bg-gray-50">
                     <font-awesome-icon :icon="['fas', 'chevron-right']" />
                   </span>
                 </div>
@@ -151,14 +151,14 @@
             :href="link.url"
             target="_blank"
             rel="noopener"
-            class="group block rounded-2xl border border-gray-200 bg-white p-4 shadow-sm transition-all duration-200 hover:-translate-y-[1px] hover:shadow-md active:translate-y-0 dark:border-gray-800 dark:bg-gray-950 no-underline hover:bg-white dark:hover:bg-gray-950"
+            class="group block rounded-2xl border border-gray-200 bg-white p-4 shadow-sm transition-all duration-200 hover:-translate-y-[1px] hover:shadow-md active:translate-y-0 no-underline hover:bg-white"
           >
             <div class="flex items-center justify-between gap-4">
               <div class="min-w-0">
                 <div class="flex items-center gap-2">
                   <span
                     v-if="link.icon?.type === 'emoji'"
-                    class="inline-flex h-6 w-6 items-center justify-center rounded-md border border-gray-200 bg-gray-50 text-[16px] leading-none dark:border-gray-800 dark:bg-gray-900"
+                    class="inline-flex h-6 w-6 items-center justify-center rounded-md border border-gray-200 bg-gray-50 text-[16px] leading-none"
                     aria-hidden="true"
                   >
                     {{ link.icon.emoji }}
@@ -173,28 +173,28 @@
                   />
                   <span
                     v-else
-                    class="inline-flex h-6 w-6 items-center justify-center rounded-md border border-gray-200 bg-gray-50 text-[16px] leading-none dark:border-gray-800 dark:bg-gray-900"
+                    class="inline-flex h-6 w-6 items-center justify-center rounded-md border border-gray-200 bg-gray-50 text-[16px] leading-none"
                     aria-hidden="true"
                   >
                     🔗
                   </span>
-                  <div class="truncate text-base font-medium text-gray-900 dark:text-gray-100">
+                  <div class="truncate text-base font-medium text-gray-900">
                     {{ link.title }}
                   </div>
                 </div>
-                <div v-if="link.description" class="mt-1 text-sm text-gray-600 dark:text-gray-300">
+                <div v-if="link.description" class="mt-1 text-sm text-gray-600">
                   {{ link.description }}
                 </div>
               </div>
 
-              <span class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 transition-colors group-hover:bg-gray-50 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-200 dark:group-hover:bg-gray-800">
+              <span class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 transition-colors group-hover:bg-gray-50">
                 <font-awesome-icon :icon="['fas', 'chevron-right']" />
               </span>
             </div>
           </a>
         </div>
 
-        <footer class="pt-4 text-center text-xs text-gray-500 dark:text-gray-400">
+        <footer class="pt-4 text-center text-xs text-gray-500">
           © AceKYD
         </footer>
       </div>
@@ -224,13 +224,49 @@ type LinksResponse = {
   items: LinkItem[]
 }
 
+const config = useRuntimeConfig()
+const route = useRoute()
+
+const pageTitle = 'Links - AceKYD'
+const pageDescription = 'Quick links for Adewale “Ace” Abati'
+const pageUrl = computed(() => `${config.public.siteUrl}${route.path}`)
+
+// Reuse existing site image (you can swap this for a dedicated /public og image later)
+const socialImage =
+  'https://res.cloudinary.com/acekyd/image/upload/v1657331180/Blog_Image_opnaq4.png'
+
+
+useHead({
+  link: [
+    {
+      rel: 'canonical',
+      href: pageUrl.value
+    }
+  ]
+})
+
+
 useSeoMeta({
-  title: 'Links - AceKYD',
-  description: 'Quick links for Adewale “Ace” Abati',
-  ogTitle: 'Links - AceKYD',
-  ogDescription: 'Quick links for Adewale “Ace” Abati',
+  title: pageTitle,
+  description: pageDescription,
+
+  ogType: 'website',
+  ogTitle: pageTitle,
+  ogDescription: pageDescription,
+  ogUrl: pageUrl,
+  ogImage: socialImage,
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+
+  twitterCard: 'summary_large_image',
+  twitterTitle: pageTitle,
+  twitterDescription: pageDescription,
+  twitterImage: socialImage,
+  twitterCreator: '@ace_kyd',
+  twitterSite: '@ace_kyd',
+
   themeColor: '#12b488',
-  colorScheme: 'light dark'
+  colorScheme: 'light'
 })
 
 const { data, pending, error } = await useFetch<LinksResponse>('/api/links', {
@@ -271,11 +307,6 @@ const errorMessage = computed(() => {
 main {
   background: radial-gradient(1200px 500px at 50% 0%, rgba(18, 180, 136, 0.10), transparent 55%);
 }
-
-:global(html.dark) main {
-  background: radial-gradient(1200px 500px at 50% 0%, rgba(18, 180, 136, 0.20), transparent 55%);
-}
-
 
 /* Kill global link styling (underline + hover background) for this page */
 a {
