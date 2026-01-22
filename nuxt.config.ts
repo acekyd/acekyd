@@ -62,6 +62,15 @@ export default defineNuxtConfig({
   
   // Runtime config for environment variables
   runtimeConfig: {
+    // Private runtime config (server-side only)
+    // Netlify: set these in Site settings → Environment variables
+    notion: {
+      token: process.env.NOTION_TOKEN,
+      linksDatabaseId: process.env.NOTION_LINKS_DATABASE_ID,
+      // Seconds
+      linksCacheMaxAge: Number(process.env.NOTION_LINKS_CACHE_MAX_AGE || 600),
+      linksCacheStaleMaxAge: Number(process.env.NOTION_LINKS_CACHE_STALE_MAX_AGE || 3600)
+    },
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://adewaleabati.com'
     }

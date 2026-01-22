@@ -1,9 +1,18 @@
+import { serverQueryContent } from '#content/server'
+
 export default defineEventHandler(async (event) => {
   const siteUrl = 'https://adewaleabati.com'
   const currentDate = new Date().toISOString()
+
+  type SitemapEntry = {
+    url: string
+    priority: string
+    changefreq: string
+    lastmod?: string
+  }
   
   // Static pages
-  const staticPages = [
+  const staticPages: SitemapEntry[] = [
     { url: '/', priority: '1.0', changefreq: 'weekly' },
     { url: '/posts', priority: '0.8', changefreq: 'weekly' },
     { url: '/talks', priority: '0.8', changefreq: 'monthly' },
@@ -14,21 +23,21 @@ export default defineEventHandler(async (event) => {
   ]
   
   // Get blog posts using serverQueryContent
-  let posts = []
+  let posts: any[] = []
   try {
     posts = await serverQueryContent(event, 'posts').where({ published: true }).find()
   } catch (error) {
     console.warn('Could not fetch posts for sitemap:', error)
   }
   
-  const postPages = posts.map(post => ({
+  const postPages: SitemapEntry[] = posts.map((post: any) => ({
     url: `/posts/${post._path.replace('/posts/', '')}`,
     priority: '0.7',
     changefreq: 'yearly',
     lastmod: post.date || currentDate
   }))
   
-  const allPages = [...staticPages, ...postPages]
+  const allPages: SitemapEntry[] = [...staticPages, ...postPages]
   
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
