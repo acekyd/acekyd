@@ -18,6 +18,38 @@
           Web Engineer • Developer Advocate • Open Source
         </p>
 
+        <!-- Default social links (from home page) -->
+        <div class="mt-5 space-y-3">
+          <div class="flex justify-center gap-3">
+            <a
+              v-for="s in socialRow1"
+              :key="s.label"
+              :href="s.href"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-gray-200 bg-white text-gray-800 shadow-sm transition-colors hover:bg-gray-50"
+              :aria-label="s.ariaLabel"
+              title=""
+            >
+              <font-awesome-icon :icon="s.icon" class="text-lg" />
+            </a>
+          </div>
+          <div class="flex justify-center gap-3">
+            <a
+              v-for="s in socialRow2"
+              :key="s.label"
+              :href="s.href"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-gray-200 bg-white text-gray-800 shadow-sm transition-colors hover:bg-gray-50"
+              :aria-label="s.ariaLabel"
+              title=""
+            >
+              <font-awesome-icon :icon="s.icon" class="text-lg" />
+            </a>
+          </div>
+        </div>
+
         <div v-if="pending" class="mt-8 text-sm text-gray-500">
           Loading links…
         </div>
@@ -300,6 +332,57 @@ const errorMessage = computed(() => {
   const e: any = error.value
   return e?.statusMessage || e?.message || String(e || '')
 })
+
+const socialRow1 = computed(() => socialLinks.slice(0, 4))
+const socialRow2 = computed(() => socialLinks.slice(4))
+
+const socialLinks = [
+  // Row 1 (requested)
+  {
+    label: 'YouTube',
+    ariaLabel: 'Adewale on YouTube',
+    href: 'https://www.youtube.com/acekydtv/',
+    icon: ['fab', 'youtube']
+  },
+  {
+    label: 'Instagram',
+    ariaLabel: 'Adewale on Instagram',
+    href: 'https://instagram.com/acekydtv',
+    icon: ['fab', 'instagram']
+  },
+  {
+    label: 'Twitter',
+    ariaLabel: 'Adewale on Twitter',
+    href: 'https://twitter.com/ace_kyd/',
+    icon: ['fab', 'twitter']
+  },
+  {
+    label: 'TikTok',
+    ariaLabel: 'Adewale on TikTok',
+    href: 'https://tiktok.com/@acekydtv',
+    icon: ['fab', 'tiktok']
+  },
+
+  // Row 2
+  {
+    label: 'GitHub',
+    ariaLabel: 'Adewale on GitHub',
+    href: 'https://github.com/acekyd/',
+    icon: ['fab', 'github']
+  },
+  {
+    label: 'LinkedIn',
+    ariaLabel: 'Adewale on LinkedIn',
+    href: 'https://www.linkedin.com/in/acekyd/',
+    icon: ['fab', 'linkedin']
+  },
+  {
+    label: 'Twitch',
+    ariaLabel: 'Adewale on Twitch',
+    href: 'https://twitch.tv/acekydtv/',
+    icon: ['fab', 'twitch']
+  }
+] as const
 </script>
 
 <style scoped>
