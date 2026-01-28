@@ -341,7 +341,7 @@ const socialLinks = [
   {
     label: 'YouTube',
     ariaLabel: 'Adewale on YouTube',
-    href: 'https://www.youtube.com/acekydtv/',
+    href: 'https://youtube.com/@acekydtv',
     icon: ['fab', 'youtube']
   },
   {
