@@ -28,12 +28,13 @@
         }}
       </Script>
     </Head>
-    <NuxtPage />
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
   </div>
 </template>
 
 <script setup lang="ts">
-const { $router } = useNuxtApp()
 const route = useRoute()
 
 const canonicalUrl = computed(() => {
@@ -53,6 +54,5 @@ useSeoMeta({
   twitterCreator: '@ace_kyd',
   twitterSite: '@ace_kyd',
   colorScheme: 'light dark',
-  themeColor: '#12b488'
 })
 </script>

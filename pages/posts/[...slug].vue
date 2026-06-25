@@ -1,51 +1,43 @@
 <template>
-  <main class="max-w-3xl m-auto prose">
-    <section class="pl-3">
-      <Header></Header> 
-    </section>
-    <section class="content-body px-4">
-      <section class="mb-1">
-        <nav class="flex not-prose" aria-label="Breadcrumb">
-          <ol class="inline-flex items-center space-x-1 md:space-x-3">
-            <li class="inline-flex items-center">
-              <NuxtLink to="/" class="inline-flex items-center text-sm font-small">
-                <svg class="w-3 h-3 mr-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"/>
-                </svg>
-                Home
-              </NuxtLink>
-            </li>
-            <li>
-              <div class="flex items-center">
-                <svg class="w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                </svg>
-                <NuxtLink to="/posts" class="text-sm">Blog</NuxtLink>
-              </div>
-            </li>
-            <li aria-current="page">
-              <div class="flex items-center">
-                <svg class="w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                </svg>
-                <span class="text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400">{{ data.title }}</span>
-              </div>
-            </li>
-          </ol>
-        </nav>
-      </section>
-      <article class="mt-4">
-        <h1>{{ data.title }}</h1>
+  <div class="container-content py-10 md:py-14">
+    <nav class="mb-8 flex items-center gap-2 text-sm text-ink-faint" aria-label="Breadcrumb">
+      <NuxtLink to="/" class="no-underline transition-colors hover:text-ink">Home</NuxtLink>
+      <span class="text-ink-faint/50">/</span>
+      <NuxtLink to="/posts" class="no-underline transition-colors hover:text-ink">Blog</NuxtLink>
+      <span class="text-ink-faint/50">/</span>
+      <span class="truncate text-ink">{{ data?.title }}</span>
+    </nav>
+
+    <article>
+      <header class="mb-8 border-b border-border pb-8">
+        <div v-if="data?.date || data?.tags?.length" class="mb-3 flex flex-wrap items-center gap-3 text-xs text-ink-faint">
+          <time v-if="data?.date" :datetime="data.date">{{ getDate(data.date) }}</time>
+          <span v-if="data?.tags?.length" class="flex flex-wrap gap-1.5">
+            <span v-for="tag in data.tags" :key="tag" class="rounded-full border border-border px-2 py-0.5">{{ tag }}</span>
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight text-ink md:text-4xl">{{ data?.title }}</h1>
+        <p v-if="data?.description" class="mt-3 text-lg text-ink-faint">{{ data.description }}</p>
+      </header>
+
+      <div class="content-body prose prose-lg dark:prose-invert">
         <ContentDoc>
           <template #not-found>
-          <h4>Ooops! Looks like that document doesn't exist.</h4>
-        </template>
+            <h2>Ooops! Looks like that document doesn't exist.</h2>
+          </template>
         </ContentDoc>
-        <DisqusComments :identifier="path"/>
-      </article>
-    </section>
-  </main>
+      </div>
+
+      <footer class="mt-12 border-t border-border pt-8">
+        <NuxtLink to="/posts" class="text-sm font-medium text-accent no-underline">← Back to all posts</NuxtLink>
+        <div class="mt-8">
+          <DisqusComments :identifier="path" />
+        </div>
+      </footer>
+    </article>
+  </div>
 </template>
+
 <script setup>
 const { path } = useRoute();
 const cleanedPath = path.replace(/\/$/, '') // temporary hack for trailing slashes.
@@ -57,56 +49,59 @@ const { data } = await useAsyncData(`content-${cleanedPath}`, () => {
 // Handle canonical URL logic
 const getCanonicalUrl = () => {
   if (data.value.canonical_url === true || data.value.canonical_url === undefined) {
-    // Default to your site URL
     return "https://adewaleabati.com" + path;
   } else if (typeof data.value.canonical_url === 'string') {
-    // Use external canonical URL
     return data.value.canonical_url;
   } else {
-    // canonical_url is false, no canonical tag
     return null;
   }
 };
 
 const canonicalUrl = getCanonicalUrl();
+const ogImage = "https://res.cloudinary.com/acekyd/image/upload/c_fit,e_colorize:100,g_north_west,l_text:open sans_80:" + encodeURIComponent(data.value.title) + ",w_900,x_60,y_100/v1657896963/blog-thumbnail_plityt.png";
 
 useHead({
   titleTemplate: '%s - Adewale Abati',
   link: [
-      ...(canonicalUrl ? [{
-        rel: "canonical",
-        href: canonicalUrl,
-      }] : []),
-      {
-        rel: "stylesheet",
-        href: "https://github.githubassets.com/assets/gist-embed-d89dc96f3ab6372bb73ee45cafdd0711.css",
-        crossorigin: ''
-      }
-    ],
-    meta: [
-      {
-        name: 'description',
-        content: data.value.description
-      },
-      {
-        key: 'og:title',
-        property: 'og:title',
-        content: data.value.title,
-      },
-      {
-        key: 'og:description',
-        property: 'og:description',
-        content: data.value.description,
-      },
-      {
-        key: 'og:image',
-        property: 'og:image',
-        content: "https://res.cloudinary.com/acekyd/image/upload/c_fit,e_colorize:100,g_north_west,l_text:open sans_80:"+ encodeURIComponent(data.value.title) +",w_900,x_60,y_100/v1657896963/blog-thumbnail_plityt.png",
-      }
-    ],
+    ...(canonicalUrl ? [{ rel: "canonical", href: canonicalUrl }] : []),
+    {
+      rel: "stylesheet",
+      href: "https://github.githubassets.com/assets/gist-embed-d89dc96f3ab6372bb73ee45cafdd0711.css",
+      crossorigin: ''
+    }
+  ],
   script: [
     'https://platform.twitter.com/widgets.js',
   ]
 });
 
+useSeoMeta({
+  title: data.value.title,
+  description: data.value.description,
+  ogTitle: data.value.title,
+  ogDescription: data.value.description,
+  ogType: 'article',
+  ogImage,
+  twitterCard: 'summary_large_image',
+  twitterImage: ogImage,
+});
+
+// Article structured data for richer search/agent understanding.
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: data.value.title,
+        description: data.value.description,
+        datePublished: data.value.date,
+        author: { '@type': 'Person', name: 'Adewale Abati', url: 'https://adewaleabati.com' },
+        mainEntityOfPage: 'https://adewaleabati.com' + path,
+        image: ogImage,
+      }),
+    },
+  ],
+});
 </script>

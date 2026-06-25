@@ -1,69 +1,125 @@
 <template>
-    <header class="header">
-        <div class="header__left">
-            <NuxtLink class="header__link" href="/">Adewale Abati</NuxtLink>
-        </div>
+  <header
+    class="sticky top-0 z-40 border-b transition-colors duration-300"
+    :class="scrolled ? 'border-border bg-bg/80 backdrop-blur-xl' : 'border-transparent bg-transparent'"
+  >
+    <div class="container-wide flex h-16 items-center justify-between gap-4">
+      <NuxtLink
+        to="/"
+        class="group flex items-center gap-2 font-semibold tracking-tight text-ink no-underline"
+        aria-label="Home — Adewale Abati"
+      >
+        <span
+          class="grid h-8 w-8 place-items-center rounded-lg border border-border bg-surface text-sm font-bold text-accent transition-colors group-hover:border-accent/50"
+        >
+          A
+        </span>
+        <span class="hidden sm:inline">Adewale Abati</span>
+      </NuxtLink>
 
-        <div class="header__right">
-            <nav>
-                <ul class="nav">
-                <li>
-                    <NuxtLink class="header__link" href="/posts">Blog</NuxtLink>
-                </li>
-                <li>
-                    <NuxtLink class="header__link" to="/talks">Talks</NuxtLink>
-                </li>
-                <li>
-                    <NuxtLink class="header__link" to="/projects">Projects</NuxtLink>
-                </li>
-                <!-- Temporarily hidden - Uses and Now pages
-                <li>
-                    <NuxtLink class="header__link" to="/uses">Uses</NuxtLink>
-                </li>
-                <li>
-                    <NuxtLink class="header__link" to="/now">Now</NuxtLink>
-                </li>
-                -->
-                </ul>
-            </nav>
+      <nav class="hidden items-center gap-1 md:flex" aria-label="Primary">
+        <NuxtLink
+          v-for="item in nav"
+          :key="item.to"
+          :to="item.to"
+          class="rounded-full px-3 py-1.5 text-sm font-medium text-ink-faint no-underline transition-colors hover:text-ink"
+          active-class="!text-ink"
+          exact-active-class="!text-accent"
+        >
+          {{ item.label }}
+        </NuxtLink>
+      </nav>
+
+      <div class="flex items-center gap-1.5">
+        <button
+          type="button"
+          class="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5 text-sm text-ink-faint transition-colors hover:text-ink"
+          aria-label="Search the site"
+          @click="searchOpen = true"
+        >
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" />
+          </svg>
+          <span class="hidden lg:inline">Search</span>
+          <kbd class="hidden rounded border border-border px-1.5 text-[10px] font-medium lg:inline">⌘K</kbd>
+        </button>
+
+        <ThemeToggle />
+
+        <button
+          type="button"
+          class="grid h-9 w-9 place-items-center rounded-full border border-border bg-surface text-ink md:hidden"
+          :aria-expanded="mobileOpen"
+          aria-label="Toggle menu"
+          @click="mobileOpen = !mobileOpen"
+        >
+          <svg v-if="!mobileOpen" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg v-else class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M6 6l12 12M18 6 6 18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <Transition
+      enter-active-class="transition duration-200 ease-out"
+      enter-from-class="opacity-0 -translate-y-2"
+      leave-active-class="transition duration-150 ease-in"
+      leave-to-class="opacity-0 -translate-y-2"
+    >
+      <nav
+        v-if="mobileOpen"
+        class="border-t border-border bg-bg/95 backdrop-blur-xl md:hidden"
+        aria-label="Mobile"
+      >
+        <div class="container-wide flex flex-col py-2">
+          <NuxtLink
+            v-for="item in nav"
+            :key="item.to"
+            :to="item.to"
+            class="rounded-lg px-3 py-3 text-base font-medium text-ink-soft no-underline transition-colors hover:bg-surface hover:text-ink"
+            exact-active-class="!text-accent"
+            @click="mobileOpen = false"
+          >
+            {{ item.label }}
+          </NuxtLink>
         </div>
-    </header>
+      </nav>
+    </Transition>
+
+    <SearchPalette v-model:open="searchOpen" />
+  </header>
 </template>
-<style lang="scss">
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: var(--header-height);
-  padding: 0 calc(var(--space) / 4);
-  top:0;
-  z-index: 10;
-  max-width: var(--content-width);
-  margin: 0 auto 10px auto;
-  
-  a { text-decoration: none; }
-  
 
-  &__left,
-  &__right {
-    display: flex;
-    align-items: center;
+<script setup lang="ts">
+const appConfig = useAppConfig()
+const nav = appConfig.nav
 
-    .nav {
-      display: flex;
-      list-style: none;
-      li {
-        padding: 10px;
-      }
-      a {
-        font-size: .9em;
-      }
-    }
-  }
+const scrolled = ref(false)
+const mobileOpen = ref(false)
+const searchOpen = ref(false)
 
-  @media screen and (min-width: 1300px) {
-    //Make header sticky for large screens
-    width: 100%;
+function onScroll() {
+  scrolled.value = window.scrollY > 8
+}
+
+function onKeydown(e: KeyboardEvent) {
+  if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+    e.preventDefault()
+    searchOpen.value = true
   }
 }
-</style>
+
+onMounted(() => {
+  onScroll()
+  window.addEventListener('scroll', onScroll, { passive: true })
+  window.addEventListener('keydown', onKeydown)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', onScroll)
+  window.removeEventListener('keydown', onKeydown)
+})
+</script>

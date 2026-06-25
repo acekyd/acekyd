@@ -1,11 +1,11 @@
 <template>
-    <main class="max-w-3xl m-auto prose">
-        <section class="pl-3">
-            <Header></Header>
-            <h1 class="pageTitle">Talks and Presentations</h1>
-            <p class="pageSubtitle lg:prose-xl">Public Speaking, keynotes and mentorship sessions at conferences, meetups, and community events.</p>
-        </section>
-        
+    <div class="container-content py-12 md:py-16">
+        <header class="animate-fade-up mb-10">
+            <p class="eyebrow mb-3">Speaking</p>
+            <h1 class="pageTitle">Talks &amp; Presentations</h1>
+            <p class="pageSubtitle">Keynotes, sessions, and mentorship at conferences, meetups, and community events.</p>
+        </header>
+
         <section class="talks-content">
             <div v-for="(yearGroup, index) in groupedTalks" :key="yearGroup.year" class="year-group">
                 <div class="year-header">
@@ -90,7 +90,7 @@
                 </div>
             </div>
         </section>
-    </main>
+    </div>
 </template>
 <script setup lang="ts">
 import Talks from "assets/data/talks.json";
@@ -203,7 +203,7 @@ const isYearExpanded = (year: string): boolean => {
 </script>
 <style scoped>
 .talks-content {
-  @apply px-3 space-y-12;
+  @apply space-y-12;
 }
 
 .year-group {
@@ -215,18 +215,18 @@ const isYearExpanded = (year: string): boolean => {
 }
 
 .year-header-button {
-  @apply w-full text-left bg-transparent border-none p-0 cursor-pointer focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 rounded-md;
+  @apply w-full text-left bg-transparent border-none p-0 cursor-pointer rounded-md;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .year-header-button:hover .year-title {
-  @apply text-green-600;
+  @apply text-accent;
 }
 
 .year-controls {
-  @apply flex items-center gap-3 text-gray-500;
+  @apply flex items-center gap-3 text-ink-faint;
 }
 
 .talk-count {
@@ -238,12 +238,11 @@ const isYearExpanded = (year: string): boolean => {
 }
 
 .year-title {
-  @apply text-3xl font-light text-gray-800 mb-0 tracking-wide transition-colors duration-200;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  @apply text-3xl font-semibold text-ink mb-0 tracking-tight transition-colors duration-200;
 }
 
 .year-divider {
-  @apply w-16 h-0.5 bg-gradient-to-r from-gray-300 to-transparent mt-4;
+  @apply w-16 h-px bg-border mt-4;
 }
 
 .year-talks {
@@ -271,7 +270,11 @@ const isYearExpanded = (year: string): boolean => {
 }
 
 .talk-card {
-  @apply bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300;
+  @apply bg-surface p-6 rounded-2xl border border-border transition-all duration-300;
+}
+
+.talk-card:hover {
+  @apply border-accent/30;
 }
 
 .talk-header {
@@ -279,8 +282,7 @@ const isYearExpanded = (year: string): boolean => {
 }
 
 .talk-title {
-  @apply text-xl font-bold text-gray-900 mb-3;
-  color: #12b488;
+  @apply text-xl font-semibold text-ink mb-3;
 }
 
 .talk-meta {
@@ -290,11 +292,11 @@ const isYearExpanded = (year: string): boolean => {
 .talk-event,
 .talk-date,
 .talk-location {
-  @apply flex items-center gap-2 text-gray-600;
+  @apply flex items-center gap-2 text-ink-faint;
 }
 
 .talk-event {
-  @apply text-base font-medium;
+  @apply text-base font-medium text-ink-soft;
 }
 
 .talk-abstract {
@@ -302,11 +304,11 @@ const isYearExpanded = (year: string): boolean => {
 }
 
 .abstract-toggle {
-  @apply flex items-center gap-2 cursor-pointer text-gray-700 font-medium hover:text-gray-900 transition-colors;
+  @apply flex items-center gap-2 cursor-pointer text-ink-soft font-medium hover:text-ink transition-colors;
 }
 
 .abstract-content {
-  @apply mt-3 text-gray-700 leading-relaxed prose prose-sm max-w-none;
+  @apply mt-3 text-ink-soft leading-relaxed prose prose-sm dark:prose-invert max-w-none;
 }
 
 .talk-slides {
@@ -314,19 +316,11 @@ const isYearExpanded = (year: string): boolean => {
 }
 
 .talk-links {
-  @apply flex gap-3 pt-4 border-t border-gray-100;
+  @apply flex flex-wrap gap-3 pt-4 border-t border-border;
 }
 
 .talk-link {
-  @apply inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-colors no-underline;
-}
-
-.talk-link.slides {
-  @apply bg-blue-100 text-blue-700 hover:bg-blue-200;
-}
-
-.talk-link.website {
-  @apply bg-green-100 text-green-700 hover:bg-green-200;
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border text-sm font-medium text-ink-soft transition-colors no-underline hover:border-accent/50 hover:text-accent;
 }
 
 @media (max-width: 768px) {

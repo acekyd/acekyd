@@ -1,11 +1,11 @@
 <template>
-    <main class="max-w-3xl m-auto prose">
-        <section class="pl-3">
-            <Header></Header>
+    <div class="container-wide py-12 md:py-16">
+        <header class="animate-fade-up mb-10">
+            <p class="eyebrow mb-3">Setup</p>
             <h1 class="pageTitle">Uses</h1>
-            <p class="pageSubtitle lg:prose-xl">The tools, software, and hardware I use daily to build, create, and stay productive.</p>
-        </section>
-        
+            <p class="pageSubtitle">The tools, software, and hardware I use daily to build, create, and stay productive.</p>
+        </header>
+
         <section class="uses-content">
             <div class="uses-category">
                 <h2>💻 Development Setup</h2>
@@ -156,7 +156,7 @@
                 <p>Tools change over time, so I try to keep this updated. Last updated: <strong>August 2024</strong></p>
             </div>
         </section>
-    </main>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -172,52 +172,24 @@ useHead({
 </script>
 
 <style scoped>
-.uses-content {
-  @apply px-3;
-}
-
-.uses-category {
-  @apply mb-12;
-}
-
+.uses-category { @apply mb-12; }
 .uses-category h2 {
-  @apply text-2xl font-bold mb-6 text-gray-800;
-  border-bottom: 3px solid #12b488;
+  @apply text-2xl font-semibold mb-6 text-ink;
+  border-bottom: 2px solid rgb(var(--accent));
   padding-bottom: 0.5rem;
 }
 
-.uses-grid {
-  @apply grid gap-6 md:grid-cols-2 lg:grid-cols-3;
-}
+.uses-grid { @apply grid gap-4 md:grid-cols-2 lg:grid-cols-3; }
 
-.uses-item {
-  @apply bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow;
-}
+.uses-item { @apply bg-surface p-6 rounded-2xl border border-border transition-colors hover:border-accent/30; }
+.uses-item h3 { @apply text-lg font-semibold mb-3 text-ink; }
+.uses-item p { @apply text-ink-soft mb-2 text-sm leading-relaxed; }
+.uses-item p:last-child { @apply mb-0; }
+.uses-item a, .inspiration-note a { @apply text-accent no-underline; }
 
-.uses-item h3 {
-  @apply text-lg font-semibold mb-3 text-gray-900;
-  color: #12b488;
-}
-
-.uses-item p {
-  @apply text-gray-700 mb-2 text-sm leading-relaxed;
-}
-
-.uses-item p:last-child {
-  @apply mb-0;
-}
-
-.inspiration-note {
-  @apply mt-12 p-6 bg-gray-50 rounded-lg border-l-4 border-pink-500;
-}
-
-.inspiration-note p {
-  @apply text-gray-600 mb-2;
-}
-
-.inspiration-note p:last-child {
-  @apply mb-0;
-}
+.inspiration-note { @apply mt-12 p-6 bg-muted rounded-2xl border border-border; }
+.inspiration-note p { @apply text-ink-faint mb-2; }
+.inspiration-note p:last-child { @apply mb-0; }
 
 @media (max-width: 768px) {
   .uses-grid {
