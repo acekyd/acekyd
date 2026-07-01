@@ -2,7 +2,7 @@
 title: How I build side projects
 date: 2020-12-21
 published: true
-tags: ['software development','Web development', 'developer', 'side project']
+tags: ['Web Development']
 canonical_url: true
 description: 
 cover_image: https://devlogic.acekyd.com/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fres%2Fhashnode%2Fimage%2Fupload%2Fv1608566617214%2FgPXXUqO6w.png%3Fw%3D1600%26h%3D840%26fit%3Dcrop%26crop%3Dentropy%26auto%3Dcompress%2Cformat%26format%3Dwebp&w=3840&q=75

@@ -68,12 +68,12 @@
             :href="primaryLink.url"
             target="_blank"
             rel="noopener"
-            class="group block rounded-2xl border border-emerald-200 bg-gradient-to-b from-emerald-50 to-white p-4 shadow-sm transition-all duration-200 hover:-translate-y-[1px] hover:shadow-md active:translate-y-0 no-underline hover:bg-transparent"
+            class="group block rounded-2xl border border-amber-200 bg-gradient-to-b from-amber-50 to-white p-4 shadow-sm transition-all duration-200 hover:-translate-y-[1px] hover:shadow-md active:translate-y-0 no-underline hover:bg-transparent"
           >
             <div class="flex items-center justify-between gap-4">
               <div class="min-w-0">
                 <div class="flex items-center gap-2">
-                  <span class="inline-flex items-center rounded-full bg-emerald-100 px-2 py-0.5 text-[11px] font-medium text-emerald-800">
+                  <span class="inline-flex items-center rounded-full bg-amber-100 px-2 py-0.5 text-[11px] font-medium text-amber-800">
                     Featured
                   </span>
                 </div>
@@ -235,6 +235,8 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({ layout: false })
+
 type LinkItem = {
   id: string
   title: string
@@ -297,7 +299,7 @@ useSeoMeta({
   twitterCreator: '@ace_kyd',
   twitterSite: '@ace_kyd',
 
-  themeColor: '#12b488',
+  themeColor: '#f4b609',
   colorScheme: 'light'
 })
 

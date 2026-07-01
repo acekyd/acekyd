@@ -2,7 +2,7 @@
 title: How does it end?
 date: 2025-11-05
 published: true
-tags: ['musings', 'creator']
+tags: ['Personal']
 description: Many things come in the way of getting things done - most especially overthinking.
 ---
 

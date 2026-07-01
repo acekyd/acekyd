@@ -9,12 +9,14 @@ export default defineEventHandler(async (event) => {
     })
       
     const docs = await serverQueryContent(event).sort({ date: -1 }).where({ _partial: false }).find()
-    const blogPosts = docs.filter((doc) => doc?._path?.includes('/posts'))
+    const blogPosts = docs.filter((doc) => doc?._path?.includes('/posts') && doc?.published !== false)
 
     for (const doc of blogPosts) {
+        // Externally-hosted posts point straight at their original URL.
+        const url = (doc as any).external_url || `https://adewaleabati.com${doc._path}`
         feed.item({
           title: doc.title ?? '-',
-          url: `https://adewaleabati${doc._path}`,
+          url,
           date: doc.date,
           description: doc.description,
         })

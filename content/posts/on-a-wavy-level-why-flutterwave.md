@@ -2,7 +2,7 @@
 title: On a wavy level - Why Flutterwave?
 date: 2019-08-18
 published: true
-tags: ['Flutterwave','Career', 'Developer Advocate']
+tags: ['Developer Relations', 'Career']
 canonical_url: true
 description: "I recently joined Flutterwave as a Developer Advocate - Here's a little bit about the journey, what it means and what's in store."
 ---

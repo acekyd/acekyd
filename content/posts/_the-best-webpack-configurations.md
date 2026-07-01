@@ -2,7 +2,7 @@
 title: The best webpack configurations for React applications
 date: 2021-08-15
 published: true
-tags: ['webpack','react', 'babel']
+tags: ['Web Development']
 canonical_url: https://blog.logrocket.com/versatile-webpack-configurations-react-application/
 description: 
 cover_image: https://blog.logrocket.com/wp-content/uploads/2019/01/webpack-configurations-react-app-1.png

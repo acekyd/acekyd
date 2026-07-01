@@ -11,12 +11,24 @@ export default defineNuxtConfig({
       },
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'theme-color', content: '#12b488' },
-        { name: 'msapplication-TileColor', content: '#12b488' }
+        { name: 'theme-color', content: '#09090b' },
+        { name: 'msapplication-TileColor', content: '#f4b609' },
+        { name: 'author', content: 'Adewale Abati' },
+        { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'apple-touch-icon', href: '/logo.png' }
+        { rel: 'apple-touch-icon', href: '/logo.png' },
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap' }
+      ],
+      script: [
+        {
+          // Set the theme class before first paint to avoid a flash of the wrong theme.
+          innerHTML: `(function(){try{var t=localStorage.getItem('theme');var d=t?t==='dark':true;var e=document.documentElement;e.classList.toggle('dark',d);e.style.colorScheme=d?'dark':'light';}catch(e){}})();`,
+          tagPriority: 'critical'
+        }
       ]
     }
   },
@@ -56,7 +68,7 @@ export default defineNuxtConfig({
   // Nitro configuration for static generation
   nitro: {
     prerender: {
-      routes: ['/rss.xml', '/sitemap.xml'],
+      routes: ['/rss.xml', '/sitemap.xml', '/llms.txt'],
     },
   },
   

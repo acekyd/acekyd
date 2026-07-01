@@ -2,7 +2,7 @@
 title: The Untold Story of a Self-Taught Developer
 date: 2022-04-08
 published: true
-tags: ['Developer', 'Comic']
+tags: ['Personal', 'Web Development']
 canonical_url: true
 description: Two out of three developers are self taught - and each one of them have a unique yet similar story.
 cover_image: ./images/untold-story/story-1.jpeg

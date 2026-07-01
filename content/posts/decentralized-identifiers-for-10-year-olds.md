@@ -2,7 +2,7 @@
 title: Understanding Decentralized Identifiers for 10-year-olds
 date: 2024-03-28
 published: true
-tags: ['Web', 'Web5']
+tags: ['Web Development']
 canonical_url: true
 description: "Decentralized Identifiers are a pillar of Web5 but are a new concept for many. In this article, I take a stab at explaining it like I would to a ten-year-old."
 ---

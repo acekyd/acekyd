@@ -1,335 +1,204 @@
 <template>
-  <div
-    itemscope
-    itemtype="https://schema.org/Person"
-    id="landing"
-    class="author"
-  >
-    <div class="hero-section">
-      <div class="content-left">
-        <div class="logo-container">
-          <img alt="Ace logo" class="logo__image" src="/logo.png" />
-        </div>
+  <div>
+    <!-- ===================== HERO ===================== -->
+    <section class="relative isolate overflow-hidden">
+      <ClientOnly>
+        <HeroAurora class="absolute inset-0 -z-10" />
+      </ClientOnly>
 
-        <p class="author__intro">
-          Hello! I'm
-          <span class="highlight" itemprop="name">Adewale "Ace" Abati</span>—a
-          <span class="highlight" itemprop="jobTitle">Web Engineer and Staff Developer Advocate</span> making stuff that shapes how people use technology to create, solve real-world problems, and connect.<br /><br />
+      <div class="container-wide relative grid min-h-[92vh] items-center gap-12 py-16 md:grid-cols-[1.1fr_0.9fr] md:gap-10">
+        <div class="order-2 animate-fade-up md:order-1">
+          <p class="eyebrow mb-5 flex items-center gap-2.5">
+            <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent" />
+            Staff Developer Advocate · Block
+          </p>
 
-          I'm currently immersed in the world of applied <a href="https://block.github.io/goose/blog/2025/01/28/introducing-codename-goose" target="_blank">Agentic AI</a>, 
-          <a href="https://github.com/acekyd" rel="noopener" target="_blank">open source</a>, 
-          and helping engineers & non-developers harness the power of AI in their workflows at <a href="https://block.xyz/" target="_blank" rel="noopener">Block</a>.
+          <h1 class="font-bold tracking-[-0.02em] text-ink leading-[1.02] text-[clamp(1.9rem,4.4vw,3.25rem)] sm:whitespace-nowrap">
+            Adewale <span class="text-accent">“Ace”</span> Abati
+          </h1>
 
-          <br /><br />
+          <p class="mt-5 max-w-xl text-xl font-semibold leading-snug text-ink md:text-2xl">
+            Helping frontier technical products earn developer trust and adoption.
+          </p>
 
-          You'll find me building and sharing on 
-          <a href="https://github.com/acekyd" rel="noopener" target="_blank">GitHub</a>, 
-          <a href="https://youtube.com/acekydtv" rel="noopener" target="_blank">YouTube</a>, 
+          <div class="mt-5 max-w-xl space-y-4 leading-relaxed text-ink-soft">
+            <p>
+              Hi! I'm Ace — a Web Engineer, Staff Developer Advocate, GitHub Star,
+              and Agentic AI Foundation Ambassador. I help frontier technical products become
+              understandable, credible, usable, and adopted by developers.
+            </p>
+            <p>
+              I'm currently immersed in the world of applied Agentic AI, 
+              open source, and helping engineers & non-developers harness 
+              the power of AI in their workflows through engineering, 
+              developer advocacy, technical storytelling, open source, and community education.
+            </p>
+          </div>
 
-          and occasionally learning and unwinding on <a href="https://instagram.com/acekydtv" rel="noopener" target="_blank">Instagram</a>, or livestreams on
-          <a href="https://www.twitch.tv/acekydtv" rel="noopener" target="_blank">Twitch</a>.
+          <p class="mt-6 text-sm text-ink-faint">
+            Previously
+            <a href="https://codesandbox.io/" target="_blank" rel="noopener" class="link-underline">CodeSandbox</a>,
+            <a href="https://flutterwave.com/" target="_blank" rel="noopener" class="link-underline">Flutterwave</a>,
+            <a href="https://ingressive.org/" target="_blank" rel="noopener" class="link-underline">Ingressive</a>,
+            <a href="http://www.withpropel.com/" target="_blank" rel="noopener" class="link-underline">Hirefreehands (Propel)</a>,
+            <a href="https://hotels.ng/" target="_blank" rel="noopener" class="link-underline">HotelsNG</a>.
+          </p>
 
-          <br /><br />
+          <div class="mt-6 flex flex-wrap items-center gap-3">
+            <a href="https://acekyd.substack.com" target="_blank" rel="noopener" class="btn">
+              Subscribe on Substack
+            </a>
+            <NuxtLink to="/posts" class="btn-ghost">Read the blog</NuxtLink>
+          </div>
 
-          Let's explore the infinite possibilities of technology together—whether you want to build, learn about AI, or just geek out over gadgets, video games, and anime!
-        </p>
-
-        <p class="author_links small">
-          Previously:
-          <a href="https://codesandbox.io/" target="_blank" rel="noopener"
-            >CodeSandbox</a
-          >,
-          <a href="https://flutterwave.com/" target="_blank" rel="noopener"
-            >Flutterwave</a
-          >,
-          <a href="https://ingressive.org/" target="_blank" rel="noopener"
-            >Ingressive</a
-          >,
-          <a href="http://www.withpropel.com/" target="_blank" rel="noopener"
-            >Hirefreehands (Propel)</a
-          >,
-          <a href="https://hotels.ng" target="_blank" rel="noopener">HotelsNG</a>
-        </p>
-        <br />
-
-        <p class="author__links">
-          <a
-            href="https://github.com/acekyd/"
-            aria-label="Adewale on GitHub"
-            target="_blank"
-            rel="noopener"
-          >
-            <font-awesome-icon :icon="['fab', 'github']" />
-          </a>
-          <a
-            href="https://twitter.com/ace_kyd/"
-            aria-label="Adewale on Twitter"
-            target="_blank"
-            rel="noopener"
-          >
-            <font-awesome-icon :icon="['fab', 'twitter']" />
-          </a>
-          <a
-            href="https://twitch.tv/acekydtv/"
-            aria-label="Adewale on Twitch"
-            target="_blank"
-            rel="noopener"
-          >
-            <font-awesome-icon :icon="['fab', 'twitch']" />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/acekyd/"
-            aria-label="Adewale on LinkedIn"
-            target="_blank"
-            rel="noopener"
-          >
-            <font-awesome-icon :icon="['fab', 'linkedin']" />
-          </a>
-          <a
-            href="https://www.youtube.com/acekydtv/"
-            aria-label="Adewale on YouTube"
-            target="_blank"
-            rel="noopener"
-          >
-            <font-awesome-icon :icon="['fab', 'youtube']" />
-          </a>
-          <a
-            href="https://instagram.com/acekydtv"
-            aria-label="Adewale on Instagram"
-            target="_blank"
-            rel="noopener"
-          >
-            <font-awesome-icon :icon="['fab', 'instagram']" />
-          </a>
-          <a 
-            href="https://tiktok.com/@acekydtv"
-            aria-label="Adewale on TikTok"
-            target="_blank"
-            rel="noopener"
-          >
-            <font-awesome-icon :icon="['fab', 'tiktok']" />
-          </a>
-        </p>
-
-        <p class="author_links menu">
-          <NuxtLink to="/posts">blog</NuxtLink>
-          <NuxtLink to="/talks">talks</NuxtLink>
-          <NuxtLink to="/projects">projects</NuxtLink>
-          <!-- Temporarily hidden - Uses and Now pages
-          <NuxtLink to="/uses">uses</NuxtLink>
-          <NuxtLink to="/now">now</NuxtLink>
-          -->
-        </p>
-      </div>
-
-      <div class="content-right">
-        <div class="profile-image-container">
-          <img 
-            alt="Adewale 'Ace' Abati - Professional headshot" 
-            class="profile-image" 
-            src="/author.jpg" 
-            itemprop="image"
-          />
-          <div class="logo-overlay">
-            <img alt="Ace logo" class="logo__image--small" src="/logo.png" />
+          <div class="mt-8">
+            <SocialLinks size="sm" />
           </div>
         </div>
-        
-        <div class="newsletter-container text-center text-sm">
-          <!-- <p>Join 500+ subscribers dedicated to learning and pursuing creativity and excellence together.  </p>
-          <br /> -->
-          <a 
-            href="https://acekyd.substack.com" 
-            target="_blank" 
-            rel="noopener" 
-            class="newsletter-button"
-            aria-label="Subscribe to Ace's newsletter on Substack"
-          >
+
+        <!-- Clean portrait — the real photo, crisp and central -->
+        <div class="order-1 w-full md:order-2 md:justify-self-end">
+          <PortraitCard src="/author.jpg" alt="Adewale 'Ace' Abati" />
+        </div>
+      </div>
+
+      <!-- scroll cue -->
+      <div class="pointer-events-none absolute inset-x-0 bottom-6 hidden justify-center md:flex">
+        <span class="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-ink-faint">
+          <svg class="h-4 w-4 animate-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M6 13l6 6 6-6" /></svg>
+          Scroll
+        </span>
+      </div>
+    </section>
+
+    <!-- ===================== RECENT WRITING ===================== -->
+    <section class="container-wide py-12">
+      <div class="mb-8 flex items-end justify-between">
+        <div>
+          <p class="eyebrow mb-2">Writing</p>
+          <h2 class="text-3xl font-bold tracking-tight text-ink md:text-4xl">Recent posts</h2>
+        </div>
+        <NuxtLink to="/posts" class="hidden text-sm font-medium text-accent no-underline hover:opacity-80 sm:inline">
+          All posts →
+        </NuxtLink>
+      </div>
+
+      <div class="grid gap-4 md:grid-cols-2">
+        <NuxtLink
+          v-for="post in recentPosts"
+          :key="post._path"
+          :to="post._path"
+          class="card card-hover group"
+        >
+          <div class="flex items-center gap-2 text-xs text-ink-faint">
+            <time :datetime="post.date">{{ formatDate(post.date) }}</time>
+          </div>
+          <h3 class="mt-2 text-lg font-semibold text-ink transition-colors group-hover:text-accent-ink">
+            {{ post.title }}
+          </h3>
+          <p class="mt-2 line-clamp-2 text-sm leading-relaxed text-ink-faint">
+            {{ post.description }}
+          </p>
+        </NuxtLink>
+      </div>
+      <NuxtLink to="/posts" class="mt-6 inline-block text-sm font-medium text-accent no-underline sm:hidden">
+        All posts →
+      </NuxtLink>
+    </section>
+
+    <!-- ===================== SELECTED PROJECTS ===================== -->
+    <section class="container-wide py-12">
+      <div class="mb-8 flex items-end justify-between">
+        <div>
+          <p class="eyebrow mb-2">Building</p>
+          <h2 class="text-3xl font-bold tracking-tight text-ink md:text-4xl">Selected projects</h2>
+        </div>
+        <NuxtLink to="/projects" class="hidden text-sm font-medium text-accent no-underline hover:opacity-80 sm:inline">
+          All projects →
+        </NuxtLink>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <a
+          v-for="project in featuredProjects"
+          :key="project.id"
+          :href="project.website || project.github"
+          target="_blank"
+          rel="noopener"
+          class="card card-hover group flex flex-col"
+        >
+          <div class="flex items-start justify-between gap-3">
+            <h3 class="text-base font-semibold text-ink transition-colors group-hover:text-accent-ink" v-html="project.title" />
+            <svg class="mt-1 h-4 w-4 shrink-0 text-ink-faint transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M7 17 17 7M7 7h10v10" />
+            </svg>
+          </div>
+          <p class="mt-2 flex-1 text-sm leading-relaxed text-ink-faint" v-html="project.description" />
+          <div class="mt-4 flex flex-wrap items-center gap-2 text-xs text-ink-faint">
+            <span v-if="project.skills" class="rounded-full border border-border px-2 py-0.5">{{ project.skills }}</span>
+            <span v-if="project.impact" class="text-accent-ink">{{ project.impact }}</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===================== TALKS + CTA ===================== -->
+    <section class="container-wide py-12">
+      <div class="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
+        <div class="rounded-3xl border border-border bg-surface p-8">
+          <p class="eyebrow mb-2">Speaking</p>
+          <h2 class="text-2xl font-bold text-ink">On stage &amp; on stream</h2>
+          <p class="mt-3 max-w-md text-sm leading-relaxed text-ink-faint">
+            I speak and mentor at conferences, meetups, and community events around the world —
+            on developer relations, open source, and building with AI.
+          </p>
+          <NuxtLink to="/talks" class="mt-6 inline-block text-sm font-medium text-accent-ink no-underline">
+            Browse talks →
+          </NuxtLink>
+        </div>
+
+        <div class="flex flex-col justify-between rounded-3xl border border-accent/30 bg-accent-soft p-8">
+          <div>
+            <h2 class="text-xl font-bold text-ink">Let's keep in touch</h2>
+            <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+              Practical thoughts on creativity, AI, and engineering — straight to your inbox.
+            </p>
+          </div>
+          <a href="https://acekyd.substack.com" target="_blank" rel="noopener" class="btn mt-6 self-start">
             Subscribe on Substack
           </a>
         </div>
       </div>
-    </div>
-    <br />
+    </section>
   </div>
 </template>
-<script setup>
+
+<script setup lang="ts">
+import Projects from 'assets/data/projects.json'
+
+const { data: recentPosts } = await useAsyncData('home-recent-posts', () =>
+  queryContent('/posts')
+    .where({ published: { $ne: false } })
+    .only(['title', 'description', '_path', 'date'])
+    .sort({ date: -1 })
+    .limit(4)
+    .find(),
+)
+
+const featuredProjects = (Projects as any[])
+  .filter((p) => p.status !== 'archived' && (p.featured === true || p.status === 'active'))
+  .slice(0, 6)
+
+function formatDate(date?: string) {
+  if (!date) return ''
+  return new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+}
+
 useHead({
-  titleTemplate: "Adewale Abati - Web Engineer & Developer Advocate",
-});
+  titleTemplate: 'Adewale Abati - Web Engineer & Developer Advocate',
+})
+useSeoMeta({
+  description:
+    'Adewale "Ace" Abati — Web Engineer and Staff Developer Advocate at Block. Writing, talks, and projects on agentic AI, open source, and developer community.',
+})
 </script>
-<style lang="scss" scoped>
-#landing.author {
-  margin: 10vh 10vw;
-  max-width: 1500px;
-
-  .hero-section {
-    display: flex;
-    gap: 4rem;
-    align-items: flex-start;
-  }
-
-  .content-left {
-    flex: 2;
-    min-width: 0;
-  }
-
-  .content-right {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2.5rem;
-    height: 100%;
-    padding-left: 2rem;
-    padding-top: 10%;
-  }
-
-  .logo-container {
-    margin-bottom: 2rem;
-  }
-
-  .profile-image-container {
-    position: relative;
-    width: 270px;
-    height: 270px;
-  }
-
-  .profile-image {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #12b488;
-    transition: all 0.3s ease;
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .profile-image:hover {
-    transform: scale(1.05);
-    border-color: #ff6b9d;
-    box-shadow: 0 10px 30px rgba(18, 180, 136, 0.3);
-  }
-
-  .logo-overlay {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: white;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-  }
-
-  .logo-overlay:hover {
-    transform: rotate(10deg) scale(1.1);
-  }
-
-  .logo__image--small {
-    width: 30px;
-    height: 30px;
-    margin: 0;
-  }
-
-  .newsletter-container {
-    // width: 100%;
-  }
-
-  .newsletter-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: #12b488;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(18, 180, 136, 0.2);
-    text-align: center;
-    justify-content: center;
-  }
-
-  .newsletter-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(18, 180, 136, 0.3);
-    background: #0ea478;
-    text-decoration: none;
-  }
-
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-
-  .author__intro {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-  }
-
-  .author__links {
-    margin-bottom: 1em;
-    a {
-      margin: 0 0.5em;
-    }
-    a:first-child {
-      margin-left: 0;
-    }
-  }
-  .strike {
-    text-decoration: line-through;
-  }
-
-  .small {
-    font-size: 0.8em;
-    line-height: 1.7rem;
-  }
-
-  .menu a {
-    margin-right: 10px;
-  }
-
-  // Mobile responsiveness
-  @media (max-width: 768px) {
-    margin: 5vh 5vw;
-    
-    .hero-section {
-      flex-direction: column;
-      gap: 2rem;
-    }
-    
-    .content-right {
-      display: none; // Hide headshot section on mobile
-    }
-  }
-}
-
-.highlight {
-  font-weight: bold;
-}
-
-.logo {
-  text-decoration: none;
-  color: var(--body-color) !important;
-  font-size: 0.9em;
-
-  &__image {
-    vertical-align: middle;
-    height: 42.8px;
-    width: 40px;
-    margin-right: 0.5em;
-    margin-bottom: 2vh;
-  }
-}
-</style>

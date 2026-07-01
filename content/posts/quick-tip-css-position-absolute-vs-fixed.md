@@ -2,7 +2,7 @@
 title: Quick Tip - CSS position absolute vs fixed
 date: 2020-01-01
 published: true
-tags: ['Tips', 'Web', 'CSS']
+tags: ['Web Development']
 canonical_url: true
 description: "Positioning in CSS can be a tricky business. A common issue however is between deciding to use position:fixed or position:absolute. Here's a tip to help with that."
 ---

@@ -2,7 +2,7 @@
 title: A short informal introduction to Developer Relations
 date: 2021-01-10
 published: true
-tags: ['Developer Relations', 'Developer Tools']
+tags: ['Developer Relations']
 canonical_url: true
 description:
 cover_image: https://devlogic.acekyd.com/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fres%2Fhashnode%2Fimage%2Fupload%2Fv1610286241989%2FP0a3CL3Hl.jpeg%3Fw%3D1600%26h%3D840%26fit%3Dcrop%26crop%3Dentropy%26auto%3Dcompress%2Cformat%26format%3Dwebp&w=3840&q=75

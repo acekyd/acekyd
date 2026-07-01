@@ -2,7 +2,7 @@
 title: Celebrating open source in Nigeria with Hacktoberfest
 date: 2022-10-03
 published: true
-tags: ['Open source']
+tags: ['Open Source', 'Community']
 canonical_url: true
 description: "Open source in Nigeria has been on a rapid growth. Excited to celebrate the creators during the month of hacktoberfest"
 ---

@@ -7,9 +7,9 @@
         "website": "https://madeinnigeria.dev/",
         "description": "A curated list of awesome tools built by Nigerians that can be used by anybody from anywhere in the world. Showcasing Nigerian talent and innovation.",
         "status": "active",
-        "lastUpdated": "2025-07-30",
+        "lastUpdated": "2026-06-29",
         "featured": true,
-        "impact": "200+ projects showcased"
+        "impact": "1,100+ GitHub stars · 200+ projects showcased"
     },
     {
         "id": "2",
@@ -20,8 +20,8 @@
         "description": "WordPress plugin that allows users to display posts from medium.com on any part of their website. Simplifies content syndication.",
         "status": "archived",
         "lastUpdated": "2023-08-01",
-        "featured": true,
-        "impact": "25,000+ downloads"
+        "featured": false,
+        "impact": "25,000+ downloads · 85 GitHub stars"
     },
     {
         "id": "3",
@@ -30,7 +30,7 @@
         "github": "https://github.com/acekyd/clean-repos",
         "website": "https://clean-repos.herokuapp.com/",
         "description": "A utility tool to help clear out multiple old, broken, uncompleted or abandoned repositories from your GitHub account. Spring cleaning for developers.",
-        "status": "maintained",
+        "status": "archived",
         "lastUpdated": "2023-05-20",
         "featured": false,
         "impact": "500+ users"
@@ -42,10 +42,10 @@
         "github": "https://github.com/acekyd/laravelMp3",
         "website": "https://packagist.org/packages/acekyd/laravelmp3",
         "description": "A lightweight Laravel package for simple operations with mp3 files. Built on the getID3 library for reliable audio file manipulation.",
-        "status": "maintained",
+        "status": "archived",
         "lastUpdated": "2023-03-10",
         "featured": false,
-        "impact": "3,600+ downloads"
+        "impact": "3,600+ downloads · 21 GitHub stars"
     },
     {
         "id": "5",
@@ -57,7 +57,7 @@
         "status": "archived",
         "lastUpdated": "2019-12-01",
         "featured": false,
-        "impact": "Used at 20+ events"
+        "impact": "Used at 20+ events · 37 GitHub stars"
     },
     {
         "id": "6",
@@ -81,7 +81,7 @@
         "status": "archived",
         "lastUpdated": "2020-08-01",
         "featured": false,
-        "impact": "100+ active users + 4.9/5 rating"
+        "impact": "100+ active users · 4.9/5 rating · 28 GitHub stars"
     },
     {
         "id": "8",
@@ -127,8 +127,44 @@
         "website": "https://dcsquare-social.herokuapp.com/",
         "description": "Social app for devcenter members to connect and follow each other on GitHub. Track projects and facilitate collaboration within the community.",
         "status": "archived",
-        "lastUpdated": "2018-06-01",
+        "lastUpdated": "2021-01-15",
         "featured": false,
-        "impact": "Early community platform"
+        "impact": "206 GitHub stars · early community platform"
+    },
+    {
+        "id": "12",
+        "title": "myProClubs",
+        "skills": "PHP, Laravel, Blade, Docker",
+        "github": "https://github.com/acekyd/myproclubs",
+        "website": "https://www.myproclubs.com",
+        "description": "A webapp to manage virtual football teams from EA Sports FC25+ Pro Clubs. Track your squad, players, and performance.",
+        "status": "active",
+        "lastUpdated": "2026-06-29",
+        "featured": false,
+        "impact": "eSports Pro Clubs tournament platform"
+    },
+    {
+        "id": "13",
+        "title": "Watchroom",
+        "skills": "Vue, TypeScript",
+        "github": "https://github.com/acekyd/watchroom",
+        "website": "https://btg-watchroom.netlify.app/",
+        "description": "A web app for multi-streaming Twitch tournaments across channels.",
+        "status": "active",
+        "lastUpdated": "2026-06-27",
+        "featured": false,
+        "impact": "Control room for multi-streams"
+    },
+    {
+        "id": "14",
+        "title": "Buffett",
+        "skills": "Flutter, Dart",
+        "github": "https://github.com/acekyd/buffett-app",
+        "website": "",
+        "description": "Your personal net worth app. A cross-platform mobile app to track assets, liabilities, and net worth over time.",
+        "status": "maintained",
+        "lastUpdated": "2025-08-19",
+        "featured": false,
+        "impact": "Personal net worth tracker"
     }
 ]

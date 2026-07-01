@@ -1,11 +1,11 @@
 <template>
-    <main class="max-w-3xl m-auto prose">
-        <section class="pl-3">
-            <Header></Header>
+    <div class="container-content py-12 md:py-16">
+        <header class="animate-fade-up mb-10">
+            <p class="eyebrow mb-3">Now</p>
             <h1 class="pageTitle">What I'm Doing Now</h1>
-            <p class="pageSubtitle lg:prose-xl">A snapshot of what's currently capturing my attention and energy.</p>
-        </section>
-        
+            <p class="pageSubtitle">A snapshot of what's currently capturing my attention and energy.</p>
+        </header>
+
         <section class="now-content">
             <div class="last-updated">
                 <p><em>Last updated: <strong>August 30, 2024</strong> from Lagos, Nigeria 🇳🇬</em></p>
@@ -99,7 +99,7 @@
                 you're working on something similar, I'd love to hear from you!</p>
             </div>
         </section>
-    </main>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -115,66 +115,28 @@ useHead({
 </script>
 
 <style scoped>
-.now-content {
-  @apply px-3;
-}
-
 .last-updated {
-  @apply mb-8 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-400;
+  @apply mb-8 p-4 bg-accent-soft rounded-xl border border-accent/20;
 }
+.last-updated p { @apply text-ink-soft mb-0; }
 
-.last-updated p {
-  @apply text-blue-800 mb-0;
-}
-
-.now-section {
-  @apply mb-10;
-}
-
+.now-section { @apply mb-10; }
 .now-section h2 {
-  @apply text-2xl font-bold mb-4 text-gray-800;
-  border-bottom: 3px solid #12b488;
+  @apply text-2xl font-semibold mb-4 text-ink;
+  border-bottom: 2px solid rgb(var(--accent));
   padding-bottom: 0.5rem;
 }
 
-.now-item {
-  @apply bg-white p-6 rounded-lg shadow-sm border border-gray-100;
-}
+.now-item { @apply bg-surface p-6 rounded-2xl border border-border; }
+.now-item h3 { @apply text-xl font-semibold mb-3 text-ink; }
+.now-item h4 { @apply text-lg font-medium mb-2 mt-4 text-ink; }
+.now-item p { @apply text-ink-soft mb-3 leading-relaxed; }
+.now-item ul { @apply list-disc list-inside text-ink-soft mb-3 space-y-1; }
+.now-item li { @apply ml-4; }
+.now-item a, .last-updated a, .about-now a { @apply text-accent-ink no-underline; }
 
-.now-item h3 {
-  @apply text-xl font-semibold mb-3;
-  color: #12b488;
-}
-
-.now-item h4 {
-  @apply text-lg font-medium mb-2 mt-4 text-gray-800;
-}
-
-.now-item p {
-  @apply text-gray-700 mb-3 leading-relaxed;
-}
-
-.now-item ul {
-  @apply list-disc list-inside text-gray-700 mb-3 space-y-1;
-}
-
-.now-item li {
-  @apply ml-4;
-}
-
-.about-now {
-  @apply mt-12 p-6 bg-gray-50 rounded-lg border-l-4 border-pink-500;
-}
-
-.about-now h3 {
-  @apply text-lg font-semibold mb-3 text-gray-900;
-}
-
-.about-now p {
-  @apply text-gray-600 mb-3 leading-relaxed;
-}
-
-.about-now p:last-child {
-  @apply mb-0;
-}
+.about-now { @apply mt-12 p-6 bg-muted rounded-2xl border border-border; }
+.about-now h3 { @apply text-lg font-semibold mb-3 text-ink; }
+.about-now p { @apply text-ink-faint mb-3 leading-relaxed; }
+.about-now p:last-child { @apply mb-0; }
 </style>

@@ -2,7 +2,7 @@
 title: Are the rubber ducks getting smarter
 date: 2024-12-18
 published: true
-tags: ['AI', 'programming', 'developer-tools']
+tags: ['Agentic AI', 'Web Development']
 canonical_url: true
 description: "Like many people, the solution to a coding problem I’ve struggled with suddenly appears when I try to explain it to someone or something. Sometimes even while sleeping. How are new AI tools changing the way we debug and write code?"
 ---
@@ -64,4 +64,3 @@ Recently I was able to share my thoughts on a State of the Frontend survey and i
 :tweet{tweetId="1849471180295528646"}
 
 I’m spending more of my time looking into how AI tools like this could help developers everywhere improve their workflow, and I can’t wait to share everything I learn with you all along the way.
-

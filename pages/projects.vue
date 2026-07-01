@@ -1,243 +1,164 @@
 <template>
-    <main class="max-w-3xl m-auto prose">
-        <section class="pl-3">
-            <Header></Header>
-            <h1 class="pageTitle">Projects and Experiments</h1>
-            <p class="pageSubtitle lg:prose-xl">Building community centered solutions, open source projects, plugins and more experiments.</p>
-        </section>
-        
-        <!-- Featured Projects -->
-        <section class="projects-section" v-if="featuredProjects().length > 0">
-            <h2 class="section-title">🌟 Featured Projects</h2>
-            <div class="projects-grid">
-                <div v-for="project in featuredProjects()" :key="`featured-${project.id}`" class="project-card featured">
-                    <div class="project-status-badge" :class="getStatusClass(project.status)">
-                        {{ getStatusLabel(project.status) }}
-                    </div>
-                    <h3 v-html="project.title" />
-                    <p class="project-description" v-html="project.description" />
-                    <div class="project-meta">
-                        <span class="project-skills" v-if="project.skills">{{ project.skills }}</span>
-                        <span class="project-impact" v-if="project.impact">{{ project.impact }}</span>
-                    </div>
-                    <div class="project-links">
-                        <a :href="project.github" v-if="project.github" class="project-link github" target="_blank" rel="noopener">
-                            <font-awesome-icon :icon="['fab', 'github']" /> Code
-                        </a>
-                        <a :href="project.website" v-if="project.website" class="project-link website" target="_blank" rel="noopener">
-                            <font-awesome-icon :icon="['fas', 'external-link-alt']" /> Live
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <div class="container-wide py-12 md:py-16">
+    <header class="animate-fade-up">
+      <p class="eyebrow mb-3">Building</p>
+      <h1 class="pageTitle">Projects &amp; Experiments</h1>
+      <p class="pageSubtitle">Community-centered solutions, open source projects, plugins, and assorted experiments.</p>
+    </header>
 
-        <!-- Active & Maintained Projects -->
-        <section class="projects-section">
-            <h2 class="section-title">🚀 Active & Maintained Projects</h2>
-            <div class="projects-list">
-                <div v-for="project in activeProjects()" :key="`active-${project.id}`" class="project-card">
-                    <div class="project-status-badge" :class="getStatusClass(project.status)">
-                        {{ getStatusLabel(project.status) }}
-                    </div>
-                    <h4 v-html="project.title" />
-                    <p class="project-description" v-html="project.description" />
-                    <div class="project-meta">
-                        <span class="project-skills" v-if="project.skills">{{ project.skills }}</span>
-                        <span class="project-updated">Last updated: {{ formatDate(project.lastUpdated) }}</span>
-                    </div>
-                    <div class="project-links">
-                        <a :href="project.github" v-if="project.github" class="project-link github" target="_blank" rel="noopener">
-                            <font-awesome-icon :icon="['fab', 'github']" /> Code
-                        </a>
-                        <a :href="project.website" v-if="project.website" class="project-link website" target="_blank" rel="noopener">
-                            <font-awesome-icon :icon="['fas', 'external-link-alt']" /> Live
-                        </a>
-                    </div>
-                </div>
+    <!-- Featured -->
+    <section v-if="featured.length" class="mt-4">
+      <h2 class="section-label"><span class="dot" /> Featured</h2>
+      <div class="grid gap-5">
+        <!-- each featured project is a full-width horizontal card with an impact panel -->
+        <SpotlightCard v-for="(project, i) in featured" :key="`f-${project.id}`" class="group">
+          <div class="grid md:grid-cols-[1.55fr_1fr]">
+            <div class="flex flex-col p-7 md:p-9">
+              <div class="mb-3 flex items-start justify-between gap-3">
+                <h3
+                  class="font-bold tracking-tight text-ink transition-colors group-hover:text-accent-ink"
+                  :class="i === 0 ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'"
+                  v-html="project.title"
+                />
+                <span class="badge" :class="badgeClass(project.status)">{{ statusLabel(project.status) }}</span>
+              </div>
+              <p class="flex-1 leading-relaxed text-ink-soft md:max-w-xl" :class="i === 0 ? 'text-base' : 'text-sm'" v-html="project.description" />
+              <div class="mt-5 flex flex-wrap gap-1.5">
+                <span v-for="skill in skillList(project.skills)" :key="skill" class="techchip">{{ skill }}</span>
+              </div>
+              <div class="mt-6 flex gap-2">
+                <a v-if="project.github" :href="project.github" target="_blank" rel="noopener" class="plink">
+                  <font-awesome-icon :icon="['fab', 'github']" /> Code
+                </a>
+                <a v-if="project.website" :href="project.website" target="_blank" rel="noopener" class="plink plink--accent">
+                  <font-awesome-icon :icon="['fas', 'external-link-alt']" /> Live
+                </a>
+              </div>
             </div>
-        </section>
 
-        <!-- Archived Projects -->
-        <section class="projects-section">
-            <h2 class="section-title">📚 Archived Projects</h2>
-            <p class="archive-note">These projects served their purpose and are now archived. They remain here as part of my journey and for reference.</p>
-            <div class="projects-list archived">
-                <div v-for="project in archivedProjects()" :key="`archived-${project.id}`" class="project-card archived">
-                    <div class="project-status-badge archived">
-                        {{ getStatusLabel(project.status) }}
-                    </div>
-                    <h4 v-html="project.title" />
-                    <p class="project-description" v-html="project.description" />
-                    <div class="project-meta">
-                        <span class="project-skills" v-if="project.skills">{{ project.skills }}</span>
-                        <span class="project-impact" v-if="project.impact">{{ project.impact }}</span>
-                    </div>
-                    <div class="project-links">
-                        <a :href="project.github" v-if="project.github" class="project-link github" target="_blank" rel="noopener">
-                            <font-awesome-icon :icon="['fab', 'github']" /> Code
-                        </a>
-                        <a :href="project.website" v-if="project.website" class="project-link website" target="_blank" rel="noopener">
-                            <font-awesome-icon :icon="['fas', 'external-link-alt']" /> Live
-                        </a>
-                    </div>
-                </div>
+            <!-- decorative impact panel -->
+            <div class="relative hidden overflow-hidden border-l border-border bg-gradient-to-br from-accent-soft via-transparent to-transparent md:flex md:flex-col md:items-center md:justify-center md:p-8 md:text-center">
+              <div class="grain absolute inset-0 opacity-40" />
+              <div class="relative">
+                <template v-if="impactStat(project.impact)">
+                  <div class="font-bold leading-none tracking-tight text-ink" :class="i === 0 ? 'text-[3.25rem]' : 'text-[2.75rem]'">{{ impactStat(project.impact)!.num }}</div>
+                  <div class="mt-2 text-sm text-ink-faint">{{ impactStat(project.impact)!.label }}</div>
+                </template>
+                <div v-else class="text-6xl font-bold text-accent-ink">✦</div>
+              </div>
             </div>
-        </section>
-    </main>
+          </div>
+        </SpotlightCard>
+      </div>
+    </section>
+
+    <!-- Active & Maintained -->
+    <section v-if="active.length" class="mt-14">
+      <h2 class="section-label">Active &amp; Maintained</h2>
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <SpotlightCard v-for="project in active" :key="`a-${project.id}`" class="group">
+          <div class="flex h-full flex-col p-6">
+            <div class="mb-2 flex items-start justify-between gap-3">
+              <h3 class="text-base font-semibold text-ink transition-colors group-hover:text-accent-ink" v-html="project.title" />
+              <span class="badge" :class="badgeClass(project.status)">{{ statusLabel(project.status) }}</span>
+            </div>
+            <p class="flex-1 text-sm leading-relaxed text-ink-faint" v-html="project.description" />
+            <div v-if="project.impact" class="mt-3 text-xs font-medium text-accent-ink">{{ project.impact }}</div>
+            <div class="mt-3 flex flex-wrap gap-1.5">
+              <span v-for="skill in skillList(project.skills)" :key="skill" class="techchip">{{ skill }}</span>
+            </div>
+            <div class="mt-4 flex gap-2">
+              <a v-if="project.github" :href="project.github" target="_blank" rel="noopener" class="plink">
+                <font-awesome-icon :icon="['fab', 'github']" /> Code
+              </a>
+              <a v-if="project.website" :href="project.website" target="_blank" rel="noopener" class="plink plink--accent">
+                <font-awesome-icon :icon="['fas', 'external-link-alt']" /> Live
+              </a>
+            </div>
+          </div>
+        </SpotlightCard>
+      </div>
+    </section>
+
+    <!-- Archived -->
+    <section v-if="archived.length" class="mt-14">
+      <h2 class="section-label">Archived</h2>
+      <p class="-mt-3 mb-5 text-sm text-ink-faint">Served their purpose and now rest here as part of the journey.</p>
+      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <a
+          v-for="project in archived"
+          :key="`ar-${project.id}`"
+          :href="project.website || project.github || '#'"
+          :target="project.website || project.github ? '_blank' : undefined"
+          rel="noopener"
+          class="group flex items-start justify-between gap-3 rounded-xl border border-border bg-bg p-4 no-underline opacity-80 transition-all hover:opacity-100 hover:border-accent/30"
+        >
+          <div class="min-w-0">
+            <div class="flex flex-wrap items-start gap-2">
+              <h3 class="text-sm font-semibold text-ink transition-colors group-hover:text-accent-ink" v-html="project.title" />
+              <span class="badge" :class="badgeClass(project.status)">{{ statusLabel(project.status) }}</span>
+            </div>
+            <p class="mt-1 line-clamp-2 text-xs leading-relaxed text-ink-faint" v-html="project.description" />
+            <div v-if="project.impact" class="mt-2 text-xs font-medium text-accent-ink">{{ project.impact }}</div>
+            <div class="mt-2 flex flex-wrap gap-1.5">
+              <span v-for="skill in skillList(project.skills)" :key="skill" class="techchip">{{ skill }}</span>
+            </div>
+          </div>
+          <svg class="mt-0.5 h-3.5 w-3.5 shrink-0 text-ink-faint transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M7 7h10v10" /></svg>
+        </a>
+      </div>
+    </section>
+  </div>
 </template>
+
 <script setup lang="ts">
 import Projects from "assets/data/projects.json";
 
-useHead({
-  titleTemplate: 'Projects and Experiments - Adewale Abati',
-  meta: [
-    {
-      name: 'description',
-      content: 'A collection of open source projects, tools, and experiments by Adewale "Ace" Abati - from active community projects to archived learning experiences.'
-    }
-  ]
+useHead({ titleTemplate: 'Projects and Experiments - Adewale Abati' })
+useSeoMeta({
+  description: 'Open source projects, tools, and experiments by Adewale "Ace" Abati — from active community work to archived learning projects.',
 })
 
-const featuredProjects = () => {
-    return Projects.filter(project => project.featured === true);
-}
+const data = Projects as any[]
+const isArchived = (p: any) => p.status === 'archived'
+const featured = data.filter((p) => p.featured === true && !isArchived(p))
+const active = data.filter((p) => (p.status === 'active' || p.status === 'maintained') && !p.featured)
+const archived = data.filter(isArchived)
 
-const activeProjects = () => {
-    return Projects.filter(project => project.status === 'active' || project.status === 'maintained').filter(project => !project.featured);
+const skillList = (s?: string) => (s ? s.split(',').map((x) => x.trim()).filter(Boolean) : [])
+// Split an impact string like "25,000+ downloads" into a big number + label.
+const impactStat = (s?: string) => {
+  if (!s) return null
+  const m = s.match(/^\s*([\d.,]+\s*[+%kKmM]*)\s+(.*)$/)
+  return m ? { num: m[1].replace(/\s+/g, ''), label: m[2] } : { num: '', label: s }
 }
-
-const archivedProjects = () => {
-    return Projects.filter(project => project.status === 'archived');
-}
-
-const getStatusClass = (status: string) => {
-    const classes = {
-        'active': 'status-active',
-        'maintained': 'status-maintained', 
-        'archived': 'status-archived'
-    };
-    return classes[status] || '';
-}
-
-const getStatusLabel = (status: string) => {
-    const labels = {
-        'active': 'Active',
-        'maintained': 'Maintained',
-        'archived': 'Archived'
-    };
-    return labels[status] || status;
-}
-
-const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
-}
+const statusLabel = (s: string) => ({ active: 'Active', maintained: 'Maintained', archived: 'Archived' } as Record<string, string>)[s] || s
+const badgeClass = (s: string) =>
+  ({
+    active: 'bg-accent-soft text-accent-ink',
+    maintained: 'border border-border text-ink-faint',
+    archived: 'border border-border text-ink-faint',
+  } as Record<string, string>)[s] || 'border border-border text-ink-faint'
 </script>
+
 <style scoped>
-.projects-section {
-  @apply mb-12 px-3;
+.section-label {
+  @apply mb-6 flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-ink-faint;
+}
+.dot { @apply h-1.5 w-1.5 rounded-full bg-accent; }
+
+.badge {
+  @apply shrink-0 rounded-full px-2.5 py-0.5 text-[11px] font-medium;
 }
 
-.section-title {
-  @apply text-2xl font-bold mb-6 text-gray-800;
-  border-bottom: 3px solid #12b488;
-  padding-bottom: 0.5rem;
+.techchip {
+  @apply rounded-full border border-border px-2.5 py-0.5 text-xs text-ink-faint;
 }
 
-.projects-grid {
-  @apply grid gap-6 md:grid-cols-2;
+.plink {
+  @apply inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-xs font-medium text-ink-soft no-underline transition-colors hover:border-accent/50 hover:text-accent-ink;
 }
-
-.projects-list {
-  @apply space-y-4;
-}
-
-.project-card {
-  @apply bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 relative;
-}
-
-.project-card.featured {
-  @apply border-2 border-green-200 bg-gradient-to-br from-green-50 to-white;
-}
-
-.project-card.archived {
-  @apply opacity-80;
-}
-
-.project-status-badge {
-  @apply absolute top-4 right-4 px-2 py-1 text-xs font-medium rounded-full;
-}
-
-.status-active {
-  @apply bg-green-100 text-green-800;
-}
-
-.status-maintained {
-  @apply bg-blue-100 text-blue-800;
-}
-
-.status-archived {
-  @apply bg-gray-100 text-gray-600;
-}
-
-.project-card h3,
-.project-card h4 {
-  @apply text-lg font-semibold mb-3 text-gray-900 pr-16;
-  color: #12b488;
-}
-
-.project-description {
-  @apply text-gray-700 mb-4 leading-relaxed;
-}
-
-.project-meta {
-  @apply flex flex-wrap gap-4 mb-4 text-sm;
-}
-
-.project-skills {
-  @apply text-gray-600 font-medium;
-}
-
-.project-impact {
-  @apply text-green-600 font-medium;
-}
-
-.project-updated {
-  @apply text-gray-500;
-}
-
-.project-links {
-  @apply flex gap-3;
-}
-
-.project-link {
-  @apply inline-flex items-center gap-1 px-3 py-1 rounded-md text-sm font-medium transition-colors no-underline;
-}
-
-.project-link.github {
-  @apply bg-gray-100 text-gray-700 hover:bg-gray-200;
-}
-
-.project-link.website {
-  @apply bg-blue-100 text-blue-700 hover:bg-blue-200;
-}
-
-.archive-note {
-  @apply text-gray-600 mb-6 italic;
-}
-
-.projects-list.archived .project-card {
-  @apply bg-gray-50;
-}
-
-@media (max-width: 768px) {
-  .projects-grid {
-    @apply grid-cols-1;
-  }
-  
-  .project-meta {
-    @apply flex-col gap-2;
-  }
+.plink--accent {
+  @apply border-accent/40 bg-accent-soft text-accent-ink;
 }
 </style>

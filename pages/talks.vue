@@ -1,101 +1,166 @@
 <template>
-    <main class="max-w-3xl m-auto prose">
-        <section class="pl-3">
-            <Header></Header>
-            <h1 class="pageTitle">Talks and Presentations</h1>
-            <p class="pageSubtitle lg:prose-xl">Public Speaking, keynotes and mentorship sessions at conferences, meetups, and community events.</p>
-        </section>
-        
-        <section class="talks-content">
-            <div v-for="(yearGroup, index) in groupedTalks" :key="yearGroup.year" class="year-group">
-                <div class="year-header">
-                    <button 
-                        @click="toggleYear(yearGroup.year)"
-                        class="year-header-button"
-                        :aria-expanded="isYearExpanded(yearGroup.year)"
-                        :aria-controls="`year-${yearGroup.year}`"
-                    >
-                        <h2 class="year-title">{{ yearGroup.year }}</h2>
-                        <div class="year-controls">
-                            <span class="talk-count">({{ yearGroup.talks.length }} talks)</span>
-                            <font-awesome-icon 
-                                :icon="['fas', isYearExpanded(yearGroup.year) ? 'chevron-up' : 'chevron-down']" 
-                                class="chevron-icon"
-                            />
-                        </div>
-                    </button>
-                    <div class="year-divider"></div>
-                </div>
-                
-                <div 
-                    v-show="isYearExpanded(yearGroup.year)"
-                    :id="`year-${yearGroup.year}`"
-                    class="year-talks"
-                    :class="{ 'year-talks-expanded': isYearExpanded(yearGroup.year) }"
-                >
-                    <div v-for="talk in yearGroup.talks" :key="talk.id" class="talk-item">
-                        <div class="talk-card">
-                            <div class="talk-header">
-                                <h3 class="talk-title" v-html="talk.title" />
-                                <div class="talk-meta">
-                                    <span class="talk-event">
-                                        <font-awesome-icon :icon="['fas', 'calendar']" />
-                                        <strong v-html="talk.event" />
-                                    </span>
-                                    <span class="talk-date" v-if="talk.date">
-                                        <font-awesome-icon :icon="['fas', 'clock']" />
-                                        {{ talk.date }}
-                                    </span>
-                                    <span class="talk-location" v-if="talk.location">
-                                        <font-awesome-icon :icon="['fas', 'map-marker-alt']" />
-                                        {{ talk.location }}
-                                    </span>
-                                </div>
-                            </div>
-                            
-                            <div class="talk-abstract" v-if="talk.abstract">
-                                <details>
-                                    <summary class="abstract-toggle">
-                                        <font-awesome-icon :icon="['fas', 'info-circle']" />
-                                        Talk Abstract
-                                    </summary>
-                                    <div class="abstract-content" v-html="talk.abstract" />
-                                </details>
-                            </div>
-                            
-                            <div class="talk-slides" v-if="talk.embedLink">
-                                <TalkEmbed 
-                                    :embed-url="talk.embedLink" 
-                                    :slide-url="talk.slides"
-                                    :embed-title="talk.title"
-                                />
-                            </div>
-                            
-                            <div class="talk-links">
-                                <a class="talk-link slides" :href="talk.slides" v-if="talk.slides" target="_blank" rel="noopener">
-                                    <font-awesome-icon :icon="['fas', 'presentation']" />
-                                    Slides
-                                </a>
-                                <a class="talk-link website" :href="talk.website" v-if="talk.website" target="_blank" rel="noopener">
-                                    <font-awesome-icon :icon="['fas', 'external-link-alt']" />
-                                    Event
-                                </a>
-                                <WatchButton 
-                                    v-if="talk.video" 
-                                    :video-url="talk.video"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  <div>
+    <!-- ===================== HEADER ===================== -->
+    <section class="relative isolate overflow-hidden border-b border-border">
+      <ClientOnly>
+        <HeroAurora class="absolute inset-0 -z-10" />
+      </ClientOnly>
+
+      <div class="container-wide py-16 md:py-20">
+        <header class="animate-fade-up max-w-3xl">
+          <p class="eyebrow mb-4">Speaking</p>
+          <h1 class="text-balance font-bold tracking-[-0.03em] text-ink leading-[0.95] text-[clamp(2.4rem,6vw,4rem)]">
+            Talks &amp; Presentations
+          </h1>
+          <p class="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">
+            Keynotes, sessions, and mentorship at conferences, meetups, and community
+            events — on developer relations, open source, and building with AI.
+          </p>
+        </header>
+
+        <!-- stat strip -->
+        <dl class="mt-10 flex flex-wrap gap-x-12 gap-y-6">
+          <div v-for="stat in stats" :key="stat.label" :title="stat.title">
+            <dt class="text-3xl font-bold tracking-tight text-ink md:text-4xl">{{ stat.value }}</dt>
+            <dd class="mt-1 text-sm text-ink-faint">{{ stat.label }}</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="container-wide py-14 md:py-20">
+      <!-- ===================== WATCH (from YouTube playlist) ===================== -->
+      <section class="mb-16">
+        <div class="mb-6 flex items-center gap-2">
+          <span class="h-1.5 w-1.5 rounded-full bg-accent" />
+          <h2 class="text-sm font-semibold uppercase tracking-[0.18em] text-ink-faint">Watch</h2>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <a
+            v-for="video in featured.videos.slice(0, 3)"
+            :key="video.id"
+            :href="`https://www.youtube.com/watch?v=${video.id}&list=${playlistId}`"
+            target="_blank"
+            rel="noopener"
+            class="group block overflow-hidden rounded-2xl border border-border bg-surface no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40"
+          >
+            <div class="relative aspect-video overflow-hidden bg-muted">
+              <img
+                :src="`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`"
+                :alt="`Watch: ${video.title}`"
+                loading="lazy"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <span class="absolute inset-0 grid place-items-center">
+                <span class="grid h-14 w-14 place-items-center rounded-full bg-bg/85 text-ink shadow-lg backdrop-blur transition-transform duration-300 group-hover:scale-110">
+                  <svg class="ml-0.5 h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+                </span>
+              </span>
             </div>
-        </section>
-    </main>
+            <div class="p-5">
+              <p v-if="video.source" class="text-xs font-medium uppercase tracking-wide text-ink-faint">{{ video.source }}</p>
+              <h3 class="mt-1 font-semibold leading-snug text-ink transition-colors group-hover:text-accent-ink">{{ video.title }}</h3>
+            </div>
+          </a>
+        </div>
+        <div class="mt-6">
+          <a :href="featured.playlistUrl" target="_blank" rel="noopener" class="btn-ghost">
+            See more — {{ featured.playlistCount }} videos on YouTube
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M7 7h10v10" /></svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- ===================== TIMELINE ===================== -->
+      <section ref="railEl" class="relative">
+        <!-- base rail + animated progress -->
+        <span class="pointer-events-none absolute bottom-2 top-2 left-[7px] w-px bg-border md:left-[9px]" aria-hidden="true" />
+        <span
+          class="pointer-events-none absolute top-2 left-[7px] w-px bg-accent md:left-[9px]"
+          :style="{ height: progress + '%' }"
+          aria-hidden="true"
+        />
+
+        <div v-for="group in groupedTalks" :key="group.year" class="mb-4">
+          <!-- year marker -->
+          <div class="relative mb-7 flex items-baseline gap-4 pl-10 md:pl-16">
+            <span class="absolute top-2 left-[7px] h-4 w-4 -translate-x-1/2 rounded-full border-2 border-accent bg-bg md:left-[9px]" aria-hidden="true" />
+            <h2 class="text-3xl font-bold tracking-tight text-ink md:text-4xl">{{ group.year }}</h2>
+            <span class="text-sm text-ink-faint">{{ group.talks.length }} {{ group.talks.length === 1 ? 'talk' : 'talks' }}</span>
+          </div>
+
+          <!-- entries -->
+          <article
+            v-for="talk in group.talks"
+            :key="talk.id"
+            v-reveal
+            class="group relative pb-9 pl-10 md:pl-16"
+          >
+            <span class="absolute top-[7px] left-[7px] h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-border ring-4 ring-bg transition-colors group-hover:bg-accent md:left-[9px]" aria-hidden="true" />
+
+            <div class="rounded-2xl border border-transparent p-5 transition-all duration-300 hover:border-border hover:bg-surface">
+              <component
+                :is="primaryLink(talk) ? 'a' : 'div'"
+                :href="primaryLink(talk) || undefined"
+                :target="primaryLink(talk) ? '_blank' : undefined"
+                :rel="primaryLink(talk) ? 'noopener' : undefined"
+                class="block no-underline"
+              >
+                <h3 class="text-lg font-semibold text-ink transition-colors group-hover:text-accent-ink md:text-xl" v-html="talk.title" />
+              </component>
+
+              <div class="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm text-ink-faint">
+                <span class="font-medium text-ink-soft" v-html="talk.event" />
+                <span v-if="talk.location" class="flex items-center gap-1.5">
+                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.2-7-11a7 7 0 1 1 14 0c0 5.8-7 11-7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
+                  {{ talk.location }}
+                </span>
+                <span v-if="talk.date" class="flex items-center gap-1.5">
+                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2" /><path d="M3 9h18M8 2v4M16 2v4" /></svg>
+                  {{ talk.date }}
+                </span>
+              </div>
+
+              <details v-if="talk.abstract" class="group/ab mt-3">
+                <summary class="inline-flex cursor-pointer list-none items-center gap-1.5 text-sm font-medium text-accent-ink">
+                  <svg class="h-4 w-4 transition-transform group-open/ab:rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m9 6 6 6-6 6" /></svg>
+                  Abstract
+                </summary>
+                <div class="prose prose-sm mt-3 max-w-none text-ink-soft dark:prose-invert" v-html="talk.abstract" />
+              </details>
+
+              <div class="mt-4 flex flex-wrap gap-2">
+                <a v-if="talk.video" :href="talk.video" target="_blank" rel="noopener" class="chip chip--accent">
+                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg> Watch
+                </a>
+                <a v-if="talk.slides" :href="talk.slides" target="_blank" rel="noopener" class="chip">
+                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="13" rx="2" /><path d="M8 21h8M12 17v4" /></svg> Slides
+                </a>
+                <a v-if="talk.website" :href="talk.website" target="_blank" rel="noopener" class="chip">
+                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10" /></svg> Event
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <p class="mt-10 border-t border-border pt-8 text-sm text-ink-faint">
+        Want me to speak at your event?
+        <a href="https://twitter.com/ace_kyd" target="_blank" rel="noopener" class="link-underline font-medium">Reach out on X</a>
+        or <a href="mailto:acekyd01@gmail.com" class="link-underline font-medium">send an email</a>.
+      </p>
+    </div>
+  </div>
 </template>
+
 <script setup lang="ts">
 import Talks from "assets/data/talks.json";
+import featured from "assets/data/featured-videos.json";
+import speaking from "assets/data/speaking.json";
 
-// Define the Talk interface to include the new embedLink field
+const playlistId = featured.playlistUrl.split('list=')[1] || ''
+
 interface Talk {
   id: string;
   title: string;
@@ -108,266 +173,150 @@ interface Talk {
   video?: string;
   abstract: string;
 }
-
 interface YearGroup {
   year: string;
   talks: Talk[];
 }
 
-useHead({
-  titleTemplate: 'Talks and Presentations - Adewale Abati',
-  meta: [
+useHead({ titleTemplate: 'Talks and Presentations - Adewale Abati' })
+useSeoMeta({
+  description: 'Public speaking engagements, keynotes, and technical presentations by Adewale "Ace" Abati on developer advocacy, AI, and open source.',
+})
+
+const all = Talks as Talk[]
+
+const extractYear = (d: string): string => {
+  if (!d || !d.trim()) return 'Earlier'
+  const m = d.match(/\d{4}/)
+  return m ? m[0] : 'Earlier'
+}
+
+const groupedTalks = computed((): YearGroup[] => {
+  const groups: Record<string, Talk[]> = {}
+  all.forEach((t) => {
+    const y = extractYear(t.date)
+    ;(groups[y] ||= []).push(t)
+  })
+  Object.values(groups).forEach((g) =>
+    g.sort((a, b) => {
+      if (!a.date && !b.date) return 0
+      if (!a.date) return 1
+      if (!b.date) return -1
+      return new Date(b.date).getTime() - new Date(a.date).getTime()
+    }),
+  )
+  return Object.entries(groups)
+    .map(([year, talks]) => ({ year, talks }))
+    .sort((a, b) => {
+      if (a.year === 'Earlier') return 1
+      if (b.year === 'Earlier') return -1
+      return parseInt(b.year) - parseInt(a.year)
+    })
+})
+
+// ---- stats (authoritative, edit assets/data/speaking.json) ---------------
+const stats = computed(() => {
+  const since = speaking.speakingSince
+  const countryCount = speaking.countries.length
+  return [
     {
-      name: 'description',
-      content: 'Public speaking engagements, keynotes, and technical presentations by Adewale "Ace" Abati on developer advocacy, AI, and open source.'
-    }
+      value: `${speaking.talksDeliveredOverride ?? all.length}`,
+      label: 'Talks delivered',
+    },
+    {
+      value: `${new Date().getFullYear() - since}+`,
+      label: `Years speaking (since ${since})`,
+    },
+    {
+      value: `${countryCount}${speaking.includeOnline ? '+' : ''}`,
+      label: speaking.includeOnline ? 'Countries + online' : 'Countries',
+      title: speaking.countries.join(' · '),
+    },
+    {
+      value: `${featured.playlistCount}`,
+      label: 'Videos & appearances',
+    },
   ]
 })
 
-const extractYear = (dateString: string): string => {
-  if (!dateString || dateString.trim() === '') {
-    return 'Earlier';
-  }
-  
-  // Extract year from date string (e.g., "March 21, 2019" -> "2019")
-  const match = dateString.match(/\d{4}/);
-  return match ? match[0] : 'Earlier';
+// ---- helpers -------------------------------------------------------------
+function primaryLink(t: Talk) {
+  return t.video || t.website || t.slides || ''
 }
 
-// Reactive state for expanded years
-const expandedYears = ref<Set<string>>(new Set());
+// ---- scroll-driven rail progress ----------------------------------------
+const railEl = ref<HTMLElement | null>(null)
+const progress = ref(0)
+let ticking = false
 
-const groupedTalks = computed((): YearGroup[] => {
-  const talks = Talks as Talk[];
-  const groups: { [key: string]: Talk[] } = {};
-  
-  // Group talks by year
-  talks.forEach(talk => {
-    const year = extractYear(talk.date);
-    if (!groups[year]) {
-      groups[year] = [];
-    }
-    groups[year].push(talk);
-  });
-  
-  // Sort talks within each year by date (most recent first)
-  Object.keys(groups).forEach(year => {
-    groups[year].sort((a, b) => {
-      if (!a.date && !b.date) return 0;
-      if (!a.date) return 1;
-      if (!b.date) return -1;
-      
-      // Parse dates for comparison
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
-      return dateB.getTime() - dateA.getTime();
-    });
-  });
-  
-  // Convert to array and sort by year (most recent first)
-  const yearGroups: YearGroup[] = Object.entries(groups).map(([year, talks]) => ({
-    year,
-    talks
-  }));
-  
-  // Sort years (most recent first, but 'Earlier' goes last)
-  yearGroups.sort((a, b) => {
-    if (a.year === 'Earlier') return 1;
-    if (b.year === 'Earlier') return -1;
-    return parseInt(b.year) - parseInt(a.year);
-  });
-  
-  return yearGroups;
-});
+function updateProgress() {
+  ticking = false
+  const el = railEl.value
+  if (!el) return
+  const r = el.getBoundingClientRect()
+  const marker = window.innerHeight * 0.5
+  const passed = Math.min(Math.max(marker - r.top, 0), r.height)
+  progress.value = r.height > 0 ? (passed / r.height) * 100 : 0
+}
+function onScroll() {
+  if (ticking) return
+  ticking = true
+  requestAnimationFrame(updateProgress)
+}
 
-// Initialize with most recent year expanded
+// ---- reveal-on-scroll directive -----------------------------------------
+let io: IntersectionObserver | null = null
+function ensureIO() {
+  if (io) return io
+  io = new IntersectionObserver(
+    (entries) => entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add('reveal-in'); io!.unobserve(e.target) }
+    }),
+    { rootMargin: '0px 0px -8% 0px', threshold: 0.08 },
+  )
+  return io
+}
+const reduceMotion = import.meta.client && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+const vReveal = {
+  mounted(el: HTMLElement) {
+    if (reduceMotion) { el.classList.add('reveal-in'); return }
+    el.classList.add('reveal')
+    ensureIO().observe(el)
+  },
+  unmounted(el: HTMLElement) {
+    io?.unobserve(el)
+  },
+}
+
 onMounted(() => {
-  const mostRecentYear = groupedTalks.value[0]?.year;
-  if (mostRecentYear) {
-    expandedYears.value.add(mostRecentYear);
-  }
-});
-
-// Methods for handling collapsible functionality
-const toggleYear = (year: string) => {
-  if (expandedYears.value.has(year)) {
-    expandedYears.value.delete(year);
-  } else {
-    expandedYears.value.add(year);
-  }
-};
-
-const isYearExpanded = (year: string): boolean => {
-  return expandedYears.value.has(year);
-};
+  updateProgress()
+  window.addEventListener('scroll', onScroll, { passive: true })
+  window.addEventListener('resize', onScroll, { passive: true })
+})
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', onScroll)
+  window.removeEventListener('resize', onScroll)
+  io?.disconnect()
+})
 </script>
+
 <style scoped>
-.talks-content {
-  @apply px-3 space-y-12;
+.chip {
+  @apply inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-xs font-medium text-ink-soft no-underline transition-colors hover:border-accent/50 hover:text-accent-ink;
+}
+.chip--accent {
+  @apply border-accent/40 bg-accent-soft text-accent-ink;
 }
 
-.year-group {
-  @apply mb-12;
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-in {
+  opacity: 1;
+  transform: none;
 }
 
-.year-header {
-  @apply mb-8 relative;
-}
-
-.year-header-button {
-  @apply w-full text-left bg-transparent border-none p-0 cursor-pointer focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 rounded-md;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.year-header-button:hover .year-title {
-  @apply text-green-600;
-}
-
-.year-controls {
-  @apply flex items-center gap-3 text-gray-500;
-}
-
-.talk-count {
-  @apply text-sm font-normal;
-}
-
-.chevron-icon {
-  @apply text-lg transition-transform duration-200;
-}
-
-.year-title {
-  @apply text-3xl font-light text-gray-800 mb-0 tracking-wide transition-colors duration-200;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-.year-divider {
-  @apply w-16 h-0.5 bg-gradient-to-r from-gray-300 to-transparent mt-4;
-}
-
-.year-talks {
-  @apply space-y-6 overflow-hidden;
-  transition: all 0.3s ease-in-out;
-}
-
-.year-talks-expanded {
-  animation: slideDown 0.3s ease-in-out;
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.talk-item {
-  @apply mb-6;
-}
-
-.talk-card {
-  @apply bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300;
-}
-
-.talk-header {
-  @apply mb-4;
-}
-
-.talk-title {
-  @apply text-xl font-bold text-gray-900 mb-3;
-  color: #12b488;
-}
-
-.talk-meta {
-  @apply space-y-2 text-sm;
-}
-
-.talk-event,
-.talk-date,
-.talk-location {
-  @apply flex items-center gap-2 text-gray-600;
-}
-
-.talk-event {
-  @apply text-base font-medium;
-}
-
-.talk-abstract {
-  @apply my-4;
-}
-
-.abstract-toggle {
-  @apply flex items-center gap-2 cursor-pointer text-gray-700 font-medium hover:text-gray-900 transition-colors;
-}
-
-.abstract-content {
-  @apply mt-3 text-gray-700 leading-relaxed prose prose-sm max-w-none;
-}
-
-.talk-slides {
-  @apply my-6;
-}
-
-.talk-links {
-  @apply flex gap-3 pt-4 border-t border-gray-100;
-}
-
-.talk-link {
-  @apply inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-colors no-underline;
-}
-
-.talk-link.slides {
-  @apply bg-blue-100 text-blue-700 hover:bg-blue-200;
-}
-
-.talk-link.website {
-  @apply bg-green-100 text-green-700 hover:bg-green-200;
-}
-
-@media (max-width: 768px) {
-  .talks-content {
-    @apply space-y-8;
-  }
-  
-  .year-group {
-    @apply mb-8;
-  }
-  
-  .year-header {
-    @apply mb-6;
-  }
-  
-  .year-title {
-    @apply text-2xl mb-0;
-  }
-  
-  .year-controls {
-    @apply gap-2;
-  }
-  
-  .talk-count {
-    @apply text-xs;
-  }
-  
-  .chevron-icon {
-    @apply text-base;
-  }
-  
-  .year-talks {
-    @apply space-y-4;
-  }
-  
-  .talk-meta {
-    @apply space-y-1;
-  }
-  
-  .talk-links {
-    @apply flex-col gap-2;
-  }
-}
+details > summary::-webkit-details-marker { display: none; }
 </style>

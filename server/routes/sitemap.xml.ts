@@ -30,12 +30,15 @@ export default defineEventHandler(async (event) => {
     console.warn('Could not fetch posts for sitemap:', error)
   }
   
-  const postPages: SitemapEntry[] = posts.map((post: any) => ({
-    url: `/posts/${post._path.replace('/posts/', '')}`,
-    priority: '0.7',
-    changefreq: 'yearly',
-    lastmod: post.date || currentDate
-  }))
+  const postPages: SitemapEntry[] = posts
+    // Skip externally-hosted stubs — they redirect off-site and shouldn't be indexed here.
+    .filter((post: any) => !post.external_url)
+    .map((post: any) => ({
+      url: `/posts/${post._path.replace('/posts/', '')}`,
+      priority: '0.7',
+      changefreq: 'yearly',
+      lastmod: post.date || currentDate
+    }))
   
   const allPages: SitemapEntry[] = [...staticPages, ...postPages]
   

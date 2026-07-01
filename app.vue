@@ -20,7 +20,7 @@
               "https://github.com/acekyd",
               "https://twitter.com/ace_kyd",
               "https://linkedin.com/in/acekyd",
-              "https://youtube.com/acekydtv"
+              "https://youtube.com/@acekydtv"
             ],
             "image": "https://res.cloudinary.com/acekyd/image/upload/v1657331180/Blog_Image_opnaq4.png",
             "description": "Web Engineer and Staff Developer Advocate passionate about AI, open source, and community building."
@@ -28,12 +28,13 @@
         }}
       </Script>
     </Head>
-    <NuxtPage />
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
   </div>
 </template>
 
 <script setup lang="ts">
-const { $router } = useNuxtApp()
 const route = useRoute()
 
 const canonicalUrl = computed(() => {
@@ -52,7 +53,6 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
   twitterCreator: '@ace_kyd',
   twitterSite: '@ace_kyd',
-  colorScheme: 'light dark',
-  themeColor: '#12b488'
+  colorScheme: 'dark light',
 })
 </script>

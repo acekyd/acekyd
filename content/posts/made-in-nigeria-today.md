@@ -3,7 +3,7 @@ title: Celebrating Nigerian Open Source today
 date: 2026-04-26
 published: true
 slug: made-in-nigeria-today
-tags: ['open source', 'community']
+tags: ['Open Source', 'Community']
 description: A look at the evolution of Made in Nigeria, from a simple GitHub README to a structured, automated platform celebrating Nigerian open source projects.
 ---
 
