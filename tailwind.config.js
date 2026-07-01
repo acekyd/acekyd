@@ -26,6 +26,7 @@ module.exports = {
           DEFAULT: 'rgb(var(--accent) / <alpha-value>)',
           soft: 'var(--accent-soft)',
           contrast: 'rgb(var(--accent-contrast) / <alpha-value>)',
+          ink: 'rgb(var(--accent-ink) / <alpha-value>)',
         },
       },
       fontFamily: {
@@ -55,7 +56,7 @@ module.exports = {
           css: {
             '--tw-prose-body': 'rgb(var(--ink-soft))',
             '--tw-prose-headings': 'rgb(var(--ink))',
-            '--tw-prose-links': 'rgb(var(--accent))',
+            '--tw-prose-links': 'rgb(var(--accent-ink))',
             '--tw-prose-bold': 'rgb(var(--ink))',
             '--tw-prose-counters': 'rgb(var(--ink-faint))',
             '--tw-prose-bullets': 'rgb(var(--border))',

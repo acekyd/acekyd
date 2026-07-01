@@ -20,7 +20,7 @@
 
         <!-- stat strip -->
         <dl class="mt-10 flex flex-wrap gap-x-12 gap-y-6">
-          <div v-for="stat in stats" :key="stat.label">
+          <div v-for="stat in stats" :key="stat.label" :title="stat.title">
             <dt class="text-3xl font-bold tracking-tight text-ink md:text-4xl">{{ stat.value }}</dt>
             <dd class="mt-1 text-sm text-ink-faint">{{ stat.label }}</dd>
           </div>
@@ -29,25 +29,25 @@
     </section>
 
     <div class="container-wide py-14 md:py-20">
-      <!-- ===================== WATCH (video talks) ===================== -->
-      <section v-if="videoTalks.length" class="mb-16">
+      <!-- ===================== WATCH (from YouTube playlist) ===================== -->
+      <section class="mb-16">
         <div class="mb-6 flex items-center gap-2">
           <span class="h-1.5 w-1.5 rounded-full bg-accent" />
           <h2 class="text-sm font-semibold uppercase tracking-[0.18em] text-ink-faint">Watch</h2>
         </div>
-        <div class="grid gap-5 sm:grid-cols-2">
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           <a
-            v-for="talk in videoTalks"
-            :key="`v-${talk.id}`"
-            :href="talk.video"
+            v-for="video in featured.videos.slice(0, 3)"
+            :key="video.id"
+            :href="`https://www.youtube.com/watch?v=${video.id}&list=${playlistId}`"
             target="_blank"
             rel="noopener"
             class="group block overflow-hidden rounded-2xl border border-border bg-surface no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40"
           >
             <div class="relative aspect-video overflow-hidden bg-muted">
               <img
-                :src="ytThumb(talk.video)"
-                :alt="`Watch: ${talk.title}`"
+                :src="`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`"
+                :alt="`Watch: ${video.title}`"
                 loading="lazy"
                 class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -58,11 +58,15 @@
               </span>
             </div>
             <div class="p-5">
-              <h3 class="font-semibold text-ink transition-colors group-hover:text-accent" v-html="talk.title" />
-              <p class="mt-1 text-sm text-ink-faint">
-                <span v-html="talk.event" /><span v-if="talk.date"> · {{ talk.date }}</span>
-              </p>
+              <p v-if="video.source" class="text-xs font-medium uppercase tracking-wide text-ink-faint">{{ video.source }}</p>
+              <h3 class="mt-1 font-semibold leading-snug text-ink transition-colors group-hover:text-accent-ink">{{ video.title }}</h3>
             </div>
+          </a>
+        </div>
+        <div class="mt-6">
+          <a :href="featured.playlistUrl" target="_blank" rel="noopener" class="btn-ghost">
+            See more — {{ featured.playlistCount }} videos on YouTube
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M7 7h10v10" /></svg>
           </a>
         </div>
       </section>
@@ -102,7 +106,7 @@
                 :rel="primaryLink(talk) ? 'noopener' : undefined"
                 class="block no-underline"
               >
-                <h3 class="text-lg font-semibold text-ink transition-colors group-hover:text-accent md:text-xl" v-html="talk.title" />
+                <h3 class="text-lg font-semibold text-ink transition-colors group-hover:text-accent-ink md:text-xl" v-html="talk.title" />
               </component>
 
               <div class="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm text-ink-faint">
@@ -118,7 +122,7 @@
               </div>
 
               <details v-if="talk.abstract" class="group/ab mt-3">
-                <summary class="inline-flex cursor-pointer list-none items-center gap-1.5 text-sm font-medium text-accent">
+                <summary class="inline-flex cursor-pointer list-none items-center gap-1.5 text-sm font-medium text-accent-ink">
                   <svg class="h-4 w-4 transition-transform group-open/ab:rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m9 6 6 6-6 6" /></svg>
                   Abstract
                 </summary>
@@ -152,6 +156,10 @@
 
 <script setup lang="ts">
 import Talks from "assets/data/talks.json";
+import featured from "assets/data/featured-videos.json";
+import speaking from "assets/data/speaking.json";
+
+const playlistId = featured.playlistUrl.split('list=')[1] || ''
 
 interface Talk {
   id: string;
@@ -206,38 +214,32 @@ const groupedTalks = computed((): YearGroup[] => {
     })
 })
 
-const videoTalks = computed(() => all.filter((t) => t.video))
-
-// ---- stats ---------------------------------------------------------------
+// ---- stats (authoritative, edit assets/data/speaking.json) ---------------
 const stats = computed(() => {
-  const years = all.map((t) => extractYear(t.date)).filter((y) => y !== 'Earlier').map(Number)
-  const since = years.length ? Math.min(...years) : 2017
-  const countries = new Set<string>()
-  let online = false
-  all.forEach((t) => {
-    const loc = (t.location || '').trim()
-    if (!loc) return
-    if (/webinar|online|virtual/i.test(loc)) { online = true; return }
-    countries.add(loc.split(',').pop()!.trim())
-  })
+  const since = speaking.speakingSince
+  const countryCount = speaking.countries.length
   return [
-    { value: `${all.length}`, label: 'Talks delivered' },
-    { value: `${new Date().getFullYear() - since}+`, label: `Years speaking (since ${since})` },
-    { value: `${countries.size}${online ? '+' : ''}`, label: online ? 'Countries + online' : 'Countries' },
-    { value: `${videoTalks.value.length}`, label: 'On video' },
+    {
+      value: `${speaking.talksDeliveredOverride ?? all.length}`,
+      label: 'Talks delivered',
+    },
+    {
+      value: `${new Date().getFullYear() - since}+`,
+      label: `Years speaking (since ${since})`,
+    },
+    {
+      value: `${countryCount}${speaking.includeOnline ? '+' : ''}`,
+      label: speaking.includeOnline ? 'Countries + online' : 'Countries',
+      title: speaking.countries.join(' · '),
+    },
+    {
+      value: `${featured.playlistCount}`,
+      label: 'Videos & appearances',
+    },
   ]
 })
 
 // ---- helpers -------------------------------------------------------------
-function ytId(url?: string) {
-  if (!url) return ''
-  const m = url.match(/(?:v=|youtu\.be\/|embed\/)([\w-]{11})/)
-  return m ? m[1] : ''
-}
-function ytThumb(url?: string) {
-  const id = ytId(url)
-  return id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : '/logo.png'
-}
 function primaryLink(t: Talk) {
   return t.video || t.website || t.slides || ''
 }
@@ -300,10 +302,10 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .chip {
-  @apply inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-xs font-medium text-ink-soft no-underline transition-colors hover:border-accent/50 hover:text-accent;
+  @apply inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-xs font-medium text-ink-soft no-underline transition-colors hover:border-accent/50 hover:text-accent-ink;
 }
 .chip--accent {
-  @apply border-accent/40 bg-accent-soft text-accent;
+  @apply border-accent/40 bg-accent-soft text-accent-ink;
 }
 
 .reveal {

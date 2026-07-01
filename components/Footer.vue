@@ -3,8 +3,8 @@
     <div class="container-wide py-12">
       <div class="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
         <div class="max-w-sm">
-          <NuxtLink to="/" class="flex items-center gap-2 font-semibold tracking-tight text-ink no-underline">
-            <span class="grid h-8 w-8 place-items-center rounded-lg border border-border bg-surface text-sm font-bold text-accent">A</span>
+          <NuxtLink to="/" class="flex items-center gap-2.5 font-semibold tracking-tight text-ink no-underline">
+            <img src="/logo.png" alt="Adewale Abati logo" class="h-8 w-8 dark:invert" />
             Adewale Abati
           </NuxtLink>
           <p class="mt-3 text-sm leading-relaxed text-ink-faint">

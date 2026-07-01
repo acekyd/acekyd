@@ -16,9 +16,10 @@
   --ink: 24 24 27;
   --ink-soft: 63 63 70;
   --ink-faint: 113 113 122;
-  --accent: 13 158 120;
-  --accent-contrast: 255 255 255;
-  --accent-soft: rgba(13, 158, 120, 0.10);
+  --accent: 244 182 9;
+  --accent-ink: 143 107 0;
+  --accent-contrast: 24 24 27;
+  --accent-soft: rgba(244, 182, 9, 0.13);
   --shadow: 0 1px 2px rgba(24, 24, 27, 0.04), 0 8px 24px -12px rgba(24, 24, 27, 0.12);
 }
 
@@ -31,9 +32,10 @@
   --ink: 250 250 250;
   --ink-soft: 196 196 204;
   --ink-faint: 138 138 147;
-  --accent: 25 199 154;
-  --accent-contrast: 6 35 27;
-  --accent-soft: rgba(25, 199, 154, 0.12);
+  --accent: 244 182 9;
+  --accent-ink: 245 191 40;
+  --accent-contrast: 24 24 27;
+  --accent-soft: rgba(244, 182, 9, 0.15);
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 32px -16px rgba(0, 0, 0, 0.7);
 }
 
@@ -94,7 +96,7 @@
   .btn-ghost {
     @apply inline-flex items-center justify-center gap-2 rounded-full border border-border
            bg-transparent px-5 py-2.5 text-sm font-semibold text-ink no-underline
-           transition-all duration-200 hover:border-accent hover:text-accent;
+           transition-all duration-200 hover:border-accent hover:text-accent-ink;
   }
 
   /* Generic card */
@@ -124,7 +126,7 @@
   }
 
   .link-underline {
-    @apply text-accent no-underline transition-colors;
+    @apply text-accent-ink no-underline transition-colors;
   }
 
   /* Prose tweaks for blog content */
@@ -146,6 +148,7 @@
 .prose a {
   @apply font-medium no-underline;
   text-decoration: none;
+  color: rgb(var(--accent-ink));
   background-image: linear-gradient(rgb(var(--accent)), rgb(var(--accent)));
   background-size: 0% 1.5px;
   background-position: 0 100%;

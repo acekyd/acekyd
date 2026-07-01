@@ -46,6 +46,11 @@ const { data } = await useAsyncData(`content-${cleanedPath}`, () => {
   return queryContent().where({ _path: cleanedPath }).findOne()
 });
 
+// If the post doesn't exist, render a proper 404 instead of crashing on data.value.*
+if (!data.value) {
+  throw createError({ statusCode: 404, statusMessage: 'Post not found', fatal: true })
+}
+
 // Handle canonical URL logic
 const getCanonicalUrl = () => {
   if (data.value.canonical_url === true || data.value.canonical_url === undefined) {

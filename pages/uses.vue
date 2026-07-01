@@ -185,7 +185,7 @@ useHead({
 .uses-item h3 { @apply text-lg font-semibold mb-3 text-ink; }
 .uses-item p { @apply text-ink-soft mb-2 text-sm leading-relaxed; }
 .uses-item p:last-child { @apply mb-0; }
-.uses-item a, .inspiration-note a { @apply text-accent no-underline; }
+.uses-item a, .inspiration-note a { @apply text-accent-ink no-underline; }
 
 .inspiration-note { @apply mt-12 p-6 bg-muted rounded-2xl border border-border; }
 .inspiration-note p { @apply text-ink-faint mb-2; }

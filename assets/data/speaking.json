@@ -1,0 +1,12 @@
+{
+  "_comment": "Authoritative speaking stats shown on /talks. Edit these freely — the page no longer guesses from sparse location fields. Set talksDeliveredOverride to a number (or string like '50+') to override the count derived from talks.json.",
+  "speakingSince": 2017,
+  "talksDeliveredOverride": null,
+  "includeOnline": true,
+  "countries": [
+    "Nigeria",
+    "United States",
+    "United Kingdom",
+    "Netherlands"
+  ]
+}

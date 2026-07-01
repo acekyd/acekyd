@@ -13,7 +13,7 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'theme-color', content: '#ffffff', media: '(prefers-color-scheme: light)' },
         { name: 'theme-color', content: '#09090b', media: '(prefers-color-scheme: dark)' },
-        { name: 'msapplication-TileColor', content: '#0d9e78' },
+        { name: 'msapplication-TileColor', content: '#f4b609' },
         { name: 'author', content: 'Adewale Abati' },
         { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' }
       ],

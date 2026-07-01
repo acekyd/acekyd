@@ -133,7 +133,7 @@ useHead({
 .now-item p { @apply text-ink-soft mb-3 leading-relaxed; }
 .now-item ul { @apply list-disc list-inside text-ink-soft mb-3 space-y-1; }
 .now-item li { @apply ml-4; }
-.now-item a, .last-updated a, .about-now a { @apply text-accent no-underline; }
+.now-item a, .last-updated a, .about-now a { @apply text-accent-ink no-underline; }
 
 .about-now { @apply mt-12 p-6 bg-muted rounded-2xl border border-border; }
 .about-now h3 { @apply text-lg font-semibold mb-3 text-ink; }

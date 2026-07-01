@@ -8,39 +8,51 @@
 
       <div class="container-wide relative grid min-h-[92vh] items-center gap-12 py-16 md:grid-cols-[1.1fr_0.9fr] md:gap-10">
         <div class="order-2 animate-fade-up md:order-1">
-          <p class="eyebrow mb-6 flex items-center gap-2.5">
+          <p class="eyebrow mb-5 flex items-center gap-2.5">
             <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent" />
             Staff Developer Advocate · Block
           </p>
 
-          <h1 class="font-bold tracking-[-0.035em] text-ink leading-[0.92] text-[clamp(2.9rem,8.5vw,5.75rem)]">
-            Adewale<br />
-            <span class="text-accent">“Ace”</span> Abati
+          <h1 class="font-bold tracking-[-0.02em] text-ink leading-[1.02] text-[clamp(1.9rem,4.4vw,3.25rem)] sm:whitespace-nowrap">
+            Adewale <span class="text-accent">“Ace”</span> Abati
           </h1>
 
-          <p class="mt-7 max-w-xl text-lg leading-relaxed text-ink-soft md:text-xl">
-            Web Engineer building at the edge of
-            <a href="https://block.github.io/goose/" target="_blank" rel="noopener" class="link-underline font-medium">agentic AI</a>,
-            <a href="https://github.com/acekyd" target="_blank" rel="noopener" class="link-underline font-medium">open source</a>,
-            and community — and helping engineers &amp; non-developers actually
-            <span class="text-ink">build with it</span>.
+          <p class="mt-5 max-w-xl text-xl font-semibold leading-snug text-ink md:text-2xl">
+            Helping frontier technical products earn developer trust and adoption.
           </p>
 
-          <div class="mt-9 flex flex-wrap items-center gap-3">
+          <div class="mt-5 max-w-xl space-y-4 leading-relaxed text-ink-soft">
+            <p>
+              Hello! I'm Adewale “Ace” Abati — a Web Engineer, Staff Developer Advocate, GitHub Star,
+              and Agentic AI Foundation Ambassador. I help frontier technical products become
+              understandable, credible, usable, and adopted by developers.
+            </p>
+            <p>
+              My work sits at the intersection of engineering, developer advocacy, technical
+              storytelling, open source, and community education. Over the past few years, I've helped
+              developers understand and adopt emerging technologies across coding in the browser, Web5,
+              decentralized identity, developer-focused finance infrastructure, and agentic AI.
+            </p>
+          </div>
+
+          <p class="mt-6 text-sm text-ink-faint">
+            Previously
+            <a href="https://codesandbox.io/" target="_blank" rel="noopener" class="link-underline">CodeSandbox</a>,
+            <a href="https://flutterwave.com/" target="_blank" rel="noopener" class="link-underline">Flutterwave</a>,
+            <a href="https://ingressive.org/" target="_blank" rel="noopener" class="link-underline">Ingressive</a>,
+            <a href="http://www.withpropel.com/" target="_blank" rel="noopener" class="link-underline">Hirefreehands (Propel)</a>,
+            <a href="https://hotels.ng/" target="_blank" rel="noopener" class="link-underline">HotelsNG</a>.
+          </p>
+
+          <div class="mt-6 flex flex-wrap items-center gap-3">
             <a href="https://acekyd.substack.com" target="_blank" rel="noopener" class="btn">
-              Subscribe to my newsletter
+              Subscribe on Substack
             </a>
             <NuxtLink to="/posts" class="btn-ghost">Read the blog</NuxtLink>
           </div>
 
-          <div class="mt-10 flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-8">
+          <div class="mt-8">
             <SocialLinks size="sm" />
-            <p class="text-sm text-ink-faint">
-              Previously
-              <a href="https://codesandbox.io/" target="_blank" rel="noopener" class="link-underline">CodeSandbox</a>,
-              <a href="https://flutterwave.com/" target="_blank" rel="noopener" class="link-underline">Flutterwave</a>,
-              <a href="https://hotels.ng" target="_blank" rel="noopener" class="link-underline">HotelsNG</a>.
-            </p>
           </div>
         </div>
 
@@ -81,7 +93,7 @@
           <div class="flex items-center gap-2 text-xs text-ink-faint">
             <time :datetime="post.date">{{ formatDate(post.date) }}</time>
           </div>
-          <h3 class="mt-2 text-lg font-semibold text-ink transition-colors group-hover:text-accent">
+          <h3 class="mt-2 text-lg font-semibold text-ink transition-colors group-hover:text-accent-ink">
             {{ post.title }}
           </h3>
           <p class="mt-2 line-clamp-2 text-sm leading-relaxed text-ink-faint">
@@ -116,7 +128,7 @@
           class="card card-hover group flex flex-col"
         >
           <div class="flex items-start justify-between gap-3">
-            <h3 class="text-base font-semibold text-ink transition-colors group-hover:text-accent" v-html="project.title" />
+            <h3 class="text-base font-semibold text-ink transition-colors group-hover:text-accent-ink" v-html="project.title" />
             <svg class="mt-1 h-4 w-4 shrink-0 text-ink-faint transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
               <path d="M7 17 17 7M7 7h10v10" />
             </svg>
@@ -124,7 +136,7 @@
           <p class="mt-2 flex-1 text-sm leading-relaxed text-ink-faint" v-html="project.description" />
           <div class="mt-4 flex flex-wrap items-center gap-2 text-xs text-ink-faint">
             <span v-if="project.skills" class="rounded-full border border-border px-2 py-0.5">{{ project.skills }}</span>
-            <span v-if="project.impact" class="text-accent">{{ project.impact }}</span>
+            <span v-if="project.impact" class="text-accent-ink">{{ project.impact }}</span>
           </div>
         </a>
       </div>
@@ -140,7 +152,7 @@
             I speak and mentor at conferences, meetups, and community events around the world —
             on developer relations, open source, and building with AI.
           </p>
-          <NuxtLink to="/talks" class="mt-6 inline-block text-sm font-medium text-accent no-underline">
+          <NuxtLink to="/talks" class="mt-6 inline-block text-sm font-medium text-accent-ink no-underline">
             Browse talks →
           </NuxtLink>
         </div>

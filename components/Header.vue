@@ -6,15 +6,11 @@
     <div class="container-wide flex h-16 items-center justify-between gap-4">
       <NuxtLink
         to="/"
-        class="group flex items-center gap-2 font-semibold tracking-tight text-ink no-underline"
+        class="group flex items-center gap-2.5 font-semibold tracking-tight text-ink no-underline"
         aria-label="Home — Adewale Abati"
       >
-        <span
-          class="grid h-8 w-8 place-items-center rounded-lg border border-border bg-surface text-sm font-bold text-accent transition-colors group-hover:border-accent/50"
-        >
-          A
-        </span>
-        <span class="hidden sm:inline">Adewale Abati</span>
+        <img src="/logo.png" alt="Adewale Abati logo" class="h-8 w-8 dark:invert" />
+        <span>Adewale Abati</span>
       </NuxtLink>
 
       <nav class="hidden items-center gap-1 md:flex" aria-label="Primary">
