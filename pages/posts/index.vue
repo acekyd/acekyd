@@ -30,8 +30,19 @@
           </span>
         </div>
 
-        <!-- decorative editorial date panel -->
-        <div class="relative order-1 hidden overflow-hidden border-l border-border bg-gradient-to-br from-accent-soft via-transparent to-transparent md:order-2 md:block">
+        <!-- cover image when available, else a decorative editorial date panel -->
+        <div
+          v-if="featured.image"
+          class="relative order-1 hidden min-h-[220px] overflow-hidden border-l border-border md:order-2 md:block"
+        >
+          <img
+            :src="featured.image"
+            :alt="featured.title"
+            loading="lazy"
+            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+        </div>
+        <div v-else class="relative order-1 hidden overflow-hidden border-l border-border bg-gradient-to-br from-accent-soft via-transparent to-transparent md:order-2 md:block">
           <div class="grain absolute inset-0 opacity-50" />
           <div class="relative flex h-full flex-col items-center justify-center p-8 text-center">
             <span class="text-[3.5rem] font-bold uppercase leading-none tracking-tight text-ink">{{ featuredDate.mon }}</span>
@@ -70,18 +81,28 @@
         <li v-for="article in list" :key="article._path">
           <NuxtLink
             :to="article._path"
-            class="group -mx-4 block rounded-2xl px-4 py-6 no-underline transition-colors hover:bg-surface"
+            class="group -mx-4 flex gap-5 rounded-2xl px-4 py-6 no-underline transition-colors hover:bg-surface"
           >
-            <div class="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-ink-faint">
-              <time :datetime="article.date">{{ getDate(article.date) }}</time>
-              <span v-if="article.tags?.length" class="flex flex-wrap gap-1.5">
-                <span v-for="tag in article.tags.slice(0, 3)" :key="tag" class="rounded-full border border-border px-2 py-0.5">{{ tag }}</span>
-              </span>
+            <div class="min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-ink-faint">
+                <time :datetime="article.date">{{ getDate(article.date) }}</time>
+                <span v-if="article.tags?.length" class="flex flex-wrap gap-1.5">
+                  <span v-for="tag in article.tags.slice(0, 3)" :key="tag" class="rounded-full border border-border px-2 py-0.5">{{ tag }}</span>
+                </span>
+              </div>
+              <h3 class="mt-2.5 text-xl font-semibold tracking-tight text-ink transition-colors group-hover:text-accent-ink">
+                {{ article.title }}
+              </h3>
+              <p class="mt-1.5 line-clamp-2 leading-relaxed text-ink-faint">{{ article.description }}</p>
             </div>
-            <h3 class="mt-2.5 text-xl font-semibold tracking-tight text-ink transition-colors group-hover:text-accent-ink">
-              {{ article.title }}
-            </h3>
-            <p class="mt-1.5 line-clamp-2 max-w-3xl leading-relaxed text-ink-faint">{{ article.description }}</p>
+            <div v-if="article.image" class="hidden shrink-0 sm:block">
+              <img
+                :src="article.image"
+                :alt="article.title"
+                loading="lazy"
+                class="h-24 w-36 rounded-xl border border-border object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+            </div>
           </NuxtLink>
         </li>
       </ul>
@@ -94,12 +115,26 @@
 </template>
 
 <script setup lang="ts">
-const { data: posts } = await useAsyncData('blog-index', () =>
-  queryContent('/posts')
-    .where({ published: { $ne: false } })
-    .only(['title', 'description', '_path', 'date', 'tags'])
-    .sort({ date: -1 })
-    .find(),
+const { data: posts } = await useAsyncData(
+  'blog-index',
+  () =>
+    queryContent('/posts')
+      .where({ published: { $ne: false } })
+      .only(['title', 'description', '_path', 'date', 'tags', 'cover_image', 'body'])
+      .sort({ date: -1 })
+      .find(),
+  {
+    // Resolve each post's image and drop the heavy body from the payload.
+    transform: (list: any[]) =>
+      list.map((p) => ({
+        title: p.title,
+        description: p.description,
+        _path: p._path,
+        date: p.date,
+        tags: p.tags,
+        image: resolveCover(p),
+      })),
+  },
 )
 
 const all = computed(() => (posts.value ?? []) as any[])

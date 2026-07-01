@@ -63,7 +63,10 @@ const getCanonicalUrl = () => {
 };
 
 const canonicalUrl = getCanonicalUrl();
-const ogImage = "https://res.cloudinary.com/acekyd/image/upload/c_fit,e_colorize:100,g_north_west,l_text:open sans_80:" + encodeURIComponent(data.value.title) + ",w_900,x_60,y_100/v1657896963/blog-thumbnail_plityt.png";
+// Prefer the post's own cover image for social sharing; fall back to the generated title card.
+const cover = resolveCover(data.value);
+const coverAbs = cover ? (cover.startsWith('http') ? cover : 'https://adewaleabati.com' + cover) : null;
+const ogImage = coverAbs || ("https://res.cloudinary.com/acekyd/image/upload/c_fit,e_colorize:100,g_north_west,l_text:open sans_80:" + encodeURIComponent(data.value.title) + ",w_900,x_60,y_100/v1657896963/blog-thumbnail_plityt.png");
 
 useHead({
   titleTemplate: '%s - Adewale Abati',
