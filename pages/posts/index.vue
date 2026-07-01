@@ -18,6 +18,10 @@
             <span class="inline-flex items-center gap-1.5 rounded-full bg-accent-soft px-2.5 py-0.5 font-medium text-accent-ink">
               <span class="h-1.5 w-1.5 rounded-full bg-accent" /> Latest
             </span>
+            <span v-if="featured.external" class="inline-flex items-center gap-1 rounded-full border border-border px-2 py-0.5">
+              <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M7 7h10v10" /></svg>
+              {{ featured.source }}
+            </span>
             <span v-for="tag in (featured.tags || []).slice(0, 2)" :key="tag" class="rounded-full border border-border px-2 py-0.5">{{ tag }}</span>
           </div>
           <h2 class="mt-4 font-bold tracking-tight text-ink transition-colors group-hover:text-accent-ink text-[clamp(1.6rem,3.5vw,2.5rem)] leading-[1.08]">
@@ -25,7 +29,7 @@
           </h2>
           <p class="mt-3 max-w-xl leading-relaxed text-ink-soft">{{ featured.description }}</p>
           <span class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-ink">
-            Read post
+            {{ featured.external ? `Read on ${featured.source}` : 'Read post' }}
             <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
           </span>
         </div>
@@ -53,7 +57,15 @@
           </div>
         </div>
       </div>
-      <NuxtLink :to="featured._path" class="absolute inset-0 z-20" :aria-label="`Read: ${featured.title}`" />
+      <component
+        :is="featured.external ? 'a' : 'NuxtLink'"
+        :to="featured.external ? undefined : featured._path"
+        :href="featured.external || undefined"
+        :target="featured.external ? '_blank' : undefined"
+        :rel="featured.external ? 'noopener' : undefined"
+        class="absolute inset-0 z-20"
+        :aria-label="`Read: ${featured.title}`"
+      />
     </SpotlightCard>
 
     <!-- Tag filter -->
@@ -79,13 +91,21 @@
     <section class="mt-6">
       <ul class="divide-y divide-border">
         <li v-for="article in list" :key="article._path">
-          <NuxtLink
-            :to="article._path"
+          <component
+            :is="article.external ? 'a' : 'NuxtLink'"
+            :to="article.external ? undefined : article._path"
+            :href="article.external || undefined"
+            :target="article.external ? '_blank' : undefined"
+            :rel="article.external ? 'noopener' : undefined"
             class="group -mx-4 flex gap-5 rounded-2xl px-4 py-6 no-underline transition-colors hover:bg-surface"
           >
             <div class="min-w-0 flex-1">
               <div class="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-ink-faint">
                 <time :datetime="article.date">{{ getDate(article.date) }}</time>
+                <span v-if="article.external" class="inline-flex items-center gap-1 text-ink-faint">
+                  <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M7 7h10v10" /></svg>
+                  {{ article.source }}
+                </span>
                 <span v-if="article.tags?.length" class="flex flex-wrap gap-1.5">
                   <span v-for="tag in article.tags.slice(0, 3)" :key="tag" class="rounded-full border border-border px-2 py-0.5">{{ tag }}</span>
                 </span>
@@ -103,7 +123,7 @@
                 class="h-24 w-36 rounded-xl border border-border object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               />
             </div>
-          </NuxtLink>
+          </component>
         </li>
       </ul>
 
@@ -120,11 +140,11 @@ const { data: posts } = await useAsyncData(
   () =>
     queryContent('/posts')
       .where({ published: { $ne: false } })
-      .only(['title', 'description', '_path', 'date', 'tags', 'cover_image', 'body'])
+      .only(['title', 'description', '_path', 'date', 'tags', 'cover_image', 'external_url', 'body'])
       .sort({ date: -1 })
       .find(),
   {
-    // Resolve each post's image and drop the heavy body from the payload.
+    // Resolve each post's image + external link, and drop the heavy body from the payload.
     transform: (list: any[]) =>
       list.map((p) => ({
         title: p.title,
@@ -133,9 +153,20 @@ const { data: posts } = await useAsyncData(
         date: p.date,
         tags: p.tags,
         image: resolveCover(p),
+        external: p.external_url || null,
+        source: sourceLabel(p.external_url),
       })),
   },
 )
+
+function sourceLabel(url?: string): string | null {
+  if (!url) return null
+  try {
+    return new URL(url).hostname.replace(/^www\./, '')
+  } catch {
+    return null
+  }
+}
 
 const all = computed(() => (posts.value ?? []) as any[])
 const featured = computed(() => all.value[0])

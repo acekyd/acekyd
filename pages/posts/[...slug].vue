@@ -51,6 +51,11 @@ if (!data.value) {
   throw createError({ statusCode: 404, statusMessage: 'Post not found', fatal: true })
 }
 
+// Externally-hosted posts are stubs — send visitors straight to the original.
+if (data.value.external_url) {
+  await navigateTo(data.value.external_url, { external: true, redirectCode: 301 })
+}
+
 // Handle canonical URL logic
 const getCanonicalUrl = () => {
   if (data.value.canonical_url === true || data.value.canonical_url === undefined) {

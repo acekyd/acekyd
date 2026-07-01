@@ -7,9 +7,9 @@
         "website": "https://madeinnigeria.dev/",
         "description": "A curated list of awesome tools built by Nigerians that can be used by anybody from anywhere in the world. Showcasing Nigerian talent and innovation.",
         "status": "active",
-        "lastUpdated": "2025-07-30",
+        "lastUpdated": "2026-06-29",
         "featured": true,
-        "impact": "200+ projects showcased"
+        "impact": "1,100+ GitHub stars · 200+ projects showcased"
     },
     {
         "id": "2",
@@ -21,7 +21,7 @@
         "status": "archived",
         "lastUpdated": "2023-08-01",
         "featured": true,
-        "impact": "25,000+ downloads"
+        "impact": "25,000+ downloads · 85 GitHub stars"
     },
     {
         "id": "3",
@@ -45,7 +45,7 @@
         "status": "maintained",
         "lastUpdated": "2023-03-10",
         "featured": false,
-        "impact": "3,600+ downloads"
+        "impact": "3,600+ downloads · 21 GitHub stars"
     },
     {
         "id": "5",
@@ -57,7 +57,7 @@
         "status": "archived",
         "lastUpdated": "2019-12-01",
         "featured": false,
-        "impact": "Used at 20+ events"
+        "impact": "Used at 20+ events · 37 GitHub stars"
     },
     {
         "id": "6",
@@ -81,7 +81,7 @@
         "status": "archived",
         "lastUpdated": "2020-08-01",
         "featured": false,
-        "impact": "100+ active users + 4.9/5 rating"
+        "impact": "100+ active users · 4.9/5 rating · 28 GitHub stars"
     },
     {
         "id": "8",
@@ -127,8 +127,44 @@
         "website": "https://dcsquare-social.herokuapp.com/",
         "description": "Social app for devcenter members to connect and follow each other on GitHub. Track projects and facilitate collaboration within the community.",
         "status": "archived",
-        "lastUpdated": "2018-06-01",
+        "lastUpdated": "2021-01-15",
         "featured": false,
-        "impact": "Early community platform"
+        "impact": "206 GitHub stars · early community platform"
+    },
+    {
+        "id": "12",
+        "title": "myProClubs",
+        "skills": "PHP, Laravel, Blade, Docker",
+        "github": "https://github.com/acekyd/myproclubs",
+        "website": "",
+        "description": "A website to manage your virtual football team from EA Sports FC (FC 26+) Pro Clubs. Track your eSports squad, players, and performance.",
+        "status": "active",
+        "lastUpdated": "2026-06-29",
+        "featured": false,
+        "impact": "eSports Pro Clubs team manager"
+    },
+    {
+        "id": "13",
+        "title": "Watchroom",
+        "skills": "Vue, TypeScript",
+        "github": "https://github.com/acekyd/watchroom",
+        "website": "",
+        "description": "A web app for shared, synchronized watch-party viewing rooms. Watch together in real time.",
+        "status": "active",
+        "lastUpdated": "2026-06-27",
+        "featured": false,
+        "impact": "Sync watch-party rooms"
+    },
+    {
+        "id": "14",
+        "title": "Buffett",
+        "skills": "Flutter, Dart",
+        "github": "https://github.com/acekyd/buffett-app",
+        "website": "",
+        "description": "Your personal net worth app. A cross-platform mobile app to track assets, liabilities, and net worth over time.",
+        "status": "maintained",
+        "lastUpdated": "2025-08-19",
+        "featured": false,
+        "impact": "Personal net worth tracker"
     }
 ]

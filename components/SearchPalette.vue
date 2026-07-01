@@ -110,7 +110,7 @@ const staticEntries: Entry[] = [
 const { data: posts } = await useAsyncData('search-posts', () =>
   queryContent('/posts')
     .where({ published: { $ne: false } })
-    .only(['title', 'description', '_path', 'tags'])
+    .only(['title', 'description', '_path', 'tags', 'external_url'])
     .sort({ date: -1 })
     .find(),
 )
@@ -126,7 +126,8 @@ const index = computed<Entry[]>(() => {
         kind: 'post',
         title,
         description,
-        to: p._path as string,
+        href: p.external_url || undefined,
+        to: p.external_url ? undefined : (p._path as string),
         key: 'post:' + p._path,
         titleLc: title.toLowerCase(),
         hay: (title + ' ' + description + ' ' + tags).toLowerCase(),
