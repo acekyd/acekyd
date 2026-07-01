@@ -4,7 +4,7 @@ import { ref } from 'vue'
 
 type Theme = 'light' | 'dark'
 
-const theme = ref<Theme>('light')
+const theme = ref<Theme>('dark')
 const ready = ref(false)
 
 function apply(next: Theme) {
@@ -31,19 +31,11 @@ export function useTheme() {
         return null
       }
     })()
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    theme.value = stored ?? (prefersDark ? 'dark' : 'light')
+    theme.value = stored ?? 'dark'
     document.documentElement.classList.toggle('dark', theme.value === 'dark')
     ready.value = true
 
-    // Follow the system only when the user hasn't explicitly chosen.
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-      try {
-        if (!localStorage.getItem('theme')) apply(e.matches ? 'dark' : 'light')
-      } catch (_) {
-        /* ignore */
-      }
-    })
+    // Dark is the site default. System changes should not override it unless the user toggles.
   }
 
   function toggle() {

@@ -11,8 +11,7 @@ export default defineNuxtConfig({
       },
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'theme-color', content: '#ffffff', media: '(prefers-color-scheme: light)' },
-        { name: 'theme-color', content: '#09090b', media: '(prefers-color-scheme: dark)' },
+        { name: 'theme-color', content: '#09090b' },
         { name: 'msapplication-TileColor', content: '#f4b609' },
         { name: 'author', content: 'Adewale Abati' },
         { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' }
@@ -27,7 +26,7 @@ export default defineNuxtConfig({
       script: [
         {
           // Set the theme class before first paint to avoid a flash of the wrong theme.
-          innerHTML: `(function(){try{var t=localStorage.getItem('theme');var d=t?t==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;var e=document.documentElement;e.classList.toggle('dark',d);e.style.colorScheme=d?'dark':'light';}catch(e){}})();`,
+          innerHTML: `(function(){try{var t=localStorage.getItem('theme');var d=t?t==='dark':true;var e=document.documentElement;e.classList.toggle('dark',d);e.style.colorScheme=d?'dark':'light';}catch(e){}})();`,
           tagPriority: 'critical'
         }
       ]

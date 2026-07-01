@@ -53,6 +53,6 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
   twitterCreator: '@ace_kyd',
   twitterSite: '@ace_kyd',
-  colorScheme: 'light dark',
+  colorScheme: 'dark light',
 })
 </script>
