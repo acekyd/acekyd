@@ -51,7 +51,7 @@ export default defineEventHandler(async (event) => {
   lines.push('## Contact & profiles')
   lines.push('')
   lines.push('- GitHub: https://github.com/acekyd')
-  lines.push('- YouTube: https://youtube.com/acekydtv')
+  lines.push('- YouTube: https://youtube.com/@acekydtv')
   lines.push('- LinkedIn: https://linkedin.com/in/acekyd')
   lines.push('- Twitter/X: https://twitter.com/ace_kyd')
   lines.push('- Newsletter: https://acekyd.substack.com')

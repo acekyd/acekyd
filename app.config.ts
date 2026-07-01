@@ -15,7 +15,7 @@ export default defineAppConfig({
   socials: [
     { label: 'GitHub', href: 'https://github.com/acekyd/', icon: 'github' },
     { label: 'Twitter', href: 'https://twitter.com/ace_kyd/', icon: 'twitter' },
-    { label: 'YouTube', href: 'https://www.youtube.com/acekydtv/', icon: 'youtube' },
+    { label: 'YouTube', href: 'https://www.youtube.com/@acekydtv/', icon: 'youtube' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/acekyd/', icon: 'linkedin' },
     { label: 'Twitch', href: 'https://twitch.tv/acekydtv/', icon: 'twitch' },
     { label: 'Instagram', href: 'https://instagram.com/acekydtv', icon: 'instagram' },

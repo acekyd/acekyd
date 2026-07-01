@@ -23,15 +23,15 @@
 
           <div class="mt-5 max-w-xl space-y-4 leading-relaxed text-ink-soft">
             <p>
-              Hello! I'm Adewale “Ace” Abati — a Web Engineer, Staff Developer Advocate, GitHub Star,
+              Hi! I'm Ace — a Web Engineer, Staff Developer Advocate, GitHub Star,
               and Agentic AI Foundation Ambassador. I help frontier technical products become
               understandable, credible, usable, and adopted by developers.
             </p>
             <p>
-              My work sits at the intersection of engineering, developer advocacy, technical
-              storytelling, open source, and community education. Over the past few years, I've helped
-              developers understand and adopt emerging technologies across coding in the browser, Web5,
-              decentralized identity, developer-focused finance infrastructure, and agentic AI.
+              I'm currently immersed in the world of applied Agentic AI, 
+              open source, and helping engineers & non-developers harness 
+              the power of AI in their workflows through engineering, 
+              developer advocacy, technical storytelling, open source, and community education.
             </p>
           </div>
 
