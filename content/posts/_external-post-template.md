@@ -1,7 +1,7 @@
 ---
 title: "Title of your externally-hosted post"
 date: 2026-01-15
-published: true
+published: false
 description: "One-line summary shown on the blog card."
 external_url: "https://the-original-site.com/the-post-slug"
 tags: ["tag-one", "tag-two"]
