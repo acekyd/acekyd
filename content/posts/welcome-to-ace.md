@@ -2,7 +2,7 @@
 title: Welcome to Ace
 date: 2018-08-18
 published: true
-tags: ['Getting Started']
+tags: ['Personal']
 canonical_url: true
 cover_image: ./images/alexandr-podvalny-220262-unsplash.jpg
 description: "A lot of people ask me what Ace means. According to multiple dictionaries, Ace means a person that is very good, or someone who excels at a particular sport or other activity..."

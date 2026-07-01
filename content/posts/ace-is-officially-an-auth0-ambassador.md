@@ -2,7 +2,7 @@
 title: Ace is officially an Auth0 Ambassador
 date: 2023-04-20
 published: true
-tags: ['Developer Relations', 'Announcement']
+tags: ['Developer Relations']
 canonical_url: true
 description: Becoming an Auth0 Ambassador and what it means to be one. 
 cover_image: ../images/new-auth0-ambassador/banner.jpg

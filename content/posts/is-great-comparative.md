@@ -2,7 +2,7 @@
 title: The Pursuit of Greatness - Is ‘Great’ a comparative or a choice?
 date: 2025-11-10
 published: true
-tags: ['musings', 'creator', 'inspiration']
+tags: ['Personal']
 description: Is the pursuit of greatness marked by a trophy? A feeling relative to the greatness of our peers - i.e being comparative? or is it simply about becoming better than who you were yesterday?
 canonical_url: true
 cover_image: ./images/20251110-pursuit-of-greatness/featured.png

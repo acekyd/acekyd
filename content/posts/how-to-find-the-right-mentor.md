@@ -2,7 +2,7 @@
 title: How to Find the Right Mentor (And How to Be One)
 date: 2025-12-09
 published: true
-tags: ['career']
+tags: ['Career']
 canonical_url: https://acekyd.substack.com/p/how-to-find-the-right-mentor-and?utm_source=activity_item
 description: My personal experience with mentorship—from watching from a distance to guiding others, and what I’ve learned from both sides of the journey.
 ---

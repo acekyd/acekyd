@@ -170,6 +170,16 @@ function sourceLabel(url?: string): string | null {
 
 const all = computed(() => (posts.value ?? []) as any[])
 const featured = computed(() => all.value[0])
+const blogTags = [
+  'Agentic AI',
+  'Open Source',
+  'Web Development',
+  'Developer Relations',
+  'Career',
+  'Community',
+  'Personal',
+  'Technical Writing',
+]
 
 const featuredDate = computed(() => {
   const d = featured.value?.date ? new Date(featured.value.date) : null
@@ -180,7 +190,7 @@ const featuredDate = computed(() => {
 const tags = computed(() => {
   const counts = new Map<string, number>()
   all.value.forEach((p) => (p.tags ?? []).forEach((t: string) => counts.set(t, (counts.get(t) ?? 0) + 1)))
-  return [...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8).map(([t]) => t)
+  return blogTags.filter((tag) => counts.has(tag))
 })
 
 const activeTag = ref<string | null>(null)

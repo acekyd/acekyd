@@ -2,7 +2,7 @@
 title: My year in AI
 date: 2025-12-31
 published: true
-tags: ['AI', 'MCP', 'goose', 'Block']
+tags: ['Agentic AI', 'Personal']
 canonical_url: true
 description: "A reflective look at a year working with agentic AI in the real world — from MCPs and goose to real workflows, non-engineers, and team-scale software development."
 cover_image: https://substackcdn.com/image/fetch/$s_!Jo06!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F762c2349-252e-47c0-bf96-20ce26ae41bc_4440x2932.jpeg

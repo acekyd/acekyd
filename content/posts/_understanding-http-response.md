@@ -2,7 +2,7 @@
 title: Understanding HTTP response status codes in frontend applications
 date: 2018-11-26
 published: true
-tags: ['javaScript', 'api']
+tags: ['Web Development']
 canonical_url: https://pusher.com/tutorials/http-response-codes-part-2/
 description: In this tutorial, we will explore what status code means and how to use them.
 ---

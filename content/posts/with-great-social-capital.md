@@ -2,7 +2,7 @@
 title: With Great Social Capital
 date: 2022-05-21
 published: true
-tags: ['Social', 'Community']
+tags: ['Community']
 canonical_url: true
 description: "As we strive to build and establish our social capital, recent happenings have showed how much responsibility comes as a result."
 ---

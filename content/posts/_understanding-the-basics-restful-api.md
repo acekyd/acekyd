@@ -2,7 +2,7 @@
 title: Understanding the basics of RESTful APIs
 date: 2018-09-16
 published: true
-tags: ['PHP', 'node.js']
+tags: ['Web Development']
 canonical_url: https://pusher.com/tutorials/understanding-rest-api/
 description: For this tutorial, we will explore the basics of APIs, what we can use them for, how to design them and various ways we can protect them.
 ---

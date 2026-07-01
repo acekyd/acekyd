@@ -2,7 +2,7 @@
 title: Down, Down, Down the TBD Road
 date: 2024-11-11
 published: true
-tags: ['TBD', 'Web5', 'Block']
+tags: ['Web Development', 'Personal']
 canonical_url: true
 description: "TBD winds down, but what does this mean for the projects we've been working on. And what does it mean for me?"
 ---

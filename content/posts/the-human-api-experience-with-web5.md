@@ -2,7 +2,7 @@
 title: The Human API Experience with Web5
 date: 2023-08-17
 published: true
-tags: ['Web', 'Web5']
+tags: ['Web Development']
 canonical_url: true
 description: "Web5 is an exciting innovation looking to change how we use the web. Giving control of the user's data and identity back to them. In this article, I shared a simple intro and my thoughts on why I'm excited about this technology."
 ---

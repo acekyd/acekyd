@@ -4,7 +4,7 @@ date: 2026-01-15
 published: false
 description: "One-line summary shown on the blog card."
 external_url: "https://the-original-site.com/the-post-slug"
-tags: ["tag-one", "tag-two"]
+tags: ["Web Development"]
 # cover_image is optional — a full URL or a local "/images/..." path.
 cover_image: "https://the-original-site.com/cover-image.jpg"
 ---

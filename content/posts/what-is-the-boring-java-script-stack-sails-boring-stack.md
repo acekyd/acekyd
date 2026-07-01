@@ -2,7 +2,7 @@
 title: What is the boring JavaScript Stack - Sails Boring Stack
 date: 2023-07-02
 published: true
-tags: ['Developer Tools', 'Web']
+tags: ['Web Development']
 canonical_url: true
 description: "Heard a lot about the boring JavaScript without knowing what it is? Here's my dive into understanding what it entails and how to start using it."
 ---
