@@ -57,13 +57,18 @@
           </div>
         </div>
       </div>
-      <component
-        :is="featured.external ? 'a' : 'NuxtLink'"
-        :to="featured.external ? undefined : featured._path"
-        :href="featured.external || undefined"
-        :target="featured.external ? '_blank' : undefined"
-        :rel="featured.external ? 'noopener' : undefined"
-        class="absolute inset-0 z-20"
+      <a
+        v-if="featured.external"
+        :href="featured.external"
+        target="_blank"
+        rel="noopener"
+        class="absolute inset-0 z-20 cursor-pointer"
+        :aria-label="`Read: ${featured.title}`"
+      />
+      <NuxtLink
+        v-else
+        :to="featured._path"
+        class="absolute inset-0 z-20 cursor-pointer"
         :aria-label="`Read: ${featured.title}`"
       />
     </SpotlightCard>
@@ -91,12 +96,11 @@
     <section class="mt-6">
       <ul class="divide-y divide-border">
         <li v-for="article in list" :key="article._path">
-          <component
-            :is="article.external ? 'a' : 'NuxtLink'"
-            :to="article.external ? undefined : article._path"
-            :href="article.external || undefined"
-            :target="article.external ? '_blank' : undefined"
-            :rel="article.external ? 'noopener' : undefined"
+          <a
+            v-if="article.external"
+            :href="article.external"
+            target="_blank"
+            rel="noopener"
             class="group -mx-4 flex gap-5 rounded-2xl px-4 py-6 no-underline transition-colors hover:bg-surface"
           >
             <div class="min-w-0 flex-1">
@@ -123,7 +127,33 @@
                 class="h-24 w-36 rounded-xl border border-border object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               />
             </div>
-          </component>
+          </a>
+          <NuxtLink
+            v-else
+            :to="article._path"
+            class="group -mx-4 flex gap-5 rounded-2xl px-4 py-6 no-underline transition-colors hover:bg-surface"
+          >
+            <div class="min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-ink-faint">
+                <time :datetime="article.date">{{ getDate(article.date) }}</time>
+                <span v-if="article.tags?.length" class="flex flex-wrap gap-1.5">
+                  <span v-for="tag in article.tags.slice(0, 3)" :key="tag" class="rounded-full border border-border px-2 py-0.5">{{ tag }}</span>
+                </span>
+              </div>
+              <h3 class="mt-2.5 text-xl font-semibold tracking-tight text-ink transition-colors group-hover:text-accent-ink">
+                {{ article.title }}
+              </h3>
+              <p class="mt-1.5 line-clamp-2 leading-relaxed text-ink-faint">{{ article.description }}</p>
+            </div>
+            <div v-if="article.image" class="hidden shrink-0 sm:block">
+              <img
+                :src="article.image"
+                :alt="article.title"
+                loading="lazy"
+                class="h-24 w-36 rounded-xl border border-border object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+            </div>
+          </NuxtLink>
         </li>
       </ul>
 

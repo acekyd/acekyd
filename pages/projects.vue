@@ -93,9 +93,16 @@
           rel="noopener"
           class="group flex items-start justify-between gap-3 rounded-xl border border-border bg-bg p-4 no-underline opacity-80 transition-all hover:opacity-100 hover:border-accent/30"
         >
-          <div>
-            <h3 class="text-sm font-semibold text-ink transition-colors group-hover:text-accent-ink" v-html="project.title" />
+          <div class="min-w-0">
+            <div class="flex flex-wrap items-start gap-2">
+              <h3 class="text-sm font-semibold text-ink transition-colors group-hover:text-accent-ink" v-html="project.title" />
+              <span class="badge" :class="badgeClass(project.status)">{{ statusLabel(project.status) }}</span>
+            </div>
             <p class="mt-1 line-clamp-2 text-xs leading-relaxed text-ink-faint" v-html="project.description" />
+            <div v-if="project.impact" class="mt-2 text-xs font-medium text-accent-ink">{{ project.impact }}</div>
+            <div class="mt-2 flex flex-wrap gap-1.5">
+              <span v-for="skill in skillList(project.skills)" :key="skill" class="techchip">{{ skill }}</span>
+            </div>
           </div>
           <svg class="mt-0.5 h-3.5 w-3.5 shrink-0 text-ink-faint transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M7 7h10v10" /></svg>
         </a>
@@ -113,9 +120,10 @@ useSeoMeta({
 })
 
 const data = Projects as any[]
-const featured = data.filter((p) => p.featured === true)
+const isArchived = (p: any) => p.status === 'archived'
+const featured = data.filter((p) => p.featured === true && !isArchived(p))
 const active = data.filter((p) => (p.status === 'active' || p.status === 'maintained') && !p.featured)
-const archived = data.filter((p) => p.status === 'archived' && !p.featured)
+const archived = data.filter(isArchived)
 
 const skillList = (s?: string) => (s ? s.split(',').map((x) => x.trim()).filter(Boolean) : [])
 // Split an impact string like "25,000+ downloads" into a big number + label.

@@ -20,7 +20,7 @@
         "description": "WordPress plugin that allows users to display posts from medium.com on any part of their website. Simplifies content syndication.",
         "status": "archived",
         "lastUpdated": "2023-08-01",
-        "featured": true,
+        "featured": false,
         "impact": "25,000+ downloads · 85 GitHub stars"
     },
     {
@@ -30,7 +30,7 @@
         "github": "https://github.com/acekyd/clean-repos",
         "website": "https://clean-repos.herokuapp.com/",
         "description": "A utility tool to help clear out multiple old, broken, uncompleted or abandoned repositories from your GitHub account. Spring cleaning for developers.",
-        "status": "maintained",
+        "status": "archived",
         "lastUpdated": "2023-05-20",
         "featured": false,
         "impact": "500+ users"
@@ -42,7 +42,7 @@
         "github": "https://github.com/acekyd/laravelMp3",
         "website": "https://packagist.org/packages/acekyd/laravelmp3",
         "description": "A lightweight Laravel package for simple operations with mp3 files. Built on the getID3 library for reliable audio file manipulation.",
-        "status": "maintained",
+        "status": "archived",
         "lastUpdated": "2023-03-10",
         "featured": false,
         "impact": "3,600+ downloads · 21 GitHub stars"
@@ -136,24 +136,24 @@
         "title": "myProClubs",
         "skills": "PHP, Laravel, Blade, Docker",
         "github": "https://github.com/acekyd/myproclubs",
-        "website": "",
-        "description": "A website to manage your virtual football team from EA Sports FC (FC 26+) Pro Clubs. Track your eSports squad, players, and performance.",
+        "website": "https://www.myproclubs.com",
+        "description": "A webapp to manage virtual football teams from EA Sports FC25+ Pro Clubs. Track your squad, players, and performance.",
         "status": "active",
         "lastUpdated": "2026-06-29",
         "featured": false,
-        "impact": "eSports Pro Clubs team manager"
+        "impact": "eSports Pro Clubs tournament platform"
     },
     {
         "id": "13",
         "title": "Watchroom",
         "skills": "Vue, TypeScript",
         "github": "https://github.com/acekyd/watchroom",
-        "website": "",
-        "description": "A web app for shared, synchronized watch-party viewing rooms. Watch together in real time.",
+        "website": "https://btg-watchroom.netlify.app/",
+        "description": "A web app for multi-streaming Twitch tournaments across channels.",
         "status": "active",
         "lastUpdated": "2026-06-27",
         "featured": false,
-        "impact": "Sync watch-party rooms"
+        "impact": "Control room for multi-streams"
     },
     {
         "id": "14",

@@ -186,7 +186,7 @@ const { data: recentPosts } = await useAsyncData('home-recent-posts', () =>
 )
 
 const featuredProjects = (Projects as any[])
-  .filter((p) => p.featured === true || p.status === 'active')
+  .filter((p) => p.status !== 'archived' && (p.featured === true || p.status === 'active'))
   .slice(0, 6)
 
 function formatDate(date?: string) {
