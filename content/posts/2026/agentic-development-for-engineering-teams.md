@@ -41,7 +41,7 @@ That is why I like to break agentic engineering for teams into three parts:
 
 1. Local development
 2. Code reviews and PRs
-3. CI/CD pipelines and cloud automations
+3. CI/CD pipelines
 
 Once you can make those three parts work together, you move from individual AI productivity into a real team operating model.
 
@@ -155,21 +155,20 @@ Agents can help around those gates. They can:
 - generate rollback notes or incident context
 - help developers understand security scan results
 
-They should not quietly remove the gate because it is inconvenient.
+They should not remove the gate because it is inconvenient.
 
-This is where tools like [GitHub Actions](https://docs.github.com/en/actions), [GitLab CI](https://docs.gitlab.com/ci/), [CircleCI](https://circleci.com/docs/), [Buildkite](https://buildkite.com/docs), [CodeQL code scanning](https://docs.github.com/en/code-security/concepts/code-scanning/codeql/codeql-code-scanning), [Dependabot](https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain), [Snyk](https://docs.snyk.io/developer-tools/snyk-ci-cd-integrations), [Semgrep](https://semgrep.dev/docs/semgrep-ci/overview), and policy-as-code systems still matter a lot. AI does not remove the need for deterministic automation. It increases the need for it.
+This is where tools like [GitHub Actions](https://docs.github.com/en/actions), [Buildkite](https://buildkite.com/docs), [Snyk](https://docs.snyk.io/developer-tools/snyk-ci-cd-integrations), and policy-as-code systems still matter a lot. AI does not remove the need for deterministic automation. It increases the need for it.
 
 The more AI-assisted code your team ships, the more important your non-AI checks become. A human-in-the-loop process is still a requirement for production safety. Agents can help with the investigation, but they should not be the ones to decide whether a change is safe to ship.
 
-### Cloud Automations
+## Cloud Automations
 
-Cloud automation is where the conversation gets more interesting.
+Consider this a bonus fourth part, one that cuts across the other three. Cloud automations can pick up issues the way an engineer would in local development, open and pre-review pull requests, and work around your CI/CD pipelines. It is also where the conversation gets more interesting.
 
-Anthropic recently announced [Claude Tag](https://www.anthropic.com/news/introducing-claude-tag), which lets teams tag Claude in Slack, give it access to selected tools and codebases, and delegate tasks asynchronously. You can also set up [headless goose](https://goose-docs.ai/docs/tutorials/headless-goose/), a noninteractive environment designed for automation in CI/CD pipelines, servers, and batch processing. GitHub's [Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent) also points in this direction, with agents that can work in the background on repository tasks and integrate with surfaces like GitHub, Slack, Jira, Linear, and Azure Boards.
+Anthropic recently announced [Claude Tag](https://www.anthropic.com/news/introducing-claude-tag), which lets teams tag Claude in Slack, give it access to selected tools and codebases, and delegate tasks asynchronously. You can also set up [headless goose](https://goose-docs.ai/docs/tutorials/headless-goose/), a noninteractive environment designed for automation in CI/CD pipelines, servers, and batch processing. GitHub's [Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent) also points in this direction, with agents that can work in the background on repository tasks. 
 
-These are useful patterns. They are also exactly why the boundaries matter.
 
-The safe pattern is not "give the agent access to production and see what happens." The safe pattern is:
+As we automate, remember: the safe pattern is not "give the agent access to production and see what happens." The safe pattern is:
 
 - agents investigate
 - agents explain
@@ -179,10 +178,6 @@ The safe pattern is not "give the agent access to production and see what happen
 - humans approve
 - production permissions remain tightly scoped
 - every agent action is logged and reviewable
-
-I would also think about the deployment model around the agents. If your team uses infrastructure as code, agents can help explain a [Terraform plan](https://developer.hashicorp.com/terraform/cli/commands/plan) or Pulumi preview, but they should not automatically apply it in production. If you use GitOps with tools like [Argo CD](https://argo-cd.readthedocs.io/en/stable/) or Flux, agents can propose manifest changes, but the deployment source of truth should still be reviewed. If you use policy-as-code with systems like [Open Policy Agent](https://www.openpolicyagent.org/docs), agents can help explain why a policy failed, but the policy should remain the gate.
-
-For production delivery, I would also keep feature flags, canary deployments, blue-green deployments, rollback plans, and observability checks in the conversation. These are the boring systems that make fast teams safe. Agents can make them easier to operate, but they should not replace them.
 
 ## Tools Are Not The Strategy
 
