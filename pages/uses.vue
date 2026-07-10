@@ -160,14 +160,12 @@
 </template>
 
 <script setup lang="ts">
-useHead({
-  titleTemplate: 'Uses - Adewale Abati',
-  meta: [
-    {
-      name: 'description',
-      content: 'The tools, software, and hardware Adewale "Ace" Abati uses daily to build, create, and stay productive as a Web Engineer and Developer Advocate.'
-    }
-  ]
+useHead({ titleTemplate: 'Uses - Adewale Abati' })
+useSeoMeta({
+  description: 'The tools, software, and hardware Adewale "Ace" Abati uses daily to build, create, and stay productive as a Web Engineer and Developer Advocate.',
+  ogTitle: 'Uses - Adewale Abati',
+  ogDescription: 'The tools, software, and hardware Adewale "Ace" Abati uses daily to build, create, and stay productive as a Web Engineer and Developer Advocate.',
+  ogUrl: 'https://adewaleabati.com/uses',
 })
 </script>
 

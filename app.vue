@@ -2,7 +2,7 @@
   <div>
     <Head>
       <Link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
-      <Link rel="canonical" :href="canonicalUrl" />
+      <Link v-if="showDefaultCanonical" rel="canonical" :href="canonicalUrl" />
       <Script type="application/ld+json">
         {{
           {
@@ -41,6 +41,10 @@ const canonicalUrl = computed(() => {
   const baseUrl = 'https://adewaleabati.com'
   return `${baseUrl}${route.path}`
 })
+
+// Post detail pages and /links manage their own canonical (posts may point
+// to an external canonical_url for syndicated content) — don't duplicate it here.
+const showDefaultCanonical = computed(() => !route.path.startsWith('/posts/') && route.path !== '/links')
 
 useSeoMeta({
   title: 'Adewale Abati - Web Engineer & Developer Advocate',

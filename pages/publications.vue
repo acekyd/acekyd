@@ -21,5 +21,8 @@
 useHead({ titleTemplate: 'Publications - Adewale Abati' })
 useSeoMeta({
   description: 'Articles, guest posts, and features published by Adewale "Ace" Abati across the web.',
+  ogTitle: 'Publications - Adewale Abati',
+  ogDescription: 'Articles, guest posts, and features published by Adewale "Ace" Abati across the web.',
+  ogUrl: 'https://adewaleabati.com/publications',
 })
 </script>

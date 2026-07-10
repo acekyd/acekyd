@@ -103,14 +103,12 @@
 </template>
 
 <script setup lang="ts">
-useHead({
-  titleTemplate: 'Now - Adewale Abati',
-  meta: [
-    {
-      name: 'description',
-      content: 'What Adewale "Ace" Abati is currently focused on - work projects, learning goals, and life updates.'
-    }
-  ]
+useHead({ titleTemplate: 'Now - Adewale Abati' })
+useSeoMeta({
+  description: 'What Adewale "Ace" Abati is currently focused on - work projects, learning goals, and life updates.',
+  ogTitle: 'Now - Adewale Abati',
+  ogDescription: 'What Adewale "Ace" Abati is currently focused on - work projects, learning goals, and life updates.',
+  ogUrl: 'https://adewaleabati.com/now',
 })
 </script>
 

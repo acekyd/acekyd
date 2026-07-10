@@ -200,5 +200,8 @@ useHead({
 useSeoMeta({
   description:
     'Adewale "Ace" Abati — Web Engineer and Staff Developer Advocate at Block. Writing, talks, and projects on agentic AI, open source, and developer community.',
+  ogDescription:
+    'Adewale "Ace" Abati — Web Engineer and Staff Developer Advocate at Block. Writing, talks, and projects on agentic AI, open source, and developer community.',
+  ogUrl: 'https://adewaleabati.com/',
 })
 </script>

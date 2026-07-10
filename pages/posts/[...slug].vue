@@ -94,7 +94,15 @@ useSeoMeta({
   ogTitle: data.value.title,
   ogDescription: data.value.description,
   ogType: 'article',
+  ogUrl: 'https://adewaleabati.com' + path,
   ogImage,
+  // Remove the global 1200x630 dimensions — they describe the homepage
+  // fallback image, not this post's cover.
+  ogImageWidth: null,
+  ogImageHeight: null,
+  articlePublishedTime: data.value.date,
+  articleAuthor: ['Adewale Abati'],
+  articleTag: data.value.tags,
   twitterCard: 'summary_large_image',
   twitterImage: ogImage,
 });
@@ -110,7 +118,18 @@ useHead({
         headline: data.value.title,
         description: data.value.description,
         datePublished: data.value.date,
-        author: { '@type': 'Person', name: 'Adewale Abati', url: 'https://adewaleabati.com' },
+        dateModified: data.value.updated || data.value.date,
+        author: {
+          '@type': 'Person',
+          name: 'Adewale Abati',
+          url: 'https://adewaleabati.com',
+          sameAs: [
+            'https://github.com/acekyd',
+            'https://twitter.com/ace_kyd',
+            'https://linkedin.com/in/acekyd',
+            'https://youtube.com/@acekydtv',
+          ],
+        },
         mainEntityOfPage: 'https://adewaleabati.com' + path,
         image: ogImage,
       }),

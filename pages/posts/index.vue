@@ -233,6 +233,9 @@ const list = computed(() => {
 useHead({ titleTemplate: 'Blog - Adewale Abati' })
 useSeoMeta({
   description: 'Essays and notes on agentic AI, open source, developer relations, careers, and building on the web — by Adewale "Ace" Abati.',
+  ogTitle: 'Blog - Adewale Abati',
+  ogDescription: 'Essays and notes on agentic AI, open source, developer relations, careers, and building on the web — by Adewale "Ace" Abati.',
+  ogUrl: 'https://adewaleabati.com/posts',
 })
 </script>
 

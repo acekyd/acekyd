@@ -181,6 +181,9 @@ interface YearGroup {
 useHead({ titleTemplate: 'Talks and Presentations - Adewale Abati' })
 useSeoMeta({
   description: 'Public speaking engagements, keynotes, and technical presentations by Adewale "Ace" Abati on developer advocacy, AI, and open source.',
+  ogTitle: 'Talks and Presentations - Adewale Abati',
+  ogDescription: 'Public speaking engagements, keynotes, and technical presentations by Adewale "Ace" Abati on developer advocacy, AI, and open source.',
+  ogUrl: 'https://adewaleabati.com/talks',
 })
 
 const all = Talks as Talk[]

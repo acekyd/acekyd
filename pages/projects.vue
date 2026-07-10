@@ -117,6 +117,9 @@ import Projects from "assets/data/projects.json";
 useHead({ titleTemplate: 'Projects and Experiments - Adewale Abati' })
 useSeoMeta({
   description: 'Open source projects, tools, and experiments by Adewale "Ace" Abati — from active community work to archived learning projects.',
+  ogTitle: 'Projects and Experiments - Adewale Abati',
+  ogDescription: 'Open source projects, tools, and experiments by Adewale "Ace" Abati — from active community work to archived learning projects.',
+  ogUrl: 'https://adewaleabati.com/projects',
 })
 
 const data = Projects as any[]
