@@ -1,8 +1,8 @@
 <template>
-  <section v-if="related.length" class="mt-12 border-t border-border pt-8">
+  <section v-if="posts?.length" class="mt-12 border-t border-border pt-8">
     <h2 class="text-sm font-semibold uppercase tracking-wide text-ink-faint">Keep reading</h2>
     <ul class="mt-2 divide-y divide-border">
-      <li v-for="post in related" :key="post._path">
+      <li v-for="post in posts" :key="post._path">
         <NuxtLink
           :to="post._path"
           class="group -mx-4 block rounded-2xl px-4 py-5 no-underline transition-colors hover:bg-surface"
@@ -24,27 +24,8 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{ currentPath: string; tags?: string[] }>()
-
-const { data } = await useAsyncData(`related-${props.currentPath}`, () =>
-  queryContent('/posts')
-    .where({ published: { $ne: false } })
-    .only(['title', 'description', '_path', 'date', 'tags', 'external_url'])
-    .sort({ date: -1 })
-    .find(),
-)
-
-// Rank by shared-tag count, then recency; fill with latest posts if fewer
-// than 3 share a tag. External stubs are excluded — they redirect off-site.
-const related = computed(() => {
-  const mine = new Set(props.tags ?? [])
-  const candidates = ((data.value ?? []) as any[])
-    .filter((p) => p._path !== props.currentPath && !p.external_url)
-    .map((p) => ({ ...p, score: (p.tags ?? []).filter((t: string) => mine.has(t)).length }))
-  const byTag = candidates
-    .filter((p) => p.score > 0)
-    .sort((a, b) => b.score - a.score || +new Date(b.date) - +new Date(a.date))
-  const fill = candidates.filter((p) => p.score === 0)
-  return [...byTag, ...fill].slice(0, 3)
-})
+// Purely presentational — the post page fetches and ranks the related posts.
+// (Doing an awaited query in here made this an async child component, which
+// broke ContentDoc hydration on direct page loads.)
+defineProps<{ posts?: any[] }>()
 </script>
