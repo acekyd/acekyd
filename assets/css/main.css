@@ -158,3 +158,15 @@
 .prose a:hover {
   background-size: 100% 1.5px;
 }
+
+/* Heading anchor links (from @nuxt/content anchorLinks): keep headings
+   looking like headings, reveal a subtle marker on hover. */
+.prose :is(h2, h3) a {
+  color: inherit;
+  font-weight: inherit;
+  background-image: none;
+}
+.prose :is(h2, h3) a:hover::after {
+  content: " #";
+  color: rgb(var(--accent-ink));
+}

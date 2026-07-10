@@ -47,7 +47,8 @@ export default defineNuxtConfig({
       },
     },
     markdown: {
-      anchorLinks: false
+      // Clickable anchors on h2/h3 so sections can be deep-linked.
+      anchorLinks: { depth: 3, exclude: [1] }
     }
   },
   
