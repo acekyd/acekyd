@@ -9,8 +9,7 @@ cover_image: /images/agentic-development-for-engineering-teams/featured.png
 
 ![A central code repository acting as the control room for agentic engineering teams](/images/agentic-development-for-engineering-teams/featured.png)
 
-
-Agentic development has found its place when it comes to building products as individuals. Some people even claim to not read generated code and just keep shipping. 
+Agentic development has found its place for individuals building products. Some people are already comfortable shipping generated code they barely read.
 
 The hard problem is no longer whether an agent can write code. We already know it can. The harder question is whether five, fifty, or five hundred engineers can use different tools without breaking the trust, review quality, deployment safety, and architectural consistency that keeps a team moving.
 
@@ -18,25 +17,25 @@ That is the real shift from _vibe coding_ to agentic engineering that has left m
 
 ## How did we get here?
 
-2024 was an important year for this. Anthropic announced Claude Sonnet 3.5, which quickly became one of the first models that made many developers feel like coding with AI could become genuinely useful. A few months later, Anthropic announced MCP, and the landscape changed again. Suddenly, your AI tool could plug into other platforms, pull context from Jira tickets, read PRDs in Google Docs, work with GitHub, reason about project information, and move closer to the actual places where engineering work already happens.
+2024 was an important year for this. Anthropic announced Claude 3.5 Sonnet, which quickly became one of the first models that made many developers feel like coding with AI could become genuinely useful. A few months later, Anthropic announced MCP, and the landscape changed again. Suddenly, your AI tool could plug into other platforms, pull context from Jira tickets, read PRDs in Google Docs, work with GitHub, reason about project information, and move closer to the actual places where engineering work already happens.
 
 It was a bit surprising to see how quickly that became normal. We have gone through the different phases of vibe coding, slop or otherwise, and landed in a place where almost every part of the software development lifecycle now has some AI-shaped tool trying to improve it.
 
 ## Working in teams
 
-The challenge to make this useful in a team setting remains - where preferences need to be flexible, standards need to be consistent, and everyone still needs to trust the work that lands in production.
+The challenge is making this useful in a team setting, where preferences need to be flexible, standards need to be consistent, and everyone still needs to trust the work that lands in production.
 
 If you want agentic development to work in a team, you need to identify and design the collaboration points where AI-assisted work enters the shared system.
 
 Those points are usually:
 
-- when engineers pick up issues & tickets
-- when they explore requirements and make implementation decisions
+- when engineers pick up issues & tickets.
+- when they explore requirements and make implementation decisions.
 - when they open pull requests for code review.
 
 > The repository is key.
 
-The repository is where all of this comes together. It is the single source of truth - the coordinate where everything converges and is built upon - for humans, agents, reviewers, and automation. If the repository is not ready for agents, the team is not ready for agentic development.
+The repository is where all of this comes together. It is the single source of truth - the place where work, context, standards, and automation converge - for humans and agents. If the repository is not ready for agents, the team is not ready for agentic development.
 
 That is why I like to break agentic engineering for teams into three parts:
 
@@ -46,7 +45,7 @@ That is why I like to break agentic engineering for teams into three parts:
 
 Once you can make those three parts work together, you move from individual AI productivity into a real team operating model.
 
-### Local Development
+## Local development
 
 ![Different local AI coding tools connected to one shared repository context](/images/agentic-development-for-engineering-teams/local-development.png)
 
@@ -58,8 +57,9 @@ So instead of making the tool the center of the strategy, enable the repository 
 
 The repo is the one place every engineer and every agent has to respect. It is where project context, contribution rules, testing expectations, security constraints, and architectural decisions should live. This is also called repo readiness.
 
-#### Repo Readiness
-Repo readiness is the work of making a codebase easy for an AI coding agent to work on it - without compromising on clarity for humans. If a repository is ready, the AI can read, build, and test the code without getting confused.
+### Repo readiness
+
+Repo readiness is the work of making a codebase easy for an AI coding agent to work in - without compromising on clarity for humans. If a repository is ready, the AI can read, build, and test the code without getting confused.
 
 The simplest place to start is an [`AGENTS.md`](https://agents.md/) file. Think of it as a README for coding agents. Your README is still for humans, but `AGENTS.md` gives agents the extra operating context they need to work responsibly inside the project.
 
@@ -73,11 +73,12 @@ This file could include:
 - how pull requests should be structured
 - what kind of tests are expected for different kinds of changes
 
-Many people rely on a generated `claude.md`, `agents.md`, or tool-specific memory file created after an agent scans the repo. That is useful, but it is not enough. The model can only record what it can see. It cannot know the undocumented production incident from last year, the migration that should never be repeated, the database table that looks unused but powers finance reporting, or the reason the team chose one boring pattern over a clever one.
+Many people rely on a generated `CLAUDE.md`, `AGENTS.md`, or tool-specific memory file created after an agent scans the repo. That is useful, but it is not enough. The model can only record what it can see. It cannot know the undocumented production incident from last year, the migration that should never be repeated, the database table that looks unused but powers finance reporting, or the reason the team chose one boring pattern over a clever one.
 
 That hidden context is exactly what senior engineers usually carry in their heads. Agentic development forces teams to write more of that down.
 
-#### Repo readiness in large codebases or monorepos
+### Repo readiness in large codebases or monorepos
+
 For larger codebases, especially monorepos, I would go further:
 
 - add nested `AGENTS.md` files for important packages or services
@@ -96,11 +97,11 @@ The team-level question should be: if two engineers use different agents, do the
 
 If the answer is no, the tool is not the problem yet. The repository is.
 
-### Code Reviews
+## Code Reviews
 
 ![AI-assisted pull request triage supporting human code review judgment](/images/agentic-development-for-engineering-teams/code-reviews.png)
 
-Code review is where agentic development starts to put real pressure on engineering teams. A well recognized bottleneck that many products are also attempting to solve. 
+Code review is where agentic development puts real pressure on engineering teams, and it is a bottleneck many products are now racing to solve.
 
 AI helps people produce more code faster. That sounds great until you remember that the review capacity of the team did not magically increase at the same rate. If one senior engineer was already reviewing too many pull requests, AI-assisted development can turn that into a serious bottleneck. Unless of course, you trust the agents, merge the PRs and wait for the problems to pay you a visit in production.
 
@@ -129,22 +130,17 @@ For example:
 - treat AI comments as suggestions, not merge blockers, unless backed by deterministic checks
 - measure false positives and review fatigue
 
-Agentic tools make it easy to generate a 2,000-line pull request that technically works but is painful to review. Senior teams should push in the opposite direction: smaller PRs, clearer descriptions, better test evidence, and reviewing the changes yourself possibly with another model before creating a pull request.
+Agentic tools make it easy to generate a 2,000-line pull request that technically works but is painful to review. Senior teams should push in the opposite direction: smaller PRs, clearer descriptions, better test evidence, and a personal review of the changes before creating a pull request. Using another model for a pre-review can be helpful, but the author still owns the judgment.
 
-
-
-## CI/CD Pipelines / Cloud automations
+## CI/CD Pipelines
 
 ![A CI/CD pipeline where agents investigate failures without bypassing deterministic release gates](/images/agentic-development-for-engineering-teams/ci-cd-pipelines.png)
 
-I guess one could hold the position that code reviews are already a part of your CI/CD pipeline - the continuous integration part. But I also wanted this to include cloud setups that automate the entire process from an issue, to a pull request, to a deployment. 
+Code review is governance and CI/CD is enforcement. That distinction matters even more when agents enter the workflow. A Slack agent, cloud coding agent, headless local agent, or DevOps assistant can help move work from issue to pull request to deployment. But it should not quietly become the thing that decides production is safe.
 
-Anthropic recently announced [Claude Tag](https://www.anthropic.com/news/introducing-claude-tag) connected through slack that you can delegate tasks to and have it create a PR with the solution.
-You can set up [headless goose](https://goose-docs.ai/docs/tutorials/headless-goose/) - a noninteractive environment that you can also tag in Slack or on PRs, or within deployment to pick up any issues and solve them.
+I have spoken to a lot of people who are excited about AI in the development loop but hesitate when the conversation gets to deployment pipelines - "You want to give Claude access to your AWS console?" haha. A valid concern if you ask me.
 
-This is of course closer to production and many people are understandably nervous about. I have spoken to a lot of people who are excited about AI in the development loop but hesitate when the conversation gets to deployment pipelines - "You want to give claude access to your AWS console?" haha. I think that hesitation is healthy. A well-intentioned agent with the wrong permissions can do real damage. Dropping the wrong database, rotating the wrong secret, skipping the wrong check, or deploying the wrong artifact is not a cute AI story. It is an incident.
-
-Many devops providers are now introducing their own inbuilt agents to help with your entire CI/CD environment - remember to keep backups.
+A well-intentioned agent with the wrong permissions can do real damage. Dropping the wrong database, rotating the wrong secret, skipping the wrong check, or deploying the wrong artifact is not a cute AI story. It is an incident.
 
 CI/CD should remain deterministic. The gates that decide whether code can move forward should be boring, repeatable, auditable, and owned by the team. Tests should pass. Types should pass. Security scans should pass. Policy checks should pass. Deployment approvals should still mean something.
 
@@ -161,11 +157,34 @@ Agents can help around those gates. They can:
 
 They should not quietly remove the gate because it is inconvenient.
 
-This is where tools like [GitHub Actions](https://docs.github.com/en/actions), [CodeQL code scanning](https://docs.github.com/en/code-security/concepts/code-scanning/codeql/codeql-code-scanning), [Dependabot](https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain), [Snyk](https://docs.snyk.io/developer-tools/snyk-ci-cd-integrations), and policy-as-code systems still matter a lot. AI does not remove the need for deterministic automation. It increases the need for it.
+This is where tools like [GitHub Actions](https://docs.github.com/en/actions), [GitLab CI](https://docs.gitlab.com/ci/), [CircleCI](https://circleci.com/docs/), [Buildkite](https://buildkite.com/docs), [CodeQL code scanning](https://docs.github.com/en/code-security/concepts/code-scanning/codeql/codeql-code-scanning), [Dependabot](https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain), [Snyk](https://docs.snyk.io/developer-tools/snyk-ci-cd-integrations), [Semgrep](https://semgrep.dev/docs/semgrep-ci/overview), and policy-as-code systems still matter a lot. AI does not remove the need for deterministic automation. It increases the need for it.
 
-The more AI-assisted code your team ships, the more important your non-AI checks become. Human in the loop is still a requirement for production safety. Agents can help with the investigation, but they should not be the ones to decide whether a change is safe to ship.
+The more AI-assisted code your team ships, the more important your non-AI checks become. A human-in-the-loop process is still a requirement for production safety. Agents can help with the investigation, but they should not be the ones to decide whether a change is safe to ship.
 
-### Tools Are Not The Strategy
+### Cloud Automations
+
+Cloud automation is where the conversation gets more interesting.
+
+Anthropic recently announced [Claude Tag](https://www.anthropic.com/news/introducing-claude-tag), which lets teams tag Claude in Slack, give it access to selected tools and codebases, and delegate tasks asynchronously. You can also set up [headless goose](https://goose-docs.ai/docs/tutorials/headless-goose/), a noninteractive environment designed for automation in CI/CD pipelines, servers, and batch processing. GitHub's [Copilot cloud agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent) also points in this direction, with agents that can work in the background on repository tasks and integrate with surfaces like GitHub, Slack, Jira, Linear, and Azure Boards.
+
+These are useful patterns. They are also exactly why the boundaries matter.
+
+The safe pattern is not "give the agent access to production and see what happens." The safe pattern is:
+
+- agents investigate
+- agents explain
+- agents propose fixes
+- agents open pull requests
+- CI validates
+- humans approve
+- production permissions remain tightly scoped
+- every agent action is logged and reviewable
+
+I would also think about the deployment model around the agents. If your team uses infrastructure as code, agents can help explain a [Terraform plan](https://developer.hashicorp.com/terraform/cli/commands/plan) or Pulumi preview, but they should not automatically apply it in production. If you use GitOps with tools like [Argo CD](https://argo-cd.readthedocs.io/en/stable/) or Flux, agents can propose manifest changes, but the deployment source of truth should still be reviewed. If you use policy-as-code with systems like [Open Policy Agent](https://www.openpolicyagent.org/docs), agents can help explain why a policy failed, but the policy should remain the gate.
+
+For production delivery, I would also keep feature flags, canary deployments, blue-green deployments, rollback plans, and observability checks in the conversation. These are the boring systems that make fast teams safe. Agents can make them easier to operate, but they should not replace them.
+
+## Tools Are Not The Strategy
 
 It is tempting to make this whole conversation about which agent is best. That is the least stable part of the conversation especially as the tools keep evolving.
 
@@ -189,7 +208,7 @@ That means writing down context. Tightening review practices. Improving CI. Bein
 
 ## A Practical Starting Point
 
-If I were helping a team start this today, I would not begin with a massive rollout. We start with a small team of AI enthusiasts and a single repository. We test out tools, configuration and proceesses. AI fatigue is real, especially at work - the last thing you want to do is have the entire team try out one tool after another that does the same thing yet not well enough.
+If I were helping a team start this today, I would not begin with a massive rollout. We start with a small team of AI enthusiasts and a single repository. We test out tools, configuration and processes. AI fatigue is real, especially at work - the last thing you want to do is have the entire team try out one tool after another that does the same thing yet not well enough.
 
 With your chosen repository and team, I would ask the following questions:
 
@@ -200,5 +219,6 @@ With your chosen repository and team, I would ask the following questions:
 5. Can we use an AI review tool to summarize and triage PRs without replacing human review?
 6. Can an agent investigate CI failures and propose fixes without getting direct production permissions?
 7. Are agent actions visible enough that the team can audit them later?
+8. For infrastructure or cloud changes, do plans, approvals, rollback paths, and ownership still exist outside the agent?
 
 Every team will have different needs, answers and processes even when using the same tools. The important part is to make those decisions explicit and document them in the repository so that agents and humans can work together and ship safely.
