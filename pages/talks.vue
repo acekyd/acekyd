@@ -1,32 +1,18 @@
 <template>
   <div>
     <!-- ===================== HEADER ===================== -->
-    <section class="relative isolate overflow-hidden border-b border-border">
-      <ClientOnly>
-        <HeroAurora class="absolute inset-0 -z-10" />
-      </ClientOnly>
-
-      <div class="container-wide py-16 md:py-20">
-        <header class="animate-fade-up max-w-3xl">
-          <p class="eyebrow mb-4">Speaking</p>
-          <h1 class="text-balance font-bold tracking-[-0.03em] text-ink leading-[0.95] text-[clamp(2.4rem,6vw,4rem)]">
-            Talks &amp; Presentations
-          </h1>
-          <p class="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">
-            Keynotes, sessions, and mentorship at conferences, meetups, and community
-            events — on developer relations, open source, and building with AI.
-          </p>
-        </header>
-
-        <!-- stat strip -->
-        <dl class="mt-10 flex flex-wrap gap-x-12 gap-y-6">
+    <PageHero
+      eyebrow="Speaking"
+      title="Talks & Presentations"
+      description="Keynotes, sessions, and mentorship at conferences, meetups, and community events on developer relations, open source, and building with AI."
+    >
+      <dl class="mt-10 flex flex-wrap gap-x-12 gap-y-6">
           <div v-for="stat in stats" :key="stat.label" :title="stat.title">
             <dt class="text-3xl font-bold tracking-tight text-ink md:text-4xl">{{ stat.value }}</dt>
             <dd class="mt-1 text-sm text-ink-faint">{{ stat.label }}</dd>
           </div>
-        </dl>
-      </div>
-    </section>
+      </dl>
+    </PageHero>
 
     <div class="container-wide py-14 md:py-20">
       <!-- ===================== WATCH (from YouTube playlist) ===================== -->
@@ -96,9 +82,26 @@
             v-reveal
             class="group relative pb-9 pl-10 md:pl-16"
           >
-            <span class="absolute top-[7px] left-[7px] h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-border ring-4 ring-bg transition-colors group-hover:bg-accent md:left-[9px]" aria-hidden="true" />
+            <span
+              class="absolute top-[7px] left-[7px] h-2.5 w-2.5 -translate-x-1/2 rounded-full ring-4 ring-bg transition-colors group-hover:bg-accent md:left-[9px]"
+              :class="isUpcoming(talk) ? 'bg-accent' : 'bg-border'"
+              aria-hidden="true"
+            />
 
-            <div class="rounded-2xl border border-transparent p-5 transition-all duration-300 hover:border-border hover:bg-surface">
+            <div
+              class="rounded-2xl border p-5 transition-all duration-300 hover:bg-surface"
+              :class="isUpcoming(talk) ? 'border-accent/30 bg-accent-soft/30' : 'border-transparent hover:border-border'"
+            >
+              <span
+                v-if="isUpcoming(talk)"
+                class="mb-2 inline-flex w-fit items-center gap-1.5 rounded-full border border-accent/40 bg-accent-soft px-2.5 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wide text-accent-ink"
+              >
+                <span class="relative flex h-1.5 w-1.5">
+                  <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+                  <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
+                </span>
+                Upcoming
+              </span>
               <component
                 :is="primaryLink(talk) ? 'a' : 'div'"
                 :href="primaryLink(talk) || undefined"
@@ -117,7 +120,7 @@
                 </span>
                 <span v-if="talk.date" class="flex items-center gap-1.5">
                   <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2" /><path d="M3 9h18M8 2v4M16 2v4" /></svg>
-                  {{ talk.date }}
+                  {{ talk.dateLabel || talk.date }}
                 </span>
               </div>
 
@@ -165,6 +168,7 @@ interface Talk {
   id: string;
   title: string;
   date: string;
+  dateLabel?: string;
   event: string;
   location: string;
   slides: string;
@@ -172,6 +176,7 @@ interface Talk {
   website: string;
   video?: string;
   abstract: string;
+  upcoming?: boolean;
 }
 interface YearGroup {
   year: string;
@@ -187,6 +192,20 @@ useSeoMeta({
 })
 
 const all = Talks as Talk[]
+
+// ---- upcoming vs delivered (date-based auto-transition) -------------------
+const startOfToday = (() => { const d = new Date(); d.setHours(0, 0, 0, 0); return d.getTime() })()
+function parseTalkDate(d: string): number | null {
+  if (!d || !d.trim()) return null
+  const t = new Date(d).getTime()
+  return Number.isNaN(t) ? null : t
+}
+// A talk is upcoming if flagged and either has no date yet, or its date hasn't passed.
+function isUpcoming(t: Talk): boolean {
+  if (!t.upcoming) return false
+  const d = parseTalkDate(t.date)
+  return d === null || d >= startOfToday
+}
 
 const extractYear = (d: string): string => {
   if (!d || !d.trim()) return 'Earlier'
@@ -221,9 +240,10 @@ const groupedTalks = computed((): YearGroup[] => {
 const stats = computed(() => {
   const since = speaking.speakingSince
   const countryCount = speaking.countries.length
+  const deliveredCount = all.filter((t) => !isUpcoming(t)).length
   return [
     {
-      value: `${speaking.talksDeliveredOverride ?? all.length}`,
+      value: `${speaking.talksDeliveredOverride ?? deliveredCount}`,
       label: 'Talks delivered',
     },
     {

@@ -1,10 +1,12 @@
 <template>
-  <div class="container-wide py-12 md:py-16">
-    <header class="animate-fade-up">
-      <p class="eyebrow mb-3">Building</p>
-      <h1 class="pageTitle">Projects &amp; Experiments</h1>
-      <p class="pageSubtitle">Community-centered solutions, open source projects, plugins, and assorted experiments.</p>
-    </header>
+  <div>
+    <PageHero
+      eyebrow="Building"
+      title="Projects & Experiments"
+      description="Community-centered solutions, open source projects, plugins, and assorted experiments."
+    />
+
+    <main class="container-wide py-14 md:py-20">
 
     <!-- Featured -->
     <section v-if="featured.length" class="mt-4">
@@ -108,6 +110,7 @@
         </a>
       </div>
     </section>
+    </main>
   </div>
 </template>
 
