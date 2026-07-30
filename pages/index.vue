@@ -10,7 +10,7 @@
         <div class="order-2 animate-fade-up md:order-1">
           <p class="eyebrow mb-5 flex items-center gap-2.5">
             <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent" />
-            Staff Developer Advocate · Block
+            Staff Developer Advocate
           </p>
 
           <h1 class="font-bold tracking-[-0.02em] text-ink leading-[1.02] text-[clamp(1.9rem,4.4vw,3.25rem)] sm:whitespace-nowrap">
@@ -23,8 +23,8 @@
 
           <div class="mt-5 max-w-xl space-y-4 leading-relaxed text-ink-soft">
             <p>
-              Hi! I'm Ace — a Web Engineer, Staff Developer Advocate, GitHub Star,
-              and Agentic AI Foundation Ambassador. I help frontier technical products become
+              Hi! I'm Ace — a Web Engineer, Staff Developer Advocate, <a href="https://stars.github.com/profiles/acekyd/" target="_blank" rel="noopener" class="link-underline">GitHub Star</a>,
+              and <a href="https://aaif.io/ambassadors" target="_blank" rel="noopener" class="link-underline">Agentic AI Foundation Ambassador</a>. I help frontier technical products become
               understandable, credible, usable, and adopted by developers.
             </p>
             <p>
@@ -37,6 +37,7 @@
 
           <p class="mt-6 text-sm text-ink-faint">
             Previously
+            <a href="https://www.block.xyz/" target="_blank" rel="noopener" class="link-underline">Block</a>,
             <a href="https://codesandbox.io/" target="_blank" rel="noopener" class="link-underline">CodeSandbox</a>,
             <a href="https://flutterwave.com/" target="_blank" rel="noopener" class="link-underline">Flutterwave</a>,
             <a href="https://ingressive.org/" target="_blank" rel="noopener" class="link-underline">Ingressive</a>,

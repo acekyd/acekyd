@@ -1,165 +1,66 @@
 <template>
-    <div class="container-wide py-12 md:py-16">
-        <header class="animate-fade-up mb-10">
-            <p class="eyebrow mb-3">Setup</p>
-            <h1 class="pageTitle">Uses</h1>
-            <p class="pageSubtitle">The tools, software, and hardware I use daily to build, create, and stay productive.</p>
-        </header>
+  <div>
+    <PageHero
+      eyebrow="Setup"
+      title="Uses"
+      description="The tools, software, and hardware I use to build, create, and stay productive."
+    >
+      <p class="mt-6 text-sm text-ink-faint">Last updated August 2024</p>
+    </PageHero>
 
-        <section class="uses-content">
-            <div class="uses-category">
-                <h2>💻 Development Setup</h2>
-                <div class="uses-grid">
-                    <div class="uses-item">
-                        <h3>Editor</h3>
-                        <p><strong>Visual Studio Code</strong> - My primary editor with tons of extensions</p>
-                        <p><strong>Key Extensions:</strong> GitLens, Prettier, ESLint, Auto Rename Tag, Live Server</p>
-                    </div>
-                    
-                    <div class="uses-item">
-                        <h3>Terminal</h3>
-                        <p><strong>iTerm2</strong> with <strong>Oh My Zsh</strong> and <strong>Powerlevel10k</strong> theme</p>
-                        <p>Makes the command line experience much more pleasant and productive</p>
-                    </div>
-                    
-                    <div class="uses-item">
-                        <h3>Version Control</h3>
-                        <p><strong>Git</strong> via command line and <strong>GitHub Desktop</strong> for visual diffs</p>
-                        <p><strong>gh CLI</strong> for GitHub operations directly from terminal</p>
-                    </div>
-                </div>
-            </div>
+    <main class="container-wide py-14 md:py-20">
+      <section v-for="category in categories" :key="category.title" class="border-t border-border py-10 first:border-t-0 first:pt-0">
+        <div class="mb-6 flex items-baseline gap-3">
+          <span class="h-1.5 w-1.5 rounded-full bg-accent" />
+          <h2 class="text-xl font-semibold text-ink md:text-2xl">{{ category.title }}</h2>
+        </div>
+        <div class="grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
+          <article v-for="item in category.items" :key="item.name" class="bg-surface p-5 transition-colors hover:bg-bg">
+            <h3 class="text-base font-semibold text-ink">{{ item.name }}</h3>
+            <ul class="mt-4 space-y-2 text-sm leading-relaxed text-ink-soft">
+              <li v-for="detail in item.details" :key="detail" v-html="detail" />
+            </ul>
+          </article>
+        </div>
+      </section>
 
-            <div class="uses-category">
-                <h2>🛠 Development Tools</h2>
-                <div class="uses-grid">
-                    <div class="uses-item">
-                        <h3>API Testing</h3>
-                        <p><strong>Postman</strong> - API development and testing</p>
-                        <p><strong>Insomnia</strong> - Alternative REST client</p>
-                    </div>
-                    
-                    <div class="uses-item">
-                        <h3>Database</h3>
-                        <p><strong>TablePlus</strong> - Database management</p>
-                        <p><strong>Redis Insight</strong> - Redis GUI</p>
-                    </div>
-                    
-                    <div class="uses-item">
-                        <h3>Design & Prototyping</h3>
-                        <p><strong>Figma</strong> - UI/UX design and collaboration</p>
-                        <p><strong>Excalidraw</strong> - Quick diagrams and wireframes</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="uses-category">
-                <h2>🎥 Content Creation</h2>
-                <div class="uses-grid">
-                    <div class="uses-item">
-                        <h3>Recording & Streaming</h3>
-                        <p><strong>OBS Studio</strong> - Screen recording and live streaming</p>
-                        <p><strong>Loom</strong> - Quick video recordings and sharing</p>
-                    </div>
-                    
-                    <div class="uses-item">
-                        <h3>Video Editing</h3>
-                        <p><strong>DaVinci Resolve</strong> - Professional video editing</p>
-                        <p><strong>ScreenFlow</strong> - Screen recording with built-in editing</p>
-                    </div>
-                    
-                    <div class="uses-item">
-                        <h3>Graphics & Images</h3>
-                        <p><strong>Canva</strong> - Quick graphics and social media content</p>
-                        <p><strong>CleanShot X</strong> - Screenshots and annotations</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="uses-category">
-                <h2>💼 Productivity & Organization</h2>
-                <div class="uses-grid">
-                    <div class="uses-item">
-                        <h3>Note Taking</h3>
-                        <p><strong>Notion</strong> - Knowledge base and project management</p>
-                        <p><strong>Obsidian</strong> - Connected note-taking and thinking</p>
-                    </div>
-                    
-                    <div class="uses-item">
-                        <h3>Communication</h3>
-                        <p><strong>Slack</strong> - Team communication</p>
-                        <p><strong>Discord</strong> - Community management</p>
-                        <p><strong>Zoom</strong> - Video calls and webinars</p>
-                    </div>
-                    
-                    <div class="uses-item">
-                        <h3>Browser & Extensions</h3>
-                        <p><strong>Arc Browser</strong> - My daily driver</p>
-                        <p><strong>Chrome</strong> - Development and testing</p>
-                        <p><strong>Key Extensions:</strong> 1Password, JSON Viewer, React DevTools</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="uses-category">
-                <h2>🖥 Hardware Setup</h2>
-                <div class="uses-grid">
-                    <div class="uses-item">
-                        <h3>Computer</h3>
-                        <p><strong>MacBook Pro 16" M2 Max</strong> - Main development machine</p>
-                        <p>64GB RAM, 2TB SSD - Handles everything I throw at it</p>
-                    </div>
-                    
-                    <div class="uses-item">
-                        <h3>Monitor & Accessories</h3>
-                        <p><strong>LG UltraWide 34"</strong> - External monitor for productivity</p>
-                        <p><strong>Magic Keyboard & Magic Mouse</strong> - Apple ecosystem consistency</p>
-                    </div>
-                    
-                    <div class="uses-item">
-                        <h3>Audio & Video</h3>
-                        <p><strong>Blue Yeti</strong> - Podcast and video recording</p>
-                        <p><strong>Sony WH-1000XM4</strong> - Noise-canceling headphones</p>
-                        <p><strong>Logitech C920</strong> - Webcam for streaming</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="uses-category">
-                <h2>☁️ Services & Platforms</h2>
-                <div class="uses-grid">
-                    <div class="uses-item">
-                        <h3>Hosting & Deployment</h3>
-                        <p><strong>Netlify</strong> - Static site hosting and serverless functions</p>
-                        <p><strong>Vercel</strong> - Next.js and React deployments</p>
-                        <p><strong>Railway</strong> - Backend services and databases</p>
-                    </div>
-                    
-                    <div class="uses-item">
-                        <h3>Storage & CDN</h3>
-                        <p><strong>Cloudinary</strong> - Image and video management</p>
-                        <p><strong>Dropbox</strong> - File synchronization</p>
-                    </div>
-                    
-                    <div class="uses-item">
-                        <h3>Analytics & Monitoring</h3>
-                        <p><strong>Google Analytics</strong> - Website analytics</p>
-                        <p><strong>Sentry</strong> - Error tracking and performance monitoring</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="inspiration-note">
-                <p><em>This page is inspired by <a href="https://uses.tech/" target="_blank" rel="noopener">uses.tech</a> - 
-                a movement to share what tools we use to get work done.</em></p>
-                
-                <p>Tools change over time, so I try to keep this updated. Last updated: <strong>August 2024</strong></p>
-            </div>
-        </section>
-    </div>
+      <aside class="border-t border-border pt-8 text-sm leading-relaxed text-ink-faint">
+        Inspired by <a href="https://uses.tech/" target="_blank" rel="noopener" class="link-underline">uses.tech</a>.
+        Tools change over time, so this is a living list rather than a recommendation index.
+      </aside>
+    </main>
+  </div>
 </template>
 
 <script setup lang="ts">
+const categories = [
+  { title: 'Development setup', items: [
+    { name: 'Editor', details: ['<strong>Visual Studio Code</strong> for daily development', '<strong>Extensions:</strong> GitLens, Prettier, ESLint, Auto Rename Tag, Live Server'] },
+    { name: 'Terminal', details: ['<strong>iTerm2</strong> with Oh My Zsh and Powerlevel10k', 'A fast, calm command-line environment for focused work'] },
+    { name: 'Version control', details: ['<strong>Git</strong> and GitHub Desktop for visual diffs', '<strong>gh CLI</strong> for GitHub work in the terminal'] },
+  ] },
+  { title: 'Development tools', items: [
+    { name: 'API testing', details: ['<strong>Postman</strong> for API development and testing', '<strong>Insomnia</strong> as an alternative REST client'] },
+    { name: 'Data', details: ['<strong>TablePlus</strong> for database management', '<strong>Redis Insight</strong> for Redis'] },
+    { name: 'Design and prototyping', details: ['<strong>Figma</strong> for collaborative UI work', '<strong>Excalidraw</strong> for diagrams and wireframes'] },
+  ] },
+  { title: 'Content creation', items: [
+    { name: 'Recording and streaming', details: ['<strong>OBS Studio</strong> for recording and live streams', '<strong>Loom</strong> for quick walkthroughs'] },
+    { name: 'Video editing', details: ['<strong>DaVinci Resolve</strong> for editing', '<strong>ScreenFlow</strong> for recorded presentations'] },
+    { name: 'Graphics and images', details: ['<strong>Canva</strong> for quick social graphics', '<strong>CleanShot X</strong> for screenshots and annotations'] },
+  ] },
+  { title: 'Workflows', items: [
+    { name: 'Notes and planning', details: ['<strong>Notion</strong> for knowledge and projects', '<strong>Obsidian</strong> for connected thinking'] },
+    { name: 'Communication', details: ['<strong>Slack</strong> and <strong>Discord</strong> for teams and communities', '<strong>Zoom</strong> for calls and webinars'] },
+    { name: 'Browser', details: ['<strong>Arc</strong> as a daily driver', '<strong>Chrome</strong> for development and testing', '<strong>Extensions:</strong> 1Password, JSON Viewer, React DevTools'] },
+  ] },
+  { title: 'Hardware and services', items: [
+    { name: 'Computer', details: ['<strong>16-inch MacBook Pro M2 Max</strong>', '64GB RAM and 2TB SSD'] },
+    { name: 'Desk and recording', details: ['<strong>LG UltraWide 34-inch</strong>, Magic Keyboard, Magic Mouse', '<strong>Blue Yeti</strong>, Sony WH-1000XM4, Logitech C920'] },
+    { name: 'Platforms', details: ['<strong>Netlify</strong>, Vercel, and Railway for deployment', '<strong>Cloudinary</strong>, Google Analytics, and Sentry'] },
+  ] },
+]
+
 useHead({ titleTemplate: 'Uses - Adewale Abati' })
 useSeoMeta({
   description: 'The tools, software, and hardware Adewale "Ace" Abati uses daily to build, create, and stay productive as a Web Engineer and Developer Advocate.',
@@ -168,30 +69,3 @@ useSeoMeta({
   ogUrl: 'https://adewaleabati.com/uses',
 })
 </script>
-
-<style scoped>
-.uses-category { @apply mb-12; }
-.uses-category h2 {
-  @apply text-2xl font-semibold mb-6 text-ink;
-  border-bottom: 2px solid rgb(var(--accent));
-  padding-bottom: 0.5rem;
-}
-
-.uses-grid { @apply grid gap-4 md:grid-cols-2 lg:grid-cols-3; }
-
-.uses-item { @apply bg-surface p-6 rounded-2xl border border-border transition-colors hover:border-accent/30; }
-.uses-item h3 { @apply text-lg font-semibold mb-3 text-ink; }
-.uses-item p { @apply text-ink-soft mb-2 text-sm leading-relaxed; }
-.uses-item p:last-child { @apply mb-0; }
-.uses-item a, .inspiration-note a { @apply text-accent-ink no-underline; }
-
-.inspiration-note { @apply mt-12 p-6 bg-muted rounded-2xl border border-border; }
-.inspiration-note p { @apply text-ink-faint mb-2; }
-.inspiration-note p:last-child { @apply mb-0; }
-
-@media (max-width: 768px) {
-  .uses-grid {
-    @apply grid-cols-1;
-  }
-}
-</style>

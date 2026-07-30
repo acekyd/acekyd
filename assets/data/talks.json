@@ -214,5 +214,83 @@
     "website": "https://www.renderatl.com/",
     "video": "",
     "abstract": "When APIs first came into the mix, they opened up the world to unlimited possibilities - applications could speak to each other, exchanging data, creating new and custom interfaces and much more. It was a game changer. \nAs we move towards a more AI driven society - with a new AI tool announced every other day, it became important for these tools and models to find a way to connect to existing data sources, platforms and context of our choice as needed. \nIntroducing **Model Context Protocol (MCP) Servers** an open protocol designed to seamlessly integrate AI applications with external data sources and tools. In this talk, we'll explore how MCPs work, are they really worth the hype, how to use them, and use cases with AI Agents. This session will give you the foundation to start plugging AI into everything."
+  },
+  {
+    "id": "22",
+    "title": "Adopting AI Agents as a Tool for Everyone",
+    "date": "June 2025",
+    "event": "Open Source in Finance Forum London 2025",
+    "location": "London, England",
+    "slides": "",
+    "embedLink": "",
+    "website": "https://events.linuxfoundation.org/archive/2025/open-source-finance-forum-london/",
+    "video": "",
+    "abstract": ""
+  },
+  {
+    "id": "23",
+    "title": "Building a Decentralized Web With Web5",
+    "date": "June 2024",
+    "event": "JSNation 2024",
+    "location": "Amsterdam, Netherlands",
+    "slides": "",
+    "embedLink": "",
+    "website": "",
+    "video": "https://gitnation.com/contents/building-a-decentralized-web-with-web5",
+    "abstract": ""
+  },
+  {
+    "id": "24",
+    "title": "Chapter Leads Summit Keynote",
+    "date": "July 2024",
+    "event": "OSCA Chapter Leads Summit 2024",
+    "location": "Lagos, Nigeria",
+    "slides": "",
+    "embedLink": "",
+    "website": "",
+    "video": "https://www.youtube.com/watch?v=Z2u3bsMNv0Q",
+    "abstract": ""
+  },
+  {
+    "id": "19",
+    "title": "Speaking at RenderATL 2026",
+    "date": "August 13, 2026",
+    "dateLabel": "August 12–13, 2026",
+    "event": "RenderATL 2026",
+    "location": "Atlanta, GA, USA",
+    "slides": "",
+    "embedLink": "",
+    "website": "https://www.renderatl.com/",
+    "video": "",
+    "abstract": "",
+    "upcoming": true
+  },
+  {
+    "id": "20",
+    "title": "Speaking at The AI Underground",
+    "date": "August 16, 2026",
+    "dateLabel": "August 15–16, 2026",
+    "event": "The AI Underground — ATL BitLab",
+    "location": "Atlanta, GA, USA",
+    "slides": "",
+    "embedLink": "",
+    "website": "https://aiunderground.dev/",
+    "video": "",
+    "abstract": "",
+    "upcoming": true
+  },
+  {
+    "id": "21",
+    "title": "Speaking at AGNTCon + MCPCon Europe",
+    "date": "September 18, 2026",
+    "dateLabel": "September 17–18, 2026",
+    "event": "AGNTCon + MCPCon Europe",
+    "location": "Amsterdam, Netherlands",
+    "slides": "",
+    "embedLink": "",
+    "website": "https://events.linuxfoundation.org/agntcon-mcpcon-europe/",
+    "video": "",
+    "abstract": "",
+    "upcoming": true
   }
 ]

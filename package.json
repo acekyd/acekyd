@@ -5,6 +5,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "test": "vitest run",
     "og:cards": "node scripts/generate-og-cards.mjs"
   },
   "devDependencies": {
@@ -20,7 +21,8 @@
     "sass": "^1.77.0",
     "sass-loader": "^14.2.0",
     "sharp": "^0.35.3",
-    "typescript": "^5.5.0"
+    "typescript": "^5.5.0",
+    "vitest": "^4.1.10"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
