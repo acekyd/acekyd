@@ -292,5 +292,17 @@
     "video": "",
     "abstract": "",
     "upcoming": true
+  },
+  {
+    "id": "25",
+    "title": "Intro to Goose",
+    "date": "August 27, 2025",
+    "event": "AI Agent Hack Night with MCP ft. Goose, Dagger, Docker & Databricks",
+    "location": "Amsterdam, Netherlands",
+    "slides": "",
+    "embedLink": "",
+    "website": "https://luma.com/zfbvc190",
+    "video": "",
+    "abstract": ""
   }
 ]
