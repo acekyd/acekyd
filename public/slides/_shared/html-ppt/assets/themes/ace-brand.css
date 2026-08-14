@@ -1,0 +1,34 @@
+/* theme: ace-brand — AceKYD warm cream + brand orange · Instrument Serif display + Poppins body
+   Source of truth: system/carousels.md (cream #f5efe3, one-orange rule, Instrument Serif italic accents)
+   and hyperframes cutaway theming (brand-orange gradient #f4b609 → #c38230). */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+  --bg:#f5efe3;--bg-soft:#efe6d4;--surface:#fdfaf3;--surface-2:#f0e8d8;
+  --border:rgba(58,44,26,.14);--border-strong:rgba(58,44,26,.26);
+  --text-1:#2a2118;--text-2:#5c4f3d;--text-3:#94866f;
+  --accent:#c38230;--accent-2:#f4b609;--accent-3:#2a2118;
+  --good:#4f7d4a;--warn:#f4b609;--bad:#b3402e;
+  --grad:linear-gradient(135deg,#f4b609,#c38230);
+  --grad-soft:linear-gradient(135deg,#f5efe3,#efe0c8);
+  --radius:14px;--radius-sm:8px;--radius-lg:22px;
+  --shadow:0 10px 28px rgba(58,44,26,.10);
+  --shadow-lg:0 24px 60px rgba(58,44,26,.18);
+  --font-sans:'Poppins','Noto Sans SC',-apple-system,sans-serif;
+  --font-display:'Instrument Serif','Noto Serif SC',Georgia,serif;
+  --font-serif:'Instrument Serif','Noto Serif SC',Georgia,serif;
+  --letter-tight:-.01em;
+}
+
+/* Display type: Instrument Serif is a light single-weight face — don't fake-bold it */
+h1.title,.h1,h2.title,.h2{font-weight:400}
+
+/* Carousel-style accent: key word in Instrument Serif italic, orange.
+   Keep it rare — the brand rule is ONE orange focus element per page. */
+.focus,em.accent{font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--accent)}
+
+/* Dark "ink" slide variant for title/closing sandwich structure */
+.slide.ace-dark{background:#241c12;color:#f5efe3}
+.slide.ace-dark .h1,.slide.ace-dark .h2,.slide.ace-dark h1.title,.slide.ace-dark h2.title{color:#f5efe3}
+.slide.ace-dark p,.slide.ace-dark li{color:#d8cdb8}
+.slide.ace-dark .focus,.slide.ace-dark em.accent{color:var(--accent-2)}

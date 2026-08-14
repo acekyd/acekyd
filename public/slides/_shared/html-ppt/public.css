@@ -1,0 +1,96 @@
+/* Stable public-viewer additions layered over html-ppt. */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+.deck {
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+html.slides-fit body {
+  background: var(--at-ink);
+}
+
+html.slides-fit .deck {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1920px;
+  height: 1080px;
+  transform: translate(-50%, -50%) scale(var(--public-slide-scale));
+  transform-origin: center;
+}
+
+html.slides-fit .tpl-ace-talk .at-title {
+  font-size: 92px;
+}
+
+html.slides-fit .tpl-ace-talk .at-title.at-medium {
+  font-size: 80px;
+}
+
+html.slides-fit .tpl-ace-talk .at-title.at-small {
+  font-size: 70px;
+}
+
+html.slides-fit .tpl-ace-talk .at-deck-title {
+  font-size: 132px;
+}
+
+html.slides-fit .tpl-ace-talk .at-lede {
+  font-size: 34px;
+}
+
+html.slides-fit .tpl-ace-talk .at-body {
+  font-size: 30px;
+}
+
+html.slides-fit .tpl-ace-talk .at-question strong {
+  font-size: 48px;
+}
+
+html.slides-fit .tpl-ace-talk .at-tension-side h3 {
+  font-size: 54px;
+}
+
+html.slides-fit .tpl-ace-talk .at-margin-note p {
+  font-size: 40px;
+}
+
+html.slides-fit .tpl-ace-talk .at-takeaway strong {
+  font-size: 50px;
+}
+
+.overview .thumb {
+  appearance: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  text-align: left;
+  font: inherit;
+}
+
+.overview .thumb:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (pointer: coarse) {
+  .progress-bar {
+    height: 5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide,
+  [data-fragment] {
+    transition: none !important;
+  }
+}
