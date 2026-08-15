@@ -1114,6 +1114,124 @@
       letter-spacing: .03em;
       text-transform: uppercase;
     }
+    .tpl-ace-talk .at-aaif-layout {
+      display: grid;
+      grid-template-columns: minmax(0, .82fr) minmax(720px, 1.18fr);
+      gap: 88px;
+      align-items: center;
+      flex: 1;
+      min-height: 0;
+    }
+    .tpl-ace-talk .at-aaif-copy .at-title {
+      max-width: 760px;
+    }
+    .tpl-ace-talk .at-aaif-copy .at-lede {
+      max-width: 700px;
+      font-size: 27px;
+    }
+    .tpl-ace-talk .at-aaif-visual {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+    .tpl-ace-talk .at-aaif-projects {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      padding: 0 30px;
+    }
+    .tpl-ace-talk .at-aaif-project {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 240px;
+      padding: 24px 18px 20px;
+      border: 1px solid var(--at-line);
+      background: var(--at-white);
+      color: var(--at-ink);
+      text-align: center;
+    }
+    .tpl-ace-talk .at-aaif-project::after {
+      content: "";
+      position: absolute;
+      bottom: -48px;
+      left: 50%;
+      width: 1px;
+      height: 48px;
+      background: var(--at-signal);
+    }
+    .tpl-ace-talk .at-aaif-project img {
+      width: 108px;
+      height: 108px;
+      object-fit: contain;
+    }
+    .tpl-ace-talk .at-aaif-project.is-goose img {
+      width: 118px;
+      height: 118px;
+    }
+    .tpl-ace-talk .at-aaif-project strong {
+      margin-top: 17px;
+      font-size: 26px;
+      line-height: 1;
+    }
+    .tpl-ace-talk .at-aaif-project.is-agents strong {
+      margin-top: 0;
+      font-family: var(--at-mono);
+      font-size: 28px;
+    }
+    .tpl-ace-talk .at-aaif-project span {
+      margin-top: 9px;
+      color: var(--at-muted);
+      font-family: var(--at-mono);
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .tpl-ace-talk .at-aaif-platform {
+      position: relative;
+      margin-top: 48px;
+      padding: 32px 38px 30px;
+      border-top: 6px solid var(--at-signal);
+      background: var(--at-code);
+      color: var(--at-white);
+    }
+    .tpl-ace-talk .at-aaif-platform-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .tpl-ace-talk .at-aaif-platform-head strong {
+      font-size: 76px;
+      line-height: .9;
+      letter-spacing: -.05em;
+    }
+    .tpl-ace-talk .at-aaif-platform-head span {
+      color: var(--at-signal);
+      font-family: var(--at-mono);
+      font-size: 14px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .tpl-ace-talk .at-aaif-platform p {
+      max-width: 610px;
+      margin: 24px 0 0;
+      color: #c8ced5;
+      font-size: 21px;
+      line-height: 1.4;
+    }
+    .tpl-ace-talk .at-aaif-platform a {
+      display: inline-block;
+      margin-top: 22px;
+      color: var(--at-white);
+      font-family: var(--at-mono);
+      font-size: 17px;
+      text-decoration-color: var(--at-signal);
+      text-underline-offset: 5px;
+    }
     .tpl-ace-talk .at-problem-slide .at-signal-label::before {
       background: var(--at-red);
     }
@@ -1223,7 +1341,34 @@
     </div>
   </section>
 
-  <!-- 03 · Audience question -->
+  <!-- 03 · Agentic AI Foundation -->
+  <section class="slide at-dark" data-title="The Agentic AI Foundation">
+    <div class="at-stage">
+      <div class="at-topline"><span>Open infrastructure</span><span>Opening · 02</span></div>
+      <div class="at-aaif-layout">
+        <div class="at-aaif-copy at-reveal">
+          <p class="at-kicker">December 2025</p>
+          <h2 class="at-title at-small">Shared agent infrastructure needs a neutral home.</h2>
+          <p class="at-lede">goose, MCP, and AGENTS.md became founding projects of the Agentic AI Foundation under the Linux Foundation.</p>
+        </div>
+        <div class="at-aaif-visual at-reveal at-delay" role="img" aria-label="Goose, Model Context Protocol, and AGENTS.md sit on the Agentic AI Foundation as founding projects">
+          <div class="at-aaif-projects">
+            <div class="at-aaif-project is-goose"><img src="assets/goose-icon.svg" alt=""><strong>goose</strong><span>from Block</span></div>
+            <div class="at-aaif-project"><img src="assets/mcp-mark.svg" alt=""><strong>MCP</strong><span>from Anthropic</span></div>
+            <div class="at-aaif-project is-agents"><strong>AGENTS.md</strong><span>from OpenAI</span></div>
+          </div>
+          <div class="at-aaif-platform">
+            <div class="at-aaif-platform-head"><strong>AAIF</strong><span>Linux Foundation</span></div>
+            <p>Open governance across companies, so critical agent standards and projects stay interoperable and community-driven.</p>
+            <a href="https://aaif.io">aaif.io</a>
+          </div>
+        </div>
+      </div>
+      <div class="at-footer"><span>AceKYD · Field Notes</span><span class="at-page" data-page="03"></span></div>
+    </div>
+  </section>
+
+  <!-- 04 · Audience question -->
   <section class="slide at-problem-slide" data-title="Audience question">
     <div class="at-stage">
       <div class="at-topline"><span class="at-signal-label">Room check</span><span>Problem · 01</span></div>
@@ -1232,11 +1377,11 @@
         <div class="at-question" data-fragment><span class="at-qn">A</span><strong>Who here isn’t writing code with agents yet?</strong><span>adoption</span></div>
         <div class="at-question is-risk" data-fragment><span class="at-qn">B</span><strong>Who trusts the output enough to ship it without review?</strong><span>trust</span></div>
       </div>
-      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="03"></span></div>
+      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="04"></span></div>
     </div>
   </section>
 
-  <!-- 04 · What large means -->
+  <!-- 05 · What large means -->
   <section class="slide at-problem-slide" data-title="What large means">
     <div class="at-stage">
       <div class="at-topline"><span class="at-signal-label">Define the problem</span><span>Problem · 02</span></div>
@@ -1248,11 +1393,11 @@
         <div class="at-check" data-fragment><div class="at-check-head"><span class="at-checkmark">[03]</span><h3>History</h3></div><p>Legacy code carries decisions, migrations, and caveats the code may never explain.</p></div>
         <div class="at-check" data-fragment><div class="at-check-head"><span class="at-checkmark">[04]</span><h3>Feature work</h3></div><p>One feature can cross ownership, shared state, tests, data, and deployment.</p></div>
       </div>
-      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="04"></span></div>
+      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="05"></span></div>
     </div>
   </section>
 
-  <!-- 05 · Failure equation -->
+  <!-- 06 · Failure equation -->
   <section class="slide at-problem-slide" data-title="Failure equation">
     <div class="at-stage">
       <div class="at-topline"><span class="at-signal-label">Failure equation</span><span>Problem · 03</span></div>
@@ -1262,11 +1407,11 @@
         <div class="at-plus">+</div>
         <div class="at-tension-side at-failure-side" data-fragment><span class="at-index">02 / CONTROL</span><h3>Guidance without enforcement</h3><p>Instructions can guide the agent, but it can still go beyond the task, skip a check, or declare success too early.</p></div>
       </div>
-      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="05"></span></div>
+      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="06"></span></div>
     </div>
   </section>
 
-  <!-- 06 · Thesis -->
+  <!-- 07 · Thesis -->
   <section class="slide at-dark" data-title="Thesis">
     <div class="at-stage">
       <div class="at-topline"><span>Today · the shift</span><span>Problem · 04</span></div>
@@ -1309,11 +1454,11 @@
           <text class="tg-detail" x="500" y="523" text-anchor="middle">enforce the bar</text>
         </svg>
       </div>
-      <div class="at-footer"><span>AceKYD · Field Notes</span><span class="at-page" data-page="06"></span></div>
+      <div class="at-footer"><span>AceKYD · Field Notes</span><span class="at-page" data-page="07"></span></div>
     </div>
   </section>
 
-  <!-- 07 · Introduction -->
+  <!-- 08 · Introduction -->
   <section class="slide at-intro-slide" data-title="About Ace">
     <div class="at-stage">
       <div class="at-topline"><span>A quick introduction</span><span>About · 01</span></div>
@@ -1331,11 +1476,11 @@
           </ul>
         </div>
       </div>
-      <div class="at-footer"><span>Adewale “Ace” Abati</span><span class="at-page" data-page="07"></span></div>
+      <div class="at-footer"><span>Adewale “Ace” Abati</span><span class="at-page" data-page="08"></span></div>
     </div>
   </section>
 
-  <!-- 08 · Ready repo operating model -->
+  <!-- 09 · Ready repo operating model -->
   <section class="slide" data-title="How to improve output">
     <div class="at-stage">
       <div class="at-topline"><span>The plan</span><span>Approach · 01</span></div>
@@ -1380,11 +1525,11 @@
           <text class="og-repo-detail" x="460" y="306" text-anchor="middle">the consistent layer</text>
         </svg>
       </div>
-      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="08"></span></div>
+      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="09"></span></div>
     </div>
   </section>
 
-  <!-- 09 · Give the agent context (AGENTS.md) -->
+  <!-- 10 · Give the agent context (AGENTS.md) -->
   <section class="slide" data-title="Give the agent a map">
     <div class="at-stage">
       <div class="at-topline"><span class="at-signal-label">Guide · persistent context</span><span>Guide · 01</span></div>
@@ -1410,11 +1555,11 @@ Run <span class="cmd">pnpm lint &amp;&amp; pnpm test</span></pre>
         </div>
         <div class="at-takeaway"><span class="at-label">Using Claude Code?</span><strong>It reads CLAUDE.md. Use <code>/init</code> for a first draft, or import AGENTS.md to share one source.</strong></div>
       </div>
-      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="09"></span></div>
+      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="10"></span></div>
     </div>
   </section>
 
-  <!-- 10 · Nested context (tree) -->
+  <!-- 11 · Nested context (tree) -->
   <section class="slide at-dark" data-title="Nested instructions">
     <div class="at-stage">
       <div class="at-topline"><span class="at-signal-label">Put local context beside the code</span><span>Guide · 02</span></div>
@@ -1436,11 +1581,11 @@ Run <span class="cmd">pnpm lint &amp;&amp; pnpm test</span></pre>
           <p>Keep shared context at the root. Put module-specific context beside the code it applies to.</p>
         </div>
       </div>
-      <div class="at-footer"><span>AceKYD · Field Notes</span><span class="at-page" data-page="10"></span></div>
+      <div class="at-footer"><span>AceKYD · Field Notes</span><span class="at-page" data-page="11"></span></div>
     </div>
   </section>
 
-  <!-- 11 · Hooks (define + setup + differ by agent) -->
+  <!-- 12 · Hooks (define + setup + differ by agent) -->
   <section class="slide" data-title="Hooks">
     <div class="at-stage">
       <div class="at-topline"><span class="at-signal-label">Enforce · deterministic controls</span><span>Enforce · 01</span></div>
@@ -1468,11 +1613,11 @@ Run <span class="cmd">pnpm lint &amp;&amp; pnpm test</span></pre>
           <div class="at-config-path"><span>goose</span><code>*/hooks/hooks.json</code></div>
         </div>
       </div>
-      <div class="at-footer"><span>goose follows the Open Plugins hooks specification</span><span class="at-page" data-page="11"></span></div>
+      <div class="at-footer"><span>goose follows the Open Plugins hooks specification</span><span class="at-page" data-page="12"></span></div>
     </div>
   </section>
 
-  <!-- 12 · Claude Code hook examples -->
+  <!-- 13 · Claude Code hook examples -->
   <section class="slide" data-title="Hook examples">
     <div class="at-stage">
       <div class="at-topline"><span class="at-signal-label">Claude Code · .claude/settings.json</span><span>Constrain · 02</span></div>
@@ -1499,11 +1644,11 @@ Run <span class="cmd">pnpm lint &amp;&amp; pnpm test</span></pre>
           <div class="at-hook-event-group"><h3>Agents and tasks</h3><div class="at-hook-event-list"><code>SubagentStart</code><code>SubagentStop</code><code>TaskCreated</code><code>TaskCompleted</code><code>TeammateIdle</code></div></div>
         </div>
       </div>
-      <div class="at-footer"><span>31 events · use matchers to narrow when handlers run</span><span class="at-page" data-page="12"></span></div>
+      <div class="at-footer"><span>31 events · use matchers to narrow when handlers run</span><span class="at-page" data-page="13"></span></div>
     </div>
   </section>
 
-  <!-- 13 · Skills -->
+  <!-- 14 · Skills -->
   <section class="slide" data-title="Skills">
     <div class="at-stage">
       <div class="at-topline"><span class="at-signal-label">Equip · progressive disclosure</span><span>Equip · 01</span></div>
@@ -1521,11 +1666,11 @@ description: <span class="value">Review Vue and API changes for XSS and exposed 
         </div>
         <div class="at-takeaway"><span class="at-label">Why it matters</span><strong>Always-on context stays lean. Specialist workflows arrive just in time.</strong></div>
       </div>
-      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="13"></span></div>
+      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="14"></span></div>
     </div>
   </section>
 
-  <!-- 14 · Skills in the wild -->
+  <!-- 15 · Skills in the wild -->
   <section class="slide" data-title="Skills in the wild">
     <div class="at-stage">
       <div class="at-topline"><span class="at-signal-label">Equip · reusable discipline</span><span>Equip · 02</span></div>
@@ -1548,11 +1693,11 @@ description: <span class="value">Review Vue and API changes for XSS and exposed 
           </div>
         </div>
       </div>
-      <div class="at-footer"><span>github.com/mattpocock/skills · GoogleChrome/modern-web-guidance</span><span class="at-page" data-page="14"></span></div>
+      <div class="at-footer"><span>github.com/mattpocock/skills · GoogleChrome/modern-web-guidance</span><span class="at-page" data-page="15"></span></div>
     </div>
   </section>
 
-  <!-- 15 · MCP examples -->
+  <!-- 16 · MCP examples -->
   <section class="slide" data-title="MCP servers">
     <div class="at-stage">
       <div class="at-topline"><span class="at-signal-label">Equip · external systems</span><span>Equip · 03</span></div>
@@ -1564,11 +1709,11 @@ description: <span class="value">Review Vue and API changes for XSS and exposed 
         <div class="at-mcp-card" data-fragment><span class="at-label">Why the browser disagrees</span><h3>Chrome DevTools</h3><p>Inspect console errors, network requests, DOM state, screenshots, and performance traces in live Chrome.</p><strong>The browser becomes a source of truth, not a final manual check.</strong></div>
         <div class="at-mcp-card" data-fragment><span class="at-label">Build your own</span><h3>Internal MCP</h3><p>Expose approved services, schemas, documentation, or workflows as tools shaped for your codebase.</p><strong>The agent can use internal context without hard-coding it into every prompt.</strong></div>
       </div>
-      <div class="at-footer"><span>Scope credentials and write access carefully</span><span class="at-page" data-page="15"></span></div>
+      <div class="at-footer"><span>Scope credentials and write access carefully</span><span class="at-page" data-page="16"></span></div>
     </div>
   </section>
 
-  <!-- 16 · Plugins and agents with a real example -->
+  <!-- 17 · Plugins and agents with a real example -->
   <section class="slide" data-title="Plugins">
     <div class="at-stage">
       <div class="at-topline"><span class="at-signal-label">Equip · distribute the setup</span><span>Equip · 04</span></div>
@@ -1587,11 +1732,11 @@ type design · code quality · simplification</pre>
           <div class="at-takeaway"><span class="at-label">Team value</span><strong>Distribute the workflow. Install the same reviewed setup across the team.</strong></div>
         </div>
       </div>
-      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="16"></span></div>
+      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="17"></span></div>
     </div>
   </section>
 
-  <!-- 17 · Route context and controls after introducing the mechanisms -->
+  <!-- 18 · Route context and controls after introducing the mechanisms -->
   <section class="slide" data-title="Choose the right layer">
     <div class="at-stage">
       <div class="at-topline"><span class="at-signal-label">Choose the layer</span><span>Synthesis · 01</span></div>
@@ -1604,11 +1749,11 @@ type design · code quality · simplification</pre>
         <div class="at-context-route"><span class="at-route-condition">The evidence lives elsewhere</span><h3>MCP</h3><p>External context and actions.</p><span class="at-route-example">issues · browser · production trace</span></div>
         <div class="at-context-route"><span class="at-route-condition">It requires judgment</span><h3>Human review</h3><p>Decisions about scope, risk, and approval.</p><span class="at-route-example">correct assumptions · approve boundaries</span></div>
       </div>
-      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="17"></span></div>
+      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="18"></span></div>
     </div>
   </section>
 
-  <!-- 18 · Feature request workflow -->
+  <!-- 19 · Feature request workflow -->
   <section class="slide at-dark" data-title="Feature request workflow">
     <div class="at-stage">
       <div class="at-topline"><span>Putting it together</span><span>Workflow · 01</span></div>
@@ -1651,11 +1796,11 @@ type design · code quality · simplification</pre>
           <div class="at-feature-output"><span>Review with</span><strong>Evidence, not confidence</strong></div>
         </div>
       </div>
-      <div class="at-footer"><span>AceKYD · Field Notes</span><span class="at-page" data-page="18"></span></div>
+      <div class="at-footer"><span>AceKYD · Field Notes</span><span class="at-page" data-page="19"></span></div>
     </div>
   </section>
 
-  <!-- 19 · Keep the repo ready (checklist) -->
+  <!-- 20 · Keep the repo ready (checklist) -->
   <section class="slide" data-title="Keep it ready">
     <div class="at-stage">
       <div class="at-topline"><span class="at-signal-label">Stay ready over time</span><span>Takeaway · 01</span></div>
@@ -1665,11 +1810,11 @@ type design · code quality · simplification</pre>
         <div class="at-check" data-fragment><div class="at-check-head"><span class="at-checkmark">[02]</span><h3>Prune stale context</h3></div><p>Delete duplicated or outdated guidance. Keep the context that still prevents real mistakes.</p></div>
         <div class="at-check" data-fragment><div class="at-check-head"><span class="at-checkmark">[03]</span><h3>Name an owner</h3></div><p>One person or team owns context, shared extensions, permissions, and review cadence.</p></div>
       </div>
-      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="19"></span></div>
+      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="20"></span></div>
     </div>
   </section>
 
-  <!-- 20 · Close -->
+  <!-- 21 · Close -->
   <section class="slide at-dark" data-title="Close">
     <div class="at-stage">
       <div class="at-topline"><span class="at-signal-label">The idea to remember</span><span>Takeaway · 02</span></div>
@@ -1681,11 +1826,11 @@ type design · code quality · simplification</pre>
         </div>
         <div class="at-start-small"><span class="at-label">Start with</span><strong>One context map.<br>One shared check.<br>One real task.</strong></div>
       </div>
-      <div class="at-footer"><span>AceKYD · Field Notes</span><span class="at-page" data-page="20"></span></div>
+      <div class="at-footer"><span>AceKYD · Field Notes</span><span class="at-page" data-page="21"></span></div>
     </div>
   </section>
 
-  <!-- 21 · Thanks / Q&A -->
+  <!-- 22 · Thanks / Q&A -->
   <section class="slide at-dark" data-title="Thanks and Q&A">
     <div class="at-stage">
       <div class="at-topline"><span>Questions welcome</span><span>Close · 01</span></div>
@@ -1700,7 +1845,7 @@ type design · code quality · simplification</pre>
           </div>
         </div>
       </div>
-      <div class="at-footer"><span>AceKYD · Field Notes</span><span class="at-page" data-page="21"></span></div>
+      <div class="at-footer"><span>AceKYD · Field Notes</span><span class="at-page" data-page="22"></span></div>
     </div>
   </section>
 
