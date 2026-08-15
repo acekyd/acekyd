@@ -70,6 +70,9 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: ['/rss.xml', '/sitemap.xml', '/llms.txt'],
+      // Slide decks are complete static HTML packages copied from public/.
+      // Do not ask the Nuxt app renderer to resolve them as application routes.
+      ignore: ['/slides/'],
     },
   },
   

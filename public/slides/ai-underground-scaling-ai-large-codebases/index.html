@@ -1,0 +1,1710 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="ace-brand" data-themes="ace-brand">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Scaling AI-Assisted Development in Large Codebases · AI Underground · Adewale Abati</title>
+  <meta name="description" content="How to prepare large repositories for agent-assisted development with repository context, hooks, skills, MCP servers, quality controls, and human review.">
+  <meta name="author" content="Adewale Abati">
+  <meta name="theme-color" content="#0f1115">
+  <link rel="canonical" href="https://adewaleabati.com/slides/ai-underground-scaling-ai-large-codebases/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Scaling AI-Assisted Development in Large Codebases · AI Underground">
+  <meta property="og:description" content="How to make large repositories easier for coding agents to understand, build in, and verify.">
+  <meta property="og:url" content="https://adewaleabati.com/slides/ai-underground-scaling-ai-large-codebases/">
+  <meta property="og:image" content="https://adewaleabati.com/slides/ai-underground-scaling-ai-large-codebases/cover.png">
+  <meta property="og:image:width" content="1920">
+  <meta property="og:image:height" content="1080">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Scaling AI-Assisted Development in Large Codebases · AI Underground">
+  <meta name="twitter:description" content="How to make large repositories easier for coding agents to understand, build in, and verify.">
+  <meta name="twitter:image" content="https://adewaleabati.com/slides/ai-underground-scaling-ai-large-codebases/cover.png">
+  <link rel="stylesheet" href="../_shared/html-ppt/assets/fonts.css">
+  <link rel="stylesheet" href="../_shared/html-ppt/assets/base.css">
+  <link rel="stylesheet" id="theme-link" href="../_shared/html-ppt/assets/themes/ace-brand.css">
+  <link rel="stylesheet" href="../_shared/html-ppt/assets/animations/animations.css">
+  <link rel="stylesheet" href="../_shared/html-ppt/templates/ace-talk/style.css">
+  <link rel="stylesheet" href="../_shared/html-ppt/public.css">
+  <style>
+    .tpl-ace-talk .at-topline { position: relative; }
+    .tpl-ace-talk .at-topline > span:last-child {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+    }
+    .tpl-ace-talk .at-check.at-code-card {
+      min-height: 250px;
+      padding: 20px 26px;
+    }
+    .tpl-ace-talk .at-code-card .at-check-head { margin-bottom: 10px; }
+    .tpl-ace-talk .at-code-window pre {
+      padding: 24px 28px;
+      font-size: 28px;
+      line-height: 1.36;
+    }
+    .tpl-ace-talk .at-code-window pre.at-agents-code {
+      padding-block: 20px;
+      line-height: 1.2;
+    }
+    .tpl-ace-talk .at-terminal-bar { font-size: 16px; }
+    .tpl-ace-talk .at-filetree {
+      padding: 26px 30px 30px;
+      font-size: 28px;
+      line-height: 1.5;
+    }
+    .tpl-ace-talk .at-hook-code {
+      margin: 10px 0 0;
+      padding: 8px 10px;
+      overflow: hidden;
+      border: 1px solid var(--at-line-dark);
+      background: var(--at-code);
+      color: var(--at-white);
+      font-family: var(--at-mono);
+      font-size: 23px;
+      line-height: 1.24;
+      white-space: pre-wrap;
+    }
+    .tpl-ace-talk .at-hook-code .cmd { color: var(--at-green); }
+    .tpl-ace-talk .at-hook-code .value { color: var(--at-blue); }
+    .tpl-ace-talk .at-config-paths {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+      padding: 24px 0 24px 32px;
+      border-left: 1px solid var(--at-line);
+    }
+    .tpl-ace-talk .at-config-paths > .at-label {
+      margin-bottom: 4px;
+      font-family: var(--at-mono);
+      font-size: 14px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--at-muted);
+    }
+    .tpl-ace-talk .at-config-path {
+      padding: 14px 18px;
+      border: 1px solid var(--at-line);
+      background: var(--at-paper);
+    }
+    .tpl-ace-talk .at-config-path span {
+      display: block;
+      margin-bottom: 9px;
+      font-family: var(--at-mono);
+      font-size: 15px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--at-muted);
+    }
+    .tpl-ace-talk .at-config-path code {
+      color: var(--at-blue);
+      font-family: var(--at-mono);
+      font-size: 20px;
+      white-space: nowrap;
+    }
+    .tpl-ace-talk .at-config-path small {
+      display: block;
+      margin-top: 7px;
+      color: var(--at-muted);
+      font-family: var(--at-mono);
+      font-size: 13px;
+      line-height: 1.25;
+    }
+    .tpl-ace-talk .at-hook-card {
+      padding: 20px 26px;
+    }
+    .tpl-ace-talk .at-hook-card-head {
+      margin-bottom: 10px;
+    }
+    .tpl-ace-talk .at-hook-card .at-hook-name {
+      display: block;
+      margin: 0;
+      color: var(--at-green);
+      font-family: var(--at-mono);
+      font-size: 19px;
+      font-weight: 500;
+      letter-spacing: 0;
+    }
+    .tpl-ace-talk .at-hook-card .at-hook-description {
+      margin: 7px 0 0;
+      color: var(--at-muted);
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.25;
+    }
+    .tpl-ace-talk .at-hook-card .at-hook-code {
+      margin-top: 0;
+      font-size: 18px;
+      line-height: 1.18;
+      white-space: pre;
+    }
+    .tpl-ace-talk .at-hook-reference {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 20px;
+      flex: 1;
+      margin-top: 20px;
+    }
+    .tpl-ace-talk .at-hook-snippets {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .tpl-ace-talk .at-hook-snippet {
+      border: 1px solid var(--at-line-dark);
+      background: var(--at-code);
+      color: var(--at-white);
+    }
+    .tpl-ace-talk .at-hook-snippet-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--at-line-dark);
+    }
+    .tpl-ace-talk .at-hook-snippet-head strong {
+      color: var(--at-green);
+      font-family: var(--at-mono);
+      font-size: 18px;
+      font-weight: 500;
+    }
+    .tpl-ace-talk .at-hook-snippet-head span {
+      color: #aeb5bd;
+      font-size: 17px;
+    }
+    .tpl-ace-talk .at-hook-snippet pre {
+      margin: 0;
+      padding: 14px 18px;
+      color: var(--at-white);
+      font-family: var(--at-mono);
+      font-size: 20px;
+      line-height: 1.18;
+      white-space: pre-wrap;
+    }
+    .tpl-ace-talk .at-hook-snippet .cmd { color: var(--at-green); }
+    .tpl-ace-talk .at-hook-snippet .value { color: var(--at-blue); }
+    .tpl-ace-talk .at-hook-events {
+      display: grid;
+      grid-template-columns: 1.45fr .9fr 1fr .8fr;
+      gap: 14px;
+      min-height: 0;
+    }
+    .tpl-ace-talk .at-hook-event-group {
+      padding: 16px 18px;
+      border: 1px solid var(--at-line);
+      background: var(--at-paper);
+    }
+    .tpl-ace-talk .at-hook-event-group h3 {
+      margin: 0 0 10px;
+      color: var(--at-muted);
+      font-family: var(--at-mono);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .tpl-ace-talk .at-hook-event-list {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 5px 12px;
+    }
+    .tpl-ace-talk .at-hook-event-group:first-child .at-hook-event-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .tpl-ace-talk .at-hook-event-list code {
+      color: var(--at-blue);
+      font-family: var(--at-mono);
+      font-size: 17px;
+      line-height: 1.25;
+      white-space: nowrap;
+    }
+    .tpl-ace-talk .at-skill-proof-layout {
+      display: grid;
+      grid-template-columns: 400px minmax(0, 1fr);
+      gap: 56px;
+      align-items: stretch;
+      flex: 1;
+      margin-top: 34px;
+    }
+    .tpl-ace-talk .at-skill-proof-stat {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 42px;
+      border: 1px solid var(--at-line);
+      background: var(--at-code);
+      color: var(--at-white);
+    }
+    .tpl-ace-talk .at-skill-proof-stat strong {
+      color: var(--at-signal);
+      font-family: var(--at-display);
+      font-size: 82px;
+      line-height: .9;
+    }
+    .tpl-ace-talk .at-skill-proof-stat span {
+      margin-top: 18px;
+      font-family: var(--at-mono);
+      font-size: 18px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .tpl-ace-talk .at-skill-proof-stat a {
+      margin-top: 44px;
+      color: var(--at-blue);
+      font-family: var(--at-mono);
+      font-size: 20px;
+      text-decoration: none;
+    }
+    .tpl-ace-talk .at-skill-proof-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .tpl-ace-talk .at-skill-proof-item {
+      padding: 26px 28px;
+      border: 1px solid var(--at-line);
+      background: var(--at-paper);
+    }
+    .tpl-ace-talk .at-skill-proof-item code {
+      color: var(--at-blue);
+      font-family: var(--at-mono);
+      font-size: 20px;
+    }
+    .tpl-ace-talk .at-skill-proof-item p {
+      margin: 14px 0 0;
+      color: var(--at-muted);
+      font-size: 23px;
+      line-height: 1.28;
+    }
+    .tpl-ace-talk .at-code-window .pass { color: var(--at-green); }
+    .tpl-ace-talk .at-code-window .blocked { color: var(--at-signal); }
+    .tpl-ace-talk .at-flow-title {
+      max-width: 360px;
+      font-size: 58px;
+      line-height: 1.06;
+    }
+    .tpl-ace-talk .at-context-router {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      flex: 1;
+      margin-top: 32px;
+      border: 1px solid var(--at-line);
+      background: var(--at-line);
+      gap: 1px;
+    }
+    .tpl-ace-talk .at-context-route {
+      display: flex;
+      flex-direction: column;
+      padding: 30px 25px;
+      background: var(--at-paper);
+    }
+    .tpl-ace-talk .at-context-route .at-route-condition {
+      color: var(--at-muted);
+      font-family: var(--at-mono);
+      font-size: 14px;
+      letter-spacing: .08em;
+      line-height: 1.35;
+      text-transform: uppercase;
+    }
+    .tpl-ace-talk .at-context-route h3 {
+      margin: 34px 0 0;
+      color: var(--at-blue);
+      font-size: 30px;
+      line-height: 1.05;
+    }
+    .tpl-ace-talk .at-context-route.is-enforce h3 {
+      color: var(--at-signal);
+    }
+    .tpl-ace-talk .at-context-route > p {
+      margin: 18px 0 0;
+      color: var(--at-muted);
+      font-size: 19px;
+      line-height: 1.35;
+    }
+    .tpl-ace-talk .at-context-route .at-route-example {
+      margin-top: auto;
+      padding-top: 22px;
+      border-top: 1px solid var(--at-line);
+      color: var(--at-text);
+      font-family: var(--at-mono);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .tpl-ace-talk .at-intro-layout {
+      display: grid;
+      grid-template-columns: 570px minmax(0, 1fr);
+      gap: 72px;
+      align-items: center;
+      flex: 1;
+    }
+    .tpl-ace-talk .at-intro-copy {
+      padding-left: 14px;
+    }
+    .tpl-ace-talk .at-intro-copy .at-title {
+      max-width: 1020px;
+      font-size: 82px;
+      line-height: .96;
+    }
+    .tpl-ace-talk .at-intro-credentials {
+      display: grid;
+      gap: 22px;
+      margin: 38px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .tpl-ace-talk .at-intro-credentials li {
+      position: relative;
+      padding-left: 34px;
+      color: var(--at-text);
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    .tpl-ace-talk .at-intro-credentials li::before {
+      content: "";
+      position: absolute;
+      top: .42em;
+      left: 0;
+      width: 11px;
+      height: 11px;
+      background: var(--at-signal);
+    }
+    .tpl-ace-talk .at-skill-showcase {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      flex: 1;
+      margin-top: 30px;
+    }
+    .tpl-ace-talk .at-skill-column {
+      display: flex;
+      flex-direction: column;
+      padding: 30px 32px;
+      border: 1px solid var(--at-line);
+      background: var(--at-paper);
+    }
+    .tpl-ace-talk .at-skill-column.at-domain {
+      background: var(--at-code);
+      color: var(--at-white);
+      border-color: var(--at-line-dark);
+    }
+    .tpl-ace-talk .at-skill-column-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--at-line);
+    }
+    .tpl-ace-talk .at-domain .at-skill-column-head {
+      border-color: var(--at-line-dark);
+    }
+    .tpl-ace-talk .at-skill-column-head .at-label {
+      color: var(--at-blue);
+    }
+    .tpl-ace-talk .at-skill-column-head h3 {
+      margin: 10px 0 0;
+      font-size: 31px;
+      line-height: 1.05;
+    }
+    .tpl-ace-talk .at-domain .at-skill-column-head h3 {
+      color: var(--at-signal);
+    }
+    .tpl-ace-talk .at-skill-column-head strong {
+      flex: 0 0 auto;
+      color: var(--at-signal);
+      font-family: var(--at-mono);
+      font-size: 20px;
+    }
+    .tpl-ace-talk .at-skill-example-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+    .tpl-ace-talk .at-skill-example {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+    .tpl-ace-talk .at-skill-example code {
+      color: var(--at-blue);
+      font-family: var(--at-mono);
+      font-size: 17px;
+      line-height: 1.3;
+    }
+    .tpl-ace-talk .at-skill-example p {
+      margin: 0;
+      color: var(--at-muted);
+      font-size: 20px;
+      line-height: 1.25;
+    }
+    .tpl-ace-talk .at-domain .at-skill-example p {
+      color: #c8cdd2;
+    }
+    .tpl-ace-talk .at-intro-photo {
+      position: relative;
+      height: 720px;
+      overflow: hidden;
+      border: 1px solid var(--at-line);
+      background: var(--at-code);
+    }
+    .tpl-ace-talk .at-intro-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 40%;
+      filter: saturate(.88) contrast(1.02);
+    }
+    .tpl-ace-talk .at-intro-photo::after {
+      content: "@ace_kyd";
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      padding: 9px 12px;
+      background: var(--at-signal);
+      color: var(--at-ink);
+      font-family: var(--at-mono);
+      font-size: 16px;
+    }
+    .tpl-ace-talk .at-guidance-layout {
+      display: grid;
+      grid-template-columns: 480px minmax(0, 1fr);
+      gap: 48px;
+      align-items: stretch;
+      flex: 1;
+      margin-top: 30px;
+    }
+    .tpl-ace-talk .at-guidance-brand {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 36px;
+      border: 1px solid var(--at-line);
+      background: var(--at-code);
+      color: var(--at-white);
+    }
+    .tpl-ace-talk .at-guidance-brand strong {
+      max-width: 350px;
+      color: var(--at-signal);
+      font-family: var(--at-display);
+      font-size: 52px;
+      line-height: .95;
+    }
+    .tpl-ace-talk .at-guidance-brand .at-label {
+      display: block;
+      margin-bottom: 22px;
+      color: #c8cdd2;
+    }
+    .tpl-ace-talk .at-guidance-brand p {
+      margin: 24px 0 0;
+      color: #c8cdd2;
+      font-size: 23px;
+      line-height: 1.3;
+    }
+    .tpl-ace-talk .at-guidance-brand code {
+      color: var(--at-blue);
+      font-family: var(--at-mono);
+      font-size: 17px;
+    }
+    .tpl-ace-talk .at-guidance-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .tpl-ace-talk .at-guidance-item {
+      padding: 24px 26px;
+      border: 1px solid var(--at-line);
+      background: var(--at-paper);
+    }
+    .tpl-ace-talk .at-guidance-item:last-child {
+      grid-column: 1 / -1;
+    }
+    .tpl-ace-talk .at-guidance-item span {
+      color: var(--at-blue);
+      font-family: var(--at-mono);
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+    .tpl-ace-talk .at-guidance-item h3 {
+      margin: 10px 0 0;
+      font-size: 27px;
+    }
+    .tpl-ace-talk .at-guidance-item p {
+      margin: 10px 0 0;
+      color: var(--at-muted);
+      font-size: 21px;
+      line-height: 1.3;
+    }
+    .tpl-ace-talk .at-mcp-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      flex: 1;
+      margin-top: 30px;
+    }
+    .tpl-ace-talk .at-mcp-card {
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+      border: 1px solid var(--at-line);
+      background: var(--at-paper);
+    }
+    .tpl-ace-talk .at-mcp-card .at-label {
+      color: var(--at-blue);
+    }
+    .tpl-ace-talk .at-mcp-card h3 {
+      margin: 18px 0 0;
+      font-size: 28px;
+      line-height: 1.05;
+    }
+    .tpl-ace-talk .at-mcp-card p {
+      margin: 18px 0 0;
+      color: var(--at-muted);
+      font-size: 21px;
+      line-height: 1.3;
+    }
+    .tpl-ace-talk .at-mcp-card strong {
+      margin-top: auto;
+      padding-top: 24px;
+      color: var(--at-text);
+      font-size: 18px;
+      line-height: 1.25;
+    }
+    .tpl-ace-talk .at-example-task {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-top: 26px;
+      padding: 16px 20px;
+      border: 1px solid var(--at-line-dark);
+      background: var(--at-code);
+      color: var(--at-white);
+      font-size: 22px;
+    }
+    .tpl-ace-talk .at-example-task span {
+      color: var(--at-signal);
+      font-family: var(--at-mono);
+      font-size: 14px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .tpl-ace-talk .at-feature-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(0, 1.12fr);
+      gap: 18px;
+      flex: 1;
+      margin-top: 24px;
+    }
+    .tpl-ace-talk .at-feature-stage {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 18px;
+      border: 1px solid var(--at-line-dark);
+      background: var(--at-code);
+      color: var(--at-white);
+    }
+    .tpl-ace-talk .at-feature-stage.at-approval {
+      border-color: var(--at-signal);
+    }
+    .tpl-ace-talk .at-feature-stage:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      top: 50%;
+      right: -25px;
+      z-index: 2;
+      width: 40px;
+      color: var(--at-signal);
+      font-family: var(--at-mono);
+      font-size: 28px;
+      font-weight: 700;
+      text-align: center;
+      transform: translateY(-50%);
+    }
+    .tpl-ace-talk .at-feature-stage-head {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .tpl-ace-talk .at-feature-stage-head span {
+      color: var(--at-signal);
+      font-family: var(--at-mono);
+      font-size: 15px;
+    }
+    .tpl-ace-talk .at-feature-stage-head h3 {
+      margin: 0;
+      color: var(--at-white);
+      font-size: 25px;
+      line-height: 1.08;
+    }
+    .tpl-ace-talk .at-feature-stage > p {
+      margin: 17px 0 0;
+      color: #d8dce0;
+      font-size: 16px;
+      line-height: 1.35;
+    }
+    .tpl-ace-talk .at-feature-tools {
+      margin-top: 17px;
+      padding: 12px;
+      border: 1px solid var(--at-line-dark);
+      background: #1a1e22;
+    }
+    .tpl-ace-talk .at-feature-tools span,
+    .tpl-ace-talk .at-feature-output span {
+      color: #8e97a1;
+      font-family: var(--at-mono);
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .tpl-ace-talk .at-feature-tools p {
+      margin: 8px 0 0;
+      color: #d8dce0;
+      font-family: var(--at-mono);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .tpl-ace-talk .at-feature-output {
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid var(--at-line-dark);
+    }
+    .tpl-ace-talk .at-feature-output span { color: var(--at-signal); }
+    .tpl-ace-talk .at-feature-output strong {
+      display: block;
+      margin-top: 7px;
+      font-size: 16px;
+      line-height: 1.25;
+    }
+    .tpl-ace-talk .at-feature-stage.at-artifact {
+      border-color: var(--at-blue);
+    }
+    .tpl-ace-talk .at-artifact-report {
+      margin-top: 17px;
+      padding: 13px;
+      border: 1px solid var(--at-line-dark);
+      background: #1a1e22;
+    }
+    .tpl-ace-talk .at-artifact-report > span {
+      color: var(--at-blue);
+      font-family: var(--at-mono);
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .tpl-ace-talk .at-artifact-report ul {
+      display: grid;
+      gap: 8px;
+      margin: 11px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .tpl-ace-talk .at-artifact-report li {
+      display: grid;
+      grid-template-columns: 14px 1fr;
+      gap: 7px;
+      color: #d8dce0;
+      font-family: var(--at-mono);
+      font-size: 12px;
+      line-height: 1.3;
+    }
+    .tpl-ace-talk .at-artifact-report li::before {
+      content: "✓";
+      color: var(--at-signal);
+      font-weight: 700;
+    }
+    .tpl-ace-talk .at-rpi-overview {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      flex: 1;
+      margin-top: 30px;
+    }
+    .tpl-ace-talk .at-rpi-card {
+      position: relative;
+      padding: 28px;
+      border: 1px solid var(--at-line-dark);
+      background: var(--at-code);
+      color: var(--at-white);
+    }
+    .tpl-ace-talk .at-rpi-card:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      top: 50%;
+      right: -29px;
+      z-index: 2;
+      width: 34px;
+      color: var(--at-signal);
+      font-family: var(--at-mono);
+      font-size: 30px;
+      text-align: center;
+      transform: translateY(-50%);
+    }
+    .tpl-ace-talk .at-rpi-card .at-index { color: var(--at-signal); }
+    .tpl-ace-talk .at-rpi-card h3 {
+      margin: 16px 0 0;
+      color: var(--at-white);
+      font-size: 38px;
+    }
+    .tpl-ace-talk .at-rpi-card dl {
+      margin: 24px 0 0;
+    }
+    .tpl-ace-talk .at-rpi-card dt {
+      color: #8e97a1;
+      font-family: var(--at-mono);
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .tpl-ace-talk .at-rpi-card dd {
+      margin: 7px 0 18px;
+      font-size: 21px;
+      line-height: 1.28;
+    }
+    .tpl-ace-talk .at-rpi-stage-layout {
+      display: grid;
+      grid-template-columns: 440px minmax(0, 1fr);
+      gap: 56px;
+      align-items: stretch;
+      flex: 1;
+      margin-top: 24px;
+    }
+    .tpl-ace-talk .at-rpi-stage-copy {
+      display: flex;
+      flex-direction: column;
+    }
+    .tpl-ace-talk .at-rpi-stage-copy .at-title {
+      font-size: 56px;
+      line-height: 1;
+    }
+    .tpl-ace-talk .at-rpi-tools {
+      margin-top: auto;
+      padding: 20px;
+      border: 1px solid var(--at-line-dark);
+      background: var(--at-code);
+    }
+    .tpl-ace-talk .at-rpi-tools .at-label { color: var(--at-signal); }
+    .tpl-ace-talk .at-rpi-tools p {
+      margin: 12px 0 0;
+      color: var(--at-white);
+      font-family: var(--at-mono);
+      font-size: 17px;
+      line-height: 1.55;
+    }
+    .tpl-ace-talk .at-rpi-output {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .tpl-ace-talk .at-rpi-output .at-code-window { flex: 1; }
+    .tpl-ace-talk .at-rpi-output .at-code-window pre {
+      font-size: 24px;
+      line-height: 1.35;
+    }
+    .tpl-ace-talk .at-without {
+      padding: 16px 20px;
+      border: 1px solid var(--at-line-dark);
+      background: #1a1e22;
+      color: #c8cdd2;
+      font-size: 20px;
+      line-height: 1.25;
+    }
+    .tpl-ace-talk .at-without span {
+      color: var(--at-signal);
+      font-family: var(--at-mono);
+      font-size: 14px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .tpl-ace-talk .at-plugin-agent-note {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .tpl-ace-talk .at-plugin-agent-note div {
+      padding: 14px 16px;
+      border: 1px solid var(--at-line);
+      background: var(--at-paper);
+      color: var(--at-muted);
+      font-size: 18px;
+      line-height: 1.25;
+    }
+    .tpl-ace-talk .at-plugin-agent-note strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--at-text);
+      font-size: 18px;
+    }
+    .tpl-ace-talk .slide.is-active [data-fragment]:not(.is-shown) {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(22px);
+    }
+    .tpl-ace-talk [data-fragment] {
+      transition: opacity .34s ease, transform .34s ease;
+    }
+    .tpl-ace-talk [data-fragment].is-shown {
+      visibility: visible;
+      opacity: 1;
+      transform: none;
+    }
+    html[data-preview="1"] .tpl-ace-talk [data-fragment] {
+      visibility: visible !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+    .tpl-ace-talk .at-thesis-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(520px, .88fr);
+      gap: 64px;
+      align-items: center;
+      flex: 1;
+    }
+    .tpl-ace-talk .at-thesis-copy .at-title {
+      max-width: 1020px;
+      font-size: 68px;
+      line-height: 1;
+    }
+    .tpl-ace-talk .at-thesis-copy .at-lede {
+      max-width: 980px;
+      font-size: 30px;
+    }
+    .tpl-ace-talk .at-thesis-copy .at-repo-word {
+      color: var(--at-signal);
+    }
+    .tpl-ace-talk .at-thesis-graphic,
+    .tpl-ace-talk .at-operating-graphic {
+      width: 100%;
+      overflow: visible;
+    }
+    .tpl-ace-talk .at-thesis-graphic .tg-path {
+      fill: none;
+      stroke: var(--at-signal);
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-dasharray: 10 14;
+      opacity: .9;
+    }
+    .tpl-ace-talk .at-thesis-graphic .tg-arrowhead {
+      fill: var(--at-signal);
+    }
+    .tpl-ace-talk .at-thesis-graphic .tg-node {
+      fill: var(--at-code);
+      stroke: var(--at-line-dark);
+      stroke-width: 2;
+    }
+    .tpl-ace-talk .at-thesis-graphic .tg-repo {
+      fill: var(--at-signal);
+      stroke: var(--at-signal);
+      stroke-width: 2;
+    }
+    .tpl-ace-talk .at-thesis-graphic .tg-ring {
+      fill: none;
+      stroke: var(--at-signal);
+      stroke-width: 2;
+      opacity: .28;
+    }
+    .tpl-ace-talk .at-thesis-graphic .tg-label,
+    .tpl-ace-talk .at-operating-graphic .og-label {
+      fill: var(--at-white);
+      font-family: var(--at-display);
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .tpl-ace-talk .at-thesis-graphic .tg-detail,
+    .tpl-ace-talk .at-operating-graphic .og-detail {
+      fill: #8e97a1;
+      font-family: var(--at-mono);
+      font-size: 14px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .tpl-ace-talk .at-thesis-graphic .tg-repo-label {
+      fill: var(--at-ink);
+      font-family: var(--at-display);
+      font-size: 38px;
+      font-weight: 780;
+    }
+    .tpl-ace-talk .at-thesis-graphic .tg-repo-detail {
+      fill: var(--at-ink);
+      font-family: var(--at-mono);
+      font-size: 14px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .tpl-ace-talk .slide.is-active .at-thesis-graphic .tg-path {
+      animation: at-path-flow 2.2s linear infinite;
+    }
+    .tpl-ace-talk .slide.is-active .at-thesis-graphic .tg-ring {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: at-repo-pulse 2.4s ease-out infinite;
+    }
+    .tpl-ace-talk .at-operating-layout {
+      display: grid;
+      grid-template-columns: 430px minmax(0, 1fr);
+      gap: 68px;
+      align-items: center;
+      flex: 1;
+    }
+    .tpl-ace-talk .at-operating-graphic .og-line {
+      fill: none;
+      stroke: var(--at-signal);
+      stroke-width: 4;
+      stroke-linecap: round;
+      opacity: 1;
+    }
+    .tpl-ace-talk .at-operating-graphic .og-arrowhead {
+      fill: var(--at-signal);
+    }
+    .tpl-ace-talk .at-operating-graphic .og-job {
+      fill: var(--at-white);
+      stroke: var(--at-line);
+      stroke-width: 2;
+    }
+    .tpl-ace-talk .at-operating-graphic .og-repo {
+      fill: var(--at-signal);
+      stroke: var(--at-signal);
+      stroke-width: 2;
+    }
+    .tpl-ace-talk .at-operating-graphic .og-label { fill: var(--at-text); }
+    .tpl-ace-talk .at-operating-graphic .og-repo-label {
+      fill: var(--at-ink);
+      font-family: var(--at-display);
+      font-size: 38px;
+      font-weight: 780;
+    }
+    .tpl-ace-talk .at-operating-graphic .og-detail { fill: var(--at-muted); }
+    .tpl-ace-talk .at-operating-graphic .og-repo-detail {
+      fill: var(--at-ink);
+      font-family: var(--at-mono);
+      font-size: 14px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .tpl-ace-talk .at-maintenance-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .tpl-ace-talk .at-maintenance-grid .at-check {
+      min-height: 230px;
+      padding: 34px 38px;
+    }
+    .tpl-ace-talk .at-maintenance-grid .at-check p {
+      font-size: 21px;
+    }
+    .tpl-ace-talk .at-origin-layout {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-height: 0;
+      padding-top: 34px;
+    }
+    .tpl-ace-talk .at-origin-heading {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 48px;
+    }
+    .tpl-ace-talk .at-origin-heading .at-title {
+      max-width: 980px;
+      font-size: 64px;
+    }
+    .tpl-ace-talk .at-origin-heading > p {
+      max-width: 430px;
+      margin: 0 0 7px;
+      color: #9aa2ab;
+      font-family: var(--at-mono);
+      font-size: 17px;
+      line-height: 1.45;
+      text-align: right;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .tpl-ace-talk .at-origin-timeline {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 44px;
+      flex: 1;
+      min-height: 0;
+      margin-top: 42px;
+    }
+    .tpl-ace-talk .at-origin-event {
+      position: relative;
+      display: grid;
+      grid-template-rows: 58px minmax(0, 1fr) auto;
+      min-width: 0;
+      min-height: 0;
+    }
+    .tpl-ace-talk .at-origin-date {
+      position: relative;
+      z-index: 2;
+      display: block;
+      justify-self: center;
+      width: max-content;
+      height: auto;
+      padding: 0;
+      color: var(--at-signal);
+      font-family: var(--at-mono);
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .tpl-ace-talk .at-origin-card {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 370px;
+      overflow: visible;
+      background: transparent;
+    }
+    .tpl-ace-talk .at-origin-card img {
+      display: block;
+      max-width: 72%;
+      max-height: 180px;
+      object-fit: contain;
+    }
+    .tpl-ace-talk .at-origin-event.is-claude .at-origin-card img {
+      width: 148px;
+      height: 148px;
+    }
+    .tpl-ace-talk .at-origin-event.is-mcp .at-origin-card img {
+      width: 170px;
+      height: 170px;
+    }
+    .tpl-ace-talk .at-origin-event.is-goose .at-origin-card img {
+      width: 190px;
+      height: 190px;
+    }
+    .tpl-ace-talk .at-origin-event.is-today .at-origin-card {
+      background: transparent;
+    }
+    .tpl-ace-talk .at-origin-event.is-today .at-origin-card img {
+      width: 330px;
+      height: 330px;
+      max-width: 86%;
+      max-height: 86%;
+      object-fit: cover;
+      object-position: 50% 57%;
+      border-radius: 50%;
+    }
+    .tpl-ace-talk .at-origin-caption {
+      padding-top: 18px;
+      text-align: center;
+    }
+    .tpl-ace-talk .at-origin-caption h3 {
+      margin: 0;
+      color: var(--at-white);
+      font-size: 27px;
+      line-height: 1.1;
+    }
+    .tpl-ace-talk .at-origin-caption p {
+      margin: 8px 0 0;
+      color: #929ba5;
+      font-family: var(--at-mono);
+      font-size: 16px;
+      line-height: 1.35;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+    .tpl-ace-talk .at-problem-slide .at-signal-label::before {
+      background: var(--at-red);
+    }
+    .tpl-ace-talk .at-problem-slide .at-kicker,
+    .tpl-ace-talk .at-problem-slide .at-topline > span:last-child,
+    .tpl-ace-talk .at-problem-slide .at-check .at-checkmark,
+    .tpl-ace-talk .at-problem-slide .at-risk-text,
+    .tpl-ace-talk .at-question.is-risk .at-qn,
+    .tpl-ace-talk .at-question.is-risk span:last-child,
+    .tpl-ace-talk .at-failure-side .at-index,
+    .tpl-ace-talk .at-failure-side h3,
+    .tpl-ace-talk .at-hook-event-list code.is-risk {
+      color: var(--at-red);
+    }
+    .tpl-ace-talk .at-question.is-risk strong {
+      text-decoration-color: var(--at-red);
+      text-decoration-line: underline;
+      text-decoration-thickness: 3px;
+      text-underline-offset: 9px;
+    }
+    .tpl-ace-talk .at-hook-event-list code.is-risk {
+      border-color: color-mix(in srgb, var(--at-red) 38%, transparent);
+      background: color-mix(in srgb, var(--at-red) 8%, var(--at-paper));
+    }
+    @keyframes at-path-flow { to { stroke-dashoffset: -48; } }
+    @keyframes at-repo-pulse {
+      0% { opacity: .38; transform: scale(.88); }
+      75%, 100% { opacity: 0; transform: scale(1.2); }
+    }
+    @keyframes at-job-arrive {
+      from { opacity: 0; transform: scale(.94); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .tpl-ace-talk .slide.is-active .at-thesis-graphic .tg-path,
+      .tpl-ace-talk .slide.is-active .at-thesis-graphic .tg-ring {
+        animation: none;
+      }
+    }
+    @media print {
+      .tpl-ace-talk [data-fragment] {
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+    .tpl-ace-talk .at-contact a {
+      color: var(--at-white);
+      text-decoration-color: var(--at-accent);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 5px;
+    }
+  </style>
+</head>
+<body class="tpl-ace-talk" data-theme-base="../_shared/html-ppt/assets/themes/">
+<div class="deck">
+
+  <!-- 01 · Cover -->
+  <section class="slide at-dark" data-title="Title">
+    <div class="at-stage">
+      <div class="at-topline"><span>AI Underground · ATL BitLab</span><span>Technical field note · 30 min</span></div>
+      <div class="at-cover-grid at-reveal">
+        <div>
+          <p class="at-kicker">The talk</p>
+          <h1 class="at-display at-deck-title">Scaling AI-assisted development in <span class="at-focus">large codebases</span><span class="at-cursor" aria-hidden="true"></span></h1>
+          <p class="at-lede">Making codebases easier for agents to understand, build high-quality features in, and easier for humans to review.</p>
+        </div>
+        <div class="at-cover-meta">
+          <div>Adewale “Ace” Abati</div><div>Developer Advocate</div><div>Amsterdam, NL</div><div>@ace_kyd</div>
+        </div>
+      </div>
+      <div class="at-footer"><span>AceKYD · Field Notes</span><span class="at-page" data-page="01"></span></div>
+    </div>
+  </section>
+
+  <!-- 02 · Opening story -->
+  <section class="slide at-dark" data-title="How coding agents became normal">
+    <div class="at-stage">
+      <div class="at-topline"><span>How we got here</span><span>Opening · 01</span></div>
+      <div class="at-origin-layout">
+        <div class="at-origin-heading at-reveal">
+        </div>
+        <div class="at-origin-timeline">
+          <div class="at-origin-event is-claude" data-fragment>
+            <span class="at-origin-date">Jun 2024</span>
+            <div class="at-origin-card"><img src="assets/claude.png" alt="Claude logo"></div>
+            <div class="at-origin-caption"><h3>Claude 3.5 Sonnet</h3><p>Coding felt different</p></div>
+          </div>
+          <div class="at-origin-event is-mcp" data-fragment>
+            <span class="at-origin-date">Nov 2024</span>
+            <div class="at-origin-card"><img src="assets/mcp-mark.svg" alt="Model Context Protocol logo"></div>
+            <div class="at-origin-caption"><h3>MCP</h3><p>Models connected to tools</p></div>
+          </div>
+          <div class="at-origin-event is-goose" data-fragment>
+            <span class="at-origin-date">Jan 2025</span>
+            <div class="at-origin-card"><img src="assets/goose-icon.svg" alt="goose logo"></div>
+            <div class="at-origin-caption"><h3>goose</h3><p>Early MCP-native agent</p></div>
+          </div>
+          <div class="at-origin-event is-today" data-fragment>
+            <span class="at-origin-date">Today</span>
+            <div class="at-origin-card"><img src="assets/kohai-expr-typing.png" alt="Kohai writing code on a laptop"></div>
+            <div class="at-origin-caption"><h3>Agents ship code</h3><p>Build, run, test, repeat</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="at-footer"><span>AceKYD · Field Notes</span><span class="at-page" data-page="02"></span></div>
+    </div>
+  </section>
+
+  <!-- 03 · Audience question -->
+  <section class="slide at-problem-slide" data-title="Audience question">
+    <div class="at-stage">
+      <div class="at-topline"><span class="at-signal-label">Room check</span><span>Problem · 01</span></div>
+      <div class="at-reveal"><p class="at-kicker">Hands up</p><h2 class="at-title at-medium">A quick room check 👋🏽</h2></div>
+      <div class="at-questions at-reveal at-delay">
+        <div class="at-question" data-fragment><span class="at-qn">A</span><strong>Who here isn’t writing code with agents yet?</strong><span>adoption</span></div>
+        <div class="at-question is-risk" data-fragment><span class="at-qn">B</span><strong>Who trusts the output enough to ship it without review?</strong><span>trust</span></div>
+      </div>
+      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="03"></span></div>
+    </div>
+  </section>
+
+  <!-- 04 · What large means -->
+  <section class="slide at-problem-slide" data-title="What large means">
+    <div class="at-stage">
+      <div class="at-topline"><span class="at-signal-label">Define the problem</span><span>Problem · 02</span></div>
+      <div class="at-reveal"><p class="at-kicker">What large actually means</p><h2 class="at-title at-small">Large is not just a line count.</h2>
+        <p class="at-body">A codebase becomes large when no one person can hold all the context needed to change it correctly.</p></div>
+      <div class="at-check-grid at-reveal at-delay">
+        <div class="at-check" data-fragment><div class="at-check-head"><span class="at-checkmark">[01]</span><h3>Many people</h3></div><p>Contributors bring different preferences, habits, and assumptions to the same project.</p></div>
+        <div class="at-check" data-fragment><div class="at-check-head"><span class="at-checkmark">[02]</span><h3>Scale</h3></div><p>Millions of lines, monorepos, services, packages, and deep dependency graphs.</p></div>
+        <div class="at-check" data-fragment><div class="at-check-head"><span class="at-checkmark">[03]</span><h3>History</h3></div><p>Legacy code carries decisions, migrations, and caveats the code may never explain.</p></div>
+        <div class="at-check" data-fragment><div class="at-check-head"><span class="at-checkmark">[04]</span><h3>Feature work</h3></div><p>One feature can cross ownership, shared state, tests, data, and deployment.</p></div>
+      </div>
+      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="04"></span></div>
+    </div>
+  </section>
+
+  <!-- 05 · Failure equation -->
+  <section class="slide at-problem-slide" data-title="Failure equation">
+    <div class="at-stage">
+      <div class="at-topline"><span class="at-signal-label">Failure equation</span><span>Problem · 03</span></div>
+      <div class="at-reveal"><p class="at-kicker">Why agentic coding still fails</p><h2 class="at-title at-small">Most failures start with two gaps.</h2></div>
+      <div class="at-tension at-reveal at-delay">
+        <div class="at-tension-side at-failure-side" data-fragment><span class="at-index">01 / UNDERSTANDING</span><h3>Missing context</h3><p>The agent sees code, but misses the dependency, convention, ownership, or caveat that makes a feature correct.</p></div>
+        <div class="at-plus">+</div>
+        <div class="at-tension-side at-failure-side" data-fragment><span class="at-index">02 / CONTROL</span><h3>Guidance without enforcement</h3><p>Instructions can guide the agent, but it can still go beyond the task, skip a check, or declare success too early.</p></div>
+      </div>
+      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="05"></span></div>
+    </div>
+  </section>
+
+  <!-- 06 · Thesis -->
+  <section class="slide at-dark" data-title="Thesis">
+    <div class="at-stage">
+      <div class="at-topline"><span>Today · the shift</span><span>Problem · 04</span></div>
+      <div class="at-thesis-layout">
+        <div class="at-thesis-copy at-reveal">
+          <p class="at-kicker">The thesis</p>
+          <h2 class="at-title">Models and harnesses will keep changing. The <span class="at-repo-word">repository</span> remains the only constant.</h2>
+          <p class="at-lede">It is the shared layer where every agent can find what it needs, stay within scope, and meet the same quality controls.</p>
+        </div>
+        <svg class="at-thesis-graphic at-reveal at-delay" viewBox="0 0 620 620" role="img" aria-label="Different models and coding harnesses converge on the repository, which provides context, scope, and quality controls">
+          <defs>
+            <marker id="tg-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path class="tg-arrowhead" d="M0 0 L10 5 L0 10 Z"/>
+            </marker>
+          </defs>
+          <path class="tg-path" marker-end="url(#tg-arrow)" d="M155 193 C155 218 220 220 265 244"/>
+          <path class="tg-path" marker-end="url(#tg-arrow)" d="M465 193 C465 218 400 220 355 244"/>
+          <path class="tg-path" marker-end="url(#tg-arrow)" d="M260 376 C220 401 165 423 120 447"/>
+          <path class="tg-path" marker-end="url(#tg-arrow)" d="M310 376 L310 447"/>
+          <path class="tg-path" marker-end="url(#tg-arrow)" d="M360 376 C400 401 455 423 500 447"/>
+          <rect class="tg-node" x="55" y="75" width="200" height="110" rx="2"/>
+          <text class="tg-label" x="155" y="122" text-anchor="middle">Model</text>
+          <text class="tg-detail" x="155" y="151" text-anchor="middle">keeps changing</text>
+          <rect class="tg-node" x="365" y="75" width="200" height="110" rx="2"/>
+          <text class="tg-label" x="465" y="122" text-anchor="middle">Harness</text>
+          <text class="tg-detail" x="465" y="151" text-anchor="middle">varies by team</text>
+          <circle class="tg-ring" cx="310" cy="310" r="118"/>
+          <circle class="tg-ring" cx="310" cy="310" r="118" style="animation-delay: .8s"/>
+          <rect class="tg-repo" x="195" y="252" width="230" height="116" rx="2"/>
+          <text class="tg-repo-label" x="310" y="305" text-anchor="middle">Repository</text>
+          <text class="tg-repo-detail" x="310" y="336" text-anchor="middle">the shared layer</text>
+          <rect class="tg-node" x="30" y="455" width="180" height="94" rx="2"/>
+          <text class="tg-label" x="120" y="497" text-anchor="middle">Context</text>
+          <text class="tg-detail" x="120" y="523" text-anchor="middle">find the work</text>
+          <rect class="tg-node" x="220" y="455" width="180" height="94" rx="2"/>
+          <text class="tg-label" x="310" y="497" text-anchor="middle">Scope</text>
+          <text class="tg-detail" x="310" y="523" text-anchor="middle">Plan changes</text>
+          <rect class="tg-node" x="410" y="455" width="180" height="94" rx="2"/>
+          <text class="tg-label" x="500" y="497" text-anchor="middle">Quality</text>
+          <text class="tg-detail" x="500" y="523" text-anchor="middle">enforce the bar</text>
+        </svg>
+      </div>
+      <div class="at-footer"><span>AceKYD · Field Notes</span><span class="at-page" data-page="06"></span></div>
+    </div>
+  </section>
+
+  <!-- 07 · Introduction -->
+  <section class="slide at-intro-slide" data-title="About Ace">
+    <div class="at-stage">
+      <div class="at-topline"><span>A quick introduction</span><span>About · 01</span></div>
+      <div class="at-intro-layout">
+        <div class="at-intro-photo at-reveal">
+          <img src="assets/ace-portrait.jpg" alt="Adewale Ace Abati standing against a warm brown studio background">
+        </div>
+        <div class="at-intro-copy at-reveal">
+          <p class="at-kicker">Adewale 'Ace' Abati</p>
+          <h2 class="at-title">I help developers understand and adopt technical products.</h2>
+          <ul class="at-intro-credentials">
+            <li>Staff Developer Advocate, ex-Block</li>
+            <li>GitHub Star</li>
+            <li>Ambassador, Agentic AI Foundation (AAIF)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="at-footer"><span>Adewale “Ace” Abati</span><span class="at-page" data-page="07"></span></div>
+    </div>
+  </section>
+
+  <!-- 08 · Ready repo operating model -->
+  <section class="slide" data-title="How to improve output">
+    <div class="at-stage">
+      <div class="at-topline"><span>The plan</span><span>Approach · 01</span></div>
+      <div class="at-operating-layout">
+        <div class="at-reveal">
+          <p class="at-kicker">What does this look like?</p>
+          <h2 class="at-title at-small">Put the operating model around the repository.</h2>
+          <p class="at-body">The repo is already on every developer's machine. Make it the consistent layer across model and harness choices.</p>
+        </div>
+        <svg class="at-operating-graphic at-reveal at-delay" viewBox="0 0 920 560" role="img" aria-label="The repository sits at the center of four jobs: guide with context, constrain scope, equip on demand, and verify with evidence">
+          <defs>
+            <marker id="og-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path class="og-arrowhead" d="M0 0 L10 5 L0 10 Z"/>
+            </marker>
+          </defs>
+          <g class="og-job-group" data-fragment>
+            <path class="og-line" marker-end="url(#og-arrow)" d="M350 210 L310 180"/>
+            <rect class="og-job" x="40" y="55" width="270" height="125" rx="2"/>
+            <text class="og-label" x="175" y="107" text-anchor="middle">Guide</text>
+            <text class="og-detail" x="175" y="140" text-anchor="middle">give it context</text>
+          </g>
+          <g class="og-job-group" data-fragment>
+            <path class="og-line" marker-end="url(#og-arrow)" d="M570 210 L610 180"/>
+            <rect class="og-job" x="610" y="55" width="270" height="125" rx="2"/>
+            <text class="og-label" x="745" y="107" text-anchor="middle">Enforce</text>
+            <text class="og-detail" x="745" y="140" text-anchor="middle">Keep a standard</text>
+          </g>
+          <g class="og-job-group" data-fragment>
+            <path class="og-line" marker-end="url(#og-arrow)" d="M350 350 L310 380"/>
+            <rect class="og-job" x="40" y="380" width="270" height="125" rx="2"/>
+            <text class="og-label" x="175" y="432" text-anchor="middle">Equip</text>
+            <text class="og-detail" x="175" y="465" text-anchor="middle">add capability on demand</text>
+          </g>
+          <g class="og-job-group" data-fragment>
+            <path class="og-line" marker-end="url(#og-arrow)" d="M570 350 L610 380"/>
+            <rect class="og-job" x="610" y="380" width="270" height="125" rx="2"/>
+            <text class="og-label" x="745" y="432" text-anchor="middle">Verify</text>
+            <text class="og-detail" x="745" y="465" text-anchor="middle">Test & Review</text>
+          </g>
+          <rect class="og-repo" x="320" y="210" width="280" height="140" rx="2"/>
+          <text class="og-repo-label" x="460" y="272" text-anchor="middle">Repository</text>
+          <text class="og-repo-detail" x="460" y="306" text-anchor="middle">the consistent layer</text>
+        </svg>
+      </div>
+      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="08"></span></div>
+    </div>
+  </section>
+
+  <!-- 09 · Give the agent context (AGENTS.md) -->
+  <section class="slide" data-title="Give the agent a map">
+    <div class="at-stage">
+      <div class="at-topline"><span class="at-signal-label">Guide · persistent context</span><span>Guide · 01</span></div>
+      <div class="at-reveal"><p class="at-kicker">AGENTS.md</p><h2 class="at-title at-small">Give the agent more context than it can infer from code.</h2>
+        <p class="at-body">A versioned place for the commands, conventions, and checks every agent should know.</p></div>
+      <div class="at-code-layout at-reveal at-delay">
+        <div class="at-code-window">
+          <div class="at-terminal-bar"><span>Project example · AGENTS.md</span><span>markdown</span></div>
+          <pre class="at-agents-code"><span class="comment">## Navigate + set up</span>
+<span class="cmd">pnpm dlx turbo run where &lt;project&gt;</span>
+<span class="cmd">pnpm install --filter &lt;project&gt;</span>
+Confirm <span class="value">package.json#name</span> (ignore the root)
+
+<span class="comment">## Test the package</span>
+Follow <span class="value">.github/workflows</span>
+<span class="cmd">pnpm turbo run test --filter &lt;project&gt;</span>
+<span class="cmd">pnpm lint --filter &lt;project&gt;</span>
+Add tests for changed behavior. Keep the suite green.
+
+<span class="comment">## Before committing</span>
+PR: <span class="value">[&lt;project&gt;] &lt;Title&gt;</span>
+Run <span class="cmd">pnpm lint &amp;&amp; pnpm test</span></pre>
+        </div>
+        <div class="at-takeaway"><span class="at-label">Using Claude Code?</span><strong>It reads CLAUDE.md. Use <code>/init</code> for a first draft, or import AGENTS.md to share one source.</strong></div>
+      </div>
+      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="09"></span></div>
+    </div>
+  </section>
+
+  <!-- 10 · Nested context (tree) -->
+  <section class="slide at-dark" data-title="Nested instructions">
+    <div class="at-stage">
+      <div class="at-topline"><span class="at-signal-label">Put local context beside the code</span><span>Guide · 02</span></div>
+      <div class="at-tree-layout">
+        <div class="at-terminal at-reveal">
+          <div class="at-terminal-bar"><span>repository map</span><span class="at-terminal-dots">● ● ●</span></div>
+          <pre class="at-filetree"><span class="at-key">/AGENTS.md</span>          <span class="at-comment"># shared context</span>
+├── store/
+│   ├── <span class="at-key">AGENTS.md</span>   <span class="at-comment"># local context</span>
+│   └── favorites.ts
+└── pages/
+    ├── <span class="at-key">AGENTS.md</span>   <span class="at-comment"># section context</span>
+    └── dashboard/
+        ├── <span class="at-key">AGENTS.md</span>   <span class="at-comment"># deeper context</span>
+        └── index.vue</pre>
+        </div>
+        <div class="at-margin-note at-reveal at-delay">
+          <span class="at-label">Large monorepos?</span>
+          <p>Keep shared context at the root. Put module-specific context beside the code it applies to.</p>
+        </div>
+      </div>
+      <div class="at-footer"><span>AceKYD · Field Notes</span><span class="at-page" data-page="10"></span></div>
+    </div>
+  </section>
+
+  <!-- 11 · Hooks (define + setup + differ by agent) -->
+  <section class="slide" data-title="Hooks">
+    <div class="at-stage">
+      <div class="at-topline"><span class="at-signal-label">Enforce · deterministic controls</span><span>Enforce · 01</span></div>
+      <div class="at-reveal"><p class="at-kicker">Hooks</p><h2 class="at-title at-small">Run the right check at the moment it matters.</h2>
+        <p class="at-body">Tool hooks can trigger commands after an edit, before a tool call, or when the agent tries to stop.</p></div>
+      <div class="at-code-layout at-reveal at-delay">
+        <div class="at-code-window">
+          <div class="at-terminal-bar"><span>.claude/settings.json</span><span>claude code</span></div>
+          <pre><span class="comment">// run lint automatically after every file edit</span>
+"hooks": {
+  "PostToolUse": [{
+    "matcher": <span class="value">"Edit|Write"</span>,
+    "hooks": [{
+      "type": "command",
+      "command": <span class="cmd">"pnpm"</span>,
+      "args": [<span class="cmd">"lint:fix"</span>]
+    }]
+  }]
+}</pre>
+        </div>
+        <div class="at-config-paths">
+          <span class="at-label">Same idea, different discovery paths</span>
+          <div class="at-config-path"><span>Claude Code</span><code>.claude/settings.json</code></div>
+          <div class="at-config-path"><span>Codex</span><code>.codex/hooks.json</code><small>experimental · enable codex_hooks</small></div>
+          <div class="at-config-path"><span>goose</span><code>*/hooks/hooks.json</code></div>
+        </div>
+      </div>
+      <div class="at-footer"><span>goose follows the Open Plugins hooks specification</span><span class="at-page" data-page="11"></span></div>
+    </div>
+  </section>
+
+  <!-- 12 · Claude Code hook examples -->
+  <section class="slide" data-title="Hook examples">
+    <div class="at-stage">
+      <div class="at-topline"><span class="at-signal-label">Claude Code · .claude/settings.json</span><span>Constrain · 02</span></div>
+      <div class="at-reveal"><p class="at-kicker">Claude Code · 31 hook events</p><h2 class="at-title at-small">Hooks can observe and control the entire agent lifecycle.</h2></div>
+      <div class="at-hook-reference at-reveal at-delay">
+        <div class="at-hook-snippets">
+          <div class="at-hook-snippet"><div class="at-hook-snippet-head"><strong>PreToolUse</strong><span>Block a risky command before it runs.</span></div><pre>"PreToolUse": [{
+  "matcher": <span class="value">"Bash"</span>,
+  "hooks": [{ "type": "command", "command": <span class="cmd">"bash"</span>,
+    "args": [
+      <span class="cmd">"${CLAUDE_PROJECT_DIR}/scripts/hooks/deny-risky.sh"</span>
+    ] }]
+}]</pre></div>
+          <div class="at-hook-snippet"><div class="at-hook-snippet-head"><strong>PostToolUse</strong><span>Format files after a successful edit.</span></div><pre>"PostToolUse": [{
+  "matcher": <span class="value">"Edit|Write"</span>,
+  "hooks": [{ "type": "command", "command": <span class="cmd">"pnpm"</span>,
+    "args": [<span class="cmd">"lint:fix"</span>] }]
+}]</pre></div>
+        </div>
+        <div class="at-hook-events">
+          <div class="at-hook-event-group"><h3>Session and environment</h3><div class="at-hook-event-list"><code>SessionStart</code><code>Setup</code><code>InstructionsLoaded</code><code>ConfigChange</code><code>CwdChanged</code><code>DirectoryAdded</code><code>FileChanged</code><code>WorktreeCreate</code><code>WorktreeRemove</code><code>PreCompact</code><code>PostCompact</code><code>SessionEnd</code></div></div>
+          <div class="at-hook-event-group"><h3>Turn</h3><div class="at-hook-event-list"><code>UserPromptSubmit</code><code>UserPromptExpansion</code><code>MessageDisplay</code><code>Notification</code><code>Stop</code><code class="is-risk">StopFailure</code></div></div>
+          <div class="at-hook-event-group"><h3>Tool loop and MCP</h3><div class="at-hook-event-list"><code>PreToolUse</code><code>PermissionRequest</code><code class="is-risk">PermissionDenied</code><code>PostToolUse</code><code class="is-risk">PostToolUseFailure</code><code>PostToolBatch</code><code>Elicitation</code><code>ElicitationResult</code></div></div>
+          <div class="at-hook-event-group"><h3>Agents and tasks</h3><div class="at-hook-event-list"><code>SubagentStart</code><code>SubagentStop</code><code>TaskCreated</code><code>TaskCompleted</code><code>TeammateIdle</code></div></div>
+        </div>
+      </div>
+      <div class="at-footer"><span>31 events · use matchers to narrow when handlers run</span><span class="at-page" data-page="12"></span></div>
+    </div>
+  </section>
+
+  <!-- 13 · Skills -->
+  <section class="slide" data-title="Skills">
+    <div class="at-stage">
+      <div class="at-topline"><span class="at-signal-label">Equip · progressive disclosure</span><span>Equip · 01</span></div>
+      <div class="at-reveal"><p class="at-kicker">Skills · progressive disclosure</p><h2 class="at-title at-small">Keep always-on context lean. Load specialist context for the job.</h2>
+        <p class="at-body">AGENTS.md applies broadly. A skill adds its full instructions and resources only when the task matches.</p></div>
+      <div class="at-code-layout at-reveal at-delay">
+        <div class="at-code-window">
+          <div class="at-terminal-bar"><span>skills/security-review/SKILL.md</span><span>loads when relevant</span></div>
+          <pre>---
+name: security-review
+description: <span class="value">Review Vue and API changes for XSS and exposed secrets.</span>
+---
+<span class="comment"># when invoked: inspect changed .vue and server/api files</span>
+<span class="comment"># return the file, line, risk, and recommended fix</span></pre>
+        </div>
+        <div class="at-takeaway"><span class="at-label">Why it matters</span><strong>Always-on context stays lean. Specialist workflows arrive just in time.</strong></div>
+      </div>
+      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="13"></span></div>
+    </div>
+  </section>
+
+  <!-- 14 · Skills in the wild -->
+  <section class="slide" data-title="Skills in the wild">
+    <div class="at-stage">
+      <div class="at-topline"><span class="at-signal-label">Equip · reusable discipline</span><span>Equip · 02</span></div>
+      <div class="at-reveal"><p class="at-kicker">Skills in the wild</p><h2 class="at-title at-small">Add a repeatable workflow or a whole field of expertise.</h2></div>
+      <div class="at-skill-showcase">
+        <div class="at-skill-column" data-fragment>
+          <div class="at-skill-column-head"><div><span class="at-label">Community workflows</span><h3>mattpocock/skills</h3></div><strong>≈217k stars</strong></div>
+          <div class="at-skill-example-list">
+            <div class="at-skill-example"><code>/handoff</code><p>Package the current work so another agent can continue.</p></div>
+            <div class="at-skill-example"><code>/resolving-merge-conflicts</code><p>Trace both sides of a conflict before resolving it.</p></div>
+            <div class="at-skill-example"><code>/grilling</code><p>Keep asking until a plan's unresolved decisions are explicit.</p></div>
+          </div>
+        </div>
+        <div class="at-skill-column at-domain" data-fragment>
+          <div class="at-skill-column-head"><div><span class="at-label">Google Chrome team bundle · preview</span><h3>Modern Web Guidance</h3></div></div>
+          <div class="at-skill-example-list">
+            <div class="at-skill-example"><code>Modern platform</code><p>Current CSS, browser APIs, and native web patterns.</p></div>
+            <div class="at-skill-example"><code>Quality</code><p>Performance, accessibility, compatibility, and responsible fallbacks.</p></div>
+            <div class="at-skill-example"><code>Retrieval</code><p>Local search loads only the relevant guide and its gotchas.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="at-footer"><span>github.com/mattpocock/skills · GoogleChrome/modern-web-guidance</span><span class="at-page" data-page="14"></span></div>
+    </div>
+  </section>
+
+  <!-- 15 · MCP examples -->
+  <section class="slide" data-title="MCP servers">
+    <div class="at-stage">
+      <div class="at-topline"><span class="at-signal-label">Equip · external systems</span><span>Equip · 03</span></div>
+      <div class="at-reveal"><p class="at-kicker">MCP servers - pulsemcp.com</p><h2 class="at-title at-small">Give the agent a feedback loop with the running system.</h2>
+        <p class="at-body">MCP can bring the task history, live browser, runtime failures, and internal tools into the same working loop.</p></div>
+      <div class="at-mcp-grid at-reveal at-delay">
+        <div class="at-mcp-card" data-fragment><span class="at-label">Why the change exists</span><h3>GitHub · Linear · Sentry</h3><p>Read the issue, ownership history, pull requests, and production trace behind the work.</p><strong>The agent starts from evidence instead of reconstructing intent from code.</strong></div>
+        <div class="at-mcp-card" data-fragment><span class="at-label">How the feature behaves</span><h3>Playwright</h3><p>Open the app, exercise user flows, inspect accessible page structure, and capture test evidence.</p><strong>The agent can build, run, and retest the same flow while it works.</strong></div>
+        <div class="at-mcp-card" data-fragment><span class="at-label">Why the browser disagrees</span><h3>Chrome DevTools</h3><p>Inspect console errors, network requests, DOM state, screenshots, and performance traces in live Chrome.</p><strong>The browser becomes a source of truth, not a final manual check.</strong></div>
+        <div class="at-mcp-card" data-fragment><span class="at-label">Build your own</span><h3>Internal MCP</h3><p>Expose approved services, schemas, documentation, or workflows as tools shaped for your codebase.</p><strong>The agent can use internal context without hard-coding it into every prompt.</strong></div>
+      </div>
+      <div class="at-footer"><span>Scope credentials and write access carefully</span><span class="at-page" data-page="15"></span></div>
+    </div>
+  </section>
+
+  <!-- 16 · Plugins and agents with a real example -->
+  <section class="slide" data-title="Plugins">
+    <div class="at-stage">
+      <div class="at-topline"><span class="at-signal-label">Equip · distribute the setup</span><span>Equip · 04</span></div>
+      <div class="at-reveal"><p class="at-kicker">Plugins + agents</p><h2 class="at-title at-small">Package and distribute a working setup.</h2>
+        <p class="at-body">Use plugins to distribute agents, skills, hooks, and MCP setups to replicate custom functionalities.</p></div>
+      <div class="at-code-layout at-reveal at-delay">
+        <div class="at-code-window">
+          <div class="at-terminal-bar"><span>Real example · Anthropic official marketplace</span><span>Claude Code</span></div>
+          <pre><span class="cmd">/plugin install pr-review-toolkit@claude-plugins-official</span>
+
+<span class="comment"># bundles six specialist review agents</span>
+comments · test coverage · error handling
+type design · code quality · simplification</pre>
+        </div>
+        <div>
+          <div class="at-takeaway"><span class="at-label">Team value</span><strong>Distribute the workflow. Install the same reviewed setup across the team.</strong></div>
+        </div>
+      </div>
+      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="16"></span></div>
+    </div>
+  </section>
+
+  <!-- 17 · Route context and controls after introducing the mechanisms -->
+  <section class="slide" data-title="Choose the right layer">
+    <div class="at-stage">
+      <div class="at-topline"><span class="at-signal-label">Choose the layer</span><span>Synthesis · 01</span></div>
+      <div class="at-reveal"><p class="at-kicker">Where should this live?</p><h2 class="at-title at-small">Not every instruction belongs in AGENTS.md.</h2>
+        <p class="at-body">Place it according to when it should load, whether it must run, and where the evidence lives.</p></div>
+      <div class="at-context-router at-reveal at-delay">
+        <div class="at-context-route"><span class="at-route-condition">Every task needs it</span><h3>AGENTS.md</h3><p>Persistent repository context.</p><span class="at-route-example">commands · conventions · boundaries</span></div>
+        <div class="at-context-route"><span class="at-route-condition">One kind of task needs it</span><h3>Skill</h3><p>Specialist context loaded on demand.</p><span class="at-route-example">security review · migration · debugging</span></div>
+        <div class="at-context-route is-enforce"><span class="at-route-condition">It must happen</span><h3>Hook</h3><p>A deterministic check at a lifecycle event.</p><span class="at-route-example">format · block · verify</span></div>
+        <div class="at-context-route"><span class="at-route-condition">The evidence lives elsewhere</span><h3>MCP</h3><p>External context and actions.</p><span class="at-route-example">issues · browser · production trace</span></div>
+        <div class="at-context-route"><span class="at-route-condition">It requires judgment</span><h3>Human review</h3><p>Decisions about scope, risk, and approval.</p><span class="at-route-example">correct assumptions · approve boundaries</span></div>
+      </div>
+      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="17"></span></div>
+    </div>
+  </section>
+
+  <!-- 18 · Feature request workflow -->
+  <section class="slide at-dark" data-title="Feature request workflow">
+    <div class="at-stage">
+      <div class="at-topline"><span>Putting it together</span><span>Workflow · 01</span></div>
+      <div class="at-reveal"><p class="at-kicker">From request to reviewed change</p><h2 class="at-title at-small">A feature request becomes a reviewed change with evidence.</h2></div>
+      <div class="at-example-task"><span>Example task</span>Add a password reset flow with expiring links, rate limits, and session revocation.</div>
+      <div class="at-feature-flow">
+        <div class="at-feature-stage" data-fragment>
+          <div class="at-feature-stage-head"><span>01</span><h3>Load context</h3></div>
+          <p>Map authentication, token lifecycle, email delivery, session rules, and existing tests.</p>
+          <div class="at-feature-tools"><span>Tools that help</span><p>AGENTS.md<br>Relevant skills<br>MCP or research agent, as needed</p></div>
+          <div class="at-feature-output"><span>Output</span><strong>Evidence-backed scope</strong></div>
+        </div>
+        <div class="at-feature-stage" data-fragment>
+          <div class="at-feature-stage-head"><span>02</span><h3>Draft task list</h3></div>
+          <p>Name the affected systems, abuse cases, rollout, and checks before editing.</p>
+          <div class="at-feature-tools"><span>Tools that help</span><p>Planning or memory skills<br>Task or issue management MCPs<br>Specialist agents, as needed</p></div>
+          <div class="at-feature-output"><span>Output</span><strong>Proposed tasks + acceptance checks</strong></div>
+        </div>
+        <div class="at-feature-stage at-approval" data-fragment>
+          <div class="at-feature-stage-head"><span>03</span><h3>Review and approve</h3></div>
+          <p>A person corrects assumptions, removes unnecessary scope, and approves the checks.</p>
+          <div class="at-feature-tools"><span>Review</span><p>Human in the loop<br>Review implementation details<br>Answer clarifying questions</p></div>
+          <div class="at-feature-output"><span>Human gate</span><strong>Approved boundary</strong></div>
+        </div>
+        <div class="at-feature-stage" data-fragment>
+          <div class="at-feature-stage-head"><span>04</span><h3>Build and review</h3></div>
+          <p>Implement the approved tasks and run checks while the feature takes shape.</p>
+          <div class="at-feature-tools"><span>Tools that help</span><p>Hooks & Plugins<br>Subagents<br>Playwright or DevTools MCP<br>Implementation / test skills<br>Diff review</p></div>
+          <div class="at-feature-output"><span>Output</span><strong>Feature + verification report</strong></div>
+        </div>
+        <div class="at-feature-stage at-artifact" data-fragment>
+          <div class="at-feature-stage-head"><span>05</span><h3>Artifact</h3></div>
+          <p>The checks become evidence a reviewer can inspect.</p>
+          <div class="at-artifact-report"><span>Verification report</span><ul>
+            <li>Link expires after 15 minutes</li>
+            <li>Token cannot be reused</li>
+            <li>Reset attempts are rate-limited</li>
+            <li>Existing sessions are revoked</li>
+          </ul></div>
+          <div class="at-feature-output"><span>Review with</span><strong>Evidence, not confidence</strong></div>
+        </div>
+      </div>
+      <div class="at-footer"><span>AceKYD · Field Notes</span><span class="at-page" data-page="18"></span></div>
+    </div>
+  </section>
+
+  <!-- 19 · Keep the repo ready (checklist) -->
+  <section class="slide" data-title="Keep it ready">
+    <div class="at-stage">
+      <div class="at-topline"><span class="at-signal-label">Stay ready over time</span><span>Takeaway · 01</span></div>
+      <div class="at-reveal"><p class="at-kicker">Keep it healthy</p><h2 class="at-title at-small">A ready repo is maintained, not declared.</h2></div>
+      <div class="at-check-grid at-maintenance-grid at-reveal at-delay">
+        <div class="at-check" data-fragment><div class="at-check-head"><span class="at-checkmark">[01]</span><h3>Use .ignore for search</h3></div><p>Exclude generated, vendored, and build paths from ripgrep-based search without changing Git tracking.</p></div>
+        <div class="at-check" data-fragment><div class="at-check-head"><span class="at-checkmark">[02]</span><h3>Prune stale context</h3></div><p>Delete duplicated or outdated guidance. Keep the context that still prevents real mistakes.</p></div>
+        <div class="at-check" data-fragment><div class="at-check-head"><span class="at-checkmark">[03]</span><h3>Name an owner</h3></div><p>One person or team owns context, shared extensions, permissions, and review cadence.</p></div>
+      </div>
+      <div class="at-footer"><span>@ace_kyd</span><span class="at-page" data-page="19"></span></div>
+    </div>
+  </section>
+
+  <!-- 20 · Close -->
+  <section class="slide at-dark" data-title="Close">
+    <div class="at-stage">
+      <div class="at-topline"><span class="at-signal-label">The idea to remember</span><span>Takeaway · 02</span></div>
+      <div class="at-close-grid at-reveal">
+        <div>
+          <p class="at-kicker">The idea to keep</p>
+          <h2 class="at-title">Treat the repository as part of the agent system.</h2>
+          <p class="at-lede">Give the agent the right context, enforce the quality bar, and ask for evidence before trust.</p>
+        </div>
+        <div class="at-start-small"><span class="at-label">Start with</span><strong>One context map.<br>One shared check.<br>One real task.</strong></div>
+      </div>
+      <div class="at-footer"><span>AceKYD · Field Notes</span><span class="at-page" data-page="20"></span></div>
+    </div>
+  </section>
+
+  <!-- 21 · Thanks / Q&A -->
+  <section class="slide at-dark" data-title="Thanks and Q&A">
+    <div class="at-stage">
+      <div class="at-topline"><span>Questions welcome</span><span>Close · 01</span></div>
+      <div class="at-close-grid at-reveal">
+        <div>
+          <p class="at-kicker">Thank you</p>
+          <h2 class="at-display at-deck-title">Thank you!<span class="at-cursor" aria-hidden="true"></span></h2>
+          <div class="at-contact">
+            <span><b>Slides</b> · <a href="https://acekyd.com/talks">acekyd.com/talks</a></span>
+            <span><b>@acekydtv</b> · Instagram · TikTok · YouTube</span>
+            <span><b>@ace_kyd</b> · LinkedIn · X</span>
+          </div>
+        </div>
+      </div>
+      <div class="at-footer"><span>AceKYD · Field Notes</span><span class="at-page" data-page="21"></span></div>
+    </div>
+  </section>
+
+</div>
+<script src="../_shared/html-ppt/runtime.js"></script>
+</body>
+</html>

@@ -17,7 +17,8 @@ export default defineEventHandler(async (event) => {
     { url: '/posts', priority: '0.8', changefreq: 'weekly' },
     { url: '/talks', priority: '0.8', changefreq: 'monthly' },
     { url: '/projects', priority: '0.8', changefreq: 'monthly' },
-    { url: '/slides/scaling-ai-large-codebases/', priority: '0.7', changefreq: 'yearly' }
+    { url: '/slides/scaling-ai-large-codebases/', priority: '0.7', changefreq: 'yearly' },
+    { url: '/slides/ai-underground-scaling-ai-large-codebases/', priority: '0.7', changefreq: 'yearly' }
     // Temporarily removed uses and now pages
     // { url: '/uses', priority: '0.6', changefreq: 'monthly' },
     // { url: '/now', priority: '0.7', changefreq: 'weekly' }
