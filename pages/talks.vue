@@ -21,40 +21,7 @@
           <span class="h-1.5 w-1.5 rounded-full bg-accent" />
           <h2 class="text-sm font-semibold uppercase tracking-[0.18em] text-ink-faint">Watch</h2>
         </div>
-        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          <a
-            v-for="video in featured.videos.slice(0, 3)"
-            :key="video.id"
-            :href="`https://www.youtube.com/watch?v=${video.id}&list=${playlistId}`"
-            target="_blank"
-            rel="noopener"
-            class="group block overflow-hidden rounded-2xl border border-border bg-surface no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40"
-          >
-            <div class="relative aspect-video overflow-hidden bg-muted">
-              <img
-                :src="`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`"
-                :alt="`Watch: ${video.title}`"
-                loading="lazy"
-                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <span class="absolute inset-0 grid place-items-center">
-                <span class="grid h-14 w-14 place-items-center rounded-full bg-bg/85 text-ink shadow-lg backdrop-blur transition-transform duration-300 group-hover:scale-110">
-                  <svg class="ml-0.5 h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
-                </span>
-              </span>
-            </div>
-            <div class="p-5">
-              <p v-if="video.source" class="text-xs font-medium uppercase tracking-wide text-ink-faint">{{ video.source }}</p>
-              <h3 class="mt-1 font-semibold leading-snug text-ink transition-colors group-hover:text-accent-ink">{{ video.title }}</h3>
-            </div>
-          </a>
-        </div>
-        <div class="mt-6">
-          <a :href="featured.playlistUrl" target="_blank" rel="noopener" class="btn-ghost">
-            See more — {{ featured.playlistCount }} videos on YouTube
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M7 7h10v10" /></svg>
-          </a>
-        </div>
+        <PlaylistCarousel :playlist-url="playlistUrl" @count="playlistCount = $event" />
       </section>
 
       <!-- ===================== TIMELINE ===================== -->
@@ -159,10 +126,10 @@
 
 <script setup lang="ts">
 import Talks from "assets/data/talks.json";
-import featured from "assets/data/featured-videos.json";
 import speaking from "assets/data/speaking.json";
 
-const playlistId = featured.playlistUrl.split('list=')[1] || ''
+const playlistUrl = 'https://www.youtube.com/playlist?list=PLAyyyOpVb_GU2UWRuTKubUlwbBZvV28P6'
+const playlistCount = ref(0)
 
 interface Talk {
   id: string;
@@ -256,7 +223,7 @@ const stats = computed(() => {
       title: speaking.countries.join(' · '),
     },
     {
-      value: `${featured.playlistCount}`,
+      value: playlistCount.value ? `${playlistCount.value}` : '—',
       label: 'Videos & appearances',
     },
   ]
