@@ -21,7 +21,7 @@
           </nav>
           <div class="flex flex-col gap-2">
             <span class="eyebrow mb-1">More</span>
-            <a href="https://acekyd.substack.com" target="_blank" rel="noopener" class="text-sm text-ink-faint no-underline transition-colors hover:text-ink">Newsletter</a>
+            <NuxtLink to="/talks" class="text-sm text-ink-faint no-underline transition-colors hover:text-ink">Speaking</NuxtLink>
             <a href="/rss.xml" class="text-sm text-ink-faint no-underline transition-colors hover:text-ink">RSS Feed</a>
             <a href="https://github.com/acekyd" target="_blank" rel="noopener" class="text-sm text-ink-faint no-underline transition-colors hover:text-ink">Open Source</a>
           </div>

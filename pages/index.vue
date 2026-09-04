@@ -46,9 +46,7 @@
           </p>
 
           <div class="mt-6 flex flex-wrap items-center gap-3">
-            <a href="https://acekyd.substack.com" target="_blank" rel="noopener" class="btn">
-              Subscribe on Substack
-            </a>
+            <NuxtLink to="/talks" class="btn">Watch me in action</NuxtLink>
             <NuxtLink to="/posts" class="btn-ghost">Read the blog</NuxtLink>
           </div>
 
@@ -160,14 +158,18 @@
 
         <div class="flex flex-col justify-between rounded-3xl border border-accent/30 bg-accent-soft p-8">
           <div>
-            <h2 class="text-xl font-bold text-ink">Let's keep in touch</h2>
+            <p class="eyebrow mb-2">Collaboration</p>
+            <h2 class="text-xl font-bold text-ink">Want to work with me?</h2>
             <p class="mt-3 text-sm leading-relaxed text-ink-soft">
-              Practical thoughts on creativity, AI, and engineering — straight to your inbox.
+              For speaking, developer advocacy, technical storytelling, or collaborations, reach out and tell me what you have in mind.
             </p>
           </div>
-          <a href="https://acekyd.substack.com" target="_blank" rel="noopener" class="btn mt-6 self-start">
-            Subscribe on Substack
-          </a>
+          <div class="mt-6 flex flex-wrap items-center gap-3">
+            <a href="mailto:ace@adewaleabati.com" class="btn">Email me</a>
+            <a href="https://www.linkedin.com/in/acekyd/" target="_blank" rel="noopener" class="btn-ghost">
+              Connect on LinkedIn
+            </a>
+          </div>
         </div>
       </div>
     </section>

@@ -54,7 +54,7 @@ export default defineEventHandler(async (event) => {
   lines.push('- YouTube: https://youtube.com/@acekydtv')
   lines.push('- LinkedIn: https://linkedin.com/in/acekyd')
   lines.push('- Twitter/X: https://twitter.com/ace_kyd')
-  lines.push('- Newsletter: https://acekyd.substack.com')
+  lines.push('- Email: ace@adewaleabati.com')
   lines.push('')
 
   setHeader(event, 'Content-Type', 'text/plain; charset=utf-8')

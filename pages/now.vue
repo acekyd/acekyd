@@ -41,8 +41,8 @@
             <div class="now-section">
                 <h2>✍️ Content & Sharing</h2>
                 <div class="now-item">
-                    <h3>Blog & Newsletter</h3>
-                    <p>Writing regularly about AI in development, developer advocacy insights, and lessons from building in the open. You can follow along on my <a href="https://acekyd.substack.com" target="_blank" rel="noopener">Substack newsletter</a>.</p>
+                    <h3>Writing & Speaking</h3>
+                    <p>I use the <a href="/posts">blog</a> for longer-form writing about AI in development, developer advocacy, and lessons from building in the open. You can see those ideas in action through my <a href="/talks">talks and presentations</a>.</p>
                     
                     <h3>YouTube & Speaking</h3>
                     <p>Creating educational content on <a href="https://youtube.com/acekyd" target="_blank" rel="noopener">YouTube</a> and speaking at tech conferences about the human side of AI adoption in development.</p>

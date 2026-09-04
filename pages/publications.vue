@@ -10,8 +10,8 @@
       <p class="text-ink-faint">
         This collection is being curated. In the meantime, find my latest writing on
         <NuxtLink to="/posts" class="text-accent-ink no-underline">the blog</NuxtLink>
-        and
-        <a href="https://acekyd.substack.com" target="_blank" rel="noopener" class="text-accent-ink no-underline">my newsletter</a>.
+        or watch my
+        <NuxtLink to="/talks" class="text-accent-ink no-underline">talks and presentations</NuxtLink>.
       </p>
     </div>
   </div>
