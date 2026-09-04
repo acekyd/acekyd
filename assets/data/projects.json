@@ -166,5 +166,17 @@
         "lastUpdated": "2025-08-19",
         "featured": false,
         "impact": "Personal net worth tracker"
+    },
+    {
+        "id": "15",
+        "title": "BTG",
+        "skills": "Nuxt 4, TypeScript, Supabase, Drizzle ORM, Tailwind",
+        "github": "",
+        "website": "https://btgonline.gg",
+        "description": "A community-first esports platform for everyday gamers — a public tournament archive and recognition system with seasons, standings, brackets, player and team profiles, records, awards, and a Hall of Fame with a live Legacy Score.",
+        "status": "active",
+        "lastUpdated": "2026-08-30",
+        "featured": false,
+        "impact": "eSports experience for non-professional gamers"
     }
 ]

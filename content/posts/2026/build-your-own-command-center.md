@@ -1,7 +1,7 @@
 ---
 title: "Your working directory as an operating system"
 date: 2026-07-31
-published: true
+published: false
 description: "I got tired of opening five different files just to know where my work stood, so I built a local command center over my own files. Here is what it does, the one lesson that made it useful, and a starter template you can run today."
 tags: ["Agents", "Productivity", "Building in Public"]
 cover_image: /images/build-your-own-command-center/featured.png
