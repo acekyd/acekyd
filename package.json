@@ -20,7 +20,7 @@
     "nuxt-gtag": "^2.0.0",
     "sass": "^1.77.0",
     "sass-loader": "^14.2.0",
-    "sharp": "^0.35.3",
+    "sharp": "^0.35.4",
     "typescript": "^5.5.0",
     "vitest": "^4.1.10"
   },
