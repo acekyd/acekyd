@@ -11,7 +11,7 @@
   "devDependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
-    "@nuxt/content": "^2.13.0",
+    "@nuxt/content": "^3.16.0",
     "@nuxtjs/tailwindcss": "^6.12.0",
     "@types/node": "^20.14.0",
     "@types/rss": "^0.0.32",
