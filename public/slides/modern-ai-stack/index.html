@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="ace-brand" data-themes="ace-brand">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>The Modern AI Stack: Agents, MCP and Skills · Adewale Abati</title>
+  <meta name="description" content="A practical guide to agents, context, MCP, skills, hooks, harnesses and the workflows that connect the modern AI stack.">
+  <meta name="author" content="Adewale Abati">
+  <meta name="theme-color" content="#0f1115">
+  <link rel="canonical" href="https://adewaleabati.com/slides/modern-ai-stack/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The Modern AI Stack: Agents, MCP and Skills">
+  <meta property="og:description" content="What each layer of the modern AI stack does, the problem it solves and how the pieces fit together.">
+  <meta property="og:url" content="https://adewaleabati.com/slides/modern-ai-stack/">
+  <meta property="og:image" content="https://adewaleabati.com/slides/modern-ai-stack/cover.png">
+  <meta property="og:image:width" content="1920">
+  <meta property="og:image:height" content="1080">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Modern AI Stack: Agents, MCP and Skills">
+  <meta name="twitter:description" content="What each layer of the modern AI stack does, the problem it solves and how the pieces fit together.">
+  <meta name="twitter:image" content="https://adewaleabati.com/slides/modern-ai-stack/cover.png">
+  <link rel="stylesheet" href="../_shared/html-ppt/assets/fonts.css">
+  <link rel="stylesheet" href="../_shared/html-ppt/assets/base.css">
+  <link rel="stylesheet" id="theme-link" href="../_shared/html-ppt/assets/themes/ace-brand.css">
+  <link rel="stylesheet" href="../_shared/html-ppt/assets/animations/animations.css">
+  <link rel="stylesheet" href="../_shared/html-ppt/templates/ace-talk/style.css">
+  <link rel="stylesheet" href="../_shared/html-ppt/public.css">
+  <style>
+    .tpl-ace-talk .at-stage { padding-top: 70px; }
+    .tpl-ace-talk .at-footer { min-height: 28px; }
+    .tpl-ace-talk .at-footer > span:first-child:empty { display: block; }
+    .tpl-ace-talk .at-title.at-compact { max-width: 1480px; font-size: clamp(48px, 4vw, 72px); line-height: 1.02; }
+    .tpl-ace-talk .ms-dense-heading .at-stage { padding-top: 84px; }
+    .tpl-ace-talk .ms-dense-heading .at-title { max-width: 1540px; font-size: 62px; line-height: .98; }
+    .tpl-ace-talk .ms-dense-heading .at-body { margin-top: 16px; }
+    .tpl-ace-talk .ms-skills-wild .at-stage { height: auto; flex: 1; padding-top: 0; }
+    .tpl-ace-talk .ms-skills-wild .at-title { font-size: 66px; }
+    .tpl-ace-talk .ms-skills-wild .at-skill-showcase { min-height: 0; margin-top: 28px; }
+    .tpl-ace-talk .at-focus { color: var(--at-signal); }
+    .tpl-ace-talk .ms-page-only { justify-content: flex-end; }
+    .tpl-ace-talk .ms-page-only > span:first-child { display: none; }
+
+    .tpl-ace-talk .slide.ms-cover { padding: 0; }
+    .tpl-ace-talk .ms-cover .at-stage {
+      position: relative;
+      isolation: isolate;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      padding: 82px 108px 64px;
+      background:
+        linear-gradient(90deg, rgba(14,16,19,.98) 0%, rgba(14,16,19,.95) 36%, rgba(14,16,19,.46) 66%, rgba(14,16,19,.12) 100%),
+        url("assets/modern-ai-stack-cover.png") center/cover no-repeat;
+    }
+    .tpl-ace-talk .ms-cover-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 920px;
+      flex: 1;
+      position: relative;
+      z-index: 2;
+    }
+    .tpl-ace-talk .ms-cover-title {
+      margin: 0;
+      color: var(--at-white);
+      font-size: clamp(92px, 7.3vw, 140px);
+      font-weight: 800;
+      letter-spacing: -.075em;
+      line-height: .84;
+    }
+    .tpl-ace-talk .ms-cover-subtitle {
+      margin: 38px 0 0;
+      color: var(--at-signal);
+      font: 600 clamp(30px, 2.2vw, 42px)/1.1 var(--at-display);
+      letter-spacing: -.025em;
+    }
+    .tpl-ace-talk .ms-cover-meta {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      margin-top: 46px;
+      color: #c6ccd2;
+      font: 500 16px var(--at-mono);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .tpl-ace-talk .ms-cover-meta span + span::before { content: "·"; margin-right: 24px; color: var(--at-signal); }
+    .tpl-ace-talk .ms-cover .at-footer { color: #c6ccd2; }
+
+    .tpl-ace-talk .ms-debate-title { max-width: 1360px; margin: 6px 0 0; font-size: 76px; line-height: 1; letter-spacing: -.055em; }
+    .tpl-ace-talk .ms-debate-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: auto 0 36px; border-top: 1px solid var(--at-line); border-bottom: 1px solid var(--at-line); }
+    .tpl-ace-talk .ms-debate { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; min-height: 138px; padding: 0 34px; border-bottom: 1px solid var(--at-line); font-size: 42px; font-weight: 720; letter-spacing: -.035em; }
+    .tpl-ace-talk .ms-debate:nth-child(odd) { border-right: 1px solid var(--at-line); padding-left: 0; }
+    .tpl-ace-talk .ms-debate:nth-child(even) { padding-right: 0; }
+    .tpl-ace-talk .ms-debate:nth-last-child(-n+2) { border-bottom: 0; }
+    .tpl-ace-talk .ms-debate span:last-child { text-align: right; }
+    .tpl-ace-talk .ms-versus { color: var(--at-faint); font: 500 14px var(--at-mono); letter-spacing: .08em; }
+
+    .tpl-ace-talk .ms-change { display: flex; flex-direction: column; justify-content: center; flex: 1; }
+    .tpl-ace-talk .ms-change h2 { max-width: 1500px; margin: 0; font-size: 138px; line-height: .88; letter-spacing: -.075em; }
+    .tpl-ace-talk .ms-change p { margin: 38px 0 0; color: #aeb5bd; font-size: 40px; line-height: 1.2; }
+
+    .tpl-ace-talk .ms-promise { display: grid; grid-template-columns: 1.12fr .88fr; gap: 92px; align-items: center; flex: 1; }
+    .tpl-ace-talk .ms-promise h2 { margin: 0; font-size: 86px; line-height: .94; letter-spacing: -.06em; }
+    .tpl-ace-talk .ms-promise p { max-width: 820px; margin: 30px 0 0; color: var(--at-muted); font-size: 28px; line-height: 1.4; }
+    .tpl-ace-talk .ms-three { border-top: 1px solid var(--at-line); }
+    .tpl-ace-talk .ms-three div { display: grid; grid-template-columns: 48px 1fr; align-items: center; gap: 20px; padding: 28px 0; border-bottom: 1px solid var(--at-line); }
+    .tpl-ace-talk .ms-three span { color: var(--at-faint); font: 500 14px var(--at-mono); }
+    .tpl-ace-talk .ms-three strong { font-size: 34px; }
+
+    .tpl-ace-talk .at-origin-layout { display: flex; flex-direction: column; flex: 1; min-height: 0; padding-top: 20px; }
+    .tpl-ace-talk .at-origin-heading .at-title { max-width: 980px; font-size: 64px; }
+    .tpl-ace-talk .at-origin-timeline { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 44px; flex: 1; min-height: 0; margin-top: 34px; }
+    .tpl-ace-talk .at-origin-event { position: relative; display: grid; grid-template-rows: 52px minmax(0, 1fr) auto; min-width: 0; min-height: 0; }
+    .tpl-ace-talk .at-origin-date { justify-self: center; color: var(--at-signal); font: 600 17px var(--at-mono); letter-spacing: .08em; text-transform: uppercase; }
+    .tpl-ace-talk .at-origin-card { display: flex; align-items: center; justify-content: center; min-height: 370px; }
+    .tpl-ace-talk .at-origin-card img { display: block; max-width: 72%; max-height: 180px; object-fit: contain; }
+    .tpl-ace-talk .at-origin-event.is-claude .at-origin-card img { width: 148px; height: 148px; }
+    .tpl-ace-talk .at-origin-event.is-mcp .at-origin-card img { width: 170px; height: 170px; }
+    .tpl-ace-talk .at-origin-event.is-goose .at-origin-card img { width: 190px; height: 190px; }
+    .tpl-ace-talk .at-origin-event.is-today .at-origin-card img { width: 330px; height: 330px; max-width: 86%; max-height: 86%; object-fit: cover; object-position: 50% 57%; border-radius: 50%; }
+    .tpl-ace-talk .at-origin-caption { padding-top: 18px; text-align: center; }
+    .tpl-ace-talk .at-origin-caption h3 { margin: 0; color: var(--at-white); font-size: 27px; line-height: 1.1; }
+    .tpl-ace-talk .at-origin-caption p { margin: 8px 0 0; color: #929ba5; font: 16px/1.35 var(--at-mono); letter-spacing: .03em; text-transform: uppercase; }
+    .tpl-ace-talk .ms-timeline-sequence .at-origin-event { opacity: 0; transform: translateY(18px); transition: opacity .34s ease, transform .34s ease; }
+    .tpl-ace-talk .ms-timeline-sequence .at-origin-event.is-shown { opacity: 1; transform: translateY(0); }
+
+    .tpl-ace-talk .ms-aaif-copy { display: flex; align-items: end; justify-content: space-between; gap: 60px; }
+    .tpl-ace-talk .ms-aaif-copy h2 { max-width: 980px; margin: 0; font-size: 72px; line-height: .96; letter-spacing: -.055em; }
+    .tpl-ace-talk .ms-aaif-copy p { max-width: 480px; margin: 0 0 6px; color: #a9b0b8; font-size: 23px; line-height: 1.4; }
+    .tpl-ace-talk .ms-aaif-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; margin-top: auto; }
+    .tpl-ace-talk .ms-aaif-project { display: flex; flex-direction: column; justify-content: center; min-height: 238px; padding: 22px; background: var(--at-white); color: var(--at-ink); border-top: 5px solid var(--at-signal); }
+    .tpl-ace-talk .ms-aaif-project img { width: 72px; height: 72px; object-fit: contain; margin-bottom: 28px; }
+    .tpl-ace-talk .ms-aaif-project .ms-mark { display: grid; place-items: center; width: 72px; height: 72px; margin-bottom: 28px; border: 1px solid var(--at-line); color: var(--at-signal-deep); font: 700 24px var(--at-mono); }
+    .tpl-ace-talk .ms-aaif-project strong { font-size: 24px; line-height: 1.05; }
+    .tpl-ace-talk .ms-aaif-project span { margin-top: 10px; color: var(--at-muted); font: 12px/1.35 var(--at-mono); text-transform: uppercase; letter-spacing: .06em; }
+    .tpl-ace-talk .ms-aaif-base { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; padding: 20px 26px; background: var(--at-code); border-top: 5px solid var(--at-signal); }
+    .tpl-ace-talk .ms-aaif-base strong { font-size: 38px; }
+    .tpl-ace-talk .ms-aaif-base span { color: var(--at-signal); font: 14px var(--at-mono); text-transform: uppercase; letter-spacing: .1em; }
+
+    .tpl-ace-talk .at-intro-layout { display: grid; grid-template-columns: 570px minmax(0, 1fr); gap: 72px; align-items: center; flex: 1; }
+    .tpl-ace-talk .at-intro-copy { padding-left: 14px; }
+    .tpl-ace-talk .at-intro-copy .at-title { max-width: 1020px; font-size: 82px; line-height: .96; }
+    .tpl-ace-talk .at-intro-credentials { display: grid; gap: 22px; margin: 38px 0 0; padding: 0; list-style: none; }
+    .tpl-ace-talk .at-intro-credentials li { position: relative; padding-left: 34px; color: var(--at-text); font-size: 28px; font-weight: 600; line-height: 1.2; }
+    .tpl-ace-talk .at-intro-credentials li::before { content: ""; position: absolute; top: .42em; left: 0; width: 11px; height: 11px; background: var(--at-signal); }
+    .tpl-ace-talk .at-intro-photo { position: relative; height: 720px; overflow: hidden; border: 1px solid var(--at-line); background: var(--at-code); }
+    .tpl-ace-talk .at-intro-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; filter: saturate(.88) contrast(1.02); }
+    .tpl-ace-talk .at-intro-photo::after { content: "@ace_kyd"; position: absolute; right: 18px; bottom: 18px; padding: 9px 12px; background: var(--at-signal); color: var(--at-ink); font: 16px var(--at-mono); }
+
+    .tpl-ace-talk .ms-loop-layout { display: grid; grid-template-columns: 560px minmax(0, 1fr); gap: 70px; align-items: center; flex: 1; }
+    .tpl-ace-talk .ms-loop-copy h2 { margin: 0; font-size: 76px; line-height: .95; letter-spacing: -.055em; }
+    .tpl-ace-talk .ms-loop-copy p { margin: 28px 0 0; color: #a7afb7; font-size: 26px; line-height: 1.45; }
+    .tpl-ace-talk .ms-loop-svg { width: 100%; height: 650px; }
+    .tpl-ace-talk .ms-loop-svg .node { fill: var(--at-ink-soft); stroke: var(--at-line-dark); stroke-width: 2; }
+    .tpl-ace-talk .ms-loop-svg .active { fill: var(--at-signal); stroke: var(--at-signal); }
+    .tpl-ace-talk .ms-loop-svg .active-label { fill: var(--at-ink); font: 720 28px var(--at-display); }
+    .tpl-ace-talk .ms-loop-svg .active-detail { fill: #38424b; font: 15px var(--at-mono); }
+    .tpl-ace-talk .ms-loop-svg .flow { fill: none; stroke: var(--at-signal); stroke-width: 4; }
+    .tpl-ace-talk .ms-loop-svg .branch { fill: none; stroke: #5f6872; stroke-width: 2; stroke-dasharray: 8 8; }
+    .tpl-ace-talk .ms-loop-svg .label { fill: var(--at-white); font: 650 28px var(--at-display); }
+    .tpl-ace-talk .ms-loop-svg .detail { fill: #a5adb6; font: 15px var(--at-mono); }
+    .tpl-ace-talk .ms-loop-svg .signal { fill: var(--at-signal); font: 600 14px var(--at-mono); text-transform: uppercase; letter-spacing: .08em; }
+    .tpl-ace-talk .ms-loop-svg .branch-label { fill: #9ba4ad; font: 600 13px var(--at-mono); letter-spacing: .05em; text-transform: uppercase; }
+
+    .tpl-ace-talk .ms-tension { display: flex; flex-direction: column; justify-content: center; flex: 1; }
+    .tpl-ace-talk .ms-tension h2 { max-width: 1540px; margin: 0; font-size: 112px; line-height: .9; letter-spacing: -.07em; }
+    .tpl-ace-talk .ms-tension p { max-width: 1050px; margin: 36px 0 0; color: #aeb5bd; font-size: 34px; line-height: 1.3; }
+    .tpl-ace-talk .ms-tension-compact .ms-tension h2 { font-size: 96px; }
+    .tpl-ace-talk .ms-tension-compact .ms-tension p { margin-top: 28px; }
+
+    .tpl-ace-talk .at-code-window pre { padding: 24px 28px; font-size: 28px; line-height: 1.36; }
+    .tpl-ace-talk .at-code-window pre.at-agents-code { padding-block: 20px; line-height: 1.2; }
+    .tpl-ace-talk .ms-agents-head { display: block; }
+    .tpl-ace-talk .ms-agents-head h2 { margin: 0; color: var(--at-signal-deep); font-size: 64px; line-height: .9; letter-spacing: -.06em; }
+    .tpl-ace-talk .ms-agents-head h3 { margin: 14px 0 0; font-size: 35px; line-height: 1.02; letter-spacing: -.035em; }
+    .tpl-ace-talk .ms-agents-definition { margin: 8px 0 0; color: var(--at-muted); font-size: 19px; line-height: 1.35; }
+    .tpl-ace-talk .ms-agent-profile .at-code-layout { margin-bottom: 34px; }
+    .tpl-ace-talk .ms-agent-profile .at-code-window pre { font-size: 19px; line-height: 1.48; }
+    .tpl-ace-talk .ms-agent-compare { display: grid; align-content: center; border-left: 1px solid var(--at-line); }
+    .tpl-ace-talk .ms-agent-compare div { padding: 22px 0 22px 30px; border-bottom: 1px solid var(--at-line); }
+    .tpl-ace-talk .ms-agent-compare div:first-child { border-top: 1px solid var(--at-line); }
+    .tpl-ace-talk .ms-agent-compare span { color: var(--at-blue); font: 600 14px var(--at-mono); letter-spacing: .08em; text-transform: uppercase; }
+    .tpl-ace-talk .ms-agent-compare strong { display: block; margin-top: 9px; font-size: 24px; line-height: 1.18; }
+    .tpl-ace-talk .at-terminal-bar { font-size: 16px; }
+    .tpl-ace-talk .at-filetree { padding: 26px 30px 30px; font-size: 28px; line-height: 1.5; }
+
+    .tpl-ace-talk .ms-mcp-definition { display: grid; grid-template-columns: 560px minmax(0, 1fr); gap: 76px; align-items: center; flex: 1; }
+    .tpl-ace-talk .ms-mcp-copy h2 { margin: 0; font-size: 72px; line-height: .96; letter-spacing: -.055em; }
+    .tpl-ace-talk .ms-mcp-copy p { margin: 28px 0 0; color: var(--at-muted); font-size: 25px; line-height: 1.45; }
+    .tpl-ace-talk .ms-mcp-diagram { display: grid; grid-template-columns: 1fr 92px 1.1fr; align-items: center; }
+    .tpl-ace-talk .ms-mcp-host { padding: 34px; background: var(--at-code); color: var(--at-white); }
+    .tpl-ace-talk .ms-mcp-host strong, .tpl-ace-talk .ms-mcp-server strong { display: block; font-size: 32px; }
+    .tpl-ace-talk .ms-mcp-host span, .tpl-ace-talk .ms-mcp-server > span { display: block; margin-top: 8px; color: #969fa8; font: 14px var(--at-mono); }
+    .tpl-ace-talk .ms-mcp-client { margin-top: 28px; padding: 20px; border: 1px solid var(--at-signal); color: var(--at-signal); font: 600 18px var(--at-mono); }
+    .tpl-ace-talk .ms-mcp-wire { position: relative; height: 2px; background: var(--at-signal); }
+    .tpl-ace-talk .ms-mcp-wire::after { content: ""; position: absolute; right: 0; top: -6px; width: 12px; height: 12px; border-top: 2px solid var(--at-signal); border-right: 2px solid var(--at-signal); transform: rotate(45deg); }
+    .tpl-ace-talk .ms-mcp-wire span { position: absolute; left: 50%; top: -34px; transform: translateX(-50%); color: var(--at-signal-deep); font: 13px var(--at-mono); text-transform: uppercase; }
+    .tpl-ace-talk .ms-mcp-server { padding: 32px; border: 1px solid var(--at-line); }
+    .tpl-ace-talk .ms-primitives { display: grid; gap: 10px; margin-top: 28px; }
+    .tpl-ace-talk .ms-primitives div { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding: 14px 0; border-top: 1px solid var(--at-line); }
+    .tpl-ace-talk .ms-primitives b { color: var(--at-signal-deep); font: 600 15px var(--at-mono); text-transform: uppercase; }
+    .tpl-ace-talk .ms-primitives span { margin: 0; color: var(--at-muted); font-size: 17px; }
+
+    .tpl-ace-talk .at-mcp-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; flex: 1; margin-top: 30px; }
+    .tpl-ace-talk .at-mcp-card { display: flex; flex-direction: column; padding: 24px; border: 1px solid var(--at-line); background: var(--at-paper); }
+    .tpl-ace-talk .at-mcp-card .at-label { color: var(--at-blue); }
+    .tpl-ace-talk .at-mcp-card h3 { margin: 18px 0 0; font-size: 28px; line-height: 1.05; }
+    .tpl-ace-talk .at-mcp-card p { margin: 18px 0 0; color: var(--at-muted); font-size: 21px; line-height: 1.3; }
+    .tpl-ace-talk .at-mcp-card strong { margin-top: auto; padding-top: 24px; color: var(--at-text); font-size: 18px; line-height: 1.25; }
+
+    .tpl-ace-talk .at-skill-showcase { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; flex: 1; margin-top: 30px; }
+    .tpl-ace-talk .at-skill-column { display: flex; flex-direction: column; padding: 30px 32px; border: 1px solid var(--at-line); background: var(--at-paper); }
+    .tpl-ace-talk .at-skill-column.at-domain { background: var(--at-code); color: var(--at-white); border-color: var(--at-line-dark); }
+    .tpl-ace-talk .at-skill-column-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--at-line); }
+    .tpl-ace-talk .at-domain .at-skill-column-head { border-color: var(--at-line-dark); }
+    .tpl-ace-talk .at-skill-column-head .at-label { color: var(--at-blue); }
+    .tpl-ace-talk .at-skill-column-head h3 { margin: 10px 0 0; font-size: 31px; line-height: 1.05; }
+    .tpl-ace-talk .at-domain .at-skill-column-head h3 { color: var(--at-signal); }
+    .tpl-ace-talk .at-skill-example-list { display: grid; gap: 14px; margin-top: 20px; }
+    .tpl-ace-talk .at-skill-example { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 18px; align-items: start; }
+    .tpl-ace-talk .at-skill-example code { color: var(--at-blue); font: 17px/1.3 var(--at-mono); }
+    .tpl-ace-talk .at-skill-example p { margin: 0; color: var(--at-muted); font-size: 20px; line-height: 1.25; }
+    .tpl-ace-talk .at-domain .at-skill-example p { color: #c8cdd2; }
+    .tpl-ace-talk .ms-skill-decision { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; flex: 1; margin-top: 30px; }
+    .tpl-ace-talk .ms-skill-choice { display: flex; flex-direction: column; padding: 34px 38px; border: 1px solid var(--at-line); background: var(--at-paper); }
+    .tpl-ace-talk .ms-skill-choice.is-build { background: var(--at-code); color: var(--at-white); border-color: var(--at-line-dark); }
+    .tpl-ace-talk .ms-skill-choice h3 { margin: 18px 0 0; font-size: 38px; line-height: 1; }
+    .tpl-ace-talk .ms-skill-choice.is-build h3 { color: var(--at-signal); }
+    .tpl-ace-talk .ms-skill-choice p { margin: 20px 0 0; color: var(--at-muted); font-size: 23px; line-height: 1.35; }
+    .tpl-ace-talk .ms-skill-choice.is-build p { color: #c8cdd2; }
+    .tpl-ace-talk .ms-skill-signals { display: grid; gap: 13px; margin: auto 0 0; padding: 26px 0 0; list-style: none; border-top: 1px solid var(--at-line); }
+    .tpl-ace-talk .is-build .ms-skill-signals { border-color: var(--at-line-dark); }
+    .tpl-ace-talk .ms-skill-signals li { position: relative; padding-left: 25px; font-size: 20px; line-height: 1.25; }
+    .tpl-ace-talk .ms-skill-signals li::before { content: ""; position: absolute; left: 0; top: .48em; width: 9px; height: 9px; background: var(--at-signal); }
+
+    .tpl-ace-talk .ms-hook-layout { display: grid; grid-template-columns: 1.15fr .85fr; gap: 54px; flex: 1; min-height: 0; margin-top: 34px; }
+    .tpl-ace-talk .ms-hook-code { border: 1px solid var(--at-line-dark); background: var(--at-code); color: var(--at-white); }
+    .tpl-ace-talk .ms-hook-code .at-terminal-bar { border-bottom: 1px solid var(--at-line-dark); }
+    .tpl-ace-talk .ms-hook-code pre { margin: 0; padding: 26px 30px; font: 21px/1.28 var(--at-mono); white-space: pre-wrap; }
+    .tpl-ace-talk .ms-hook-code .cmd { color: var(--at-green); }
+    .tpl-ace-talk .ms-hook-code .value { color: var(--at-blue); }
+    .tpl-ace-talk .ms-hook-moments { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .tpl-ace-talk .ms-hook-moment { padding: 22px; border: 1px solid var(--at-line); }
+    .tpl-ace-talk .ms-hook-moment code { color: var(--at-blue); font: 16px var(--at-mono); }
+    .tpl-ace-talk .ms-hook-moment strong { display: block; margin-top: 16px; font-size: 25px; line-height: 1.05; }
+    .tpl-ace-talk .ms-hook-moment p { margin: 10px 0 0; color: var(--at-muted); font-size: 18px; line-height: 1.3; }
+
+    .tpl-ace-talk .ms-hook-reference { display: grid; grid-template-rows: auto 1fr; gap: 18px; flex: 1; min-height: 0; margin-top: 20px; }
+    .tpl-ace-talk .ms-hook-snippets { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .tpl-ace-talk .ms-hook-snippet { border: 1px solid var(--at-line-dark); background: var(--at-code); color: var(--at-white); }
+    .tpl-ace-talk .ms-hook-snippet-head { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; padding: 11px 17px; border-bottom: 1px solid var(--at-line-dark); }
+    .tpl-ace-talk .ms-hook-snippet-head strong { color: var(--at-green); font: 500 17px var(--at-mono); }
+    .tpl-ace-talk .ms-hook-snippet-head span { color: #aeb5bd; font-size: 16px; }
+    .tpl-ace-talk .ms-hook-snippet pre { margin: 0; padding: 12px 17px; font: 17px/1.16 var(--at-mono); white-space: pre-wrap; }
+    .tpl-ace-talk .ms-hook-snippet .cmd { color: var(--at-green); }
+    .tpl-ace-talk .ms-hook-snippet .value { color: var(--at-blue); }
+    .tpl-ace-talk .ms-hook-events { display: grid; grid-template-columns: 1.45fr .9fr 1fr .8fr; gap: 12px; min-height: 0; }
+    .tpl-ace-talk .ms-hook-event-group { padding: 14px 16px; border: 1px solid var(--at-line); }
+    .tpl-ace-talk .ms-hook-event-group h3 { margin: 0 0 9px; color: var(--at-muted); font: 500 13px var(--at-mono); letter-spacing: .08em; text-transform: uppercase; }
+    .tpl-ace-talk .ms-hook-event-list { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px 10px; }
+    .tpl-ace-talk .ms-hook-event-group:first-child .ms-hook-event-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .tpl-ace-talk .ms-hook-event-list code { color: var(--at-blue); font: 15px/1.22 var(--at-mono); white-space: nowrap; }
+    .tpl-ace-talk .ms-hook-event-list code.is-risk { color: var(--at-red); }
+
+    .tpl-ace-talk .ms-control-thesis { display: flex; flex-direction: column; justify-content: center; flex: 1; }
+    .tpl-ace-talk .ms-control-thesis h2 { max-width: 1500px; margin: 0; font-size: 92px; line-height: .9; letter-spacing: -.065em; }
+    .tpl-ace-talk .ms-control-thesis > p { max-width: 1160px; margin: 30px 0 0; color: #aeb5bd; font-size: 30px; line-height: 1.35; }
+    .tpl-ace-talk .ms-control-spectrum { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 54px; background: var(--at-line-dark); border: 1px solid var(--at-line-dark); }
+    .tpl-ace-talk .ms-control-step { min-height: 170px; padding: 24px; background: var(--at-ink); }
+    .tpl-ace-talk .ms-control-step span { color: var(--at-signal); font: 14px var(--at-mono); text-transform: uppercase; letter-spacing: .08em; }
+    .tpl-ace-talk .ms-control-step strong { display: block; margin-top: 19px; color: var(--at-white); font-size: 28px; }
+    .tpl-ace-talk .ms-control-step p { margin: 10px 0 0; color: #9fa7af; font-size: 18px; line-height: 1.3; }
+    .tpl-ace-talk .ms-thanks .at-close-grid { grid-template-columns: minmax(0, 1fr) 420px; }
+    .tpl-ace-talk .ms-thanks .at-title { max-width: none; font-size: 170px; line-height: .84; }
+    .tpl-ace-talk .ms-thanks .at-lede { max-width: 980px; font-size: 34px; }
+    .tpl-ace-talk .ms-thanks .ms-talk-url {
+      margin: 34px 0 0;
+      color: var(--at-white);
+      font: 500 22px/1.25 var(--at-mono);
+      letter-spacing: -.02em;
+    }
+
+    .tpl-ace-talk .ms-harness-copy { display: flex; align-items: end; justify-content: space-between; gap: 50px; }
+    .tpl-ace-talk .ms-harness-copy h2 { max-width: 1100px; margin: 0; font-size: 68px; line-height: .96; letter-spacing: -.055em; }
+    .tpl-ace-talk .ms-harness-copy p { max-width: 470px; margin: 0; color: var(--at-muted); font-size: 23px; line-height: 1.4; }
+    .tpl-ace-talk .ms-harness-svg { width: 100%; height: 600px; margin-top: 18px; }
+    .tpl-ace-talk .ms-harness-svg .shell { fill: none; stroke: var(--at-signal-deep); stroke-width: 3; }
+    .tpl-ace-talk .ms-harness-svg .panel { fill: var(--at-paper); stroke: var(--at-line); stroke-width: 2; }
+    .tpl-ace-talk .ms-harness-svg .core { fill: var(--at-code); stroke: var(--at-signal); stroke-width: 3; }
+    .tpl-ace-talk .ms-harness-svg .wire { fill: none; stroke: var(--at-signal-deep); stroke-width: 3; }
+    .tpl-ace-talk .ms-harness-svg .rail { fill: none; stroke: var(--at-line); stroke-width: 2; stroke-dasharray: 7 7; }
+    .tpl-ace-talk .ms-harness-svg .label { fill: var(--at-text); font: 650 24px var(--at-display); }
+    .tpl-ace-talk .ms-harness-svg .dark-label { fill: var(--at-white); font: 650 25px var(--at-display); }
+    .tpl-ace-talk .ms-harness-svg .detail { fill: var(--at-muted); font: 14px var(--at-mono); }
+    .tpl-ace-talk .ms-harness-svg .shell-label { fill: var(--at-signal-deep); font: 650 20px var(--at-mono); text-transform: uppercase; letter-spacing: .08em; }
+
+    .tpl-ace-talk .ms-three-columns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; margin-top: auto; margin-bottom: 34px; }
+    .tpl-ace-talk .ms-column { padding-top: 26px; border-top: 1px solid var(--at-line); }
+    .tpl-ace-talk .ms-column span { color: var(--at-faint); font: 13px var(--at-mono); text-transform: uppercase; letter-spacing: .08em; }
+    .tpl-ace-talk .ms-column h3 { margin: 24px 0 14px; font-size: 38px; letter-spacing: -.04em; }
+    .tpl-ace-talk .ms-column p { margin: 0; color: var(--at-muted); font-size: 20px; line-height: 1.42; }
+    .tpl-ace-talk .ms-column code { display: block; margin-top: 22px; color: var(--at-blue); font: 15px/1.6 var(--at-mono); }
+
+    @media (max-width: 900px) {
+      .tpl-ace-talk .ms-debate-grid, .tpl-ace-talk .ms-promise, .tpl-ace-talk .at-intro-layout, .tpl-ace-talk .ms-loop-layout, .tpl-ace-talk .ms-mcp-definition { grid-template-columns: 1fr; }
+      .tpl-ace-talk .ms-aaif-grid { grid-template-columns: repeat(2, 1fr); }
+      .tpl-ace-talk .at-mcp-grid, .tpl-ace-talk .ms-three-columns, .tpl-ace-talk .ms-hook-layout { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body class="tpl-ace-talk" data-theme-base="../_shared/html-ppt/assets/themes/">
+<div class="deck">
+
+  <section class="slide at-dark ms-cover" data-title="Cover">
+    <div class="at-stage">
+      <div class="ms-cover-copy at-reveal">
+        <h1 class="ms-cover-title">The Modern<br><span class="at-focus">AI Stack</span></h1>
+        <p class="ms-cover-subtitle">Agents, MCP and Skills</p>
+        <div class="ms-cover-meta"><span>Adewale “Ace” Abati</span><span>Amsterdam</span><span>AGNTCon + MCPCon Europe</span></div>
+      </div>
+      <div class="at-footer ms-page-only"><span></span><span class="at-page" data-page="01"></span></div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="Old developer debates">
+    <div class="at-stage">
+      <h2 class="ms-debate-title at-reveal">We used to spend a lot of time arguing about these</h2>
+      <div class="ms-debate-grid at-reveal at-delay">
+        <div class="ms-debate"><span>Tabs</span><span class="ms-versus">OR</span><span>Spaces</span></div>
+        <div class="ms-debate"><span>PHP</span><span class="ms-versus">OR</span><span>Ruby</span></div>
+        <div class="ms-debate"><span>Vim</span><span class="ms-versus">OR</span><span>Emacs</span></div>
+        <div class="ms-debate"><span>Monolith</span><span class="ms-versus">OR</span><span>Microservices</span></div>
+      </div>
+      <div class="at-footer ms-page-only"><span></span><span class="at-page" data-page="02"></span></div>
+    </div>
+  </section>
+
+  <section class="slide at-dark" data-title="Software development is changing">
+    <div class="at-stage">
+      <div class="ms-change at-reveal">
+        <h2>Software development<br><span class="at-focus">is changing</span></h2>
+        <p>Some will say it already changed.</p>
+      </div>
+      <div class="at-footer ms-page-only"><span></span><span class="at-page" data-page="03"></span></div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="The promise">
+    <div class="at-stage">
+      <div class="ms-promise">
+        <div class="at-reveal">
+          <h2>The terminology moved faster than the <span class="at-focus">explanation</span></h2>
+          <p>You should not need a permanently open social feed to understand how people build with these tools.</p>
+        </div>
+        <div class="ms-three at-reveal at-delay">
+          <div><span>01</span><strong>What is it?</strong></div>
+          <div><span>02</span><strong>What problem does it solve?</strong></div>
+          <div><span>03</span><strong>How does it fit?</strong></div>
+        </div>
+      </div>
+      <div class="at-footer ms-page-only"><span></span><span class="at-page" data-page="04"></span></div>
+    </div>
+  </section>
+
+  <section class="slide at-dark" data-title="How we got here">
+    <div class="at-stage">
+      <h2 class="at-title at-small at-reveal">How we got here</h2>
+      <div class="at-origin-layout">
+        <div class="at-origin-timeline ms-timeline-sequence">
+          <div class="at-origin-event is-claude" data-fragment>
+            <span class="at-origin-date">Jun 2024</span>
+            <div class="at-origin-card"><img src="assets/ai-underground-story/claude.png" alt="Claude logo"></div>
+            <div class="at-origin-caption"><h3>Claude 3.5 Sonnet</h3><p>Coding felt different</p></div>
+          </div>
+          <div class="at-origin-event is-mcp" data-fragment>
+            <span class="at-origin-date">Nov 2024</span>
+            <div class="at-origin-card"><img src="assets/ai-underground-story/mcp-mark.svg" alt="Model Context Protocol logo"></div>
+            <div class="at-origin-caption"><h3>MCP</h3><p>Models connected to tools</p></div>
+          </div>
+          <div class="at-origin-event is-goose" data-fragment>
+            <span class="at-origin-date">Jan 2025</span>
+            <div class="at-origin-card"><img src="assets/ai-underground-story/goose-icon.svg" alt="goose logo"></div>
+            <div class="at-origin-caption"><h3>goose</h3><p>Early MCP-native agent</p></div>
+          </div>
+          <div class="at-origin-event is-today" data-fragment>
+            <span class="at-origin-date">Today</span>
+            <div class="at-origin-card"><img src="assets/kohai-expr-typing.png" alt="Kohai writing code on a laptop"></div>
+            <div class="at-origin-caption"><h3>Agents ship code</h3><p>Build, run, test, repeat</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="at-footer ms-page-only"><span></span><span class="at-page" data-page="05"></span></div>
+    </div>
+  </section>
+
+  <section class="slide at-dark" data-title="AAIF projects today">
+    <div class="at-stage">
+      <div class="ms-aaif-copy at-reveal">
+        <h2>The open projects shaping this stack <span class="at-focus">today</span></h2>
+        <p>AAIF gives shared agent standards and infrastructure a neutral home under the Linux Foundation.</p>
+      </div>
+      <div class="ms-aaif-grid at-reveal at-delay">
+        <div class="ms-aaif-project"><img src="assets/ai-underground-story/mcp-mark.svg" alt=""><strong>MCP</strong><span>Model and tool interoperability</span></div>
+        <div class="ms-aaif-project"><img src="assets/aaif-projects/goose.png" alt="goose logo"><strong>goose</strong><span>Open agent runtime</span></div>
+        <div class="ms-aaif-project"><img src="assets/aaif-projects/agents-md.png" alt="AGENTS.md logo"><strong>AGENTS.md</strong><span>Repository instructions</span></div>
+        <div class="ms-aaif-project"><img src="assets/aaif-projects/agentgateway.png" alt="agentgateway logo"><strong>agentgateway</strong><span>Agent and MCP traffic</span></div>
+        <div class="ms-aaif-project"><img src="assets/aaif-projects/a2a.png" alt="Agent2Agent logo"><strong>Agent2Agent</strong><span>Agent communication</span></div>
+        <div class="ms-aaif-project"><img src="assets/aaif-projects/agent-router.png" alt="Agent Router logo"><strong>Agent Router</strong><span>Models and tool routing</span></div>
+      </div>
+      <div class="ms-aaif-base"><strong>AAIF</strong><span>Agentic AI Foundation · Linux Foundation</span></div>
+      <div class="at-footer"><span>aaif.io/projects</span><span class="at-page" data-page="06"></span></div>
+    </div>
+  </section>
+
+  <section class="slide at-intro-slide" data-title="About Ace">
+    <div class="at-stage">
+      <div class="at-intro-layout">
+        <div class="at-intro-photo at-reveal">
+          <img src="assets/studio-portrait-brown-bg-standing.jpg" alt="Adewale Ace Abati standing against a warm brown studio background">
+        </div>
+        <div class="at-intro-copy at-reveal at-delay">
+          <p class="at-kicker">Adewale 'Ace' Abati</p>
+          <h2 class="at-title">I help developers understand and adopt technical products.</h2>
+          <ul class="at-intro-credentials">
+            <li>Staff Developer Advocate, ex-Block</li>
+            <li>GitHub Star</li>
+            <li>Ambassador, Agentic AI Foundation (AAIF)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="at-footer"><span>Adewale “Ace” Abati</span><span class="at-page" data-page="07"></span></div>
+    </div>
+  </section>
+
+  <section class="slide at-dark" data-title="The agent loop">
+    <div class="at-stage">
+      <div class="ms-loop-layout">
+        <div class="ms-loop-copy at-reveal">
+          <h2>An agent plans, acts, observes and <span class="at-focus">adjusts</span></h2>
+          <p>It keeps moving through the loop until the task is complete, a limit is reached or a human needs to step in.</p>
+        </div>
+        <svg class="ms-loop-svg at-reveal at-delay" viewBox="0 0 960 650" role="img" aria-label="An agent receives a task, reasons about the current state, chooses either a tool call or a final response, executes tools in the environment, observes the result and reasons again">
+          <defs><marker id="loop-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="var(--at-signal)"/></marker></defs>
+          <rect class="node" x="34" y="72" width="210" height="112" rx="18"/>
+          <text class="label" x="139" y="120" text-anchor="middle">Task</text><text class="detail" x="139" y="151" text-anchor="middle">goal + starting context</text>
+          <path class="flow" marker-end="url(#loop-arrow)" d="M244 128H330"/>
+          <rect class="node active" x="330" y="58" width="270" height="140" rx="22"/>
+          <text class="active-label" x="465" y="118" text-anchor="middle">Model</text><text class="active-detail" x="465" y="151" text-anchor="middle">reason about current state</text>
+          <path class="flow" marker-end="url(#loop-arrow)" d="M600 128H688"/>
+          <rect class="node" x="688" y="64" width="218" height="128" rx="18"/>
+          <text class="label" x="797" y="118" text-anchor="middle">Next action?</text><text class="detail" x="797" y="151" text-anchor="middle">tool call or final output</text>
+          <path class="flow" marker-end="url(#loop-arrow)" d="M797 192V276"/>
+          <text class="signal" x="816" y="241">tool call</text>
+          <rect class="node" x="650" y="276" width="270" height="134" rx="18"/>
+          <text class="label" x="785" y="333" text-anchor="middle">Execute tool</text><text class="detail" x="785" y="365" text-anchor="middle">act in the environment</text>
+          <path class="flow" marker-end="url(#loop-arrow)" d="M650 343H538"/>
+          <rect class="node" x="268" y="276" width="270" height="134" rx="18"/>
+          <text class="label" x="403" y="333" text-anchor="middle">Observation</text><text class="detail" x="403" y="365" text-anchor="middle">result becomes new context</text>
+          <path class="flow" marker-end="url(#loop-arrow)" d="M403 276V226C403 210 415 198 431 198"/>
+          <path class="branch" marker-end="url(#loop-arrow)" d="M906 128H944V514H680"/>
+          <text class="branch-label" x="812" y="493" text-anchor="middle">final output</text>
+          <rect class="node" x="400" y="455" width="280" height="118" rx="18"/>
+          <text class="label" x="540" y="504" text-anchor="middle">Done / checkpoint</text><text class="detail" x="540" y="537" text-anchor="middle">answer, stop or ask a human</text>
+        </svg>
+      </div>
+      <div class="at-footer"><span>Plan → act → observe → adjust</span><span class="at-page" data-page="08"></span></div>
+    </div>
+  </section>
+
+  <section class="slide at-dark" data-title="Help it know your codebase">
+    <div class="at-stage">
+      <div class="ms-tension at-reveal">
+        <h2>Help it know<br><span class="at-focus">your codebase</span></h2>
+        <p>A capable model still arrives without your architecture, conventions, commands or hard-earned warnings.</p>
+      </div>
+      <div class="at-footer ms-page-only"><span></span><span class="at-page" data-page="09"></span></div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="AGENTS.md">
+    <div class="at-stage">
+      <div class="ms-agents-head at-reveal">
+        <h2>AGENTS.md</h2>
+        <h3>Give the agent more context than it can infer from code.</h3>
+        <p class="ms-agents-definition">A versioned instruction file for the commands, conventions and checks every coding agent should know.</p>
+      </div>
+      <div class="at-code-layout at-reveal at-delay">
+        <div class="at-code-window">
+          <div class="at-terminal-bar"><span>Project example · AGENTS.md</span><span>markdown</span></div>
+          <pre class="at-agents-code"><span class="comment">## Navigate + set up</span>
+<span class="cmd">pnpm dlx turbo run where &lt;project&gt;</span>
+<span class="cmd">pnpm install --filter &lt;project&gt;</span>
+Confirm <span class="value">package.json#name</span> (ignore the root)
+
+<span class="comment">## Test the package</span>
+Follow <span class="value">.github/workflows</span>
+<span class="cmd">pnpm turbo run test --filter &lt;project&gt;</span>
+<span class="cmd">pnpm lint --filter &lt;project&gt;</span>
+Add tests for changed behavior. Keep the suite green.
+
+<span class="comment">## Before committing</span>
+PR: <span class="value">[&lt;project&gt;] &lt;Title&gt;</span>
+Run <span class="cmd">pnpm lint &amp;&amp; pnpm test</span></pre>
+        </div>
+        <div class="at-takeaway"><span class="at-label">Other harnesses</span><strong>Some tools also read their own files, such as <code>CLAUDE.md</code>. Keep shared rules in one source where possible.</strong></div>
+      </div>
+      <div class="at-footer"><span>agents.md</span><span class="at-page" data-page="10"></span></div>
+    </div>
+  </section>
+
+  <section class="slide at-dark" data-title="Nested instructions">
+    <div class="at-stage">
+      <div class="at-tree-layout">
+        <div class="at-terminal at-reveal">
+          <div class="at-terminal-bar"><span>repository map</span><span class="at-terminal-dots">● ● ●</span></div>
+          <pre class="at-filetree"><span class="at-key">/AGENTS.md</span>          <span class="at-comment"># shared context</span>
+├── store/
+│   ├── <span class="at-key">AGENTS.md</span>   <span class="at-comment"># local context</span>
+│   └── favorites.ts
+└── pages/
+    ├── <span class="at-key">AGENTS.md</span>   <span class="at-comment"># section context</span>
+    └── dashboard/
+        ├── <span class="at-key">AGENTS.md</span>   <span class="at-comment"># deeper context</span>
+        └── index.vue</pre>
+        </div>
+        <div class="at-margin-note at-reveal at-delay">
+          <span class="at-label">Large repositories</span>
+          <p>Keep shared context at the root. Put module-specific context beside the code it applies to.</p>
+        </div>
+      </div>
+      <div class="at-footer"><span>Context follows the repository tree</span><span class="at-page" data-page="11"></span></div>
+    </div>
+  </section>
+
+  <section class="slide at-dark" data-title="Help it get outside context">
+    <div class="at-stage">
+      <div class="ms-tension at-reveal">
+        <h2>Help it get context from<br>the <span class="at-focus">outside world</span></h2>
+        <p>The task also depends on issues, documentation, browsers, databases and business systems outside the model.</p>
+      </div>
+      <div class="at-footer ms-page-only"><span></span><span class="at-page" data-page="12"></span></div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="What MCP is">
+    <div class="at-stage">
+      <div class="ms-mcp-definition">
+        <div class="ms-mcp-copy at-reveal">
+          <h2>MCP is an open protocol for connecting AI applications to external systems.</h2>
+          <p>It standardizes how a host discovers and exchanges context with servers. It does not define the model, the agent loop or how the host uses that context.</p>
+        </div>
+        <div class="ms-mcp-diagram at-reveal at-delay">
+          <div class="ms-mcp-host"><strong>AI application</strong><span>MCP host</span><div class="ms-mcp-client">MCP client</div></div>
+          <div class="ms-mcp-wire"><span>MCP</span></div>
+          <div class="ms-mcp-server"><strong>MCP server</strong><span>local or remote</span><div class="ms-primitives"><div><b>Tools</b><span>Actions the application can invoke</span></div><div><b>Resources</b><span>Context the application can read</span></div><div><b>Prompts</b><span>Reusable interaction templates</span></div></div></div>
+        </div>
+      </div>
+      <div class="at-footer"><span>modelcontextprotocol.io · specification 2026-07-28</span><span class="at-page" data-page="13"></span></div>
+    </div>
+  </section>
+
+  <section class="slide ms-dense-heading" data-title="MCP examples">
+    <div class="at-stage">
+      <div class="at-reveal">
+        <h2 class="at-title at-small">Give the agent a feedback loop with the running system.</h2>
+        <p class="at-body">MCP can bring task history, the live browser, runtime failures and internal tools into the same working loop.</p>
+      </div>
+      <div class="at-mcp-grid at-reveal at-delay">
+        <div class="at-mcp-card"><span class="at-label">Why the change exists</span><h3>GitHub · Linear · Sentry</h3><p>Read the issue, ownership history, pull requests and production trace behind the work.</p><strong>The agent starts from evidence instead of reconstructing intent from code.</strong></div>
+        <div class="at-mcp-card"><span class="at-label">How the feature behaves</span><h3>Playwright</h3><p>Open the app, exercise user flows, inspect accessible page structure and capture test evidence.</p><strong>The agent can build, run and retest the same flow while it works.</strong></div>
+        <div class="at-mcp-card"><span class="at-label">Why the browser disagrees</span><h3>Chrome DevTools</h3><p>Inspect console errors, network requests, DOM state, screenshots and performance traces.</p><strong>The browser becomes a source of truth, not a final manual check.</strong></div>
+        <div class="at-mcp-card"><span class="at-label">Build your own</span><h3>Internal MCP</h3><p>Expose approved services, schemas, documentation or workflows as tools shaped for your environment.</p><strong>The agent can use internal systems without hard-coding them into every prompt.</strong></div>
+      </div>
+      <div class="at-footer"><span>Scope credentials and write access carefully</span><span class="at-page" data-page="14"></span></div>
+    </div>
+  </section>
+
+  <section class="slide at-dark ms-tension-compact" data-title="Provide specialization on demand">
+    <div class="at-stage">
+      <div class="ms-tension at-reveal">
+        <h2>Provide specialization<br><span class="at-focus">on demand</span></h2>
+        <p>Tools provide access. A Skill packages the knowledge and procedure for a particular job.</p>
+      </div>
+      <div class="at-footer ms-page-only"><span></span><span class="at-page" data-page="15"></span></div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="Skills">
+    <div class="at-stage">
+      <div class="at-reveal">
+        <h2 class="at-title at-small">Keep always-on context lean. Load specialist context for the job.</h2>
+        <p class="at-body">Project instructions apply broadly. A Skill adds its full procedure and resources only when the task matches.</p>
+      </div>
+      <div class="at-code-layout at-reveal at-delay">
+        <div class="at-code-window">
+          <div class="at-terminal-bar"><span>skills/company-z-design-guide/SKILL.md</span><span>loads when relevant</span></div>
+          <pre>---
+name: company-z-design-guide
+description: <span class="value">Build interfaces that follow Company Z’s design system.</span>
+---
+<span class="comment"># use approved tokens and components</span>
+<span class="comment"># load brand examples only when the task needs them</span>
+<span class="cmd">pnpm ui:check</span></pre>
+        </div>
+        <div class="at-takeaway"><span class="at-label">The distinction</span><strong>MCP exposes capabilities. Skills package how a particular job should be done.</strong></div>
+      </div>
+      <div class="at-footer"><span>agentskills.io</span><span class="at-page" data-page="16"></span></div>
+    </div>
+  </section>
+
+  <section class="slide ms-dense-heading ms-skills-wild" data-title="When a Skill is worth creating">
+    <div class="at-stage">
+      <div class="at-reveal"><h2 class="at-title at-small">A Skill should earn its place.</h2><p class="at-body">Models already know many common processes. Package what is specific, repeatable and expensive to rediscover.</p></div>
+      <div class="ms-skill-decision at-reveal at-delay">
+        <div class="ms-skill-choice"><span class="at-label">Let the model handle it</span><h3>Generic capability</h3><p>Do not freeze every useful prompt into permanent infrastructure.</p><ul class="ms-skill-signals"><li>A familiar process with no local rules</li><li>A one-off task that changes each time</li><li>Something the model already does reliably</li></ul></div>
+        <div class="ms-skill-choice is-build"><span class="at-label">Package a Skill</span><h3>Your operating knowledge</h3><p>Create one when consistency and local experience genuinely matter.</p><ul class="ms-skill-signals"><li>A specific workflow you repeat</li><li>Rules, templates or artifacts unique to your team</li><li>A costly procedure the model should not rediscover</li></ul></div>
+      </div>
+      <div class="at-footer"><span>Build Skills for durable advantage, not prompt nostalgia</span><span class="at-page" data-page="17"></span></div>
+    </div>
+  </section>
+
+  <section class="slide ms-agent-profile" data-title="Custom agents">
+    <div class="at-stage">
+      <div class="at-reveal">
+        <h2 class="at-title at-small">Give a bounded task its own agent.</h2>
+        <p class="at-body">A custom agent is a reusable specialist with its own prompt, context window and tool boundary.</p>
+      </div>
+      <div class="at-code-layout at-reveal at-delay">
+        <div class="at-code-window">
+          <div class="at-terminal-bar"><span>.claude/agents/security-reviewer.md</span><span>specialist worker</span></div>
+          <pre>---
+name: security-reviewer
+description: <span class="value">Review changed code for exploitable risk.</span>
+tools: <span class="cmd">Read, Grep, Glob</span>
+---
+Inspect the diff and follow data across trust boundaries.
+
+Return:
+- file and line
+- severity and exploit path
+- smallest safe fix</pre>
+        </div>
+        <div class="ms-agent-compare">
+          <div><span>AGENTS.md</span><strong>Informs work across the repository.</strong></div>
+          <div><span>Skill</span><strong>Loads a procedure for the current worker.</strong></div>
+          <div><span>Custom agent</span><strong>Delegates bounded work to a separate worker.</strong></div>
+        </div>
+      </div>
+      <div class="at-footer"><span>File names and locations vary by harness</span><span class="at-page" data-page="18"></span></div>
+    </div>
+  </section>
+
+  <section class="slide at-dark" data-title="Enforce deterministic checks">
+    <div class="at-stage">
+      <div class="ms-tension at-reveal">
+        <h2>Enforce<br><span class="at-focus">deterministic checks</span></h2>
+        <p>If it must happen every time, take it out of the prompt and put it in code.</p>
+      </div>
+      <div class="at-footer ms-page-only"><span></span><span class="at-page" data-page="19"></span></div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="Hooks">
+    <div class="at-stage">
+      <div class="at-reveal"><h2 class="at-title at-small">Hooks attach code to moments in the agent lifecycle.</h2><p class="at-body">They can inspect an event, take an action and sometimes change what the harness does next.</p></div>
+      <div class="ms-hook-layout at-reveal at-delay">
+        <div class="ms-hook-code">
+          <div class="at-terminal-bar"><span>.claude/settings.json</span><span>PostToolUse</span></div>
+          <pre><span class="comment">// format after Claude edits or writes a file</span>
+"hooks": {
+  "PostToolUse": [{
+    "matcher": <span class="value">"Edit|Write"</span>,
+    "hooks": [{
+      "type": "command",
+      "command": <span class="cmd">"pnpm"</span>,
+      "args": [<span class="cmd">"lint:fix"</span>]
+    }]
+  }]
+}</pre>
+        </div>
+        <div class="ms-hook-moments">
+          <div class="ms-hook-moment"><code>SessionStart</code><strong>Prepare</strong><p>Load environment state or initialize the workspace.</p></div>
+          <div class="ms-hook-moment"><code>PreToolUse</code><strong>Guard</strong><p>Inspect, allow or block an action before it runs.</p></div>
+          <div class="ms-hook-moment"><code>PostToolUse</code><strong>React</strong><p>Format, test, log or add evidence after an action.</p></div>
+          <div class="ms-hook-moment"><code>Stop</code><strong>Verify</strong><p>Check the completion claim before the turn ends.</p></div>
+        </div>
+      </div>
+      <div class="at-footer"><span>Instructions influence · hooks intercept</span><span class="at-page" data-page="20"></span></div>
+    </div>
+  </section>
+
+  <section class="slide ms-dense-heading" data-title="Claude Code hook events">
+    <div class="at-stage">
+      <div class="at-reveal"><h2 class="at-title at-small">Claude Code documents 33 hook events across the agent lifecycle.</h2></div>
+      <div class="ms-hook-reference at-reveal at-delay">
+        <div class="ms-hook-snippets">
+          <div class="ms-hook-snippet"><div class="ms-hook-snippet-head"><strong>PreToolUse</strong><span>Block a risky command before it runs.</span></div><pre>"PreToolUse": [{
+  "matcher": <span class="value">"Bash"</span>,
+  "hooks": [{ "type": "command",
+    "command": <span class="cmd">"./deny-risky.sh"</span> }]
+}]</pre></div>
+          <div class="ms-hook-snippet"><div class="ms-hook-snippet-head"><strong>PostToolUse</strong><span>Format files after a successful edit.</span></div><pre>"PostToolUse": [{
+  "matcher": <span class="value">"Edit|Write"</span>,
+  "hooks": [{ "type": "command",
+    "command": <span class="cmd">"pnpm lint:fix"</span> }]
+}]</pre></div>
+        </div>
+        <div class="ms-hook-events">
+          <div class="ms-hook-event-group"><h3>Session and environment</h3><div class="ms-hook-event-list"><code>SessionStart</code><code>Setup</code><code>InstructionsLoaded</code><code>ConfigChange</code><code>CwdChanged</code><code>DirectoryAdded</code><code>FileChanged</code><code>WorktreeCreate</code><code>WorktreeRemove</code><code>PreCompact</code><code>PostCompact</code><code>PreModelSwitch</code><code>PostModelSwitch</code><code>SessionEnd</code></div></div>
+          <div class="ms-hook-event-group"><h3>Turn</h3><div class="ms-hook-event-list"><code>UserPromptSubmit</code><code>UserPromptExpansion</code><code>MessageDisplay</code><code>Notification</code><code>Stop</code><code class="is-risk">StopFailure</code></div></div>
+          <div class="ms-hook-event-group"><h3>Tool loop and MCP</h3><div class="ms-hook-event-list"><code>PreToolUse</code><code>PermissionRequest</code><code class="is-risk">PermissionDenied</code><code>PostToolUse</code><code class="is-risk">PostToolUseFailure</code><code>PostToolBatch</code><code>Elicitation</code><code>ElicitationResult</code></div></div>
+          <div class="ms-hook-event-group"><h3>Agents and tasks</h3><div class="ms-hook-event-list"><code>SubagentStart</code><code>SubagentStop</code><code>TaskCreated</code><code>TaskCompleted</code><code>TeammateIdle</code></div></div>
+        </div>
+      </div>
+      <div class="at-footer"><span>code.claude.com/docs/en/hooks · checked 17 Sep 2026</span><span class="at-page" data-page="21"></span></div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="Agent harness">
+    <div class="at-stage">
+      <div class="ms-harness-copy at-reveal">
+        <h2>The harness is the operating environment that holds the loop together.</h2>
+        <p>It connects the model, tools and workspace, then manages state, permissions, limits, approvals and observability around the run.</p>
+      </div>
+      <svg class="ms-harness-svg at-reveal at-delay" viewBox="0 0 1500 600" role="img" aria-label="A harness contains the agent loop. Context and Skills plug into the model, MCP plugs tools into the loop, hooks and approvals intercept actions, and state, workspace, limits and tracing support the runtime.">
+        <defs><marker id="h-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="var(--at-signal-deep)"/></marker></defs>
+        <rect class="shell" x="22" y="32" width="1456" height="530" rx="30"/>
+        <text class="shell-label" x="60" y="70">Agent harness / runtime</text>
+        <rect class="panel" x="90" y="118" width="230" height="110" rx="16"/><text class="label" x="205" y="165" text-anchor="middle">Context</text><text class="detail" x="205" y="194" text-anchor="middle">project knowledge</text>
+        <rect class="panel" x="90" y="276" width="230" height="110" rx="16"/><text class="label" x="205" y="323" text-anchor="middle">Skills</text><text class="detail" x="205" y="352" text-anchor="middle">task procedure</text>
+        <rect class="core" x="520" y="180" width="260" height="170" rx="26"/><text class="dark-label" x="650" y="246" text-anchor="middle">Model</text><text class="detail" x="650" y="282" text-anchor="middle">decide next action</text>
+        <rect class="core" x="950" y="180" width="260" height="170" rx="26"/><text class="dark-label" x="1080" y="246" text-anchor="middle">Tools</text><text class="detail" x="1080" y="282" text-anchor="middle">act on environment</text>
+        <path class="wire" marker-end="url(#h-arrow)" d="M780 232H950"/><text class="detail" x="865" y="216" text-anchor="middle">tool call</text>
+        <path class="wire" marker-end="url(#h-arrow)" d="M950 302H780"/><text class="detail" x="865" y="330" text-anchor="middle">result / observation</text>
+        <path class="wire" marker-end="url(#h-arrow)" d="M320 173H470V220H520"/>
+        <path class="wire" marker-end="url(#h-arrow)" d="M320 331H470V300H520"/>
+        <rect class="panel" x="1250" y="180" width="170" height="170" rx="16"/><text class="label" x="1335" y="240" text-anchor="middle">MCP</text><text class="detail" x="1335" y="274" text-anchor="middle">external systems</text><text class="detail" x="1335" y="298" text-anchor="middle">and capabilities</text>
+        <path class="wire" marker-end="url(#h-arrow)" d="M1250 265H1210"/>
+        <rect class="panel" x="505" y="420" width="210" height="90" rx="14"/><text class="label" x="610" y="456" text-anchor="middle">State + workspace</text><text class="detail" x="610" y="484" text-anchor="middle">memory and files</text>
+        <rect class="panel" x="750" y="420" width="210" height="90" rx="14"/><text class="label" x="855" y="456" text-anchor="middle">Hooks + approvals</text><text class="detail" x="855" y="484" text-anchor="middle">intercept the lifecycle</text>
+        <rect class="panel" x="995" y="420" width="210" height="90" rx="14"/><text class="label" x="1100" y="456" text-anchor="middle">Limits + tracing</text><text class="detail" x="1100" y="484" text-anchor="middle">control and observe</text>
+        <path class="rail" d="M610 420V350M855 420V350M1100 420V350"/>
+      </svg>
+      <div class="at-footer"><span>Examples: Codex · Claude Code · goose · custom runtimes</span><span class="at-page" data-page="22"></span></div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="The stack keeps moving">
+    <div class="at-stage">
+      <div class="at-reveal"><h2 class="at-title at-compact">The same building blocks are showing up in new places.</h2></div>
+      <div class="ms-three-columns at-reveal at-delay">
+        <div class="ms-column"><span>Interactive interfaces</span><h3>MCP Apps</h3><p>MCP servers can return interactive views when a chart, form or approval flow works better than text.</p><code>tool result → embedded UI</code></div>
+        <div class="ms-column"><span>Agent-ready websites</span><h3>WebMCP</h3><p>A draft browser API lets web applications expose JavaScript tools directly to browser agents.</p><code>web app → browser agent</code></div>
+        <div class="ms-column"><span>Reusable distribution</span><h3>Plugins</h3><p>Some ecosystems bundle skills, hooks, commands and connections into one installable setup.</p><code>core pieces → shared package</code></div>
+      </div>
+      <div class="at-footer"><span>Useful developments, not prerequisites for every agent</span><span class="at-page" data-page="23"></span></div>
+    </div>
+  </section>
+
+  <section class="slide at-dark" data-title="The deeper pattern">
+    <div class="at-stage">
+      <div class="ms-control-thesis at-reveal">
+        <h2>Use the model for <span class="at-focus">judgment</span>.<br>Use code for guarantees.</h2>
+        <p>The mature stack does not remove uncertainty. It decides where uncertainty is useful, where it needs guidance and where it is not allowed.</p>
+        <div class="ms-control-spectrum at-reveal at-delay">
+          <div class="ms-control-step"><span>Model</span><strong>Interpret + adapt</strong><p>Handle ambiguity, trade-offs and novel work.</p></div>
+          <div class="ms-control-step"><span>Context + Skills</span><strong>Guide</strong><p>Supply local knowledge and a proven procedure.</p></div>
+          <div class="ms-control-step"><span>MCP</span><strong>Connect</strong><p>Expose live capabilities and evidence from the environment.</p></div>
+          <div class="ms-control-step"><span>Hooks + tests</span><strong>Enforce</strong><p>Block unsafe actions and prove required conditions.</p></div>
+        </div>
+      </div>
+      <div class="at-footer"><span>Controlled autonomy beats maximum autonomy</span><span class="at-page" data-page="24"></span></div>
+    </div>
+  </section>
+
+  <section class="slide ms-dense-heading" data-title="Workflow patterns">
+    <div class="at-stage">
+      <div class="at-reveal"><h2 class="at-title at-compact">People arrange the same building blocks in different ways.</h2></div>
+      <div class="ms-three-columns at-reveal at-delay">
+        <div class="ms-column"><span>Deliberate phases</span><h3>RPI</h3><p>Separate understanding, decision-making and execution so a human can correct direction before code changes.</p><code>research<br>plan<br>implement</code></div>
+        <div class="ms-column"><span>Explicit control flow</span><h3>Graph workflows</h3><p>Define named steps and branches when the sequence must remain visible and predictable.</p><code>node<br>condition<br>transition</code></div>
+        <div class="ms-column"><span>Persistent iteration</span><h3>Ralph loop</h3><p>Repeat against a clear completion condition until tests or another verifier prove the work is done.</p><code>attempt<br>verify<br>repeat</code></div>
+      </div>
+      <div class="at-footer"><span>These are workflows, not additional stack layers</span><span class="at-page" data-page="25"></span></div>
+    </div>
+  </section>
+
+  <section class="slide at-dark ms-thanks" data-title="Thank you">
+    <div class="at-stage">
+      <div class="at-close-grid at-reveal">
+        <div><h2 class="at-title">Thank <span class="at-focus">you.</span></h2><p class="at-lede">Build the smallest stack that solves a real problem.</p><p class="ms-talk-url">adewaleabati.com/slides/modern-ai-stack/</p></div>
+        <div class="at-start-small"><span class="at-label">The modern AI stack</span><strong>Judgment where it helps.<br>Guarantees where they matter.</strong><div class="at-contact"><b>@ace_kyd</b><span>Amsterdam</span></div></div>
+      </div>
+      <div class="at-footer ms-page-only"><span></span><span class="at-page" data-page="26"></span></div>
+    </div>
+  </section>
+
+</div>
+<script src="../_shared/html-ppt/runtime.js"></script>
+<script>
+  document.addEventListener('click', function (event) {
+    if (event.button !== 0 || event.target.closest('a,button,input,textarea,select')) return;
+    const timeline = document.querySelector('.slide.is-active .ms-timeline-sequence');
+    const next = timeline && timeline.querySelector('[data-fragment]:not(.is-shown)');
+    if (next) next.classList.add('is-shown');
+  });
+</script>
+</body>
+</html>
